@@ -108,7 +108,7 @@
                                             </font>
                                         </td>
                                         <td width="5%"/>
-                                        <td width="60%" style="text-align: left">
+                                        <td width="40%" style="text-align: left">
                                             <font style="font-size: 14px;">
                                                 <span t-field="doc.partner_id.ref"/><br/>
                                                  <t t-if="doc.partner_contact_id">
@@ -137,7 +137,7 @@
                                                 <strong>เลขที่ No.</strong>
                                             </font>
                                         </td>
-                                        <td width="1%" style="text-align: right">
+                                        <td width="5%" style="text-align: right">
                                             <font style="font-size: 14px;"><br/>
                                                 <span t-field="doc.name"/>
 												<strong>Rev. </strong>
@@ -160,8 +160,8 @@
                                                 <strong>Email</strong>
                                             </font>
                                         </td>
-                                        <td width="5%"/>
-                                        <td width="35%" style="text-align: left">
+                                        <td width="1%"/>
+                                        <td width="30%" style="text-align: left">
                                             <font style="font-size: 14px;">
                                                 <span t-if="doc.partner_id.street"><span t-esc="doc.partner_id.street"/></span><br/>
                                                 <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/>&amp;nbsp;</span>
@@ -191,8 +191,8 @@
 
                                             </font>
                                         </td>
-                                        <td width="5%"/>
-                                        <td width="28%" style="text-align: left">
+                                        <td width="1%"/>
+                                        <td width="20%" style="text-align: left">
                                             <font style="font-size: 14px;">
                                                 <strong>วันที่  Date</strong><br/>
                                                 <strong>Payment term</strong><br/>
@@ -202,7 +202,7 @@
 												<strong>Email Sales Person</strong><br/>
                                             </font>
                                         </td>
-                                        <td width="10%" style="text-align: right">
+                                        <td width="40%" style="text-align: right">
                                             <font style="font-size: 14px;">
                                                 <span t-field="doc.date_order" t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/><br/>
                                                 <span t-if="doc.payment_term_id"><span t-field="doc.payment_term_id.name"/></span><br/>
