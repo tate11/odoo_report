@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.taxinvoice_trf_report102_id">
-            <t t-foreach="docs" t-as="doc">
+             <t t-foreach="docs" t-as="doc">
                 <t t-set="j" t-value="0"/>
                 <div class="header">
                     <style>
@@ -164,7 +164,19 @@
                                                 <span t-field="doc.date_invoice"/><br/>
                                                 <span t-field="doc.date_due"/><br/>
                                                 <span t-esc="doc.payment_term_id.name"/><br/>
-                                                <t t-if="doc.tax_charge_type!='service'">
+                                               <t t-if="doc.tax_charge_type=='service'">
+
+                                                </t>
+                                               <t t-if="doc.tax_charge_type=='gate'">
+
+                                                </t>
+                                                 <t t-if="doc.tax_charge_type=='all'">
+
+                                                </t>
+                                              <t t-if="doc.tax_charge_type=='rental'">
+
+                                                </t>
+                                               <t t-if="doc.tax_charge_type=='inv'">
                                                     <span t-field="doc.origin"/>
                                                 </t>
                                                 <!--<span t-field="doc.reference_inv"/>-->
@@ -489,7 +501,6 @@
                 </div>
 
             </t>
-
         </template>
     </data>
 </openerp>
