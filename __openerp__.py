@@ -9,7 +9,8 @@
     'data':['report/report_reg.xml',
             'report/invoice_trf_report100_id.xml',
             'report/quotation_trf_report101_id.xml',
-            'report/taxinvoice_trf_report102_id.xml'],
+            'report/taxinvoice_trf_report102_id.xml',
+            'report/invoice_group_report_103_id.xml'],
     'auto_install':False,
     'application':True
 }
