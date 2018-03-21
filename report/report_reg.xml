@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+            <!-- paperformat Invoice -->
         <record id="paperformat_A4_DayAndMonth" model="report.paperformat">
             <field name="name">A4_DayAndMonth</field>
             <field name="default" eval="False"/>
@@ -15,6 +16,7 @@
             <field name="dpi">90</field>
         </record>
 
+            <!-- paperformat TaxInvoice -->
         <record id="paperformat_A4_NewTaxInvoice" model="report.paperformat">
             <field name="name">A4_NewTaxInvoice</field>
             <field name="default" eval="False"/>
@@ -29,6 +31,7 @@
             <field name="dpi">90</field>
         </record>
 
+            <!-- paperformat Quotation -->
          <record id="paperformat_A4_NewQuotation" model="report.paperformat">
             <field name="name">A4_NewQuotation</field>
             <field name="default" eval="False"/>
@@ -43,6 +46,22 @@
             <field name="dpi">90</field>
         </record>
 
+            <!-- paperformat InvoiceGroup -->
+        <record id="paperformat_A4_NewInvoiceGroup" model="report.paperformat">
+           <field name="name">A4_NewInvoiceGroup</field>
+           <field name="default" eval="False"/>
+           <field name="format">A4</field>
+           <field name="orientation">Portrait</field>
+           <field name="margin_top">76</field>
+           <field name="margin_bottom">130</field>
+           <field name="margin_left">5</field>
+           <field name="margin_right">5</field>
+           <field name="header_line" eval="False"/>
+           <field name="header_spacing">72</field>
+           <field name="dpi">90</field>
+       </record>
+
+            <!-- paperformat Invoice -->
          <report
                 id="odoo_report.invoice_trf_report100_id"
                 model="account.invoice"
@@ -54,6 +73,7 @@
                 file="odoo_report.invoice_trf_report100_id"
         />
 
+          <!-- paperformat quotation -->
          <report
                 id="odoo_report.quotation_trf_report101_id"
                 model="sale.order"
@@ -65,6 +85,7 @@
                 file="odoo_report.quotation_trf_report101_id"
         />
 
+          <!-- paperformat taxInvoice -->
         <report
                 id="odoo_report.taxinvoice_trf_report102_id"
                 model="account.tax.invoice"
@@ -76,5 +97,16 @@
                 file="odoo_report.taxinvoice_trf_report102_id"
         />
 
+        <!-- paperformat group -->
+        <report
+                id="odoo_report.invoice_group_report_103_id"
+                model="account.invoice"
+                menu="True"
+                report_type="qweb-pdf"
+                string="Invoice For Group"
+                paperformat="paperformat_A4_NewInvoiceGroup"
+                name="odoo_report.invoice_group_report_103_id"
+                file="odoo_report.invoice_group_report_103_id"
+        />
     </data>
 </openerp>
