@@ -227,7 +227,7 @@
                                     <t t-set="i" t-value="i+1"/>
                                     <td style="text-align: left;">
                                         <font style="font-size: 14px;">
-                                            <span t-esc="l.name"/><br/>
+                                            <span t-field="l.name"/><br/>
                                             <t t-if="l.sale_id.start_date">
                                                 <span>วันที่: </span>
                                                 <span t-field="l.sale_id.start_date"/>
@@ -383,14 +383,15 @@
                                         </font>
                                         <t t-if="doc.comment">
                                             <span t-field="doc.comment"/>
-                                            <br/>
                                         </t>
-                                        <font style="font-size: 14px;">
-                                            <span>Terms and Conditions 1) Received as per above in good order and condition.</span><span> 2) All cheque made payable to <span t-field="doc.company_id.rml_header1"/></span>.<br/>  
-											&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;											
-                                            &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
-											<span>3) This invoice carries of 1.5% per month from due date.</span>
-                                        </font>
+                                        <p style="margin-top:5px;">
+                                          <font style="font-size: 14px;">
+                                              <span>Terms and Conditions 1) Received as per above in good order and condition.</span><span> 2) All cheque made payable to <span t-field="doc.company_id.rml_header1"/></span>.<br/>
+  											&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                              &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+  											<span>3) This invoice carries of 1.5% per month from due date.</span>
+                                          </font>
+                                        </p>
                                     </td>
                                 </tr>
                             </table>
@@ -401,7 +402,7 @@
                                     <td width="33%" style="text-align: center;">
                                         <p style="margin-top:10px;">
                                             <font style="font-size: 14px;">
-                                                <br/><br/><br/><br/>
+                                                <br/><br/>
                                                 <span>_________________________</span><br/>
                                                 <span>Authorised Signature</span><br/>
                                                 <span>_______/_______/_______</span>
@@ -411,7 +412,7 @@
                                     <td width="34%" style="text-align: center;">
                                         <p style="margin-top:10px;">
                                             <font style="font-size: 14px;">
-                                                <br/><br/><br/><br/>
+                                                <br/><br/>
                                                 <span>_________________________</span><br/>
                                                 <span>Delivered BY</span><br/>
                                                 <span>_______/_______/_______</span>
