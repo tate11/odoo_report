@@ -94,6 +94,12 @@
                         <div class="col-xs-12" style="position: absolute;left: 160px;top: 400px;">
                             <font style="font-size: 20px;">
                                 <span t-field="o.partner_id.name"/>
+                                <t t-if="o.partner_id.branch_no == '00000'">
+                                  <span>(สำนักงานใหญ่)</span>
+                                </t>
+                                <t t-if="o.partner_id.branch_no != '00000'">
+                                  <span>สาขาที่</span>&amp;nbsp;<span t-field="o.partner_id.branch_no"/>
+                                </t>
                             </font>
                         </div>
                     </t>
@@ -244,7 +250,7 @@
                                 <div style="position: absolute;left: 790px;top: 1420px;">
                                     <font style="font-size:25px;">
                                       <t t-if="o.x_chek_wht  == True ">
-                                       
+
                                       </t>
                                       <t t-if="o.x_chek_wht  == False">
                                        <span t-field="o.date"/>
@@ -266,7 +272,7 @@
                             <t t-if="i == 2">
                                 <div style="position: absolute;left: 790px;top: 1470px;">
                                     <font style="font-size:25px;">
-                                        <span t-field="o.date"/> 
+                                        <span t-field="o.date"/>
                                     </font>
                                 </div>
                                 <div style="position: absolute;right: 243px;top: 1470px;">
@@ -327,19 +333,19 @@
                     <div style="position: absolute;right: 540px;top: 1760px;">
                         <font style="font-size:25px;">
                             <t t-if="o.x_chek_wht  == True ">
-                                       
+
                              </t>
                             <t t-if="o.x_chek_wht  == False">
                                        <t t-if="date">
                                                <t t-if="date.tm_mday &gt; 9">
-                                                    <span t-esc="date.tm_mday"/> 
+                                                    <span t-esc="date.tm_mday"/>
                                                </t>
                                                <t t-if="date.tm_mday &lt; 10">
-                                                    <span>0</span><span t-esc="date.tm_mday"/> 
+                                                    <span>0</span><span t-esc="date.tm_mday"/>
                                                </t>
                                        </t>
                              </t>
-                            
+
                             <t t-if="not date">
                                 <span/>
                             </t>
@@ -348,9 +354,9 @@
 
                     <div style="position: absolute;right: 450px;top: 1760px;">
                         <font style="font-size:25px;">
-                         
+
                        <t t-if="o.x_chek_wht  == True ">
-                                       
+
                        </t>
                        <t t-if="o.x_chek_wht  == False">
                             <t t-if="date">
@@ -371,7 +377,7 @@
                     <div style="position: absolute;right: 290px;top: 1760px;">
                         <font style="font-size:25px;">
                       <t t-if="o.x_chek_wht  == True ">
-                                       
+
                        </t>
                        <t t-if="o.x_chek_wht  == False">
                             <t t-if="date">

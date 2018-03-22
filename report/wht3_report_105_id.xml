@@ -1,563 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-        <template id="odoo_report.wht3_report_105_id">
-        <t t-foreach="docs" t-as="doc">
-             <t t-set="j" t-value="0"/>
-             <div class="header">
-                 <style>
-                     .header{width:100%; height:10px;}
-                     .content{width:100%; height:800px;}
-                     .footer{width:100%; height:10px;}
-                     table.table-bordered1{
-                     border:1px solid black;
-                     margin-top:20px;
-                     border-collapse: collapse;
-                     width: 100%;
-                     }
-                     table.table-bordered1 &gt; thead &gt; tr &gt; th{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered1 &gt; thead &gt; tr &gt; td{
-                     border:1px solid black;
-                     border-left: 1px solid black;
+  <data>
+    <template id="odoo_report.wht3_report_105_id">
+      <t t-foreach="docs" t-as="o">
+        <t t-set="vat_id" t-value="o.company_id.vat"/>
+        <t t-if="not o.supplier_name_text">
+          <t t-set="vat1_id" t-value="o.partner_id.vat"/>
+        </t>
+        <t t-if="o.supplier_name_text">
+          <t t-set="vat1_id" t-value="o.supplier_taxid_text"/>
+        </t>
+        <div class="page" t-attf-style="background-image:url('/signature/static/whithoding.jpg'); background-size:360mm 520mm; width:360mm; height:520mm;">
+          <div style="text-align:center; position: absolute;left: 1200px;top: 150px;">
+            <font style="font-size: 20px;">
+              <span t-field="o.wht_reference"/>
+            </font>
+          </div>
+          <div>
+            <font style="font-size: 20px;">
+              <t t-if="vat_id">
+                <span t-esc="vat_id[0]" style="position: absolute;left: 880px;top: 200px;"/>
+                <span t-esc="vat_id[1]" style="position: absolute;left: 920px;top: 200px;"/>
+                <span t-esc="vat_id[2]" style="position: absolute;left: 950px;top: 200px;"/>
+                <span t-esc="vat_id[3]" style="position: absolute;left: 980px;top: 200px;"/>
+                <span t-esc="vat_id[4]" style="position: absolute;left: 1010px;top: 200px;"/>
+                <span t-esc="vat_id[5]" style="position: absolute;left: 1050px;top: 200px;"/>
+                <span t-esc="vat_id[6]" style="position: absolute;left: 1080px;top: 200px;"/>
+                <span t-esc="vat_id[7]" style="position: absolute;left: 1100px;top: 200px;"/>
+                <span t-esc="vat_id[8]" style="position: absolute;left: 1130px;top: 200px;"/>
+                <span t-esc="vat_id[9]" style="position: absolute;left: 1160px;top: 200px;"/>
+                <span t-esc="vat_id[10]" style="position: absolute;left: 1200px;top: 200px;"/>
+                <span t-esc="vat_id[11]" style="position: absolute;left: 1230px;top: 200px;"/>
+                <span t-esc="vat_id[12]" style="position: absolute;left: 1275px;top: 200px;"/>
+              </t>
+            </font>
+          </div>
+          <div class="col-xs-12" style="position: absolute;left: 160px;top: 238px;">
+            <font style="font-size: 25px;">
+              <span t-field="o.company_id.name"/>&amp;nbsp;<span>(สำนักงานใหญ่)</span>
+            </font>
+          </div>
+          <div class="col-xs-12" style="position: absolute;left: 160px;top: 288px;">
+            <font style="font-size: 25px;">
+              <span t-if="o.company_id.building"><span t-field="o.company_id.building"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.roomnumber">ห้องที่&amp;nbsp;<span t-field="o.company_id.roomnumber"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.floornumber">ชั้นที่&amp;nbsp;<span t-field="o.company_id.floornumber"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.village">หมู่บ้าน&amp;nbsp;<span t-field="o.company_id.village"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.house_number"><span t-field="o.company_id.house_number"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.moo_number">&amp;nbsp;<span t-field="o.company_id.moo_number"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.soi_number">ซอย&amp;nbsp;<span t-field="o.company_id.soi_number"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.street"><span t-esc="o.company_id.street"/>&amp;nbsp;</span>
+              <!--<span t-if="o.company_id.street2"><span t-esc="o.company_id.street2"/><![CDATA[&nbsp;]]></span>-->
+              <span t-if="o.company_id.city and o.company_id.state_id and o.company_id.state_id.code == 'BKK'">&amp;nbsp;<span t-field="o.company_id.city"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.city and o.company_id.state_id and o.company_id.state_id.code != 'BKK'">&amp;nbsp;<span t-field="o.company_id.city"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.state_id.name">จังหวัด&amp;nbsp;<span t-field="o.company_id.state_id.name"/>&amp;nbsp;</span>
+              <span t-if="o.company_id.zip"><span t-esc="o.company_id.zip"/></span><br/>
+            </font>
+          </div>
+          <div>
+            <font style="font-size: 20px;">
+              <t t-if="vat1_id">
+                <span t-esc="vat1_id[0]" style="position: absolute;left: 880px;top: 360px;"/>
+                <span t-esc="vat1_id[1]" style="position: absolute;left: 920px;top: 360px;"/>
+                <span t-esc="vat1_id[2]" style="position: absolute;left: 950px;top: 360px;"/>
+                <span t-esc="vat1_id[3]" style="position: absolute;left: 980px;top: 360px;"/>
+                <span t-esc="vat1_id[4]" style="position: absolute;left: 1010px;top: 360px;"/>
+                <span t-esc="vat1_id[5]" style="position: absolute;left: 1050px;top: 360px;"/>
+                <span t-esc="vat1_id[6]" style="position: absolute;left: 1080px;top: 360px;"/>
+                <span t-esc="vat1_id[7]" style="position: absolute;left: 1100px;top: 360px;"/>
+                <span t-esc="vat1_id[8]" style="position: absolute;left: 1130px;top: 360px;"/>
+                <span t-esc="vat1_id[9]" style="position: absolute;left: 1160px;top: 360px;"/>
+                <span t-esc="vat1_id[10]" style="position: absolute;left: 1200px;top: 360px;"/>
+                <span t-esc="vat1_id[11]" style="position: absolute;left: 1230px;top: 360px;"/>
+                <span t-esc="vat1_id[12]" style="position: absolute;left: 1275px;top: 360px;"/>
+              </t>
+            </font>
+          </div>
+          <t t-if="o.supplier_name_text">
+            <div class="col-xs-12" style="position: absolute;left: 160px;top: 400px;">
+              <font style="font-size: 25px;">
+                <span t-field="o.supplier_name_text"/>
+              </font>
+            </div>
+          </t>
+          <t t-if="not o.supplier_name_text">
+            <div class="col-xs-12" style="position: absolute;left: 160px;top: 400px;">
+              <font style="font-size: 25px;">
+                <span t-field="o.partner_id.name"/>
+              </font>
+            </div>
+          </t>
 
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered1 &gt; tbody &gt; tr &gt; td{
-                     border:0px solid white;
-                     border-left: 1px solid black;
-                     border-collapse: collapse;
-                     height: 40px;
-                     }
-                     table.table-bordered1 &gt; tfoot &gt; tr &gt; td{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered &gt; thead &gt; tr &gt; th{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered &gt; tbody &gt; tr &gt; td{
-                     border:1px solid black;
-                     <!--border-left: 1px solid;-->
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered &gt; tfoot &gt; tr &gt; td{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                 </style>
-                 <table width="100%">
-                     <tr>
-                         <th colspan="4">
-                             <table width="100%">
-                                 <tr>
-                                     <td width="20%" rowspan="2">
-                                         <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
-                                     </td>
-                                     <td width="80%">
-                                         <font style="font-size: 16px;">
-                                             <strong t-field="doc.company_id.rml_header1"/><br/>
-                                             <strong t-field="doc.company_id.name"/><br/>
-                                         </font>
-                                         <font style="font-size: 12px;">
-                                             <t t-if="not doc.company_branch">
-                                                 <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                                                 <strong t-field="doc.company_id.country_id.name"/>&amp;nbsp;<strong>(Head Office)</strong><br/>
-                                                 <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
-                                                 <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
-                                                 <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                                                 <strong>(สำนักงานใหญ่)</strong><br/>
-                                                 <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_id.phone"/></strong>
-                                                 <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-esc="doc.company_id.fax"/></strong><br/>
-                                                 <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;account@ThaiReefer.co.th<!--<strong t-esc="doc.company_id.email"/>--></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th<!--<span t-field="doc.company_id.website"/>--></st></strong><br/>
-                                                 <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>
-                                             </t>
-                                             <t t-if="doc.company_branch">
-                                                 <strong t-field="doc.company_branch.street2"/>&amp;nbsp;<strong t-field="doc.company_branch.zip"/>&amp;nbsp;
-                                                 <strong t-field="doc.company_branch.country_id.name"/>&amp;nbsp;<strong>(Branch No.<t t-esc="doc.company_branch.branch_no"/>)</strong><br/>
-                                                 <!--<strong t-field="doc.company_branch.house_number"/>&amp;nbsp;<strong t-if="doc.company_branch.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;-->
-                                                 <strong t-field="doc.company_branch.street"/>&amp;nbsp;<strong t-if="doc.company_branch.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
-                                                 <strong t-if="doc.company_branch.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_branch.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_branch.zip"/>&amp;nbsp;
-                                                 <strong>(สาขาที่ <t t-esc="doc.company_branch.branch_no"/>) </strong><br/>
-                                                 <strong t-if="doc.company_branch.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_branch.phone"/></strong>
-                                                 <strong t-if="doc.company_branch.fax">Fax :&amp;nbsp;<strong t-esc="doc.company_branch.fax"/></strong><br/>
-                                                 <strong t-if="doc.company_branch.email">E-mail :&amp;nbsp;<strong t-esc="doc.company_branch.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st><span t-field="doc.company_branch.website"/></st></strong><br/>
-                                                 <strong t-if="doc.company_branch.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_branch.vat"/></strong>
-                                             </t>
-                                         </font><br/><br/>
-                                     </td>
-                                 </tr>
-                             </table>
-                             <table width="100%">
-                                 <tr>
-                                     <td style="text-align:center;">
-                                         <font style="font-size: 18px;">
-                                             <strong>Invoice / ใบแจ้งหนี้</strong>
-                                             <br/><br/>
-                                         </font>
-                                     </td>
-                                 </tr>
-                             </table>
-                             <table width="100%">
-                                 <tr>
-                                     <td width="10%" style="text-align: right">
-                                         <font style="font-size: 14px;">
-                                             <strong>Cust ID</strong><br/>
-                                         </font>
-                                     </td>
-                                     <td width="5%"/>
-                                     <td width="60%" style="text-align: left">
-                                         <font style="font-size: 14px;">
-                                             <span t-field="doc.partner_id.ref"/><br/>
-                                             <span t-field="doc.partner_id.name"/>
-                                         </font>
-                                     </td>
-                                     <td width="5%"/>
-                                     <td width="10%" style="text-align: left">
-                                         <font style="font-size: 14px;"><br/>
-                                             <strong>เลขที่ No.</strong>
-                                         </font>
-                                     </td>
-                                     <td width="10%" style="text-align: right">
-                                         <font style="font-size: 14px;"><br/>
-                                             <span t-field="doc.number"/>
-                                         </font>
-                                     </td>
-                                 </tr>
-                                 <tr>
-                                     <td width="10%" style="text-align: right">
-                                         <font style="font-size: 14px;">
-                                             <strong>ลูกค้า</strong>
-                                             <br/><br/><br/>
-                                             <strong>Your Ref</strong>
-                                         </font>
-                                     </td>
-                                     <td width="5%"/>
-                                     <td width="60%" style="text-align: left">
-                                         <font style="font-size: 14px;">
-                                             <span t-if="doc.partner_id.street"><span t-esc="doc.partner_id.street"/></span><br/>
-                                             <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/>&amp;nbsp;</span>
-                                             <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
-                                             <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
-                                             <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
-                                             <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
-                                             <t t-if="doc.partner_id.branch_no == '00000'">
-                                                 <strong>(Head Office)</strong>
-                                             </t>
-                                             <t t-if="doc.partner_id.branch_no != '00000'">
-                                                 <strong>สาขาที่</strong>&amp;nbsp;<strong t-field="doc.partner_id.branch_no"/>
-                                             </t>
-                                             <br/>
-                                             <span t-field="doc.reference_inv"/>
-                                         </font>
-                                     </td>
-                                     <td width="5%"/>
-                                     <td width="10%" style="text-align: left">
-                                         <font style="font-size: 14px;">
-                                             <strong>วันที่ Date</strong><br/>
-                                             <strong>Due Date</strong><br/>
-                                             <strong>Term</strong><br/>
-                                             <strong>Ref</strong><br/>
-                                         </font>
-                                     </td>
-                                     <td width="10%" style="text-align: right">
-                                         <font style="font-size: 14px;">
-                                             <span t-field="doc.date_invoice"/><br/>
-                                             <span t-field="doc.date_due"/><br/>
-                                             <span t-esc="doc.payment_term_id.name"/><br/>
-                                             <span t-field="doc.origin"/>
-                                         </font>
-                                     </td>
-                                 </tr>
-                             </table>
-                         </th>
-                     </tr>
-                 </table>
-                 <t t-if="invoice_line_ids">
-                      <field name="invoice_line_ids[0].account_analytic_id.name"/>
-                 </t>
-             </div>
-             <div class="page">
-                 <table width="100%">
-                                            <thead>
-                         <tr>
-                             <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
-                                 <p style="margin-top:10px;margin-bottom:10px">
-                                     <font style="font-size: 14px;">Item<br/>(ลำดับ)</font>
-                                 </p>
-                             </th>
-                             <th width="40%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
-                                 <p style="margin-top:10px;margin-bottom:10px">
-                                     <font style="font-size: 14px;">Description<br/>(รายละเอียด)</font>
-                                 </p>
-                             </th>
-                             <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
-                                 <p style="margin-top:10px;margin-bottom:10px">
-                                     <font style="font-size: 14px;">Qty / Unit<br/>(จำนวน / หน่วย)</font>
-                                 </p>
-                             </th>
-                             <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
-                                 <p style="margin-top:10px;margin-bottom:10px">
-                                     <font style="font-size: 14px;">Unit Price<br/>(ราคา)</font>
-                                 </p>
-                             </th>
-                             <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
-                                 <p style="margin-top:10px;margin-bottom:10px">
-                                     <font style="font-size: 14px;">Discount<br/>(ส่วนลด)</font>
-                                 </p>
-                             </th>
-                             <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
-                                 <p style="margin-top:10px;margin-bottom:10px">
-                                     <font style="font-size: 14px;">Total<br/>(จำนวนเงิน)</font>
-                                 </p>
-                             </th>
-                         </tr>
-                     </thead>
-                     <tbody class="sale_tbody">
-                         <t t-set="i" t-value="1"/>
-                         <t t-set="count" t-value="1"/>
-                         <t t-set="max" t-value="10"/>
-                         <t t-foreach="doc.get_invoice_line()" t-as="l">
-                             <tr>
-                 <td style="text-align: center">
-                                     <font style="font-size: 14px;">
-                                         <span t-esc="i"/>
-                                     </font>
-                                 </td>
-                 <t t-set="i" t-value="i+1"/>
+          <t t-if="o.supplier_name_text">
+            <div class="col-xs-12" style="position: absolute;left: 160px;top: 460px;">
+              <font style="font-size: 25px;">
+                <span t-field="o.supplier_address_text"/>
+              </font>
+            </div>
+          </t>
+          <t t-if="not o.supplier_name_text">
+            <div class="col-xs-12" style="position: absolute;left: 160px;top: 460px;">
+              <font style="font-size: 25px;">
+                <span t-field="o.partner_id.street"/>&amp;nbsp;
+                <span t-field="o.partner_id.street2"/>&amp;nbsp;
+                <span t-field="o.partner_id.city"/>&amp;nbsp;
+                <span t-field="o.partner_id.state_id.name"/>&amp;nbsp;
+                <span t-field="o.partner_id.zip"/>
+              </font>
+            </div>
+          </t>
 
-                                 <td style="text-align: left;">
-                                     <font style="font-size: 14px;">
-                                                 <t t-if="l['invoice_line_id'].product_id.charge_type == 'storage_charge' or l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract'">
-                                                     <span t-esc="l['name']"/>&amp;nbsp;
-                                                     <span>For </span>
-                                                     <span t-esc="l['size']"/>&amp;nbsp;
-                                                     <span t-esc="l['type']"/><br/>
-                                                     <t t-if="doc.get_require_c_no(l['product_id']) and l['quantity']">
+          <div style="position: absolute;left: 1095px;top: 518px;">
+            <font style="font-size:37px;">
+              <span>X</span>
+            </font>
+          </div>
+          <t t-set="sum_total" t-value="0"/>
+          <t t-set="sum_amount_total" t-value="0"/>
+          <t t-set="i" t-value="0"/>
+          <t t-set="description1" t-value="0"/>
+          <t t-set="description2" t-value="0"/>
+          <t t-set="description3" t-value="0"/>
+          <t t-set="description4" t-value="0"/>
+          <t t-set="description5" t-value="0"/>
+          <t t-set="sum1" t-value="0"/>
+          <t t-set="sum2" t-value="0"/>
+          <t t-set="sum3" t-value="0"/>
+          <t t-set="sum4" t-value="0"/>
+          <t t-set="sum5" t-value="0"/>
+          <t t-set="sum1_total" t-value="0"/>
+          <t t-set="sum2_total" t-value="0"/>
+          <t t-set="sum3_total" t-value="0"/>
+          <t t-set="sum4_total" t-value="0"/>
+          <t t-set="sum5_total" t-value="0"/>
+          <t t-set="pay_date" t-value="o.date"/>
+          <t t-if="o.date">
+            <t t-set="date" t-value="time.strptime(o.date,'%Y-%m-%d' )"/>
+          </t>
+          <t t-foreach="o.line_ids" t-as="k">
+            <t t-if="k.account_id.wht">
+              <t t-if="k.wht_type == '1%' ">
+                <t t-set="sum1" t-value="k.credit"/>
+                <t t-if="k.amount_before_tax">
+                  <t t-set="sum1_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="sum1_total" t-value="k.credit*100/1"/>
+                </t>
+                <t t-set="description1" t-value="k.name"/>
+                <t t-set="i" t-value="i+1"/>
+              </t>
+              <t t-if="k.wht_type == '2%' ">
+                <t t-set="sum2" t-value="k.credit"/>
+                <t t-if="k.amount_before_tax">
+                  <t t-set="sum2_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="sum2_total" t-value="k.credit*100/2"/>
+                </t>
+                <t t-set="description2" t-value="k.name"/>
+                <t t-set="i" t-value="i+1"/>
+              </t>
+              <t t-if="k.wht_type == '3%' ">
+                <t t-set="sum3" t-value="k.credit"/>
+                <t t-if="k.amount_before_tax">
+                  <t t-set="sum3_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="sum3_total" t-value="k.credit*100/3"/>
+                </t>
+                <t t-set="description3" t-value="k.name"/>
+                <t t-set="i" t-value="i+1"/>
+              </t>
+              <t t-if="k.wht_type == '4%' ">
+                <t t-set="sum4" t-value="k.credit"/>
+                <t t-if="k.amount_before_tax">
+                  <t t-set="sum4_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="sum4_total" t-value="k.credit*100/4"/>
+                </t>
+                <t t-set="description4" t-value="k.name"/>
+                <t t-set="i" t-value="i+1"/>
+              </t>
+              <t t-if="k.wht_type == '5%' ">
+                <t t-set="sum5" t-value="k.credit"/>
+                <t t-if="k.amount_before_tax">
+                  <t t-set="sum5_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="sum5_total" t-value="k.credit*100/5"/>
+                </t>
+                <t t-set="description5" t-value="k.name"/>
+                <t t-set="i" t-value="i+1"/>
+              </t>
 
-                                                     </t>
-                                                 </t>
-                                                 <t t-if="l['invoice_line_id'].product_id.charge_type != 'storage_charge' and l['invoice_line_id'].product_id.charge_type != 'tran_agent' and l['invoice_line_id'].product_id.charge_type != 'tran_contract' and l['invoice_line_id'].product_id.charge_type != 'tran_none_contract'">
-                                                     <span t-esc="l['name']"/><br/>
-                       <t t-if="l['invoice_line_id'].invoice_id.is_size">
-                                                         <span>For </span>
-                                                         <span t-esc="l['size']"/>&amp;nbsp;
-                                                         <span t-esc="l['type']"/><br/>
-                                                     </t>
-                                                 </t>
+              <t t-set="sum_total" t-value="sum([sum1,sum2,sum3,sum4,sum5])"/>
+              <t t-set="sum_amount_total" t-value="sum([sum1_total,sum2_total,sum3_total,sum4_total,sum5_total])"/>
 
-                                                 <t t-if="l['invoice_line_id'].product_id.charge_type == 'storage_charge'">
-                                                     <!--<t t-if="doc.get_require_c_no(l['product_id'])">-->
-                                                         <br/>
-                                                         <span>CONTAINER NO:</span>
-                                                         <span t-esc="l['container_no']"/>&amp;nbsp;
-                                                         <span t-esc="l['from_date']"/> -
-                                                         <span t-esc="l['to_date']"/><br/>
+              <t t-set="descript" t-value="k.credit"/>
+              <t t-if="k.wht_type == '1%' ">
+                <t t-if="k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.credit*100/1"/>
+                </t>
+              </t>
+              <t t-if="k.wht_type == '2%' ">
+                <t t-if="k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.credit*100/2"/>
+                </t>
+              </t>
+              <t t-if="k.wht_type == '3%' ">
+                <t t-if="k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.credit*100/3"/>
+                </t>
+              </t>
+              <t t-if="k.wht_type == '5%' ">
+                <t t-if="k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.amount_before_tax"/>
+                </t>
+                <t t-if="not k.amount_before_tax">
+                  <t t-set="amount_total" t-value="k.credit*100/5"/>
+                </t>
+              </t>
 
-                                                     <!--</t>-->
-                                                 </t>
+              <t t-if="i == 1">
+                <div style="position: absolute;left: 790px;top: 1420px;">
+                  <font style="font-size:25px;">
+                    <t t-if="o.x_chek_wht  == True "></t>
+                    <t t-if="o.x_chek_wht  == False">
+                      <span t-field="o.date"/>
+                    </t>
+                  </font>
+                </div>
+                <div style="text-align:right; position: absolute;right: 243px;top: 1420px;">
+                  <font style="font-size:25px;">
+                    <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
 
-                                                 <t t-if="doc.get_require_b_no(l['product_id']) and l['quantity']">
+                  </font>
+                </div>
+                <div style="text-align:right; position: absolute;right: 80px;top: 1420px;">
+                  <font style="font-size:25px;">
+                    <span t-esc="'{0:,.2f}'.format(float(descript))"/>
+                  </font>
+                </div>
+              </t>
+              <t t-if="i == 2">
+                <div style="position: absolute;left: 790px;top: 1470px;">
+                  <font style="font-size:25px;">
+                    <t t-if="o.x_chek_wht  == True "></t>
+                    <t t-if="o.x_chek_wht  == False">
+                      <span t-field="o.date"/>
+                    </t>
+                  </font>
+                </div>
+                <div style="position: absolute;right: 243px;top: 1470px;">
+                  <font style="font-size:25px;">
+                    <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                  </font>
+                </div>
+                <div style="position: absolute;right: 80px;top: 1470px;">
+                  <font style="font-size:25px;">
+                    <span t-esc="'{0:,.2f}'.format(float(descript))"/>
 
-                                                 </t>
-                                                 <t t-if="doc.get_require_from_to(l['product_id'])">
-                                                     <t t-if="l['from_shipping'] and doc.service_type == 'gate_in'">
-                                                         <span>FROM  </span><span t-esc="l['from_shipping']"/>&amp;nbsp;
-                                                     </t>
-                                                     <t t-if="l['to_shipping'] and doc.service_type == 'gate_out'">
-                                                         <span>FROM  </span><span t-esc="l['to_shipping']"/>&amp;nbsp;
-                                                     </t>
-                                                     <t t-if="l['shipping_ids'] and doc.service_type == 'gate_out'">
-                                                         <span>    TO </span><span t-esc="l['shipping_ids']"/>&amp;nbsp;
-                                                     </t>
-                                                     <t t-if="l['to_shipping'] and doc.service_type == 'gate_in'">
-                                                         <span>    TO </span><span t-esc="l['to_shipping']"/>&amp;nbsp;
-                                                     </t>
-                                                     <t t-if="l['return_shipping'] and doc.service_type == 'gate_out'">
-                                                         <span>    TO </span><span t-esc="l['return_shipping']"/>&amp;nbsp;
-                                                     </t>
-                                                     <t t-if="doc.is_from_to == True">
-                                                         <t t-if="l['invoice_line_id'].sale_id.return_date">
-                                                             <t t-set="date" t-value="time.strptime(l['invoice_line_id'].sale_id.return_date,'%Y-%m-%d')"/>
-                                                             <span>DATE</span>&amp;nbsp;<span t-esc="date.tm_mday"/>/<span t-esc="date.tm_mon"/>/<span t-esc="date.tm_year"/>
-                                                         </t>
-                                                     </t>
-                                                     <t t-if="doc.is_from_to != True">
-                                                         <span/>
-                                                     </t>
-                                                     <p/>
-                                                 </t>
+                  </font>
+                </div>
+              </t>
+            </t>
+          </t>
+          <font style="font-size:18px;">
+            <div style="position: absolute;left: 240px;top: 1470px;">
+              <t t-if="description1 != 0">
+                <span t-esc="description1"/>,
+              </t>
+              <t t-if="description2 != 0">
+                <span t-esc="description2"/>,
+              </t>
+              <t t-if="description3 != 0">
+                <span t-esc="description3"/>,
+              </t>
+              <t t-if="description4 != 0">
+                <span t-esc="description4"/>,
+              </t>
+              <t t-if="description5 != 0">
+                <span t-esc="description5"/>,
+              </t>
+            </div>
+          </font>
 
-                                                 <t t-if="doc.get_require_po(l['product_id'])">
-                                                     <!--<span>PO NO.</span><span t-esc="l['po']"/><br/>-->
-                                                     <t t-if="count_po == 0">
-                                                         <t t-set="po" t-value="l['po']"/>
-                                                     </t>
-                                                     <t t-if="count_po != 0 and po != l['po']">
-                                                         <t t-set="po" t-value="po + ',' + l['po']"/>
-                                                     </t>
-                                                     <t t-set="count_po" t-value="count_po + 1"/>
-                                                 </t>
+          <div style="text-align:right; position: absolute;right: 243px;top: 1520px;">
+            <font style="font-size:25px;">
+              <span t-esc="'{0:,.2f}'.format(float(sum_amount_total))"/>
+            </font>
+          </div>
+          <div style="text-align:right; position: absolute;right: 80px;top: 1520px;">
+            <font style="font-size:25px;">
+              <span t-esc="'{0:,.2f}'.format(float(sum_total))"/>
+            </font>
+          </div>
+          <div style="position: absolute;left: 450px;top: 1570px;">
+            <font style="font-size:25px;">
+              <span t-esc="o.baht_text(sum_total)"/>
+            </font>
+          </div>
+          <div style="position: absolute;left: 205px;top: 1645px;">
+            <font style="font-size:37px;">
+              <span>X</span>
+            </font>
+          </div>
 
-                                                 <t t-if="doc.get_require_vessel(l['product_id'])">
-                                                     <t t-if="count_vessel == 0">
-                                                         <t t-set="vessel" t-value="l['vessel'] + ' ' + l['voy']"/>
-                                                     </t>
-                                                     <t t-if="count_vessel != 0 and vessel != (l['vessel'] + ' ' + l['voy'])">
-                                                         <t t-set="vessel" t-value="vessel + ',' + l['vessel'] + ' ' + l['voy']"/>
-                                                     </t>
-                                                     <t t-set="count_vessel" t-value="count_vessel + 1"/>
-                                                     <!--<span>VESSEL:</span><span t-esc="l['vessel']"/>&amp;nbsp;<span t-esc="l['voy']"/>-->
-                                                 </t>
-                                             </font>
+          <div style="position: absolute;right: 540px;top: 1760px;">
+            <font style="font-size:25px;">
+              <t t-if="o.x_chek_wht  == True "></t>
+              <t t-if="o.x_chek_wht  == False">
+                <t t-if="date">
+                  <t t-if="date.tm_mday &gt; 9">
+                    <span t-esc="date.tm_mday"/>
+                  </t>
+                  <t t-if="date.tm_mday &lt; 10">
+                    <span>0</span><span t-esc="date.tm_mday"/>
+                  </t>
+                </t>
+              </t>
+              <t t-if="not date">
+                <span/>
+              </t>
+            </font>
+          </div>
 
-                                 </td>
-               <td style="text-align: center; vertical-align: top;">
-                                     <font style="font-size: 14px;">
-                                         <span t-esc="'{0:,.2f}'.format(float(l['quantity']))"/> /
-                                         <span t-esc="l['invoice_line_id'].uom_id.name"/>
-                                     </font>
-               </td>
-               <td style="text-align: right; vertical-align: top;">
-                 <font style="font-size: 14px;">
-                   <span t-esc="'{0:,.2f}'.format(float(l['price_unit']))"/>
-                 </font>
-               </td>
-               <td style="text-align: right; vertical-align: top;">
-                 <font style="font-size: 14px;">
+          <div style="position: absolute;right: 450px;top: 1760px;">
+            <font style="font-size:25px;">
+              <t t-if="o.x_chek_wht  == True "></t>
+              <t t-if="o.x_chek_wht  == False">
+                <t t-if="date">
+                  <t t-if="date.tm_mon &gt; 9">
+                    <span t-esc="date.tm_mon"/>
+                  </t>
+                  <t t-if="date.tm_mon &lt; 10">
+                    <span>0</span><span t-esc="date.tm_mon"/>
+                  </t>
+                </t>
+              </t>
+              <t t-if="not date">
+                <span/>
+              </t>
+            </font>
+          </div>
 
-                                         <t t-if="l['invoice_line_id'].discount"><t t-set="j" t-value="1"/><span t-esc="'{0:,.2f}'.format(float(l['invoice_line_id'].discount))"/> %</t>
-                                         <t t-if="l['invoice_line_id'].discount_amount"><t t-set="j" t-value="1"/> <span t-esc="'{0:,.2f}'.format(float(l['invoice_line_id'].discount_amount))"/></t>
-                                     </font>
-               </td>
-               <td style="text-align: right; vertical-align: top;">
-                 <font style="font-size: 14px;">
-                   <span t-esc="'{0:,.2f}'.format(float(l['price_subtotal']))"/>
-                 </font>
-               </td>
+          <div style="position: absolute;right: 290px;top: 1760px;">
+            <font style="font-size:25px;">
+              <t t-if="o.x_chek_wht  == True "></t>
+              <t t-if="o.x_chek_wht  == False">
+                <t t-if="date">
+                  <span t-esc="date.tm_year"/>
+                </t>
+              </t>
+              <t t-if="not date">
+                <span/>
+              </t>
+            </font>
+          </div>
+        </div>
+      </t>
 
-                                 </tr>
-                         </t>
-               <tr>
-                                 <td colspan="2"/>
-                                 <td width="50%" style="position: absolute; left: 13%;">
-                                     <div>
-                                         <font style="font-size: 14px;"><br/>
-
-
-                                             <t t-if="doc.is_container">
-                                                 <span>CONTAINER NO. </span>
-                                                 <span t-esc="doc.get_container_line()"/>
-                                             </t>
-                                             <br/><p/>
-                                             <t t-if="doc.is_booking">
-                                                 <span t-esc="doc.ref_name"/>
-                                                 <span t-esc="doc.get_booking_line()"/>
-                                                 <br/><p/>
-                                             </t>
-                                             <t t-if="doc.is_vessel_voy">
-                                                 <span>VESSEL: </span><span t-esc="vessel"/><br/><p/>
-                                             </t>
-                                             <!--<span t-esc="from_date2"/> - -->
-                                             <!--<span t-esc="to_date2"/><br/>-->
-                                             <t t-if="doc.is_po">
-                                                 <t t-if="doc.ref_po">
-                                                     <span t-esc="doc.ref_po"/>&amp;nbsp;
-                                                 </t>
-                                                 <t t-if="not doc.ref_po">
-                                                     <span>PO NO. </span>
-                                                 </t>
-                                                 <span t-esc="po"/><p/>
-                                             </t>
-                                             <t t-if="doc.comment">
-                                                 <span>Remark:</span>
-                                                 <span t-esc="doc.comment"/>
-                                             </t>
-                                         </font>
-                                     </div>
-                                 </td>
-                                 <td colspan="4"/>
-                             </tr>
-                     </tbody>
-                 </table>
-             </div>
-             <div class="footer">
-
-                 <style>
-                     .header{width:100%; height:10px;}
-                     .content{width:100%; height:800px;}
-                     .footer{width:100%; height:10px;}
-                     table.table-bordered1{
-                     border:1px solid black;
-                     margin-top:20px;
-                     border-collapse: collapse;
-                     width: 100%;
-                     }
-                     table.table-bordered1 &gt; thead &gt; tr &gt; th{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered1 &gt; thead &gt; tr &gt; td{
-                     border:1px solid black;
-                     border-left: 1px solid black;
-
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered1 &gt; tbody &gt; tr &gt; td{
-                     border:0px solid white;
-                     border-left: 1px solid black;
-                     border-collapse: collapse;
-                     height: 40px;
-                     }
-                     table.table-bordered1 &gt; tfoot &gt; tr &gt; td{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered &gt; thead &gt; tr &gt; th{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered &gt; tbody &gt; tr &gt; td{
-                     border:1px solid black;
-                     <!--border-left: 1px solid;-->
-                     border-collapse: collapse;
-                     }
-                     table.table-bordered &gt; tfoot &gt; tr &gt; td{
-                     border:1px solid black;
-                     border-collapse: collapse;
-                     }
-                 </style>
-                 <table width="100%">
-                     <thead>
-                         <tr>
-                             <td width="46%"/>
-                             <td width="27%" style="text-align: left;border-top:1px solid black;">
-                                 <p style="margin-top:10px;">
-                                     <font style="font-size: 14px;">
-                                         <span>Discount (ส่วนลด)</span><br/>
-                                         <span>Sub Total (รวม)</span><br/>
-                                         <span>Vat (ภาษีมูลค่าเพิ่ม) 7%</span><br/>
-                                         <span>Withholding Tax ภาษีหัก ณ ที่จ่าย <span t-esc="doc.WHT_Type"/> </span><br/>
-                                         <span>Grand Total(ชำระเงินสุทธิ)</span> (<span t-field="doc.currency_id.name"/>)
-                                     </font>
-                                 </p>
-                             </td>
-                             <td width="27%" style="text-align: right;border-top:1px solid black;">
-                                 <p style="margin-top:10px;">
-                                     <font style="font-size: 14px;">
-                                         <div class="last-page">
-                                             <t t-if="doc.discounted_amount"><t t-set="j" t-value="2"/> </t>
-                                             <t t-if="j==0"><span>0.00</span><br/></t>
-                                             <t t-if="j==1"><span>0.00</span><br/></t>
-                                             <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/><br/></t>
-                                             <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-doc.discounted_amount))"/><br/></t>
-                                             <t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/></t>
-                                             <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
-                                             <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
-                                             <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/></t></t>
-                                             <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t></t>
-                                             <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t></t>
-                                             <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/></t></t>
-                                             <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
-                                             <t t-if="not doc.WHT_Type"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total))"/></t>
-                                         </div>
-                                     </font>
-                                 </p>
-                             </td>
-                         </tr>
-                         <table width="100%">
-                             <tr>
-                                 <td style="text-align: right;">
-                                     <font style="font-size: 14px;">
-                                         <div class="last-page">
-                                             <br/>
-                                             <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t></t>
-                                             <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/></t></t>
-                                             <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
-                                             <t t-if="not doc.WHT_Type">(<span t-esc="doc.num2_words(float(doc.amount_total))"/>)</t>
-                                             <!--(<span t-esc="doc.num2_words(doc.amount_total)"/>)-->
-                                         </div>
-                                     </font>
-                                 </td>
-                             </tr>
-                         </table>
-                     </thead>
-                     <tbody>
-                         <table width="100%">
-                             <tr>
-                                 <td>
-                                     <font style="font-size: 14px;">
-                                         <span>Remarks</span>
-                                     </font>
-                                     <t t-if="doc.comment">
-                                         <span t-field="doc.comment"/>
-                                     </t>
-                                     <p style="margin-top:5px;">
-                                       <font style="font-size: 14px;"><br/>
-                                           <span>Terms and Conditions 1) Received as per above in good order and condition.</span><span> 2) All cheque made payable to <span t-field="doc.company_id.rml_header1"/></span>.<br/>
-                     &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
-                                           &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
-                     <span>3) This invoice carries of 1.5% per month from due date.</span>
-                                       </font>
-                                     </p>
-                                 </td>
-                             </tr>
-                         </table>
-                     </tbody>
-                     <tfoot>
-                         <table width="100%">
-                             <tr>
-                                 <td width="33%" style="text-align: center;">
-                                     <p style="margin-top:10px;">
-                                         <font style="font-size: 14px;">
-                                            <br/><br/>
-                                             <span>_________________________</span><br/>
-                                             <span>Authorised Signature</span><br/>
-                                             <span>_______/_______/_______</span>
-                                         </font>
-                                     </p>
-                                 </td>
-                                 <td width="34%" style="text-align: center;">
-                                     <p style="margin-top:10px;">
-                                         <font style="font-size: 14px;">
-                                             <br/><br/>
-                                             <span>_________________________</span><br/>
-                                             <span>Delivered BY</span><br/>
-                                             <span>_______/_______/_______</span>
-                                         </font>
-                                     </p>
-                                 </td>
-                                 <td width="33%" style="text-align: center;">
-                                     <p style="margin-top:10px;">
-                                         <font style="font-size: 14px;">
-                                             <br/><br/>
-                                             <span>_________________________</span><br/>
-                                             <span>Received BY</span><br/>
-                                             <span>_______/_______/_______</span>
-                                         </font>
-                                     </p>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td/>
-                                 <td style="text-align: center;">
-                                     <ul class="list-inline">
-                                         <li>Page</li>
-                                         <li><span class="page"/></li>
-                                         <li>of</li>
-                                         <li><span class="topage"/></li>
-                                     </ul>
-                                 </td>
-                             </tr>
-                         </table>
-                     </tfoot>
-                 </table>
-             </div>
-
-         </t>
-        </template>
-    </data>
+    </template>
+  </data>
 </openerp>
