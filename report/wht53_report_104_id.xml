@@ -41,12 +41,12 @@
                         </font>
                     </div>
                     <div class="col-xs-12" style="position: absolute;left: 160px;top: 237px;">
-                        <font style="font-size: 25px;">
+                        <font style="font-size: 20px;">
                             <span t-field="o.company_id.name"/>&amp;nbsp;<span>(สำนักงานใหญ่)</span>
                         </font>
                     </div>
                     <div class="col-xs-12" style="position: absolute;left: 160px;top: 288px;">
-                        <font style="font-size: 25px;">
+                        <font style="font-size: 20px;">
                             <span t-if="o.company_id.building"><span t-field="o.company_id.building"/>&amp;nbsp;</span>
                             <span t-if="o.company_id.roomnumber">ห้องที่&amp;nbsp;<span t-field="o.company_id.roomnumber"/>&amp;nbsp;</span>
                             <span t-if="o.company_id.floornumber">ชั้นที่&amp;nbsp;<span t-field="o.company_id.floornumber"/>&amp;nbsp;</span>

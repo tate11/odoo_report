@@ -142,7 +142,7 @@
         <!-- paperformat wht53_report -->
         <report
                 id="odoo_report.wht53_report_104_id"
-                model="account.invoice"
+                model="account.move"
                 menu="True"
                 report_type="qweb-pdf"
                 string="หนังสือรับรองหัก ณ ที่จ่าย 53 (New)"
@@ -154,7 +154,7 @@
         <!-- paperformat wht3_report -->
         <report
                 id="odoo_report.wht3_report_105_id"
-                model="account.invoice"
+                model="account.move"
                 menu="True"
                 report_type="qweb-pdf"
                 string="หนังสือรับรองหัก ณ ที่จ่าย 3 (New)"
