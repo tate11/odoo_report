@@ -61,6 +61,34 @@
            <field name="dpi">90</field>
        </record>
 
+       <record id="paperformat_A4_wht53_report" model="report.paperformat">
+           <field name="name">A4_wht53_report</field>
+           <field name="default" eval="False"/>
+           <field name="format">A4</field>
+           <field name="orientation">Portrait</field>
+           <field name="margin_top">76</field>
+           <field name="margin_bottom">130</field>
+           <field name="margin_left">5</field>
+           <field name="margin_right">5</field>
+           <field name="header_line" eval="False"/>
+           <field name="header_spacing">72</field>
+           <field name="dpi">90</field>
+       </record>
+
+       <record id="paperformat_A4_wht3_report" model="report.paperformat">
+           <field name="name">A4_wht3_report</field>
+           <field name="default" eval="False"/>
+           <field name="format">A4</field>
+           <field name="orientation">Portrait</field>
+           <field name="margin_top">76</field>
+           <field name="margin_bottom">130</field>
+           <field name="margin_left">5</field>
+           <field name="margin_right">5</field>
+           <field name="header_line" eval="False"/>
+           <field name="header_spacing">72</field>
+           <field name="dpi">90</field>
+       </record>
+
             <!-- paperformat Invoice -->
          <report
                 id="odoo_report.invoice_trf_report100_id"
@@ -108,5 +136,28 @@
                 name="odoo_report.invoice_group_report_103_id"
                 file="odoo_report.invoice_group_report_103_id"
         />
+
+        <report
+                id="odoo_report.wht53_report_104_id"
+                model="account.invoice"
+                menu="True"
+                report_type="qweb-pdf"
+                string="หนังสือรับรองหัก ณ ที่จ่าย 53 (New)"
+                paperformat="paperformat_A4_NewInvoiceGroup"
+                name="odoo_report.wht53_report_104_id"
+                file="odoo_report.wht53_report_104_id"
+        />
+
+        <report
+                id="odoo_report.wht3_report_105_id"
+                model="account.invoice"
+                menu="True"
+                report_type="qweb-pdf"
+                string="หนังสือรับรองหัก ณ ที่จ่าย 3 (New)"
+                paperformat="paperformat_A4_NewInvoiceGroup"
+                name="odoo_report.wht3_report_105_id"
+                file="odoo_report.wht3_report_105_id"
+        />
+
     </data>
 </openerp>
