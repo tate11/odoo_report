@@ -10,7 +10,11 @@
             'report/invoice_trf_report100_id.xml',
             'report/quotation_trf_report101_id.xml',
             'report/taxinvoice_trf_report102_id.xml',
-            'report/invoice_group_report_103_id.xml'],
+            'report/invoice_group_report_103_id.xml',
+            'report/wht53_report_104_id.xml',
+            'report/wht3_report_105_id.xml',
+            'report/equipment_report_106_id.xml',
+            'report/documentation_report_107_id.xml'],
     'auto_install':False,
     'application':True
 }
