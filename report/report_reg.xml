@@ -92,7 +92,7 @@
        </record>
 
 
-       <!-- paperformat wht3_report -->
+       <!-- paperformat equipment_report -->
        <record id="paperformat_A4_equipment_report" model="report.paperformat">
            <field name="name">A4_equipment_report</field>
            <field name="default" eval="False"/>
@@ -123,7 +123,22 @@
            <field name="dpi">90</field>
        </record>
 
-       <!-- paperformat EQUIPMENT REPORT -->
+       <!-- paperformat purchase_report -->
+      <record id="paperformat_A4_purchase_report" model="report.paperformat">
+          <field name="name">A4_purchase_report</field>
+          <field name="default" eval="False"/>
+          <field name="format">A4</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">72</field>
+          <field name="margin_bottom">95</field>
+          <field name="margin_left">5</field>
+          <field name="margin_right">5</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">66</field>
+          <field name="dpi">90</field>
+      </record>
+
+
 
             <!-- paperformat Invoice -->
           <report
@@ -135,7 +150,7 @@
                 paperformat="paperformat_A4_DayAndMonth"
                 name="odoo_report.invoice_trf_report100_id"
                 file="odoo_report.invoice_trf_report100_id"
-        /> 
+        />
 
           <!-- paperformat quotation -->
          <report
@@ -147,7 +162,7 @@
                 paperformat="paperformat_A4_NewQuotation"
                 name="odoo_report.quotation_trf_report101_id"
                 file="odoo_report.quotation_trf_report101_id"
-        /> 
+        />
 
           <!-- paperformat taxInvoice -->
          <report
@@ -159,7 +174,7 @@
                 paperformat="paperformat_A4_NewTaxInvoice"
                 name="odoo_report.taxinvoice_trf_report102_id"
                 file="odoo_report.taxinvoice_trf_report102_id"
-        /> 
+        />
 
         <!-- paperformat group -->
          <report
@@ -171,7 +186,7 @@
                 paperformat="paperformat_A4_NewInvoiceGroup"
                 name="odoo_report.invoice_group_report_103_id"
                 file="odoo_report.invoice_group_report_103_id"
-        /> 
+        />
 
         <!-- paperformat wht53_report -->
          <report
@@ -183,7 +198,7 @@
                 paperformat="paperformat_A4_wht53_report"
                 name="odoo_report.wht53_report_104_id"
                 file="odoo_report.wht53_report_104_id"
-        /> 
+        />
 
         <!-- paperformat wht3_report -->
          <report
@@ -195,9 +210,9 @@
                 paperformat="paperformat_A4_wht3_report"
                 name="odoo_report.wht3_report_105_id"
                 file="odoo_report.wht3_report_105_id"
-        /> 
-        
-        <!-- paperformat wht3_report -->
+        />
+
+        <!-- paperformat equipment_report -->
          <report
                 id="odoo_report.equipment_report_106_id"
                 model="sale.order"
@@ -207,8 +222,9 @@
                 paperformat="paperformat_A4_wht3_report"
                 name="odoo_report.equipment_report_106_id"
                 file="odoo_report.equipment_report_106_id"
-        /> 
+        />
 
+          <!-- paperformat documentation_report -->
          <report
                 id="odoo_report.documentation_report_107_id"
                 model="sale.order"
@@ -218,7 +234,18 @@
                 paperformat="paperformat_A4_documentation_report"
                 name="odoo_report.documentation_report_107_id"
                 file="odoo_report.documentation_report_107_id"
-        /> 
+        />
 
+        <!-- paperformat purchase_report -->
+       <report
+              id="odoo_report.purchase_report_108_id"
+              model="purchase.order"
+              menu="True"
+              report_type="qweb-pdf"
+              string=".ใบสั่งซื้อ(New)"
+              paperformat="paperformat_A4_documentation_report"
+              name="odoo_report.purchase_report_108_id"
+              file="odoo_report.purchase_report_108_id"
+      />
     </data>
 </openerp>

@@ -14,7 +14,8 @@
             'report/wht53_report_104_id.xml',
             'report/wht3_report_105_id.xml',
             'report/equipment_report_106_id.xml',
-            'report/documentation_report_107_id.xml'],
+            'report/documentation_report_107_id.xml',
+            'report/purchase_report_108_id.xml'],
     'auto_install':False,
     'application':True
 }
