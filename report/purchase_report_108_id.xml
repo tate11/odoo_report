@@ -1,283 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-        <template id="odoo_report.purchase_report_108_id">
-          <t t-foreach="docs" t-as="doc">
-      <t t-set="sum_total" t-value="0"/>
-      <t t-set="sum_amount" t-value="0"/>
-      <t t-set="total_sum_amount" t-value="0"/>
-      <t t-set="amount_due" t-value="0"/>
-      <t t-set="discounted_amount" t-value="0"/>
-      <t t-set="total" t-value="0"/>
+  <data>
+    <template id="odoo_report.purchase_report_108_id">
+      <t t-foreach="docs" t-as="doc">
+        <t t-set="sum_total" t-value="0"/>
+        <t t-set="sum_amount" t-value="0"/>
+        <t t-set="total_sum_amount" t-value="0"/>
+        <t t-set="amount_due" t-value="0"/>
+        <t t-set="discounted_amount" t-value="0"/>
+        <t t-set="total" t-value="0"/>
 
-      <t t-set="max_body_height" t-value="140"/>
-      <t t-set="new_line_height" t-value="4"/>
-      <t t-set="row_line_height" t-value="7"/>
-      <t t-set="max_line_lenght" t-value="40"/>
+        <t t-set="max_body_height" t-value="140"/>
+        <t t-set="new_line_height" t-value="4"/>
+        <t t-set="row_line_height" t-value="7"/>
+        <t t-set="max_line_lenght" t-value="40"/>
 
-      <!--<t t-call="report.internal_layout">-->
+        <!--<t t-call="report.internal_layout">-->
 
-      <div class="header">
-        <style>
-          .header {
-            width: 100%;
-            height: 10px;
-          }
-          .content {
-            width: 100%;
-            height: 500px;
-          }
-          .footer {
-            width: 100%;
-            height: 10px;
-          }
-          table.table-bordered1 {
-            border: 1px solid black;
-            margin-top: 20px;
-            border-collapse: collapse;
-            width: 100%;
-          }
-          table.table-bordered1 &gt;
-          thead &gt;
-          tr &gt;
-          th {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-          table.table-bordered1 &gt;
-          thead &gt;
-          tr &gt;
-          td {
-            border: 1px solid black;
-            border-left: 1px solid black;
-            border-collapse: collapse;
-          }
-          table.table-bordered1 &gt;
-          tbody &gt;
-          tr &gt;
-          td {
-            border: 0 solid white;
-            border-left: 1px solid black;
-            border-collapse: collapse;
-            height: 40px;
-          }
-          table.table-bordered1 &gt;
-          tfoot &gt;
-          tr &gt;
-          td {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-          table.table-bordered &gt;
-          thead &gt;
-          tr &gt;
-          th {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-          table.table-bordered &gt;
-          tbody &gt;
-          tr &gt;
-          td {
-            border: 1px solid black;
-            <!--border-left: 1px solid;
-            --> border-collapse: collapse;
-          }
-          table.table-bordered &gt;
-          tfoot &gt;
-          tr &gt;
-          td {
-            border: 1px solid black;
-            border-collapse: collapse;
-          }
-        </style>
-        <table width="100%">
-          <tr>
-            <th colspan="4">
+        <div class="header">
+          <style>
+            .header {
+              width: 100%;
+              height: 10px;
+            }
+            .content {
+              width: 100%;
+              height: 500px;
+            }
+            .footer {
+              width: 100%;
+              height: 10px;
+            }
+            table.table-bordered1 {
+              border: 1px solid black;
+              margin-top: 20px;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            table.table-bordered1 &gt;
+            thead &gt;
+            tr &gt;
+            th {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered1 &gt;
+            thead &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-left: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered1 &gt;
+            tbody &gt;
+            tr &gt;
+            td {
+              border: 0 solid white;
+              border-left: 1px solid black;
+              border-collapse: collapse;
+              height: 40px;
+            }
+            table.table-bordered1 &gt;
+            tfoot &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            thead &gt;
+            tr &gt;
+            th {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            tbody &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              <!--border-left: 1px solid;
+              --> border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            tfoot &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+          </style>
+          <table width="100%">
+            <tr>
+              <th colspan="4">
 
-              <table width="100%">
-                <tr>
-                  <td width="20%" rowspan="3">
-                    <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
-                  </td>
-                  <td width="80%">
-                    <font style="font-size: 16px;">
-                      <strong t-field="doc.company_id.rml_header1"/><br/>
-                      <strong t-field="doc.company_id.name"/><br/>
-                    </font>
-                    <font style="font-size: 12px;">
-                      <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                      <strong t-field="doc.company_id.country_id.name"/>&amp;nbsp;<strong>(Head Office)</strong><br/>
-                      <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
-                      <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
-                      <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                      <strong>(สำนักงานใหญ่)</strong><br/>
-                      <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.phone"/></strong>
-                      <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-field="doc.company_id.fax"/></strong><br/>
-                      <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-field="doc.company_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
-                      </strong><br/>
-                      <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>
-                    </font>
-                  </td>
-                </tr>
-              </table>
-              <table width="100%">
-                <tr>
-                  <td style="text-align:center;">
-                    <font style="font-size: 18px;">
-                      <strong>PURCHASE ORDER</strong>
-                      <br/>
-                    </font>
-                  </td>
-                </tr>
-              </table>
+                <table width="100%">
+                  <tr>
+                    <td width="20%" rowspan="3">
+                      <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
+                    </td>
 
-              <table width="100%">
-                <tr>
-                  <td width="5%" style="text-align: left">
-                  <p style="margin-top:10px;">
-                    <font style="font-size: 14px;">
-                      <strong>Date</strong><br/>
-                      <strong>Vendor</strong>
-                      <strong/><br/>
-                      <strong/><br/>
-                      <strong/><br/>
-                      <strong>FAX</strong> <br/>
-                      <strong>TEL</strong><br/>
-                      <strong>EMAIL</strong><br/>
-                    </font>
-                  </p>
-                  </td>
-                   <!-- <td width="3%"/>  -->
-                  <td width="35%" style="text-align: left">
-                    <font style="font-size: 14px;">
-                      <span t-field="doc.date_order" t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/><br/>
-                      <t t-if="doc.partner_id.company_type == 'person'">
-                        <span t-field="doc.partner_id.name"/>
+                    <td width="80%">
+
+                      <t t-if="doc.department_id.name == 'SADAO' ">
+                        <font style="font-size: 16px;">
+                          <strong t-field="doc.company_id.rml_header1"/><br/>
+                          <strong t-field="doc.company_id.name"/>
+                          &amp;nbsp;(สาขาที่ <strong t-esc="doc.company_id.parent_id.branch_no"/>)<br/>
+                        </font>
+                        <font style="font-size: 12px;">
+                          <strong t-field="doc.company_id.parent_id.street2"/>&amp;nbsp;&amp;nbsp;<strong t-field="doc.company_id.parent_id.zip"/>&amp;nbsp;<br/>
+                          <strong t-field="doc.company_id.parent_id.street"/>&amp;nbsp;&amp;nbsp;<strong t-field="doc.company_id.parent_id.city"/>
+                          <strong t-field="doc.company_id.parent_id.state_id.name"/>&amp;nbsp;<strong t-field="doc.company_id.parent_id.zip"/><br/>
+                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.parent_id.phone"/></strong>
+                          <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-field="doc.company_id.parent_id.fax"/></strong><br/>
+                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-field="doc.company_id.parent_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.parent_id.vat"/></strong>
+                        </font>
                       </t>
-                      <t t-if="doc.partner_id.company_type != 'person'">
-                        <span/>
+                      <t t-if="doc.department_id.name != 'SADAO' ">
+                        <font style="font-size: 16px;">
+                          <strong t-field="doc.company_id.rml_header1"/><br/>
+                          <strong t-field="doc.company_id.name"/><br/>
+                        </font>
+                        <font style="font-size: 12px;">
+                          <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                          <strong t-field="doc.company_id.country_id.name"/>&amp;nbsp;<strong>(Head Office)</strong><br/>
+                          <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
+                          <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
+                          <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                          <strong>(สำนักงานใหญ่)</strong><br/>
+                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.phone"/></strong>
+                          <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-field="doc.company_id.fax"/></strong><br/>
+                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-field="doc.company_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>
+                        </font>
                       </t>
-                      <t t-if="doc.partner_id.company_type == 'company'">
-                        <span t-field="doc.partner_id.name"/>
-                      </t>
-                      <t t-if="doc.partner_id.company_type != 'company'">
-                        <span/>
-                      </t>
-                    </font>
-                    <font style="font-size: 14px;"><br/>
-                      <span t-field="doc.partner_id.street"/><br/>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%">
+                  <tr>
+                    <td style="text-align:center;">
+                      <font style="font-size: 18px;">
+                        <strong>PURCHASE ORDER</strong>
+                        <br/>
+                      </font>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%">
+                  <tr>
+                    <td width="7%" style="text-align: left">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Date</strong><br/>
+                          <strong>Vendor</strong>
+                          <strong/><br/>
+                          <strong/><br/>
+                          <strong/><br/>
+                          <strong/><br/>
+                          <strong>FAX</strong>
+                          <br/>
+                          <strong>TEL</strong><br/>
+                          <strong>EMAIL</strong><br/>
+                        </font>
+                      </p>
+                    </td>
+                    <!-- <td width="3%"/> -->
+                    <td width="40%" style="text-align: left">
+                      <font style="font-size: 14px;">
+                        <span t-field="doc.date_order" t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/><br/>
+                        <t t-if="doc.partner_id.company_type == 'person'">
+                          <span t-field="doc.partner_id.name"/>
+                        </t>
+                        <t t-if="doc.partner_id.company_type != 'person'">
+                          <span/>
+                        </t>
+                        <t t-if="doc.partner_id.company_type == 'company'">
+                          <span t-field="doc.partner_id.name"/>
+                        </t>
+                        <t t-if="doc.partner_id.company_type != 'company'">
+                          <span/>
+                        </t>
+                      </font>
+                      <font style="font-size: 14px;"><br/>
+                        <span t-field="doc.partner_id.street"/><br/>
 
-                      <span t-if="doc.partner_id.city">
-                        <span t-esc="doc.partner_id.city"/>&amp;nbsp;
-                      </span>
-                      <span t-if="doc.partner_id.state_id.name">
-                        <span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;
-                      </span>
-                      <span t-if="doc.partner_id.zip">
-                        <span t-field="doc.partner_id.zip"/>&amp;nbsp;<br/>
-                      </span>
-                        <span t-esc="doc.partner_id.phone"/>&amp;nbsp; <br/>
+                        <span t-if="doc.partner_id.city">
+                          <span t-esc="doc.partner_id.city"/>&amp;nbsp;
+                        </span>
+                        <span t-if="doc.partner_id.state_id.name">
+                          <span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;
+                        </span>
+                        <span t-if="doc.partner_id.zip">
+                          <span t-field="doc.partner_id.zip"/>&amp;nbsp;<br/>
+                        </span>
+                        <span t-if="doc.partner_id.vat">Tax ID.&amp;nbsp;<span t-field="doc.partner_id.vat"/></span><br/>
+                        <span t-esc="doc.partner_id.phone"/>&amp;nbsp;
+                        <br/>
                         <span t-esc="doc.partner_id.fax"/>&amp;nbsp;<br/>
                         <span t-esc="doc.partner_id.email"/>
-                      <span t-if="doc.sale_order_id">
-                        <strong>SO(รายการขาย)</strong>
-                        <span t-esc="doc.sale_order_id.name"/></span>
-                    </font>
-                  </td>
-
-                  <!-- <td width="3%"/> -->
-                  <td width="8%" style="text-align: left">
-                    <p style="margin-top:10px;">
-                    <font style="font-size: 14px;">
-                      <strong>PO No.</strong><br/>
-                      <strong>Credit Term</strong><br/>
-                      <strong>Ship to</strong>
-                      <br/><br/>
-                      <strong>TEL </strong><br/>
-                      <strong>FAX </strong><br/>
-                      <strong>EMAIL</strong>
-                    </font>
-                    </p>
-                  </td>
-
-                  <t t-if="doc.type == 'logistic'">
-                    <!-- <td width="3%"/> -->
-                    <td width="30%" style="text-align: left">
-                      <font style="font-size: 14px;">
-                        <span t-field="doc.name"/><br/>
-                        <span t-field="doc.payment_term_id.name"/><br/>
-                        <t t-if="doc.agent_id.company_type == 'person'">
-                          <span t-field="doc.agent_id.name"/>
-                        </t>
-                        <t t-if="doc.agent_id.company_type != 'person'">
-                          <span/>
-                        </t>
-                        <t t-if="doc.agent_id.company_type == 'company'">
-                          <span t-field="doc.agent_id.name"/>
-                        </t>
-                        <t t-if="doc.agent_id.company_type != 'company'">
-                          <span/>
-                        </t>
-
+                        <span t-if="doc.sale_order_id">
+                          <strong>SO(รายการขาย)</strong>
+                          <span t-esc="doc.sale_order_id.name"/></span>
                       </font>
-                      <font style="font-size: 14px;"><br/>
-                        <span t-field="doc.agent_id.street"/>&amp;nbsp;
-                        <span t-if="doc.agent_id.city">
-                          <span t-esc="doc.agent_id.city"/>&amp;nbsp;
-                        </span>
-                        <span t-if="doc.agent_id.state_id.name">
-                          <span t-esc="doc.agent_id.state_id.name"/>&amp;nbsp;
-                        </span>
-                        <span t-if="doc.agent_id.zip">
-                          <span t-field="doc.agent_id.zip"/>&amp;nbsp;<br/>
-                        </span>
-                        <span t-esc="doc.agent_id.phone"/>&amp;nbsp;<br/>
-                        <span t-esc="doc.agent_id.fax"/>&amp;nbsp;<br/>
-                        <span t-esc="doc.agent_id.email"/>
-                      </font>
-
                     </td>
-                  </t>
-                  <t t-if="doc.type == 'general'">
-                    <!-- <td width="5%"/> -->
-                    <td width="30%" style="text-align: left">
-                      <font style="font-size: 14px;">
-                        <span t-field="doc.name"/><br/>
-                        <span t-field="doc.payment_term_id.name"/><br/>
-                        <span t-field="doc.picking_type_id.warehouse_id.partner_id.name"/>
-                      </font>
-                      <font style="font-size: 14px;"><br/>
+                    <!-- <td width="3%"/> -->
+                    <td width="10%" style="text-align: left">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>PO No.</strong><br/>
+                          <strong>Credit Term</strong><br/>
+                          <strong>Ship to</strong>
+                          <br/><br/><br/>
+                          <strong>TEL
+                          </strong><br/>
+                          <strong>FAX
+                          </strong><br/>
+                          <strong>EMAIL</strong>
+                        </font>
+                      </p>
+                    </td>
+                    <t t-if="doc.type == 'logistic'">
+                      <!-- <td width="3%"/> -->
+                      <td width="30%" style="text-align: left">
+                        <font style="font-size: 14px;">
+                          <span t-field="doc.name"/><br/>
+                          <span t-field="doc.payment_term_id.name"/><br/>
+                          <t t-if="doc.agent_id.company_type == 'person'">
+                            <span t-field="doc.agent_id.name"/>
+                          </t>
+                          <t t-if="doc.agent_id.company_type != 'person'">
+                            <span/>
+                          </t>
+                          <t t-if="doc.agent_id.company_type == 'company'">
+                            <span t-field="doc.agent_id.name"/>
+                          </t>
+                          <t t-if="doc.agent_id.company_type != 'company'">
+                            <span/>
+                          </t>
+                        </font>
+                        <font style="font-size: 14px;"><br/>
+                          <span t-field="doc.agent_id.street"/>&amp;nbsp;
+                          <br/>
+                          <span t-if="doc.agent_id.city">
+                            <span t-esc="doc.agent_id.city"/>&amp;nbsp;
+                          </span>
+                          <span t-if="doc.agent_id.state_id.name">
+                            <span t-esc="doc.agent_id.state_id.name"/>&amp;nbsp;
+                          </span>
+                          <span t-if="doc.agent_id.zip">
+                            <span t-field="doc.agent_id.zip"/>&amp;nbsp;<br/>
+                          </span>
+                          <span t-esc="doc.agent_id.phone"/>&amp;nbsp;<br/>
+                          <span t-esc="doc.agent_id.fax"/>&amp;nbsp;<br/>
+                          <span t-esc="doc.agent_id.email"/>
+                        </font>
+                      </td>
+                    </t>
+                    <t t-if="doc.type == 'general'">
+                      <!-- <td width="5%"/> -->
+                      <td width="30%" style="text-align: left">
+                        <font style="font-size: 14px;">
+                          <span t-field="doc.name"/><br/>
+                          <span t-field="doc.payment_term_id.name"/><br/>
+                          <span t-field="doc.picking_type_id.warehouse_id.partner_id.name"/>
+                        </font>
+                        <font style="font-size: 14px;"><br/>
 
-                        <t t-if="doc.picking_type_id.warehouse_id.partner_id.supplier == True">
-                          <span t-field="doc.picking_type_id.warehouse_id.partner_id.street"/>&amp;nbsp;
-                        </t>
-                        <t t-if="doc.picking_type_id.warehouse_id.partner_id.supplier == False">
-                          <span t-if="doc.picking_type_id.warehouse_id.partner_id.company_id.house_number">
-                            <span t-esc="doc.picking_type_id.warehouse_id.partner_id.company_id.house_number"/>&amp;nbsp;
+                          <t t-if="doc.picking_type_id.warehouse_id.partner_id.supplier == True">
+                            <span t-field="doc.picking_type_id.warehouse_id.partner_id.street"/>&amp;nbsp;
+                          </t>
+                          <t t-if="doc.picking_type_id.warehouse_id.partner_id.supplier == False">
+                            <span t-if="doc.picking_type_id.warehouse_id.partner_id.company_id.house_number">
+                              <span t-esc="doc.picking_type_id.warehouse_id.partner_id.company_id.house_number"/>&amp;nbsp;
+                            </span>
+                            <span t-if="doc.picking_type_id.warehouse_id.partner_id.company_id.moo_number">
+                              <span t-esc="doc.picking_type_id.warehouse_id.partner_id.company_id.moo_number"/>&amp;nbsp;
+                            </span>
+                            <span t-field="doc.picking_type_id.warehouse_id.partner_id.street"/>&amp;nbsp;<br/>
+                          </t>
+                          <span t-if="doc.picking_type_id.warehouse_id.partner_id.city">
+                            <span t-esc="doc.picking_type_id.warehouse_id.partner_id.city"/>&amp;nbsp;
                           </span>
-                          <span t-if="doc.picking_type_id.warehouse_id.partner_id.company_id.moo_number">
-                            <span t-esc="doc.picking_type_id.warehouse_id.partner_id.company_id.moo_number"/>&amp;nbsp;
+                          <span t-if="doc.picking_type_id.warehouse_id.partner_id.state_id.name">
+                            <span t-esc="doc.picking_type_id.warehouse_id.partner_id.state_id.name"/>&amp;nbsp;
                           </span>
-                          <span t-field="doc.picking_type_id.warehouse_id.partner_id.street"/>&amp;nbsp;
-                        </t>
-                        <span t-if="doc.picking_type_id.warehouse_id.partner_id.city">
-                          <span t-esc="doc.picking_type_id.warehouse_id.partner_id.city"/>&amp;nbsp;
-                        </span>
-                        <span t-if="doc.picking_type_id.warehouse_id.partner_id.state_id.name">
-                          <span t-esc="doc.picking_type_id.warehouse_id.partner_id.state_id.name"/>&amp;nbsp;
-                        </span>
-                        <span t-if="doc.picking_type_id.warehouse_id.partner_id.zip">
-                          <span t-field="doc.picking_type_id.warehouse_id.partner_id.zip"/>&amp;nbsp;<br/>
-                        </span>
+                          <span t-if="doc.picking_type_id.warehouse_id.partner_id.zip">
+                            <span t-field="doc.picking_type_id.warehouse_id.partner_id.zip"/>&amp;nbsp;<br/>
+                          </span>
                           <span t-esc="doc.picking_type_id.warehouse_id.partner_id.phone"/><br/>
                           <span t-esc="doc.picking_type_id.warehouse_id.partner_id.fax"/>&amp;nbsp;<br/>
                           <span t-esc="doc.picking_type_id.warehouse_id.partner_id.email"/>
-                      </font>
-                    </td>
-                  </t>
+                        </font>
+                      </td>
+                    </t>
                   </tr>
-
                 </table>
               </th>
             </tr>
@@ -592,9 +614,10 @@
                   <p style="margin-top:5px;">
                     <font style="font-size: 14px;">
                       <span>Discount</span><br/>
-                      <span>Sub Total </span><br/>
-                      <span>Vat  7%</span><br/>
-                      <span>Withholding Tax </span><br/>
+                      <span>Sub Total
+                      </span><br/>
+                      <span>Vat 7%</span><br/>
+                      <!--<span>Withholding Tax </span><br/>-->
                       <span>Grand Total</span>(<span t-field="doc.currency_id.name"/>)
                     </font>
                   </p>
@@ -612,7 +635,7 @@
                         </t>
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
-                        <span>0.00</span><br/>
+                        <!-- <span>0.00</span><br/> -->
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_total))"/>
 
                       </div>
@@ -721,6 +744,6 @@
         </div>
       </t>
 
-        </template>
-    </data>
+    </template>
+  </data>
 </openerp>
