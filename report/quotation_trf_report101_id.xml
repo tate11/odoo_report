@@ -2,8 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.quotation_trf_report101_id">
-               
-           <t t-foreach="docs" t-as="doc">
+                    <t t-foreach="docs" t-as="doc">
                 <t t-set="sum_total" t-value="0"/>
                 <t t-set="sum_amount" t-value="0"/>
                 <t t-set="total_sum_amount" t-value="0"/>

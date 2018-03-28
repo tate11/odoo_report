@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.invoice_trf_report100_id">
-                <t t-foreach="docs" t-as="doc">
+               <t t-foreach="docs" t-as="doc">
                 <t t-set="j" t-value="0"/>
                 <div class="header">
                     <style>
@@ -51,94 +51,86 @@
                     </style>
                     <table width="100%">
                         <tr>
-                            <th colspan="4">
+                            <th colspan="3">
                                 <table width="100%">
                                     <tr>
-                                        <td width="20%" rowspan="2">
+                                        
+                                        <td width="20%" rowspan="3">
                                             <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
                                         </td>
-                                        <td width="80%">
-                                            <font style="font-size: 16px;">
+                                        <td width="60%">
+                                            <font style="font-size: 23px;">
                                                 <strong t-field="doc.company_id.rml_header1"/><br/>
+                                            </font>
+                                            <font style="font-size: 20px;">
                                                 <strong t-field="doc.company_id.name"/><br/>
                                             </font>
                                             <font style="font-size: 12px;">
-                                                <t t-if="not doc.company_branch">
-                                                    <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                                                    <strong t-field="doc.company_id.country_id.name"/>&amp;nbsp;<strong>(Head Office)</strong><br/>
-                                                    <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
-                                                    <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
-                                                    <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                                                    <strong>(สำนักงานใหญ่)</strong><br/>
-                                                    <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_id.phone"/></strong>
-                                                    <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-esc="doc.company_id.fax"/></strong><br/>
-                                                    <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;account@ThaiReefer.co.th<!--<strong t-esc="doc.company_id.email"/>--></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th<!--<span t-field="doc.company_id.website"/>--></st></strong><br/>
-                                                    <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>
-                                                </t>
-                                                <t t-if="doc.company_branch">
-                                                    <strong t-field="doc.company_branch.street2"/>&amp;nbsp;<strong t-field="doc.company_branch.zip"/>&amp;nbsp;
-                                                    <strong t-field="doc.company_branch.country_id.name"/>&amp;nbsp;<strong>(Branch No.<t t-esc="doc.company_branch.branch_no"/>)</strong><br/>
-                                                    <!--<strong t-field="doc.company_branch.house_number"/>&amp;nbsp;<strong t-if="doc.company_branch.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;-->
-                                                    <strong t-field="doc.company_branch.street"/>&amp;nbsp;<strong t-if="doc.company_branch.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
-                                                    <strong t-if="doc.company_branch.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_branch.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_branch.zip"/>&amp;nbsp;
-                                                    <strong>(สาขาที่ <t t-esc="doc.company_branch.branch_no"/>) </strong><br/>
-                                                    <strong t-if="doc.company_branch.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_branch.phone"/></strong>
-                                                    <strong t-if="doc.company_branch.fax">Fax :&amp;nbsp;<strong t-esc="doc.company_branch.fax"/></strong><br/>
-                                                    <strong t-if="doc.company_branch.email">E-mail :&amp;nbsp;<strong t-esc="doc.company_branch.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st><span t-field="doc.company_branch.website"/></st></strong><br/>
-                                                    <strong t-if="doc.company_branch.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_branch.vat"/></strong>
-                                                </t>
-                                            </font><br/><br/>
+                                                <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                                                <!--<strong t-field="doc.company_id.country_id.name"/>-->&amp;nbsp;<strong>(Head Office)</strong><br/>
+                                                <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
+                                                <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>
+                                                <strong t-if="doc.company_id.state_id.name">จ.<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                                                <strong>(สำนักงานใหญ่)</strong><br/>
+                                                <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.phone"/></strong>
+                                                <strong t-if="doc.company_id.fax">&amp;nbsp;Fax :&amp;nbsp;<strong t-field="doc.company_id.fax"/></strong><br/>
+                                                <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-field="doc.company_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st></strong><br/>
+                                                <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong><br/>
+                                                <!--<strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>-->
+                                            </font>
                                         </td>
                                     </tr>
                                 </table>
-                                <table width="100%">
+                                 <table width="100%">
                                     <tr>
                                         <td style="text-align:center;">
                                             <font style="font-size: 18px;">
-                                                <strong>Invoice / ใบแจ้งหนี้</strong>
-                                                <br/><br/>
+                                                  <br/>
+                                                <strong>Invoice/ใบแจ้งหนี้</strong>
+                                                <br/>
                                             </font>
                                         </td>
                                     </tr>
                                 </table>
-                                <table width="100%">
+                                      <table width="100%">
                                     <tr>
-                                        <td width="10%" style="text-align: right">
+                                        <td width="15%" style="text-align: left">
                                             <font style="font-size: 14px;">
-                                                <strong>Cust ID</strong><br/>
-                                            </font>
-                                        </td>
-                                        <td width="5%"/>
+                                                <strong>Customer ID</strong><br/>
+                                                <strong>Customer Name</strong><br/>
+                                          </font>
+                                      </td>
+                                        
                                         <td width="60%" style="text-align: left">
                                             <font style="font-size: 14px;">
-                                                <span t-field="doc.partner_id.ref"/><br/>
+                            <span t-field="doc.partner_id.ref"/><br/>
                                                 <span t-field="doc.partner_id.name"/>
-                                            </font>
-                                        </td>
-                                        <td width="5%"/>
-                                        <td width="10%" style="text-align: left">
-                                            <font style="font-size: 14px;"><br/>
-                                                <strong>เลขที่ No.</strong>
-                                            </font>
-                                        </td>
-                                        <td width="10%" style="text-align: right">
-                                            <font style="font-size: 14px;"><br/>
+                                          </font>
+                                      </td>
+                                       
+                                        <td width="14%" style="text-align: left">
+<font style="font-size: 14px;"><br/>
+                                                <strong>No.</strong>
+                                          </font>
+                                      </td>
+                                        <td width="11%" style="text-align: right">
+<font style="font-size: 14px;"><br/>
                                                 <span t-field="doc.number"/>
-                                            </font>
-                                        </td>
-                                    </tr>
+                                          </font>
+                                      </td>
+   </tr>
                                     <tr>
-                                        <td width="10%" style="text-align: right">
+                                        <td width="15%" style="text-align: left">
                                             <font style="font-size: 14px;">
-                                                <strong>ลูกค้า</strong>
-                                                <br/><br/><br/>
-                                                <strong>Your Ref</strong>
-                                            </font>
-                                        </td>
-                                        <td width="5%"/>
+                                                <br/>
+                                <br/><br/>
+                                                <strong>Po No.</strong>
+                                          </font>
+                                      </td>
+                                        
                                         <td width="60%" style="text-align: left">
                                             <font style="font-size: 14px;">
-                                                <span t-if="doc.partner_id.street"><span t-esc="doc.partner_id.street"/></span><br/>
+                        <span t-if="doc.partner_id.street"><span t-esc="doc.partner_id.street"/></span><br/>
                                                 <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/>&amp;nbsp;</span>
                                                 <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
                                                 <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
@@ -152,26 +144,26 @@
                                                 </t>
                                                 <br/>
                                                 <span t-field="doc.reference_inv"/>
-                                            </font>
-                                        </td>
-                                        <td width="5%"/>
-                                        <td width="10%" style="text-align: left">
+                                          </font>
+                                      </td>
+                                        
+                                        <td width="14%" style="text-align: left">
                                             <font style="font-size: 14px;">
-                                                <strong>วันที่ Date</strong><br/>
+<strong>Date</strong><br/>
                                                 <strong>Due Date</strong><br/>
                                                 <strong>Term</strong><br/>
-                                                <strong>Ref</strong><br/>
-                                            </font>
-                                        </td>
-                                        <td width="10%" style="text-align: right">
+                                                <strong>Sale Order Ref</strong>
+                                          </font>
+                                      </td>
+                                        <td width="11%" style="text-align: right">
                                             <font style="font-size: 14px;">
-                                                <span t-field="doc.date_invoice"/><br/>
+                <span t-field="doc.date_invoice"/><br/>
                                                 <span t-field="doc.date_due"/><br/>
                                                 <span t-esc="doc.payment_term_id.name"/><br/>
                                                 <span t-field="doc.origin"/>
-                                            </font>
-                                        </td>
-                                    </tr>
+                                          </font>
+                                      </td>
+   </tr>
                                 </table>
                             </th>
                         </tr>
@@ -196,17 +188,17 @@
                                         <font style="font-size: 14px;">Qty / Unit<br/>(จำนวน / หน่วย)</font>
                                     </p>
                                 </th>
-                                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                                     <p style="margin-top:10px;margin-bottom:10px">
                                         <font style="font-size: 14px;">Unit Price<br/>(ราคา)</font>
                                     </p>
                                 </th>
-                                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                                     <p style="margin-top:10px;margin-bottom:10px">
                                         <font style="font-size: 14px;">Discount<br/>(ส่วนลด)</font>
                                     </p>
                                 </th>
-                                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                                     <p style="margin-top:10px;margin-bottom:10px">
                                         <font style="font-size: 14px;">Total<br/>(จำนวนเงิน)</font>
                                     </p>
@@ -253,18 +245,18 @@
                                             <span t-esc="l.uom_id.name"/>
                                         </font>
                                     </td>
-                                    <td style="text-align: right;">
+                                    <td style="text-align: center;">
                                         <font style="font-size: 14px;">
                                             <span t-esc="'{0:,.2f}'.format(float(l.price_unit))"/>
                                         </font>
                                     </td>
-                                    <td style="text-align: right;">
+                                    <td style="text-align: center;">
                                         <font style="font-size: 14px;">
                                             <t t-if="l.discount"><t t-set="j" t-value="1"/><span t-esc="l.discount"/>%</t>
                                             <t t-if="l.discount_amount"><t t-set="j" t-value="1"/> <span t-esc="'{0:,.2f}'.format(float(l.discount_amount))"/></t>
                                         </font>
                                     </td>
-                                    <td style="text-align: right;">
+                                    <td style="text-align: center;">
                                         <font style="font-size: 14px;">
                                             <span t-esc="'{0:,.2f}'.format(float(l.price_subtotal))"/>
                                         </font>
@@ -330,7 +322,7 @@
                                             <span>Discount (ส่วนลด)</span><br/>
                                             <span>Sub Total (รวม)</span><br/>
                                             <span>Vat (ภาษีมูลค่าเพิ่ม) 7%</span><br/>
-                                            <span>Withholding Tax ภาษีหัก ณ ที่จ่าย <span t-esc="doc.WHT_Type"/> </span><br/>
+                                            <span>Withholding Tax (ภาษีหัก ณ ที่จ่าย) <span t-esc="doc.WHT_Type"/> </span><br/>
                                             <span>Grand Total(ชำระเงินสุทธิ)</span> (<span t-field="doc.currency_id.name"/>)
                                         </font>
                                     <!--</p>-->
