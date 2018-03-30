@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.quotation_trf_report101_id">
-                    <t t-foreach="docs" t-as="doc">
+                        <t t-foreach="docs" t-as="doc">
                 <t t-set="sum_total" t-value="0"/>
                 <t t-set="sum_amount" t-value="0"/>
                 <t t-set="total_sum_amount" t-value="0"/>
@@ -499,7 +499,10 @@
                                         <font style="font-size: 14px;">
                                             <span>Discount         </span><br/>
                                             <span>Sub Total        </span><br/>
-                                            <span>Vat         7%</span><br/>
+                                           <!-- <span>Vat         7%</span><br/> -->
+                                                   <t t-if="doc.company_id.vat != '0105542020983'">
+                                                    <span>Vat         7%</span><br/>
+                                                    </t>
                                             <span>Withholding Tax                     <span t-esc="doc.WHT_Type"/> </span><br/>
                                             <span>Grand Total                  </span>(THB)
                                         </font>
@@ -511,7 +514,9 @@
                                             <div class="last-page"> 
                                                 <span t-esc="'{0:,.2f}'.format(float(discounted_amount))"/> <br/>
                                                 <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-discounted_amount))"/><br/>
-                                                <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
+                                               <t t-if="doc.company_id.vat != '0105542020983'">
+                                                    <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
+                                                    </t>
                                                 <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
                                                 <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/></t></t>
                                                 <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t></t>
@@ -585,7 +590,7 @@
                                 <td width="25%" style="text-align: left;">
                                     <p style="margin-top:10px;">
                                         <font style="font-size: 14px;">
-                                            <span>Vat(ภาษีมูลค่าเพิ่ม)7%</span>
+                                                    <span>Vat(ภาษีมูลค่าเพิ่ม)7%</span>
                                         </font>
                                     </p>
                                 </td>
@@ -750,7 +755,7 @@
                                     <td/>
                                     <td style="text-align: center;">
                                         <ul class="list-inline">
-                                        <br/><br/>
+                                        
                                             <li>Page</li>
                                             <li><span class="page"/></li>
                                             <li>of</li>
