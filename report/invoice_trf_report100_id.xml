@@ -70,7 +70,7 @@
                                                 <!--<strong t-field="doc.company_id.country_id.name"/>-->&amp;nbsp;<strong>(Head Office)</strong><br/>
                                                 <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
                                                 <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>
-                                                <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                                                <strong t-if="doc.company_id.state_id.name">จ.<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
                                                 <strong>(สำนักงานใหญ่)</strong><br/>
                                                 <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.phone"/></strong>
                                                 <strong t-if="doc.company_id.fax">&amp;nbsp;Fax :&amp;nbsp;<strong t-field="doc.company_id.fax"/></strong><br/>
@@ -321,7 +321,9 @@
                                         <font style="font-size: 14px;">
                                             <span>Discount (ส่วนลด)</span><br/>
                                             <span>Sub Total (รวม)</span><br/>
-                                            <span>Vat (ภาษีมูลค่าเพิ่ม) 7%</span><br/>
+                                            <t t-if="doc.company_id.vat != '0105542020983'">
+                                                    <span>Vat (ภาษีมูลค่าเพิ่ม) 7%</span><br/>
+                                            </t>
                                             <span>Withholding Tax (ภาษีหัก ณ ที่จ่าย) <span t-esc="doc.WHT_Type"/> </span><br/>
                                             <span>Grand Total(ชำระเงินสุทธิ)</span> (<span t-field="doc.currency_id.name"/>)
                                         </font>
@@ -337,7 +339,9 @@
                                                 <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/><br/></t>
                                                 <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-doc.discounted_amount))"/><br/></t>
                                                 <t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/></t>
-                                                <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
+                                                <t t-if="doc.company_id.vat != '0105542020983'">
+                                                     <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
+                                                </t>
                                                 <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
                                                 <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/></t></t>
                                                 <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t></t>
