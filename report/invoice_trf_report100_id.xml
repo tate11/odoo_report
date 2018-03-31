@@ -220,22 +220,22 @@
                                     <td style="text-align: left;">
                                         <font style="font-size: 14px;">
                                             <span t-field="l.name"/><br/>
-                                            <t t-if="l.sale_id.start_date">
+                                          <!--  <t t-if="l.sale_id.start_date"> 
                                                 <span>วันที่: </span>
-                                                <span t-field="l.sale_id.start_date"/>
+                                                <span t-field="l.sale_id.start_date"/> 
                                                 <t t-if="l.sale_id.end_date">
                                                     <span>-</span>
                                                     <span t-field="l.sale_id.end_date"/>
-                                                </t>
+                                                </t> 
                                                 <br/>
                                             </t>
                                             <t t-if="l.sale_id.sale_note">
                                                 <span t-esc="l.sale_id.sale_note"/><br/>
-                                            </t>
+                                            </t> 
                                             <t t-if="doc.get_split_container_line_three(l)">
                                                 <span>Container No. :</span><br/>
                                                 <span t-esc="doc.get_split_container_line_three(l)"/>
-                                            </t>
+                                            </t>  -->
                                         </font>
 
                                     </td>
