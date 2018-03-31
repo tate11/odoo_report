@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.invoice_trf_report100_id">
-               <t t-foreach="docs" t-as="doc">
+              <t t-foreach="docs" t-as="doc">
                 <t t-set="j" t-value="0"/>
                 <div class="header">
                     <style>
@@ -70,7 +70,7 @@
                                                 <!--<strong t-field="doc.company_id.country_id.name"/>-->&amp;nbsp;<strong>(Head Office)</strong><br/>
                                                 <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
                                                 <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>
-                                                <strong t-if="doc.company_id.state_id.name">จ.<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                                                <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
                                                 <strong>(สำนักงานใหญ่)</strong><br/>
                                                 <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.phone"/></strong>
                                                 <strong t-if="doc.company_id.fax">&amp;nbsp;Fax :&amp;nbsp;<strong t-field="doc.company_id.fax"/></strong><br/>
