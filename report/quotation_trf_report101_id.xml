@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.quotation_trf_report101_id">
-                        <t t-foreach="docs" t-as="doc">
+                            <t t-foreach="docs" t-as="doc">
                 <t t-set="sum_total" t-value="0"/>
                 <t t-set="sum_amount" t-value="0"/>
                 <t t-set="total_sum_amount" t-value="0"/>
@@ -165,7 +165,7 @@
                                         </td>
                                       <td width="20%" style="text-align: right">
                                             <font style="font-size: 14px;">
-    <span t-field="doc.name"/><br/>
+    <span t-field="doc.name"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>Rev.</strong> <span t-field="doc.version"/><br/>
                                                 <span t-field="doc.date_order" t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/><br/>
                                                 <span t-if="doc.payment_term_id"><span t-field="doc.payment_term_id.name"/></span><br/>
                                                 <span t-if="doc.valid_unit"><span t-field="doc.valid_unit"/></span><br/>
@@ -732,8 +732,9 @@
                                         <p style="margin-top:10px;">
                                             <font style="font-size: 14px;">
                                                 <span t-field="doc.company_id.rml_header1"/>
-                                                <br/><br/><br/>
-                                                <span>Sign:</span><br/><br/>
+                                                <br/>
+ <img src='/signature/static/tridej.png' style="max-height: 75px;"/>
+                                                <span>Sign:</span> <br/>
                                                 <span>Name:</span>
                                             </font>
                                         </p>
