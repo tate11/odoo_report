@@ -142,14 +142,14 @@
 
             <!-- paperformat Invoice -->
           <report
-                id="odoo_report.invoice_trf_report100_id"
+                id="odoo_report.invoice_trf_report110_id"
                 model="account.invoice"
                 menu="True"
                 report_type="qweb-pdf"
                 string="Invoice For Silom"
                 paperformat="paperformat_A4_DayAndMonth"
-                name="odoo_report.invoice_trf_report100_id"
-                file="odoo_report.invoice_trf_report100_id"
+                name="odoo_report.invoice_trf_report110_id"
+                file="odoo_report.invoice_trf_report110_id"
         />
 
           <!-- paperformat quotation -->
