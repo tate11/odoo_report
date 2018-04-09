@@ -16,6 +16,23 @@
           <t t-set="vat1_id" t-value="o.supplier_taxid_text"/>
         </t>
         <div class="page" t-attf-style="background-image:url('/signature/static/whithoding.jpg'); background-size:360mm 520mm; width:360mm; height:520mm;">
+          <div style="text-align:center; position: absolute;left: 1200px;top: 130px;">
+            <font style="font-size: 20px;">
+              <t t-set="a" t-value="0"/>
+              <t t-foreach="o.line_ids" t-as="b">
+                <t t-if="b.name==o.line_ids[0].payment_id.name">
+                  <t t-set="a" t-value="b.name"/>
+                </t>
+              </t>
+              <t t-if="a!=0">
+                <span t-esc="a"/>
+              </t>
+              <t t-if="a==0">
+                <span t-esc="o.name"/>
+              </t>
+              <br/>
+            </font>
+          </div>
           <div style="text-align:center; position: absolute;left: 1200px;top: 150px;">
             <font style="font-size: 20px;">
               <span t-field="o.wht_reference"/>
