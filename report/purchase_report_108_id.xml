@@ -106,18 +106,16 @@
                       <t t-if="doc.department_id.name == 'SADAO' ">
                         <font style="font-size: 16px;">
                           <strong t-field="doc.company_id.rml_header1"/><br/>
-                          <strong t-field="doc.company_id.name"/>
-                          &amp;nbsp;(สาขาที่ <strong t-esc="doc.company_id.parent_id.branch_no"/>)<br/>
+                          <strong t-field="doc.company_id.name"/><br/>
                         </font>
                         <font style="font-size: 12px;">
-                          <strong t-field="doc.company_id.parent_id.street2"/>&amp;nbsp;&amp;nbsp;<strong t-field="doc.company_id.parent_id.zip"/>&amp;nbsp;<br/>
-                          <strong t-field="doc.company_id.parent_id.street"/>&amp;nbsp;&amp;nbsp;<strong t-field="doc.company_id.parent_id.city"/>
-                          <strong t-field="doc.company_id.parent_id.state_id.name"/>&amp;nbsp;<strong t-field="doc.company_id.parent_id.zip"/><br/>
-                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.parent_id.phone"/></strong>
-                          <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-field="doc.company_id.parent_id.fax"/></strong><br/>
-                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-field="doc.company_id.parent_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
-                          </strong><br/>
-                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.parent_id.vat"/></strong>
+                          <strong><st> 146 Moo 2, Kanjanavanich Rd., Samnak Kham, Sadao, Songkhla 90320 (Branch No. 00003)</st></strong><br/>
+                          <strong> <st> 146 หมู่ 2 ถ.กาญจนวนิช ต.สำนักขาม อ.สะเดา จ.สงขลา 90320  (สาขาที่ 00003)</st></strong><br/>
+                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong><st> (034) 466044, (034) 466469</st></strong></strong>
+                          <strong t-if="doc.company_id.fax"> Fax :&amp;nbsp;<strong><st>  (034) 466066</st></strong></strong><br/>
+                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong><st> info@ThaiReefer.co.th </st></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
+                          </strong></strong><br/>
+                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong><st> 0105542069401 </st></strong></strong>
                         </font>
                       </t>
                       <t t-if="doc.department_id.name != 'SADAO' ">
