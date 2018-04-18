@@ -15,7 +15,8 @@
             'report/wht3_report_105_id.xml',
             'report/equipment_report_106_id.xml',
             'report/documentation_report_107_id.xml',
-            'report/purchase_report_108_id.xml'],
+            'report/purchase_report_108_id.xml',
+            'report/invoice_trf_std_report_111_id.xml'],
     'auto_install':False,
     'application':True
 }
