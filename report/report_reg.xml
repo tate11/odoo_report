@@ -280,8 +280,8 @@
               model="account.invoice"
               menu="True"
               report_type="qweb-pdf"
-              string="Invoice(TRF) STD(New)"
-              paperformat="paperformat_A4_documentation_report"
+              string="Invoice(TRF)(New)"
+              paperformat="paperformat_A4_invoice_trf_std"
               name="odoo_report.invoice_trf_std_report_111_id"
               file="odoo_report.invoice_trf_std_report_111_id"
       />
