@@ -4,7 +4,7 @@
     'category':'Extends Report',
     'summary':'',
     'description':"""...""",
-    'depends':['account','product','stock','purchase','sale_service','project_timesheet','mrp_repair','thaireefer_extended','report_xlsx','sale','thai_accounting','thai_accounting_taxinvoice'],
+    'depends':['account','product','stock','purchase','sale_service','project_timesheet','mrp_repair','thaireefer_extended','report_xlsx','sale','thai_accounting','thai_accounting_taxinvoice','thai_accounting_branch','thai_accounting_receipt'],
     'website':'http://www.thaireefer.co.th',
     'data':['report/report_reg.xml',
             'report/invoice_trf_report110_id.xml',
@@ -16,7 +16,9 @@
             'report/equipment_report_106_id.xml',
             'report/documentation_report_107_id.xml',
             'report/purchase_report_108_id.xml',
-            'report/invoice_trf_std_report_111_id.xml'],
+            'report/invoice_trf_std_report_111_id.xml',
+            'report/receipt_voucher_112_id.xml',
+            'report/bill_report_113_id.xml'],
     'auto_install':False,
     'application':True
 }
