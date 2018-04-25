@@ -307,7 +307,7 @@
                                                 </td>
                                                 <t t-if="l.WHT_Type == '1%'" style="text-align:right">
                                                     <t t-set="amount_taxed5" t-value="total_discount *  0.01"/>
-                                                    <t t-set="sum_amount_taxed" t-value="amount_taxed5"/>
+                                                    <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/> 
                                                     <td style="text-align:right">
                                                         <font style="font-size: 14px;">
                                                             <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
@@ -316,7 +316,7 @@
                                                 </t>
                                                 <t t-if="l.WHT_Type == '2%'" style="text-align:right">
                                                     <t t-set="amount_taxed5" t-value="total_discount *  0.02"/>
-                                                    <t t-set="sum_amount_taxed" t-value="amount_taxed5"/>
+                                                    <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
                                                     <td style="text-align:right">
                                                         <font style="font-size: 14px;">
                                                             <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
@@ -325,7 +325,7 @@
                                                 </t>
                                                 <t t-if="l.WHT_Type == '3%'" style="text-align:right">
                                                     <t t-set="amount_taxed5" t-value="total_discount *  0.03"/>
-                                                    <t t-set="sum_amount_taxed" t-value="amount_taxed5"/>
+                                                    <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
                                                     <td style="text-align:right">
                                                         <font style="font-size: 14px;">
                                                             <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
@@ -334,7 +334,7 @@
                                                 </t>
                                                 <t t-if="l.WHT_Type == '5%'" style="text-align:right">
                                                     <t t-set="amount_taxed5" t-value="total_discount *  0.05"/>
-                                                    <t t-set="sum_amount_taxed" t-value="amount_taxed5"/>
+                                                    <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
                                                     <td style="text-align:right">
                                                         <font style="font-size: 14px;">
                                                             <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
@@ -346,7 +346,7 @@
                                                     <t t-set="sum_amount_taxed" t-value="amount_taxed5"/>
                                                     <td style="text-align:right">
                                                         <font style="font-size: 14px;">
-                                                            <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
+                                                            <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>
                                                         </font>
                                                     </td>
                                                 </t>
@@ -399,11 +399,13 @@
                                                     <span t-esc="'{0:,.2f}'.format(float(sum_tax))"/>
                                                 </font>
                                             </td>
+                                             
                                             <td class="text-right">
                                                 <font style="font-size: 14px;">
-                                                    <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>
+                                                     <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/> 
                                                 </font>
                                             </td>
+                                            
                                             <td class="text-right">
                                                 <font style="font-size: 14px;">
                                                     <t t-set="grand_total" t-value="0"/>
@@ -427,7 +429,7 @@
                         <!--</td>-->
                         <!--<td class="text-right">-->
                         <!--<font style="font-size: 14px;">-->
-                        <!--<span t-esc="'{0:,.2f}'.format(float(amount_tax1))"/>-->
+                        <!--<span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>-->
                         <!--</font>-->
                         <!--</td>-->
                         <!--<td class="text-right">-->
@@ -469,6 +471,7 @@
 
                 </t>
             </t>      
+
         </template>
     </data>
 </openerp>
