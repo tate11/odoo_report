@@ -18,7 +18,9 @@
             'report/purchase_report_108_id.xml',
             'report/invoice_trf_std_report_111_id.xml',
             'report/receipt_voucher_112_id.xml',
-            'report/bill_report_113_id.xml'],
+            'report/bill_report_113_id.xml',
+            'report/receipt_customer_new_114_id.xml',
+            'report/receipt_customer_new_type_115_id.xml'],
     'auto_install':False,
     'application':True
 }

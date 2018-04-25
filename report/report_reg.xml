@@ -152,8 +152,8 @@
           <field name="dpi">90</field>
       </record>
        <!-- paperformat invoice_trf_report -->
-      <record id="paperformat_A4_invoice_trf_std" model="report.paperformat">
-          <field name="name">A4_invoice_trf_std</field>
+      <record id="paperformat_A4_invoice_trf_New_111" model="report.paperformat">
+          <field name="name">A4_invoice_trf_New_111</field>
           <field name="default" eval="False"/>
           <field name="format">A4</field>
           <field name="orientation">Portrait</field>
@@ -167,7 +167,7 @@
       </record>
 
 
-      <!-- paperformat invoice_trf_report -->
+      <!-- paperformat_A4_bill -->
       <record id="paperformat_A4_bill" model="report.paperformat">
           <field name="name">A4_bill</field>
           <field name="default" eval="False"/>
@@ -183,7 +183,7 @@
       </record>
 
 
-       <!-- paperformat invoice_trf_report -->
+       <!-- paperformat_A4_Voucher -->
       <record id="paperformat_A4_Voucher" model="report.paperformat">
           <field name="name">A4_Voucher</field>
           <field name="default" eval="False"/>
@@ -199,8 +199,47 @@
       </record>
 
 
+       <!-- paperformat_A4_receipt_customer_new -->
+      <record id="paperformat_A4_receipt_customer_new" model="report.paperformat">
+          <field name="name">A4_receipt_customer_new</field>
+          <field name="default" eval="False"/>
+          <field name="format">A4</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">65</field>
+          <field name="margin_bottom">120</field>
+          <field name="margin_left">8</field>
+          <field name="margin_right">8</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">61</field>
+          <field name="dpi">90</field>
+      </record>
 
-         <!-- paperformat Bill -->
+
+
+         <!-- paperformat receipt_customer_new_type_115_id -->
+          <report
+                id="odoo_report.receipt_customer_new_type_115_id"
+                model="customer.receipt"
+                menu="True"
+                report_type="qweb-pdf"
+                string="Receipt(NEW TYPE) "
+                paperformat="paperformat_A4_receipt_costomer_new"
+                name="odoo_report.receipt_customer_new_type_115_id"
+                file="odoo_report.receipt_customer_new_type_115_id"
+        />
+         <!-- paperformat receipt_customer_new_114_id -->
+          <report
+                id="odoo_report.receipt_customer_new_114_id"
+                model="customer.receipt"
+                menu="True"
+                report_type="qweb-pdf"
+                string="Receipt(NEW) "
+                paperformat="paperformat_A4_receipt_costomer_new"
+                name="odoo_report.receipt_customer_new_114_id"
+                file="odoo_report.receipt_customer_new_114_id"
+        />
+
+         <!-- paperformat bill_report_113_id -->
           <report
                 id="odoo_report.bill_report_113_id"
                 model="customer.billing"
@@ -211,8 +250,8 @@
                 name="odoo_report.bill_report_113_id"
                 file="odoo_report.bill_report_113_id"
         />
-       
-            <!-- paperformat Invoice -->
+
+            <!-- paperformat invoice_trf_report110_id -->
           <report
                 id="odoo_report.invoice_trf_report110_id"
                 model="account.invoice"
@@ -224,7 +263,7 @@
                 file="odoo_report.invoice_trf_report110_id"
         />
 
-          <!-- paperformat quotation -->
+          <!-- paperformat quotation_trf_report101_id -->
          <report
                 id="odoo_report.quotation_trf_report101_id"
                 model="sale.order"
@@ -236,7 +275,7 @@
                 file="odoo_report.quotation_trf_report101_id"
         />
 
-          <!-- paperformat taxInvoice -->
+          <!-- paperformat taxinvoice_trf_report102_id -->
          <report
                 id="odoo_report.taxinvoice_trf_report102_id"
                 model="account.tax.invoice"
@@ -248,7 +287,7 @@
                 file="odoo_report.taxinvoice_trf_report102_id"
         />
 
-        <!-- paperformat group -->
+        <!-- paperformat invoice_group_report_103_id -->
          <report
                 id="odoo_report.invoice_group_report_103_id"
                 model="account.invoice"
@@ -260,7 +299,7 @@
                 file="odoo_report.invoice_group_report_103_id"
         />
 
-        <!-- paperformat wht53_report -->
+        <!-- paperformat wht53_report_104_id -->
          <report
                 id="odoo_report.wht53_report_104_id"
                 model="account.move"
@@ -272,7 +311,7 @@
                 file="odoo_report.wht53_report_104_id"
         />
 
-        <!-- paperformat wht3_report -->
+        <!-- paperformat wht3_report_105_id -->
          <report
                 id="odoo_report.wht3_report_105_id"
                 model="account.move"
@@ -284,7 +323,7 @@
                 file="odoo_report.wht3_report_105_id"
         />
 
-        <!-- paperformat equipment_report -->
+        <!-- equipment_report_106_id -->
          <report
                 id="odoo_report.equipment_report_106_id"
                 model="sale.order"
@@ -296,7 +335,7 @@
                 file="odoo_report.equipment_report_106_id"
         />
 
-          <!-- paperformat documentation_report -->
+          <!-- paperformat documentation_report_107_id -->
          <report
                 id="odoo_report.documentation_report_107_id"
                 model="sale.order"
@@ -308,7 +347,7 @@
                 file="odoo_report.documentation_report_107_id"
         />
 
-        <!-- paperformat purchase_report -->
+        <!-- paperformat purchase_report_108_id -->
        <report
               id="odoo_report.purchase_report_108_id"
               model="purchase.order"
@@ -319,18 +358,18 @@
               name="odoo_report.purchase_report_108_id"
               file="odoo_report.purchase_report_108_id"
       />
-        <!-- paperformat invoice_trf_std_report -->
+        <!-- paperformat invoice_trf_std_report_111_id -->
        <report
               id="odoo_report.invoice_trf_std_report_111_id"
               model="account.invoice"
               menu="True"
               report_type="qweb-pdf"
               string="Invoice(TRF)(New)"
-              paperformat="paperformat_A4_invoice_trf_std"
+              paperformat="paperformat_A4_invoice_trf_New_111"
               name="odoo_report.invoice_trf_std_report_111_id"
               file="odoo_report.invoice_trf_std_report_111_id"
       />
-
+        <!-- paperformat receipt_voucher_112_id -->
       <report
               id="odoo_report.receipt_voucher_112_id"
               model="account.move"
