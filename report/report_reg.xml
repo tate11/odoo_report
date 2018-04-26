@@ -215,14 +215,14 @@
           <field name="dpi">90</field>
       </record>
 
-     
+
          <!-- paperformat receipt_customer_new_type_115_id -->
           <report
                 id="odoo_report.receipt_customer_new_type_115_id"
                 model="customer.receipt"
                 menu="True"
                 report_type="qweb-pdf"
-                string="Receipt(NEW TYPE)"
+                string="ใบเสร็จรับเงิน (แบบรับชำระ) "
                 paperformat="paperformat_A4_receipt_customer_newV2"
                 name="odoo_report.receipt_customer_new_type_115_id"
                 file="odoo_report.receipt_customer_new_type_115_id"
@@ -233,7 +233,7 @@
                 model="customer.receipt"
                 menu="True"
                 report_type="qweb-pdf"
-                string="Receipt(NEW) "
+                string="ใบเสร็จรับเงิน (แบบเปล่า) "
                 paperformat="paperformat_A4_receipt_customer_new"
                 name="odoo_report.receipt_customer_new_114_id"
                 file="odoo_report.receipt_customer_new_114_id"
