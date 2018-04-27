@@ -184,7 +184,7 @@
                 <t t-if="not k.amount_before_tax">
                   <t t-set="sum1_total" t-value="k.credit*100/1"/>
                 </t>
-                <t t-set="description1" t-value="k.name"/>
+                <!--<t t-set="description1" t-value="k.name"/>-->
                 <t t-set="i" t-value="i+1"/>
               </t>
               <t t-if="k.wht_type == '2%' ">
