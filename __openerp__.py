@@ -20,7 +20,8 @@
             'report/receipt_voucher_112_id.xml',
             'report/bill_report_113_id.xml',
             'report/receipt_customer_new_114_id.xml',
-            'report/receipt_customer_new_type_115_id.xml'],
+            'report/receipt_customer_new_type_115_id.xml',
+            'report/purchase_report_trf_116_id.xml'],
     'auto_install':False,
     'application':True
 }

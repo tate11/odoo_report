@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-    <template id="odoo_report.purchase_report_108_id">
+    <template id="odoo_report.purchase_report_trf_116_id">
       <t t-foreach="docs" t-as="doc">
-        <t t-set="sum_total" t-value="0"/>
-        <t t-set="sum_amount" t-value="0"/>
-        <t t-set="total_sum_amount" t-value="0"/>
-        <t t-set="amount_due" t-value="0"/>
-        <t t-set="discounted_amount" t-value="0"/>
-        <t t-set="total" t-value="0"/>
-
-        <t t-set="max_body_height" t-value="140"/>
-        <t t-set="new_line_height" t-value="4"/>
-        <t t-set="row_line_height" t-value="7"/>
-        <t t-set="max_line_lenght" t-value="40"/>
-
-        <!--<t t-call="report.internal_layout">-->
+        <t t-set="amount_untaxed" t-value="doc.amount_untaxed"/>
+        <t t-set="amount_tax" t-value="doc.amount_tax"/>
+        <t t-set="amount_total" t-value="doc.amount_total"/>
+        <t t-set="discount" t-value="doc.discounted_amount"/>
+        <t t-set="total" t-value="amount_untaxed - discount"/>
+        <t t-set="sub_amount" t-value="0"/>
+        <t t-set="total_sub_amount" t-value="0"/>
+        <t t-set="total_sub_tax" t-value="0"/>
+        <t t-if="doc.date_order">
+          <t t-set="date" t-value="time.strptime(doc.date_order,'%Y-%m-%d %H:%M:%S')"/>
+        </t>
+        <!-- <t t-call="report.external_layout"> -->
 
         <div class="header">
           <style>
@@ -109,13 +108,38 @@
                           <strong t-field="doc.company_id.name"/><br/>
                         </font>
                         <font style="font-size: 12px;">
-                          <strong><st> 146 Moo 2, Kanjanavanich Rd., Samnak Kham, Sadao, Songkhla 90320 (Branch No. 00003)</st></strong><br/>
-                          <strong> <st> 146 หมู่ 2 ถ.กาญจนวนิช ต.สำนักขาม อ.สะเดา จ.สงขลา 90320  (สาขาที่ 00003)</st></strong><br/>
-                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong><st> (034) 466044, (034) 466469</st></strong></strong>
-                          <strong t-if="doc.company_id.fax"> Fax :&amp;nbsp;<strong><st>  (034) 466066</st></strong></strong><br/>
-                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong><st> info@ThaiReefer.co.th </st></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
-                          </strong></strong><br/>
-                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong><st> 0105542069401 </st></strong></strong>
+                          <strong>
+                            <st>
+                              146 Moo 2, Kanjanavanich Rd., Samnak Kham, Sadao, Songkhla 90320 (Branch No. 00003)</st>
+                          </strong><br/>
+                          <strong>
+                            <st>
+                              146 หมู่ 2 ถ.กาญจนวนิช ต.สำนักขาม อ.สะเดา จ.สงขลา 90320 (สาขาที่ 00003)</st>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong>
+                              <st>
+                                (034) 466044, (034) 466469</st>
+                            </strong>
+                          </strong>
+                          <strong t-if="doc.company_id.fax">
+                            Fax :&amp;nbsp;<strong>
+                              <st>
+                                (034) 466066</st>
+                            </strong>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong>
+                              <st>
+                                info@ThaiReefer.co.th
+                              </st>
+                            </strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
+                            </strong>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong>
+                              <st>
+                                0105542069401
+                              </st>
+                            </strong>
+                          </strong>
                         </font>
                       </t>
                       <t t-if="doc.department_id.name != 'SADAO' ">
@@ -125,7 +149,7 @@
                         </font>
                         <font style="font-size: 12px;">
                           <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                          <strong t-field="doc.company_id.country_id.name"/>&amp;nbsp;<strong>(Head Office)</strong><br/>
+                          <strong>(Head Office)</strong><br/>
                           <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
                           <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
                           <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
@@ -376,156 +400,8 @@
               <!-- <t t-foreach="range(count, 16)" t-as="x"> <tr height="20px;"> <td/> <td/> <td/> <td/> <td/> </tr> </t> -->
             </tbody>
           </table>
-          <!--<tfoot>-->
-          <!--<div class="last-page">-->
-          <!--<table width="100%">-->
-          <!--<tr>-->
-          <!--<td width="46%"/>-->
-          <!--<td width="25%" style="text-align: left;border-top:1px solid black;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span>Discount(ส่วนลด)</span>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--<td width="11%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>-->
-          <!--<td width="18%" style="text-align: right;border-top:1px solid black;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(discounted_amount))"/>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--<td width="46%"/>-->
-          <!--<td width="25%" style="text-align: left;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span>Sub Total(รวม)</span>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--<td width="11%"><p style="margin-top:10px;"/></td>-->
-          <!--<td width="18%" style="text-align: right;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-discounted_amount))"/>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--<td width="46%"/>-->
-          <!--<td width="25%" style="text-align: left;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span>Vat(ภาษีมูลค่าเพิ่ม)7%</span>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--<td width="11%"><p style="margin-top:10px;"/></td>-->
-          <!--<td width="18%" style="text-align: right;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--<td width="46%"/>-->
-          <!--<td width="25%" style="text-align: left;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span>Withholding Tax(ภาษีหัก ณ ที่จ่าย) <span t-esc="doc.WHT_Type"/></span>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--<td width="11%"><p style="margin-top:10px;"/></td>-->
-          <!--<td width="18%" style="text-align: right;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<t t-if="doc.WHT_Type">-->
-          <!--<t t-if="doc.WHT_Type == '1%'">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(((doc.amount_untaxed-discounted_amount))*0.01))"/>-->
-          <!--</t>-->
-          <!--<t t-if="doc.WHT_Type == '2%'">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(((doc.amount_untaxed-discounted_amount))*0.02))"/>-->
-          <!--</t>-->
-          <!--<t t-if="doc.WHT_Type == '3%'">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(((doc.amount_untaxed-discounted_amount))*0.03))"/>-->
-          <!--</t>-->
-          <!--<t t-if="doc.WHT_Type == '5%'">-->
-          <!--<span t-esc="'{0:,.2f}'.format(float(((doc.amount_untaxed-discounted_amount))*0.05))"/>-->
-          <!--</t>-->
-          <!--</t>-->
-          <!--<t t-if="not doc.WHT_Type">-->
-          <!--<span>0.00</span>-->
-          <!--</t>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--<td width="46%"/>-->
-          <!--<td width="25%" style="text-align: left;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<span>Grand Total(ชำระเงินสุทธิ) (THB)</span>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--<td width="11%"><p style="margin-top:10px;"/></td>-->
-          <!--<td width="18%" style="text-align: right;">-->
-          <!--<p style="margin-top:10px;">-->
-          <!--<font style="font-size: 14px;">-->
-          <!--<t t-if="doc.WHT_Type">-->
-          <!--<t t-if="doc.WHT_Type == '1%'">-->
-          <!--<t t-set="total_1" t-value="((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.01)"/>-->
-          <!--<t t-set="total" t-value="total+total_1"/>-->
-          <!--<span t-esc="'{0:,.2f}'.format(float((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.01))"/>-->
-          <!--</t>-->
-          <!--<t t-if="doc.WHT_Type == '2%'">-->
-          <!--<t t-set="total_1" t-value="((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.02)"/>-->
-          <!--<t t-set="total" t-value="total+total_1"/>-->
-          <!--<span t-esc="'{0:,.2f}'.format(float((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.02))"/>-->
-          <!--</t>-->
-          <!--<t t-if="doc.WHT_Type == '3%'">-->
-          <!--<t t-set="total_1" t-value="((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.03)"/>-->
-          <!--<t t-set="total" t-value="total+total_1"/>-->
-          <!--<span t-esc="'{0:,.2f}'.format(float((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.03))"/>-->
-          <!--</t>-->
-          <!--<t t-if="doc.WHT_Type == '5%'">-->
-          <!--<t t-set="total_1" t-value="((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.05)"/>-->
-          <!--<t t-set="total" t-value="total+total_1"/>-->
-          <!--<span t-esc="'{0:,.2f}'.format(float((doc.amount_total))-(((doc.amount_untaxed-discounted_amount))*0.05))"/>-->
-          <!--</t>-->
-          <!--</t>-->
-          <!--<t t-if="not doc.WHT_Type">-->
-          <!--<t t-set="total_1" t-value="(doc.amount_total)"/>-->
-          <!--<t t-set="total" t-value="total+total_1"/>-->
-          <!--<span t-esc="'{0:,.2f}'.format(float((doc.amount_total)))"/>-->
-          <!--</t>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--<tr>-->
-          <!--<td colspan="4" style="text-align: right;">-->
-          <!--<p style="margin-top:10px;">-->
 
-          <!--<font style="font-size: 14px;">-->
-          <!--<span>(<span t-esc="doc.num2_words(total)"/>)</span>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--</table>-->
-          <!--</div>-->
-          <!--</tfoot>-->
         </div>
-
         <div class="footer">
 
           <style>
@@ -631,10 +507,12 @@
                         <t t-if="doc.discounted_amount == 0.00">
                           <span>0.00</span><br/>
                         </t>
-                        <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
-                        <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
-                        <!-- <span>0.00</span><br/> -->
-                        <span t-esc="'{0:,.2f}'.format(float(doc.amount_total))"/>
+
+                        <t t-set="total_sub_amount" t-value="amount_untaxed  / 1.07"/>
+                        <span t-esc="'{0:,.2f}'.format(float(total_sub_amount))"/><br/>
+                        <span t-esc="'{0:,.2f}'.format(float(amount_untaxed - total_sub_amount))"/><br/>
+
+                        <span t-esc="'{0:,.2f}'.format(float(total))"/>
 
                       </div>
                     </font>
@@ -698,33 +576,35 @@
                       </font>
                     </p>
                   </td>
+
                   <td width="25%" style="text-align: left;">
                     <t t-if="doc.department_id.name != 'LAEMCHABANG'">
-                    <p style="margin-top:10px;">
-                      <font style="font-size: 14px;">
-                        <strong>Approved</strong><br style="line-height: 10px;"/>
-                        <strong>Sign:
-                          <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/>
-                          <br style="line-height: 30px;"/></strong>
-                        <strong>Name:</strong><br style="line-height: 10px;"/>
-                        <strong>Date:</strong>
-                      </font>
-                    </p>
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Approved</strong><br style="line-height: 10px;"/>
+                          <strong>Sign:
+                            <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/>
+                            <br style="line-height: 30px;"/></strong>
+                          <strong>Name:</strong><br style="line-height: 10px;"/>
+                          <strong>Date:</strong>
+                        </font>
+                      </p>
                     </t>
 
-                      <t t-if="doc.department_id.name == 'LAEMCHABANG'">
-                        <p style="margin-top:10px;">
-                          <font style="font-size: 14px;">
-                            <strong>Approved</strong><br style="line-height: 10px;"/>
-                            <strong>Sign:
-                                <img src="/signature/static/wong.png" style="width:150px;height:40px;"/>
-                               <br style="line-height: 30px;"/></strong>
-                            <strong>Name:</strong><br style="line-height: 10px;"/>
-                            <strong>Date:</strong>
-                          </font>
-                        </p>
-                        </t>
+                    <t t-if="doc.department_id.name == 'LAEMCHABANG'">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Approved</strong><br style="line-height: 10px;"/>
+                          <strong>Sign:
+                            <img src="/signature/static/wong.png" style="width:150px;height:40px;"/>
+                            <br style="line-height: 30px;"/></strong>
+                          <strong>Name:</strong><br style="line-height: 10px;"/>
+                          <strong>Date:</strong>
+                        </font>
+                      </p>
+                    </t>
                   </td>
+
                   <td width="25%" style="text-align: left;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
