@@ -114,7 +114,7 @@
                                     <t t-if="doc.company_branch">
                                         <!--<span t-field="doc.company_branch.house_number"/>&amp;nbsp;<span t-if="doc.company_branch.moo_number"><span t-esc="doc.company_id.moo_number"/></span>-->
                                         <span t-field="doc.company_branch.street"/>&amp;nbsp;
-                                        <span t-if="doc.company_branch.city"><span t-field="doc.company_branch.city"/></span>&amp;nbsp;<span t-if="doc.company_branch.state_id.name">จ.<span t-field="doc.company_id.state_id.name"/>&amp;nbsp;</span>
+                                        <span t-if="doc.company_branch.city"><span t-field="doc.company_branch.city"/></span>&amp;nbsp;<span t-if="doc.company_branch.state_id.name">จ.<span t-field="doc.company_branch.state_id.name"/>&amp;nbsp;</span>
                                         <span t-field="doc.company_branch.zip"/>&amp;nbsp;
                                         <span>(สาขาที่ <span t-field="doc.company_branch.branch_no"/>)</span><br/>
                                         <span t-if="doc.company_branch.phone">โทร :&amp;nbsp;<span t-esc="doc.company_branch.phone"/></span>&amp;nbsp;
@@ -307,7 +307,7 @@
                                                 </td>
                                                 <t t-if="l.WHT_Type == '1%'" style="text-align:right">
                                                     <t t-set="amount_taxed5" t-value="total_discount *  0.01"/>
-                                                    <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/> 
+                                                    <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
                                                     <td style="text-align:right">
                                                         <font style="font-size: 14px;">
                                                             <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
@@ -399,13 +399,13 @@
                                                     <span t-esc="'{0:,.2f}'.format(float(sum_tax))"/>
                                                 </font>
                                             </td>
-                                             
+
                                             <td class="text-right">
                                                 <font style="font-size: 14px;">
-                                                     <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/> 
+                                                     <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>
                                                 </font>
                                             </td>
-                                            
+
                                             <td class="text-right">
                                                 <font style="font-size: 14px;">
                                                     <t t-set="grand_total" t-value="0"/>
@@ -470,7 +470,7 @@
                     </div>
 
                 </t>
-            </t>      
+            </t>
 
         </template>
     </data>
