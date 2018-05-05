@@ -454,7 +454,7 @@
                             <div class="col-xs-5" style="text-align: left;">
                                 <font style="font-size: 14px;">
                                     <br/><br/>
-                                    <span>ชื่อผู้วางบิล </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span t-field="doc.create_uid.name"/><br/><br/>
+                                    <span>ชื่อผู้วางบิล </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span t-field="doc.user_id"/><br/><br/>
                                     <span>วันที่ </span><span style="position: absolute; left: 28%;" t-field="doc.date_billing"/><br/><br/>
                                     <span>ชื่อผู้ส่งเอกสาร ....................................</span><br/><br/>
                                     <span>วันที่ส่งเอกสาร ............/.........../...........</span><br/><br/>
