@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-# Copyright (C) 2016-2017  Technaureus Info Solutions(<http://technaureus.com/>).
 
 from openerp import api, fields, models, _
 from openerp.exceptions import UserError
@@ -38,9 +36,7 @@ class AccountInvoice(models.Model):
             voy = ''
             shipping_ids = ''
 
-            if line.product_id.charge_type == 'tran_agent' or line.product_id.charge_type == 'tran_contract' or line.product_id.charge_type == 'tran_none_contract':
-                product_name = 'TRANSPORTATION CHARGE'
-            else:
+            if line.product_id.charge_type == 'other_charge':
                 product_name = line.product_id.name
 
             if line.sale_id.type == 'general' or line.sale_id.type == 'logistic':
@@ -113,17 +109,17 @@ class AccountInvoice(models.Model):
                         if line.price_unit == invoice_line_s[x]['price_unit']:
                             print '3'
                             # print "found same product and same price"
-                            if not (line.product_id.charge_type == 'tran_agent' or line.product_id.charge_type == 'tran_contract' or line.product_id.charge_type == 'tran_none_contract'):
+                            if not (line.product_id.charge_type == 'other_charge'):
                                 print '4'
                                 if container != '' and (
-                                                    line.product_id.charge_type == 'tran_agent' or line.product_id.charge_type == 'tran_contract' or line.product_id.charge_type == 'tran_none_contract'):
+                                                    line.product_id.charge_type == 'other_charge'):
 
                                     print '5'
                                     invoice_line_s[x]['container_no'] += ','
                                     invoice_line_s[x]['container_no'] += container
 
                                 if booking != '' and (
-                                                    line.product_id.charge_type == 'tran_agent' or line.product_id.charge_type == 'tran_contract' or line.product_id.charge_type == 'tran_none_contract'):
+                                                    line.product_id.charge_type == 'other_charge'):
                                     print '6'
                                     if booking != invoice_line_s[x]['booking']:
                                         print '7'
@@ -158,12 +154,12 @@ class AccountInvoice(models.Model):
                                 if from_shipping_id == invoice_line_s[x]['from_shipping_id'] and to_shipping_id == invoice_line_s[x]['to_shipping_id'] and return_shipping_id == invoice_line_s[x]['return_shipping_id'] and size == invoice_line_s[x]['size']:
                                     print '8'
                                     if container != '' and (
-                                                        line.product_id.charge_type == 'tran_agent' or line.product_id.charge_type == 'tran_contract' or line.product_id.charge_type == 'tran_none_contract'):
+                                                        line.product_id.charge_type == 'other_charge'):
                                         invoice_line_s[x]['container_no'] += ','
                                         invoice_line_s[x]['container_no'] += container
 
                                     if booking != '' and (
-                                                        line.product_id.charge_type == 'tran_agent' or line.product_id.charge_type == 'tran_contract' or line.product_id.charge_type == 'tran_none_contract'):
+                                                        line.product_id.charge_type == 'other_charge'):
                                         print '9'
                                         if booking != invoice_line_s[x]['booking']:
                                             print '10'
@@ -250,3 +246,95 @@ class AccountInvoice(models.Model):
         #         print inv_line['price_subtotal']
 
         return invoice_line_s
+
+    @api.multi
+    def get_container_line(self):
+        container_line_s = []
+        containers = ""
+        t = 0
+        for line in self.invoice_line_ids:
+            sale_id = line.sale_id
+            if sale_id and not sale_id.id in container_line_s:
+                # print "add new sale id"
+                container_line_s.append(sale_id.id)
+                if t == 0:
+                    containers += str(sale_id.container_id.name)
+                    t +=2
+
+                elif t % 4 == 0:
+                    containers += "\n"
+                    containers += str(sale_id.container_id.name)
+                    t += 1
+                else:
+                    containers += " "
+                    containers += str(sale_id.container_id.name)
+                    t += 1
+        return containers
+
+    @api.multi
+    def get_split_container_line(self,container_list=False):
+        container_line_s = []
+        containers = ""
+        t = 0
+        if container_list:
+            container_split = container_list.split(",")
+            for container in container_split:
+                if t == 0:
+                    containers += str(container)
+                    t += 2
+
+                elif t % 4 == 0:
+                    containers += "\n"
+                    containers += str(container)
+                    t += 1
+                else:
+                    containers += " "
+                    containers += str(container)
+                    t += 1
+        return containers
+
+    @api.multi
+    def get_booking_line(self):
+        container_line_s = []
+        bookings = ""
+        t = 0
+        for line in self.invoice_line_ids:
+            booking_ref = line.sale_id.booking_reference
+            if not booking_ref in container_line_s:
+                # print "add new sale id"
+                container_line_s.append(booking_ref)
+                if t == 0:
+                    bookings += str(booking_ref)
+                    t += 2
+
+                elif t % 4 == 0:
+                    bookings += "\n"
+                    bookings += str(booking_ref)
+                    t += 1
+                else:
+                    bookings += " "
+                    bookings += str(booking_ref)
+                    t += 1
+        return bookings
+
+    @api.multi
+    def get_split_booking_line(self,booking_list=False):
+        container_line_s = []
+        bookings = ""
+        t = 0
+        if booking_list:
+            booking_split = booking_list.split(",")
+            for booking in booking_split:
+                if t == 0:
+                    bookings += str(booking)
+                    t += 2
+
+                elif t % 4 == 0:
+                    bookings += "\n"
+                    bookings += str(booking)
+                    t += 1
+                else:
+                    bookings += " "
+                    bookings += str(booking)
+                    t += 1
+        return bookings
