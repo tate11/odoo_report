@@ -245,6 +245,64 @@
         <field name="dpi">90</field>
       </record>
 
+       <!-- paperformat_A4_Voucher -->
+      <record id="paperformat_A4_creditnoteVoucher" model="report.paperformat">
+          <field name="name">A4_creditnoteVoucher</field>
+          <field name="default" eval="False"/>
+          <field name="format">A4</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">90</field>
+          <field name="margin_bottom">60</field>
+          <field name="margin_left">5</field>
+          <field name="margin_right">5</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">85</field>
+          <field name="dpi">90</field>
+      </record>
+
+      <!-- paperformat_A4_Voucher -->
+      <record id="paperformat_A4_paymentVoucher" model="report.paperformat">
+          <field name="name">A4_paymentVoucher</field>
+          <field name="default" eval="False"/>
+          <field name="format">A4</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">90</field>
+          <field name="margin_bottom">60</field>
+          <field name="margin_left">5</field>
+          <field name="margin_right">5</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">85</field>
+          <field name="dpi">90</field>
+      </record>
+
+      <record id="paperformat_A4_vendorVoucher" model="report.paperformat">
+          <field name="name">A4_paymentVoucher</field>
+          <field name="default" eval="False"/>
+          <field name="format">A4</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">90</field>
+          <field name="margin_bottom">60</field>
+          <field name="margin_left">5</field>
+          <field name="margin_right">5</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">85</field>
+          <field name="dpi">90</field>
+      </record>
+
+      <record id="paperformat_A4_generalVoucher" model="report.paperformat">
+          <field name="name">A4_generalVoucher</field>
+          <field name="default" eval="False"/>
+          <field name="format">A4</field>
+          <field name="orientation">Portrait</field>
+          <field name="margin_top">90</field>
+          <field name="margin_bottom">60</field>
+          <field name="margin_left">5</field>
+          <field name="margin_right">5</field>
+          <field name="header_line" eval="False"/>
+          <field name="header_spacing">85</field>
+          <field name="dpi">90</field>
+      </record>
+
            <!-- paperformat invoice_mahachai_report_121_id -->
           <report
                  id="odoo_report.invoice_mahachai_report_121_id"
@@ -426,12 +484,58 @@
               model="account.move"
               menu="True"
               report_type="qweb-pdf"
-              string="ใบสำคัญรับ(New)"
+              string="ใบสำคัญรับ"
               paperformat="paperformat_A4_Voucher"
               name="odoo_report.receipt_voucher_112_id"
               file="odoo_report.receipt_voucher_112_id"
       />
 
+       <!-- paperformat suppliercreditnote_report_117_id -->
+      <report
+              id="odoo_report.suppliercreditnote_report_117_id"
+              model="account.move"
+              menu="True"
+              report_type="qweb-pdf"
+              string="ใบสำคัญลดหนี้เจ้าหนี้"
+              paperformat="paperformat_A4_creditnoteVoucher"
+              name="odoo_report.suppliercreditnote_report_117_id"
+              file="odoo_report.suppliercreditnote_report_117_id"
+      />
+
+      <!-- paperformat paymentvoucher_report_118_id -->
+      <report
+              id="odoo_report.paymentvoucher_report_118_id"
+              model="account.move"
+              menu="True"
+              report_type="qweb-pdf"
+              string="ใบสำคัญจ่าย"
+              paperformat="paperformat_A4_paymentVoucher"
+              name="odoo_report.paymentvoucher_report_118_id"
+              file="odoo_report.paymentvoucher_report_118_id"
+      />
+
+      <!-- paperformat vendorvoucher_report_119_id -->
+      <report
+              id="odoo_report.vendorvoucher_report_119_id"
+              model="account.move"
+              menu="True"
+              report_type="qweb-pdf"
+              string="ใบสำคัญตั้งเจ้าหนี้"
+              paperformat="paperformat_A4_vendorVoucher"
+              name="odoo_report.vendorvoucher_report_119_id"
+              file="odoo_report.vendorvoucher_report_119_id"
+      />
+      <!-- paperformat generalvoucher_report_122_id -->
+      <report
+              id="odoo_report.generalvoucher_report_122_id"
+              model="account.move"
+              menu="True"
+              report_type="qweb-pdf"
+              string="ใบสำคัญทั่วไป"
+              paperformat="paperformat_A4_generalVoucher"
+              name="odoo_report.generalvoucher_report_122_id"
+              file="odoo_report.generalvoucher_report_122_id"
+      />
 
     </data>
 </openerp>

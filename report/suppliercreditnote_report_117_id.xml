@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <template id="odoo_report.receipt_voucher_112_id">
-           <t t-foreach="docs" t-as="o">
-                <t t-set="sumdebit" t-value="0"/>
-                <t t-set="totalcheque" t-value="0"/>
-                <t t-set="acccode" t-value="0"/>
-                <!--<t t-call="report.internal_layout">-->
+        <template id="odoo_report.suppliercreditnote_report_117_id">
+             <t t-foreach="docs" t-as="o">
                 <div class="header">
                     <div class="col-xs-3" style="text-align:right">
                         <img t-att-src="'data:image/png;base64,%s' % o.company_id.logo" style="max-height: 125px;"/>
                     </div>
                     <div class="col-xs-9">
-                        <font style="font-size: 20px;text-align:center">
+                        <font style="font-size: 20px;">
                             <br/>
                             <strong><span t-field="o.company_id.name"/></strong>&amp;nbsp;<strong>(สำนักงานใหญ่)</strong><br/>
                             <!--<strong><span t-field="o.company_id.rml_header1"/></strong><br/>-->
                         </font>
-                        <font style="font-size: 15px;text-align:center">
+                        <font style="font-size: 15px;">
                             <span t-if="o.company_id.building"><span t-field="o.company_id.building"/>&amp;nbsp;</span>
                             <span t-if="o.company_id.roomnumber">ห้องที่&amp;nbsp;<span t-field="o.company_id.roomnumber"/>&amp;nbsp;</span>
                             <span t-if="o.company_id.floornumber">ชั้นที่&amp;nbsp;<span t-field="o.company_id.floornumber"/>&amp;nbsp;</span>
@@ -40,28 +36,26 @@
                         <br/><br/><br/>
                     </div>
 
-
                     <table width="100%">
                         <tr>
                             <td style="text-align: center;">
                                 <font style="font-size: 18px;">
-                                    <strong>ใบสำคัญรับ<br/>Receipt Voucher</strong>
+                                    <strong>ใบสำคัญลดหนี้เจ้าหนี้<br/>Supplier Credit Note</strong><br/>
                                 </font>
                                 <br/><br/>
                             </td>
                         </tr>
                     </table>
-
                     <table width="100%">
                         <tr>
                             <td width="45%" style="text-align: left;">
                                 <font style="font-size: 16px;">
                                     <t t-if="o.partner_id">
                                 <span>Vendor Code</span>&amp;nbsp;&amp;nbsp;<span t-field="o.partner_id.ref"/><br/>
-                                <span>รับชำระจาก/From</span>&amp;nbsp;&amp;nbsp;<span t-field="o.partner_id.name"/><br/>
+                                <span>จ่ายให้แก่/To</span>&amp;nbsp;&amp;nbsp;<span t-field="o.partner_id.name"/><br/>
                             </t>
                             <t t-if="not o.partner_id">
-                                <span>รับชำระจาก/From</span>&amp;nbsp;&amp;nbsp;<span t-field="o.supplier_name_text"/><br/>
+                                <span>จ่ายให้แก่/To</span>&amp;nbsp;&amp;nbsp;<span t-field="o.supplier_name_text"/><br/>
                             </t>
                             <span>รายละเอียด/Description</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
                             <span t-field="o.remark"/>
@@ -112,57 +106,41 @@
                     <br/>
                 </div>
                 <div class="page">
-                    <!--<style>-->
-                    <!--.header{width:100%; height:120px;}-->
-                    <!--.content{width:100%; height:700px;}-->
-                    <!--.footer{width:100%; height:200px;}-->
-                    <!--</style>-->
-
-                    <!--<div class="content">-->
-                    <!--<div class="col-xs-12">-->
-                    <!--<br/>-->
-                    <!--<table class="table table-condensed">-->
                     <br/>
                     <table width="100%" class="table table-condensed">
                         <thead>
                             <tr>
                                 <th width="13%" style="text-align:center">
                                     <font style="font-size: 15px;">No.
-                                    <br/>ลำดับที่</font>
+                                        <br/>ลำดับที่</font>
                                 </th>
                                 <th width="18%" style="text-align:left">
                                     <font style="font-size: 15px;">Acc Number
-                                    <br/>เลขที่บัญชี</font>
+                                        <br/>เลขที่บัญชี</font>
                                 </th>
                                 <th width="18%" style="text-align:left">
                                     <font style="font-size: 15px;">Acc Name
-                                    <br/>ชื่อบัญชี</font>
+                                        <br/>ชื่อบัญชี</font>
                                 </th>
                                 <th width="15%" style="text-align:center">
                                     <font style="font-size: 15px;">Department
-                                    <br/>แผนก</font>
+                                        <br/>แผนก</font>
                                 </th>
                                 <!--<th class="col-xs-5" style="text-align:left">-->
                                 <!--<font style="font-size: 12px;">รายละเอียด/Description</font>-->
                                 <!--</th>-->
                                 <th width="18%" style="text-align:center">
-                                    <font style="font-size: 15px;">WHT
-                                    <br/>หัก ณ ที่จ่าย</font>
-                                </th>
-                                 <th width="18%" style="text-align:center">
                                     <font style="font-size: 15px;">Debit
-                                    <br/>เดบิต</font>
+                                        <br/>เดบิท</font>
                                 </th>
                                 <th width="18%" style="text-align:center">
                                     <font style="font-size: 15px;">Credit
-                                    <br/>เครดิต</font>
+                                        <br/>เครดิต</font>
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody">
                             <t t-set="i" t-value="1"/>
-                            <!--<t t-set="count" t-value="1"/>-->
-                            <!--<t t-set="max" t-value="10"/>-->
                             <t t-foreach="o.line_ids" t-as="l">
                                 <tr>
                                     <td style="text-align:center">
@@ -171,7 +149,6 @@
                                         </font>
                                     </td>
                                     <t t-set="i" t-value="i+1"/>
-                                    <!--<t t-set="count" t-value="count + (len(l.account_id.code)/60) + 1"/>-->
                                     <td style="text-align:left">
                                         <font style="font-size: 15px;">
                                             <span t-field="l.account_id.code"/>
@@ -192,26 +169,12 @@
                                     <!--<span t-field="l.name"/>-->
                                     <!--</font>-->
                                     <!--</td>-->
-                                      <td style="text-align:right">
-                                        <font style="font-size: 15px;">
-                                            <span t-field="l.wht_type"/>
-                                        </font>
-                                    </td>
                                     <td style="text-align:right">
                                         <t t-if="l.debit == 0.00">
                                             <span/>
                                         </t>
                                         <t t-if="l.debit != 0.00">
                                             <font style="font-size: 15px;">
-                                                <t t-if="l.account_id.code == '11-05-01-02' ">
-                                                    <t t-set="sumdebit" t-value="sumdebit + l.debit "/>
-                                                </t>
-                                                <t t-if="l.account_id.code == '53-02-02-00' ">
-                                                    <t t-set="sumdebit" t-value="sumdebit + l.debit "/>
-                                                </t>
-                                                <t t-if="l.account_id.code == '51-03-02-00' ">
-                                                    <t t-set="sumdebit" t-value="sumdebit + l.debit "/>
-                                                </t>
                                                 <span t-esc="'{0:,.2f}'.format(l.debit)"/>
                                             </font>
                                         </t>
@@ -228,52 +191,35 @@
                                     </td>
                                 </tr>
                             </t>
-
                         </tbody>
                     </table>
-                    <!--</div>-->
                 </div>
                 <div class="footer">
-                    <div class="col-xs-12" style="text-align: left;">
-                        <font style="font-size: 15px;">
-                            <t t-if="o.cheque_bank">
-                                <strong>Cheque =</strong>&amp;nbsp;
-                                <strong t-field="o.cheque_bank.name"/>&amp;nbsp;&amp;nbsp;
-                                <strong>สาขา</strong>&amp;nbsp;<strong t-field="o.cheque_branch"/>&amp;nbsp;&amp;nbsp;
-                                <strong>เลขที่เช็ค No.:</strong>&amp;nbsp;<strong t-field="o.cheque_number"/>&amp;nbsp;&amp;nbsp;
-                                <strong>วันที่เช็ค</strong>&amp;nbsp;<strong t-field="o.cheque_date"/>&amp;nbsp;&amp;nbsp;
-                                <!-- <strong>ยอดเงิน = </strong><strong t-esc="'{0:,.2f}'.format(o.amount)"/> -->
-                                <t t-set="totalcheque" t-value="o.amount - sumdebit "/>
-                                <strong>ยอดเงิน = </strong><strong t-esc="'{0:,.2f}'.format(o.line_ids[0].payment_id.amount)"/>
-
-                            </t>
-                        </font>
-                    </div>
                     <div class="row" style="page-break-inside: avoid">
                         <table class="table table-bordered">
                             <tr>
                                 <td colspan="3">
                                     <div class="col-xs-10">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>(<span t-field="o.amount_total_invoice_text"/>)</span>
                                         </font>
                                     </div>
                                     <div class="col-xs-2" style="text-align:right">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>รวม</span>
                                         </font>
                                     </div>
                                 </td>
                                 <td>
                                     <div style="text-align:right">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                                         </font>
                                     </div>
                                 </td>
                                 <td>
                                     <div style="text-align:right">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                                         </font>
                                     </div>
@@ -282,7 +228,7 @@
                             <tr>
                                 <td>
                                     <div style="text-align: center">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>ผู้จัดทำ</span><br/>
                                             <span>PREPARED BY</span><br/><br/>
                                             <span>___________________________</span>
@@ -291,7 +237,7 @@
                                 </td>
                                 <td>
                                     <div style="text-align: center">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>ผู้ตรวจสอบ</span><br/>
                                             <span>CHECKED BY</span><br/><br/>
                                             <span>_____________________</span>
@@ -300,7 +246,7 @@
                                 </td>
                                 <td>
                                     <div style="text-align: center">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>ผู้อนุมัติ</span><br/>
                                             <span>APPROVAL BY</span><br/><br/>
                                             <span>_____________________</span>
@@ -309,7 +255,7 @@
                                 </td>
                                 <td>
                                     <div style="text-align: center">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>ผู้จ่ายเงิน</span><br/>
                                             <span>PAYER BY</span><br/><br/>
                                             <span>_____________________</span>
@@ -318,7 +264,7 @@
                                 </td>
                                 <td>
                                     <div style="text-align: center">
-                                        <font style="font-size: 15px;">
+                                        <font style="font-size: 18px;">
                                             <span>ผู้รับเงิน</span><br/>
                                             <span>RECEIPIENT BY</span><br/><br/>
                                             <span>_____________________</span>
@@ -329,7 +275,6 @@
                         </table>
                     </div>
                 </div>
-
             </t>
         </template>
     </data>
