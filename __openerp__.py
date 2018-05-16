@@ -24,6 +24,7 @@
             'report/purchase_report_trf_116_id.xml',
             'report/suppliercreditnote_report_117_id.xml',
             'report/paymentvoucher_report_118_id.xml',
+            'report/vendorvoucher_report_119_id.xml',
             'report/invoice_mahachai_report_121_id.xml',
             'report/generalvoucher_report_122_id.xml'],
     'auto_install':False,
