@@ -109,13 +109,38 @@
                           <strong t-field="doc.company_id.name"/><br/>
                         </font>
                         <font style="font-size: 12px;">
-                          <strong><st> 146 Moo 2, Kanjanavanich Rd., Samnak Kham, Sadao, Songkhla 90320 (Branch No. 00003)</st></strong><br/>
-                          <strong> <st> 146 หมู่ 2 ถ.กาญจนวนิช ต.สำนักขาม อ.สะเดา จ.สงขลา 90320  (สาขาที่ 00003)</st></strong><br/>
-                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong><st> (034) 466044, (034) 466469</st></strong></strong>
-                          <strong t-if="doc.company_id.fax"> Fax :&amp;nbsp;<strong><st>  (034) 466066</st></strong></strong><br/>
-                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong><st> info@ThaiReefer.co.th </st></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
-                          </strong></strong><br/>
-                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong><st> 0105542069401 </st></strong></strong>
+                          <strong>
+                            <st>
+                              146 Moo 2, Kanjanavanich Rd., Samnak Kham, Sadao, Songkhla 90320 (Branch No. 00003)</st>
+                          </strong><br/>
+                          <strong>
+                            <st>
+                              146 หมู่ 2 ถ.กาญจนวนิช ต.สำนักขาม อ.สะเดา จ.สงขลา 90320 (สาขาที่ 00003)</st>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong>
+                              <st>
+                                (034) 466044, (034) 466469</st>
+                            </strong>
+                          </strong>
+                          <strong t-if="doc.company_id.fax">
+                            Fax :&amp;nbsp;<strong>
+                              <st>
+                                (034) 466066</st>
+                            </strong>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong>
+                              <st>
+                                info@ThaiReefer.co.th
+                              </st>
+                            </strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
+                            </strong>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong>
+                              <st>
+                                0105542069401
+                              </st>
+                            </strong>
+                          </strong>
                         </font>
                       </t>
                       <t t-if="doc.department_id.name != 'SADAO' ">
@@ -699,31 +724,44 @@
                     </p>
                   </td>
                   <td width="25%" style="text-align: left;">
-                    <t t-if="doc.department_id.name != 'LAEMCHABANG'">
-                    <p style="margin-top:10px;">
-                      <font style="font-size: 14px;">
-                        <strong>Approved</strong><br style="line-height: 10px;"/>
-                        <strong>Sign:
-                          <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/>
-                          <br style="line-height: 30px;"/></strong>
-                        <strong>Name:</strong><br style="line-height: 10px;"/>
-                        <strong>Date:</strong>
-                      </font>
-                    </p>
+                    <t t-if=" doc.state != 'purchase' ">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Approved</strong><br style="line-height: 10px;"/>
+                          <strong>Sign:
+                            <!-- <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/> <br style="line-height: 30px;"/> -->
+                          </strong>
+                          <strong>Name:</strong><br style="line-height: 10px;"/>
+                          <strong>Date:</strong>
+                        </font>
+                      </p>
                     </t>
 
-                      <t t-if="doc.department_id.name == 'LAEMCHABANG'">
-                        <p style="margin-top:10px;">
-                          <font style="font-size: 14px;">
-                            <strong>Approved</strong><br style="line-height: 10px;"/>
-                            <strong>Sign:
-                                <img src="/signature/static/wong.png" style="width:150px;height:40px;"/>
-                               <br style="line-height: 30px;"/></strong>
-                            <strong>Name:</strong><br style="line-height: 10px;"/>
-                            <strong>Date:</strong>
-                          </font>
-                        </p>
-                        </t>
+                    <t t-if="doc.department_id.name != 'LAEMCHABANG' and doc.state == 'purchase' ">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Approved</strong><br style="line-height: 10px;"/>
+                          <strong>Sign:
+                            <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/>
+                            <br style="line-height: 30px;"/></strong>
+                          <strong>Name:</strong><br style="line-height: 10px;"/>
+                          <strong>Date:</strong>
+                        </font>
+                      </p>
+                    </t>
+
+                    <t t-if="doc.department_id.name == 'LAEMCHABANG' and doc.state == 'purchase'">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Approved</strong><br style="line-height: 10px;"/>
+                          <strong>Sign:
+                            <img src="/signature/static/wong.png" style="width:150px;height:40px;"/>
+                            <br style="line-height: 30px;"/></strong>
+                          <strong>Name:</strong><br style="line-height: 10px;"/>
+                          <strong>Date:</strong>
+                        </font>
+                      </p>
+                    </t>
                   </td>
                   <td width="25%" style="text-align: left;">
                     <p style="margin-top:10px;">
