@@ -87,27 +87,41 @@
                     <td width="20%" rowspan="3">
                       <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
                     </td>
-                    <td width="60%">
-                      <font style="font-size: 23px;">
+                    <td width="80%">
+                      <font style="font-size: 16px;">
                         <strong t-field="doc.company_id.rml_header1"/><br/>
-                      </font>
-                      <font style="font-size: 20px;">
                         <strong t-field="doc.company_id.name"/><br/>
                       </font>
                       <font style="font-size: 12px;">
-                        <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                        <!--<strong t-field="doc.company_id.country_id.name"/>-->&amp;nbsp;<strong>(Head Office)</strong><br/>
-                        <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
-                        <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>
-                        <strong t-if="doc.company_id.state_id.name">จ.<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
-                        <strong>(สำนักงานใหญ่)</strong><br/>
-                        <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-field="doc.company_id.phone"/></strong>
-                        <strong t-if="doc.company_id.fax">&amp;nbsp;Fax :&amp;nbsp;<strong t-field="doc.company_id.fax"/></strong><br/>
-                        <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-field="doc.company_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.ThaiReefer.co.th</st>
-                        </strong><br/>
-                        <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong><br/>
-                        <!--<strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>-->
-                      </font>
+                        <t t-if="not doc.company_branch">
+                          <strong t-field="doc.company_id.street2"/>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                          <strong t-field="doc.company_id.country_id.name"/>&amp;nbsp;<strong>(Head Office)</strong><br/>
+                          <strong t-field="doc.company_id.house_number"/>&amp;nbsp;<strong t-if="doc.company_id.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
+                          <strong t-field="doc.company_id.street"/>&amp;nbsp;<strong t-if="doc.company_id.city"><strong t-field="doc.company_id.city"/></strong>&amp;nbsp;
+                          <strong t-if="doc.company_id.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                          <strong>(สำนักงานใหญ่)</strong><br/>
+                          <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_id.phone"/></strong>
+                          <strong t-if="doc.company_id.fax">Fax :&amp;nbsp;<strong t-esc="doc.company_id.fax"/></strong><br/>
+                          <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;<strong t-esc="doc.company_id.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.thaireefer.co.th</st>
+                          </strong><br/>
+                          <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>
+                        </t>
+                        <t t-if="doc.company_branch">
+                          <strong t-field="doc.company_branch.street2"/>&amp;nbsp;<strong t-field="doc.company_branch.zip"/>&amp;nbsp;
+                          <strong t-field="doc.company_branch.country_id.name"/>&amp;nbsp;<strong>(Branch No.
+                            <span t-field="doc.company_branch.branch_no"/>)</strong><br/>
+                          <!--<strong t-field="doc.company_branch.house_number"/>&amp;nbsp;<strong t-if="doc.company_branch.moo_number"><strong t-field="doc.company_branch.moo_number"/></strong>&amp;nbsp;-->
+                          <strong t-field="doc.company_branch.street"/>&amp;nbsp;<strong t-if="doc.company_branch.city"><strong t-field="doc.company_branch.city"/></strong>&amp;nbsp;
+                          <strong t-if="doc.company_branch.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_branch.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_branch.zip"/>&amp;nbsp;
+                          <strong>(สาขาที่
+                            <span t-field="doc.company_branch.branch_no"/>)</strong><br/>
+                          <strong t-if="doc.company_branch.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_branch.phone"/></strong>
+                          <strong t-if="doc.company_branch.fax">Fax :&amp;nbsp;<strong t-esc="doc.company_branch.fax"/></strong><br/>
+                          <strong t-if="doc.company_branch.email">E-mail :&amp;nbsp;<strong t-esc="doc.company_branch.email"/></strong>&amp;nbsp;&amp;nbsp;<strong>Web:&amp;nbsp;<st>www.thaireefer.co.th</st>
+                          </strong><br/>
+                          <strong t-if="doc.company_branch.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_branch.vat"/></strong>
+                        </t>
+                      </font><br/><br/>
                     </td>
                   </tr>
                 </table>

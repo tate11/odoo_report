@@ -130,7 +130,7 @@
                             <span t-field="doc.company_branch.branch_no"/>)</strong><br/>
                           <!--<strong t-field="doc.company_branch.house_number"/>&amp;nbsp;<strong t-if="doc.company_branch.moo_number"><strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;-->
                           <strong t-field="doc.company_branch.street"/>&amp;nbsp;<strong t-if="doc.company_branch.city"><strong t-field="doc.company_branch.city"/></strong>&amp;nbsp;
-                          <strong t-if="doc.company_branch.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                          <strong t-if="doc.company_branch.state_id.name">จ.&amp;nbsp;<strong t-field="doc.company_branch.state_id.name"/></strong>&amp;nbsp;<strong t-field="doc.company_id.zip"/>&amp;nbsp;
                           <strong>(สาขาที่
                             <strong t-field="doc.company_branch.branch_no"/>)</strong><br/>
                           <strong t-if="doc.company_branch.phone">Tel :&amp;nbsp;<strong t-esc="doc.company_branch.phone"/></strong>
