@@ -390,7 +390,7 @@
                 model="account.tax.invoice"
                 menu="True"
                 report_type="qweb-pdf"
-                string="Tax Invoice For Silom"
+                string="ใบกำกับภาษี(THB)"
                 paperformat="paperformat_A4_NewTaxInvoice"
                 name="odoo_report.taxinvoice_trf_report102_id"
                 file="odoo_report.taxinvoice_trf_report102_id"
