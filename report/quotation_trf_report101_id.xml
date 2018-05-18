@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.quotation_trf_report101_id">
-      <t t-foreach="docs" t-as="doc">
+       <t t-foreach="docs" t-as="doc">
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount" t-value="0"/>
         <t t-set="total_sum_amount" t-value="0"/>
@@ -275,9 +275,9 @@
                             <span t-field="doc.end_date"/>
                           </t><br/>
                         </t>
-                        <t t-if="doc.sale_note">
+                      <!--  <t t-if="doc.sale_note">
                           <span t-field="doc.sale_note"/><br/>
-                        </t>
+                        </t> -->
                         <t t-if="doc.get_split_container_line(l)">
                           <span>Container No.</span><br/>
                           <span t-esc="doc.get_split_container_line(l)"/>
