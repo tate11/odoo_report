@@ -652,9 +652,13 @@
                   <td width="33%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
-                        <br/><br/>
+                        <t t-if="doc.x_mail  == True">
+                          <span>
+                            <img src="/signature/static/hataitip.png" style="max-height: 40px;"/></span><br/>
+                        </t>
+                        <t t-if="doc.x_mail  == False"/>
                         <span>_________________________</span><br/>
-                        <span>Authorised Signature</span><br/>
+                        <span>Authorized Signature</span><br/>
                         <span>_______/_______/_______</span>
                       </font>
                     </p>
@@ -662,7 +666,11 @@
                   <td width="34%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
-                        <br/><br/>
+                        <t t-if="doc.x_mail  == True">
+                          <span>
+                            <img src="/signature/static/blank.png" style="max-height: 40px;"/></span><br/>
+                        </t>
+                        <t t-if="doc.x_mail  == False"/>
                         <span>_________________________</span><br/>
                         <span>Delivered BY</span><br/>
                         <span>_______/_______/_______</span>
@@ -672,7 +680,11 @@
                   <td width="33%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
-                        <br/><br/>
+                        <t t-if="doc.x_mail  == True">
+                          <span>
+                            <img src="/signature/static/blank.png" style="max-height: 40px;"/></span><br/>
+                        </t>
+                        <t t-if="doc.x_mail  == False"/>
                         <span>_________________________</span><br/>
                         <span>Received BY</span><br/>
                         <span>_______/_______/_______</span>
