@@ -303,6 +303,21 @@
           <field name="dpi">90</field>
       </record>
 
+       <!-- paperformat Quotation STD -->
+         <record id="paperformat_A4_STDQuotation" model="report.paperformat">
+            <field name="name">A4_NewQuotation</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">76</field>
+            <field name="margin_bottom">130</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">72</field>
+            <field name="dpi">90</field>
+        </record>
+
            <!-- paperformat invoice_mahachai_report_121_id -->
           <report
                  id="odoo_report.invoice_mahachai_report_121_id"
@@ -536,6 +551,18 @@
               name="odoo_report.generalvoucher_report_122_id"
               file="odoo_report.generalvoucher_report_122_id"
       />
+
+       <!-- paperformat quotation_std_report123_id -->
+         <report
+                id="odoo_report.quotation_std_report123_id"
+                model="sale.order"
+                menu="True"
+                report_type="qweb-pdf"
+                string="Quotation_STD"
+                paperformat="paperformat_A4_StdQuotation"
+                name="odoo_report.quotation_std_report123_id"
+                file="odoo_report.quotation_std_report123_id"
+        />
 
     </data>
 </openerp>
