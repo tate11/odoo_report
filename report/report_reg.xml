@@ -305,7 +305,7 @@
 
        <!-- paperformat Quotation STD -->
          <record id="paperformat_A4_STDQuotation" model="report.paperformat">
-            <field name="name">A4_NewQuotation</field>
+            <field name="name">A4_STDQuotation</field>
             <field name="default" eval="False"/>
             <field name="format">A4</field>
             <field name="orientation">Portrait</field>
@@ -574,7 +574,7 @@
                 menu="True"
                 report_type="qweb-pdf"
                 string="Quotation_STD"
-                paperformat="paperformat_A4_StdQuotation"
+                paperformat="paperformat_A4_STDQuotation"
                 name="odoo_report.quotation_std_report123_id"
                 file="odoo_report.quotation_std_report123_id"
         />
