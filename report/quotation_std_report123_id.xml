@@ -667,80 +667,76 @@
             </tbody>
             <tfoot>
               <table width="100%">
-                <tr>
-                  <td width="33%" style="text-align: left;">
-                    <t t-if="doc.state != 'draft' ">
-                      <p style="margin-top:10px;">
-                        <font style="font-size: 14px;">
-                          <!-- REL -->
-                          <t t-if="doc.company_id.vat == '0105535088195'">
-                            <span t-field="doc.company_id.rml_header1"/>
-                            <br/>
-                            <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
-                          </t>
-                          <!-- REI -->
-                          <t t-if="doc.company_id.vat == '0105542069401'">
-                            <span t-field="doc.company_id.rml_header1"/>
-                            <br/>
-                            <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                            <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
-                          </t>
-                          <!-- TRF-->
-                          <t t-if="doc.company_id.vat =='0105542020983'">
-                            <span t-field="doc.company_id.rml_header1"/>
-                            <br/>
-                            <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                            <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
-                          </t>
-                          <!-- <t t-if="doc.user_id.login != 'laor_trf' "> <img src="/signature/static/tridej.png" style="max-height: 75px;"/> </t> -->
-                          <!-- <t t-if="doc.user_id.login == 'laor_trf' "></t> -->
-                          <span>Sign:</span>
-                          <br/>
-                          <span>Name:</span>
-                        </font>
-                      </p>
-                    </t>
-                    <t t-if="doc.state == 'draft' ">
-                      <p style="margin-top:10px;">
-                        <font style="font-size: 14px;">
-                          <span t-field="doc.company_id.rml_header1"/>
-                          <br/>
-                          <br/>
-                          <!-- <span t-field="doc.company_id.rml_header1"/> <br/> <img src="/signature/static/tridej.png" style="max-height: 75px;"/> -->
-                          <span>Sign:</span>
-                          <br/>
-                          <span>Name:</span>
-                        </font>
-                      </p>
-                    </t>
+                              <tr>
+                                <td width="40%" style="text-align: left;">
+                                  <t t-if="doc.state != 'draft' ">
+                                    <p style="margin-top:10px;">
+                                      <font style="font-size: 14px;">
+                                        <!-- REL -->
+                                    <t t-if="doc.company_id.vat == '0105535088195'">
+                                       <span t-field="doc.company_id.rml_header1"/> <br/>
+                                       <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
+                                    </t>
+                                    <!-- REI -->
+                                    <t t-if="doc.company_id.vat == '0105542069401'">
+                                       <span t-field="doc.company_id.rml_header1"/> <br/>
+                                       <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                                       <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
+                                    </t>
+                                    <!-- TRF-->
+                                    <t t-if="doc.company_id.vat =='0105542020983'">
+                                       <span t-field="doc.company_id.rml_header1"/> <br/>
+                                       <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                                       <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
+                                    </t>
+                                        <span>Sign:</span>
+                                        <br/>
+                                        <span>Name:</span>
+                                      </font>
+                                    </p>
+                                  </t>
+                                  <t t-if="doc.state == 'draft' ">
+                                    <p style="margin-top:10px;">
+                                      <font style="font-size: 14px;">
+                                       <span t-field="doc.company_id.rml_header1"/>
+                                        <br/>
+                                        <br/>
 
-                  </td>
-                  <td width="34%"/>
-                  <td width="33%" style="text-align: left;">
-                    <font style="font-size: 14px;">
-                      <p style="margin-top:30px;">
-                        <span>Accepted by Authorised Representative</span><br/>
-                        <!-- <span>(อนุมัติสั่งซื้อสินค้า / บริการ พร้อมประทับตราบริษัท)</span>--><br/><br/>
-                        <span>Sign:</span><br/><br/>
-                        <span>Name:</span><br/>
-                        <span>Date:</span>
-                      </p>
-                    </font>
-                  </td>
-                </tr>
-                <tr>
-                  <td/>
-                  <td style="text-align: left;">
-                    <ul class="list-inline">
+                                        <span>Sign:</span>
+                                        <br/>
+                                        <span>Name:</span>
+                                      </font>
+                                    </p>
+                                  </t>
 
-                      <li>Page</li>
-                      <li><span class="page"/></li>
-                      <li>of</li>
-                      <li><span class="topage"/></li>
-                    </ul>
-                  </td>
-                </tr>
-              </table>
+                                </td>
+                                <td width="15%"/>
+                                <td width="30%" style="text-align: left;">
+                                  <font style="font-size: 14px;">
+                                    <p style="margin-top:30px;">
+                                      <span>Accepted by Authorised Representative</span><br/>
+                                      <!-- <span>(อนุมัติสั่งซื้อสินค้า / บริการ พร้อมประทับตราบริษัท)</span>--><br/><br/>
+                                      <span>Sign:</span><br/><br/>
+                                      <span>Name:</span><br/>
+                                      <span>Date:</span>
+                                    </p>
+                                  </font>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td/>
+                                <td style="text-align: left;">
+                                  <ul class="list-inline">
+
+                                    <li>Page</li>
+                                    <li><span class="page"/></li>
+                                    <li>of</li>
+                                    <li><span class="topage"/></li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </table>
+                          
             </tfoot>
           </table>
           <!--</div>-->
