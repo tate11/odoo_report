@@ -591,7 +591,7 @@
                       </p>
                     </t>
 
-       <t t-if="doc.department_id.name != 'LAEMCHABANG' and doc.department_id.name != 'SONGKHLA' and doc.state == 'purchase' ">
+       <t t-if="doc.department_id.name != 'LAEMCHABANG' and doc.department_id.name != 'SONGKHLA' and doc.department_id.name != 'SADAO' and doc.state == 'purchase' ">
                       <p style="margin-top:10px;">
                         <font style="font-size: 14px;">
                           <strong>Approved</strong><br style="line-height: 10px;"/>
@@ -627,7 +627,19 @@
                           <strong>Date:</strong>
                         </font>
                       </p>
-                    </t> 
+                    </t>
+                     <t t-if="doc.department_id.name == 'SADAO' and doc.state == 'purchase'">
+                      <p style="margin-top:10px;">
+                        <font style="font-size: 14px;">
+                          <strong>Approved</strong><br style="line-height: 10px;"/>
+                          <strong>Sign:
+                            <img src="/signature/static/chiwat.png" style="width:150px;height:40px;"/>
+                            <br style="line-height: 30px;"/></strong>
+                          <strong>Name:</strong><br style="line-height: 10px;"/>
+                          <strong>Date:</strong>
+                        </font>
+                      </p>
+                    </t>
                   </td>
 
                   <td width="25%" style="text-align: left;">
