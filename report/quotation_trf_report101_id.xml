@@ -241,12 +241,22 @@
                     <font style="font-size: 14px;">Unit Price<br/></font>
                   </p>
                 </th>
+                 <th width="8%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 14px;"><br/></font>
+                  </p>
+                </th>
                 <th width="10%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">Discount<br/></font>
                   </p>
                 </th>
-                <th width="14%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                <th width="8%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 14px;"><br/></font>
+                  </p>
+                </th>
+                <th width="14%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">Total<br/></font>
                   </p>
@@ -295,6 +305,10 @@
                         <span t-esc="'{0:,.2f}'.format(float(l.price_unit))"/>
                       </font>
                     </td>
+                       <td style="text-align: right;">
+                      <font style="font-size: 14px;">
+                      </font>
+                    </td>
                     <td style="text-align: right;">
                       <t t-if="l.discount">
                         <font style="font-size: 14px;">
@@ -306,6 +320,10 @@
                           <span t-esc="'{0:,.2f}'.format(float(l.discount_amount))"/>
                         </font>
                       </t>
+                    </td>
+                   <td style="text-align: right;">
+                      <font style="font-size: 14px;">
+                      </font>
                     </td>
                     <td style="text-align: right;">
                       <font style="font-size: 14px;">
@@ -582,10 +600,10 @@
                         <t t-if="not doc.WHT_Type">
                           <span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/></t>
+                          <t t-if="not doc.discounted_amount">(<span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/>)<br/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t>
+                          <t t-if="doc.discounted_amount">(<span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/>)<br/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
                           <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t>
@@ -680,7 +698,7 @@
                                     <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
                              </t>
                             <t t-if="doc.company_id.vat == '0105535088195'">
-                                    <img src="/signature/static/tridej.png" style="max-height: 75px;"/>
+                                    <img src="/signature/static/tridej.png" style="max-height: 55px;"/><br/>
                              </t>
                               <t t-if="doc.company_id.vat == '0105542069401'">
                                     <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
