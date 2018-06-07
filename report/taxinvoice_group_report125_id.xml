@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-    <template id="odoo_report.taxinvoice_trf_report102_id">
+    <template id="odoo_report.taxinvoice_group_report125_id">
       <t t-foreach="docs" t-as="doc">
         <t t-set="j" t-value="0"/>
         <div class="header">
@@ -255,19 +255,38 @@
               <t t-set="i" t-value="1"/>
               <t t-set="j" t-value="0"/>
               <t t-set="max" t-value="10"/>
-              <t t-foreach="doc.invoice_line_ids" t-as="l">
+              <t t-foreach="doc.get_invoice_line()" t-as="l">
                 <t t-if="doc.tax_charge_type == 'inv'">
                   <tr>
                     <td style="text-align: center">
                       <font style="font-size: 14px;">
                         <span t-esc="i"/>
-                        <span t-esc="count"/>
+                        <!-- <span t-esc="count"/> -->
                       </font>
                     </td>
                     <t t-set="i" t-value="i+1"/>
                     <td style="text-align: left;">
                       <font style="font-size: 14px;">
-                        <span t-field="l.name"/><br/>
+                        <t
+                          t-if="l['invoice_line_id'].product_id.charge_type == 'storage_charge' or l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract'">
+                          <span t-esc="l['name']"/>&amp;nbsp;
+                          <span>For
+                          </span>
+                          <span t-esc="l['size']"/>&amp;nbsp;
+                          <span t-esc="l['type']"/><br/>
+                          <t t-if="doc.get_require_c_no(l['product_id']) and l['quantity']"/>
+                        </t>
+                        <t
+                          t-if="l['invoice_line_id'].product_id.charge_type != 'storage_charge' and l['invoice_line_id'].product_id.charge_type != 'tran_agent' and l['invoice_line_id'].product_id.charge_type != 'tran_contract' and l['invoice_line_id'].product_id.charge_type != 'tran_none_contract'">
+                          <span t-esc="l['name']"/><br/>
+                          <t t-if="l['invoice_line_id'].invoice_id.is_size">
+                            <span>For
+                            </span>
+                            <span t-esc="l['size']"/>&amp;nbsp;
+                            <span t-esc="l['type']"/><br/>
+                          </t>
+                        </t>
+                        <!-- <span t-field="l.name"/><br/> -->
                         <!--<t t-if="l.sale_id.start_date"> <span>วันที่: </span> <span t-field="l.sale_id.start_date"/> <t t-if="l.sale_id.end_date"> <span>-</span> <span t-field="l.sale_id.end_date"/> </t> <br/> </t>-->
                         <!-- <t t-if="l.sale_id.sale_note"> <span t-esc="l.sale_id.sale_note"/><br/> </t> <t t-if="doc.get_split_container_line_three(l)"> <span>Container No. :</span><br/> <span t-esc="doc.get_split_container_line_three(l)"/> </t> -->
                       </font>
@@ -276,30 +295,29 @@
                     <!--<t t-set="i" t-value="i + 1"/>-->
                     <td style="text-align: center;">
                       <font style="font-size: 14px;">
-                        <span t-esc="'{0:,.2f}'.format(float(l.quantity))"/>
+                        <span t-esc="'{0:,.2f}'.format(float(l['quantity']))"/>
                         /
-                        <span t-esc="l.uom_id.name"/>
+                        <!-- <span t-esc="l.uom_id.name"/> -->
+                        <span t-esc="l['invoice_line_id'].uom_id.name"/>
                       </font>
                     </td>
                     <td style="text-align: center;">
                       <font style="font-size: 14px;">
-                        <span t-esc="'{0:,.2f}'.format(float(l.price_unit))"/>
-                        <!-- <span t-esc="'{0:,.2f}'.format(float(l['price_unit']))"/> -->
+                        <span t-esc="'{0:,.2f}'.format(float(l['price_unit']))"/>
                       </font>
                     </td>
                     <td style="text-align: right; vertical-align: top;">
                       <font style="font-size: 14px;">
-                        <t t-if="l.discount"><t t-set="j" t-value="1"/><span t-esc="l.discount"/>%</t>
-                        <t t-if="l.discount_amount"><t t-set="j" t-value="1"/>
-                          <span t-esc="'{0:,.2f}'.format(float(l.discount_amount))"/></t>
-                        <!-- <t t-if="l['invoice_line_id'].discount"><t t-set="j" t-value="1"/><span t-esc="'{0:,.2f}'.format(float(l['invoice_line_id'].discount))"/> %</t> <t t-if="l['invoice_line_id'].discount_amount"><t t-set="j" t-value="1"/> <span
-                        t-esc="'{0:,.2f}'.format(float(l['invoice_line_id'].discount_amount))"/></t> -->
+
+                        <t t-if="l['invoice_line_id'].discount"><t t-set="j" t-value="1"/><span t-esc="'{0:,.2f}'.format(float(l['invoice_line_id'].discount))"/>
+                          %</t>
+                        <t t-if="l['invoice_line_id'].discount_amount"><t t-set="j" t-value="1"/>
+                          <span t-esc="'{0:,.2f}'.format(float(l['invoice_line_id'].discount_amount))"/></t>
                       </font>
                     </td>
                     <td style="text-align: right; vertical-align: top;">
                       <font style="font-size: 14px;">
-                        <span t-esc="'{0:,.2f}'.format(float(l.price_subtotal))"/>
-                        <!-- <span t-esc="'{0:,.2f}'.format(float(l['price_subtotal']))"/> -->
+                        <span t-esc="'{0:,.2f}'.format(float(l['price_subtotal']))"/>
                       </font>
                     </td>
                   </tr>
