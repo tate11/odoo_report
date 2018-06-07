@@ -396,9 +396,9 @@
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
                         </t>
                         <t t-if="not doc.WHT_Type">
-                          <span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
+                          <span style="color:red">(0.00)</span><span t-esc="doc.WHT_Type"/><br/></t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="not doc.discounted_amount">(<span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/>)<br/></t>
+                          <t t-if="not doc.discounted_amount"><span style="color:red">(<span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/>)</span><br/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
                           <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t>
