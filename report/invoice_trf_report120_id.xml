@@ -157,14 +157,20 @@
                         <strong>Po No.</strong>
                       </font>
                     </td>
-
+            <!-- #Comment Check city state Zipcode Empty -->
                     <td width="60%" style="text-align: left">
                       <font style="font-size: 14px;">
                         <span t-if="doc.partner_id.street"><span t-esc="doc.partner_id.street"/></span><br/>
-                        <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/>&amp;nbsp;</span>
-                        <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
-                        <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
-                        <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
+                        <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/></span>
+                        <span t-if="doc.partner_id.city">
+                               <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
+                        </span>
+                        <span t-if="doc.partner_id.state_id.name">
+                               <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
+                        </span>
+                        <span t-if="doc.partner_id.zip">
+                              <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
+                        </span>
                         <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
                         <t t-if="doc.partner_id.branch_no == '00000'">
                           <strong>(Head Office)</strong>
