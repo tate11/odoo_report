@@ -29,7 +29,8 @@
             'report/generalvoucher_report_122_id.xml',
             'report/quotation_std_report123_id.xml',
             'report/invoice_one_report124_id.xml',
-            'report/taxinvoice_group_report125_id.xml'],
+            'report/taxinvoice_group_report125_id.xml',
+            'report/invoice_STD_report126_id.xml'],
     'auto_install':False,
     'application':True
 }
