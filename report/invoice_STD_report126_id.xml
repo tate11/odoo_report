@@ -1,5 +1,7 @@
-<?xml version="1.0"?>
-<t t-name="odoo_report.invoice_STD_report126_id">
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+<template t-name="odoo_report.invoice_STD_report126_id">
       <t t-foreach="docs" t-as="doc">
         <t t-set="j" t-value="0"/>
         <div class="header">
@@ -536,4 +538,6 @@
         </div>
 
       </t>
-    </t>
+    </template>
+  </data>
+</openerp>
