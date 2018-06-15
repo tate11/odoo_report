@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<t t-name="odoo_report.quotations127_report_id">
+<openerp>
+<data>
+<template id="odoo_report.quotations127_report_id">
             <t t-foreach="docs" t-as="doc">
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount" t-value="0"/>
@@ -745,4 +747,6 @@
           <!--</div>-->
         </div>
       </t>
-        </t>
+        </template>
+        </data>
+</openerp>
