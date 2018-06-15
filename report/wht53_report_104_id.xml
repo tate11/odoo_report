@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.wht53_report_104_id">
-      <!--for customer site only-->
+        <!--for customer site only-->
       <!--for customer site only-->
       <!--for customer site only-->
       <!--for customer site only-->
@@ -184,7 +184,7 @@
                 <t t-if="not k.amount_before_tax">
                   <t t-set="sum1_total" t-value="k.credit*100/1"/>
                 </t>
-                <!--<t t-set="description1" t-value="k.name"/>-->
+                <t t-set="description1" t-value="k.name"/>
                 <t t-set="i" t-value="i+1"/>
               </t>
               <t t-if="k.wht_type == '2%' ">
@@ -272,7 +272,7 @@
               <t t-if="i == 1">
                 <div style="position: absolute;left: 790px;top: 1420px;">
                   <font style="font-size:25px;">
-                    <t t-if="o.x_chek_wht  == True "></t>
+                    <t t-if="o.x_chek_wht  == True "/>
                     <t t-if="o.x_chek_wht  == False">
                       <span t-field="o.date"/>
                     </t>
@@ -293,7 +293,7 @@
               <t t-if="i == 2">
                 <div style="position: absolute;left: 790px;top: 1470px;">
                   <font style="font-size:25px;">
-                    <t t-if="o.x_chek_wht  == True "></t>
+                    <t t-if="o.x_chek_wht  == True "/>
                     <t t-if="o.x_chek_wht  == False">
                       <span t-field="o.date"/>
                     </t>
@@ -356,7 +356,7 @@
 
           <div style="position: absolute;right: 540px;top: 1760px;">
             <font style="font-size:25px;">
-              <t t-if="o.x_chek_wht  == True "></t>
+              <t t-if="o.x_chek_wht  == True "/>
               <t t-if="o.x_chek_wht  == False">
                 <t t-if="date">
                   <t t-if="date.tm_mday &gt; 9">
@@ -377,7 +377,7 @@
           <div style="position: absolute;right: 450px;top: 1760px;">
             <font style="font-size:25px;">
 
-              <t t-if="o.x_chek_wht  == True "></t>
+              <t t-if="o.x_chek_wht  == True "/>
               <t t-if="o.x_chek_wht  == False">
                 <t t-if="date">
                   <t t-if="date.tm_mon &gt; 9">
@@ -396,7 +396,7 @@
 
           <div style="position: absolute;right: 290px;top: 1760px;">
             <font style="font-size:25px;">
-              <t t-if="o.x_chek_wht  == True "></t>
+              <t t-if="o.x_chek_wht  == True "/>
               <t t-if="o.x_chek_wht  == False">
                 <t t-if="date">
                   <span t-esc="date.tm_year"/>
