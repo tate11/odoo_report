@@ -31,7 +31,8 @@
             'report/invoice_one_report124_id.xml',
             'report/taxinvoice_group_report125_id.xml',
             'report/invoice_STD_report126_id.xml',
-            'report/quotations127_report_id.xml'],
+            'report/quotations127_report_id.xml',
+            'report/invoice_leam_repoet_128_id.xml'],
     'auto_install':False,
     'application':True
 }
