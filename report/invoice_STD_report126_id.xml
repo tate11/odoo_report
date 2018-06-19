@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-<template t-name="odoo_report.invoice_STD_report126_id">
+    <template t-name="odoo_report.invoice_STD_report126_id">
       <t t-foreach="docs" t-as="doc">
         <t t-set="j" t-value="0"/>
         <div class="header">
@@ -126,7 +126,8 @@
                   <tr>
                     <td width="15%" style="text-align: left">
                       <font style="font-size: 14px;">
-                        <strong>Invoice Of  </strong><br/>
+                        <strong>Invoice Of
+                        </strong><br/>
                         <strong>Customer ID</strong><br/>
                         <strong>Customer Name</strong><br/>
                       </font>
@@ -159,19 +160,19 @@
                         <strong>Po No.</strong>
                       </font>
                     </td>
-            <!-- #Comment Check city state Zipcode Empty -->
+                    <!-- #Comment Check city state Zipcode Empty -->
                     <td width="60%" style="text-align: left">
                       <font style="font-size: 14px;">
                         <span t-if="doc.partner_id.street"><span t-esc="doc.partner_id.street"/></span><br/>
                         <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/></span>
                         <span t-if="doc.partner_id.city">
-                               <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
+                          <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
                         </span>
                         <span t-if="doc.partner_id.state_id.name">
-                               <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
+                          <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
                         </span>
                         <span t-if="doc.partner_id.zip">
-                              <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
+                          <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
                         </span>
                         <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
                         <t t-if="doc.partner_id.branch_no == '00000'">
@@ -391,25 +392,26 @@
                   <p style="margin-top:10px;">
                     <font style="font-size: 14px;">
                       <div class="last-page">
-                        <span ><t t-if="doc.discounted_amount"><t t-set="j" t-value="2"/></t>
-                        <t t-if="j==0">
-                          <span>0.00</span><br/>
-                        </t>
-                        <t t-if="j==1">
-                          <span>0.00</span><br/>
-                        </t>
+                        <span >
+                          <t t-if="doc.discounted_amount"><t t-set="j" t-value="2"/></t>
+                          <t t-if="j==0">
+                            <span>0.00</span><br/>
+                          </t>
+                          <t t-if="j==1">
+                            <span>0.00</span><br/>
+                          </t>
                         </span>
                         <span >
-                            <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/>
+                          <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/>
                             <br/>
-                            </t>
+                          </t>
                         </span>
                         <t t-if="doc.discounted_amount">
-                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-doc.discounted_amount))"/><br/>
-                         </t>
+                          <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-doc.discounted_amount))"/><br/>
+                        </t>
                         <t t-if="not doc.discounted_amount">
-                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
-                         </t>
+                          <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
+                        </t>
                         <t t-if="doc.company_id.vat != '0105542020983'">
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
                         </t>
@@ -493,7 +495,19 @@
                   <td width="33%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
-                        <br/><br/>
+                        <t t-if="doc.company_id.vat == '0105535088195'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/tridej.png'" style="max-height: 75px;"/><br/>
+                        </t>
+                        <!-- REI -->
+                        <t t-if="doc.company_id.vat == '0105542069401'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/Reefer%20Inter.png'" style="max-height: 75px;"/>
+                          <img t-att-src="'http://www.bansuansoft.com/img/REI.png'" style="max-height: 145px;"/><br/>
+                        </t>
+                        <!-- TRF-->
+                        <t t-if="doc.company_id.vat =='0105542020983'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/Reefer%20Inter.png'" style="max-height: 75px;"/>
+                          <img t-att-src="' http://www.bansuansoft.com/img/Thaireefer.png'" style="max-height: 40px;"/><br/>
+                        </t>
                         <span>_________________________</span><br/>
                         <span>Authorised Signature</span><br/>
                         <span>_______/_______/_______</span>
@@ -503,7 +517,7 @@
                   <td width="34%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
-                        <br/><br/>
+                        <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/><br/>
                         <span>_________________________</span><br/>
                         <span>Delivered BY</span><br/>
                         <span>_______/_______/_______</span>
@@ -513,7 +527,7 @@
                   <td width="33%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
-                        <br/><br/>
+                        <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/><br/>
                         <span>_________________________</span><br/>
                         <span>Received BY</span><br/>
                         <span>_______/_______/_______</span>
