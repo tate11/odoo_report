@@ -495,13 +495,17 @@
                   <td width="33%" style="text-align: center;">
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
+                        <!-- REL -->
                         <t t-if="doc.company_id.vat == '0105535088195'">
                           <img t-att-src="'http://www.bansuansoft.com/img/tridej.png'" style="max-height: 75px;"/><br/>
                         </t>
                         <!-- REI -->
-                        <t t-if="doc.company_id.vat == '0105542069401'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/Reefer%20Inter.png'" style="max-height: 70px;"/>
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/Reefer%20Inter.png'" style="max-height: 68px;"/>
                           <img t-att-src="'http://www.bansuansoft.com/img/REI.png'" style="max-height: 90px;"/><br/>
+                        </t>
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/><br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
@@ -518,10 +522,14 @@
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
                         <!-- REI -->
-                        <t t-if="doc.company_id.vat == '0105542069401'">
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' ">
                           <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/>
                           <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
                         </t>
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
+                        </t>
+                        <!-- REL -->
                         <t t-if="doc.company_id.vat == '0105535088195'">
                           <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/><br/>
                         </t>
@@ -540,10 +548,14 @@
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
                         <!-- REI -->
-                        <t t-if="doc.company_id.vat == '0105542069401'">
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' ">
                           <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/>
                           <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
                         </t>
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
+                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
+                        </t>
+                        <!-- REL -->
                         <t t-if="doc.company_id.vat == '0105535088195'">
                           <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/><br/>
                         </t>
