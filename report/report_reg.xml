@@ -1,698 +1,709 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-            <!-- paperformat Invoice -->
-        <record id="paperformat_A4_DayAndMonth" model="report.paperformat">
-            <field name="name">A4_DayAndMonth</field>
-            <field name="default" eval="False"/>
-            <field name="format">A4</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">75</field>
-            <field name="margin_bottom">115</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">69</field>
-            <field name="dpi">90</field>
-        </record>
+  <data>
+    <!-- paperformat Invoice -->
+    <record id="paperformat_A4_DayAndMonth" model="report.paperformat">
+      <field name="name">A4_DayAndMonth</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">75</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">69</field>
+      <field name="dpi">90</field>
+    </record>
 
-            <!-- paperformat TaxInvoice -->
-        <record id="paperformat_A4_NewTaxInvoice" model="report.paperformat">
-            <field name="name">A4_NewTaxInvoice</field>
-            <field name="default" eval="False"/>
-            <field name="format">A4</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">75</field>
-            <field name="margin_bottom">115</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">71</field>
-            <field name="dpi">90</field>
-        </record>
+    <!-- paperformat TaxInvoice -->
+    <record id="paperformat_A4_NewTaxInvoice" model="report.paperformat">
+      <field name="name">A4_NewTaxInvoice</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">75</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">71</field>
+      <field name="dpi">90</field>
+    </record>
 
-            <!-- paperformat Quotation -->
-         <record id="paperformat_A4_NewQuotation" model="report.paperformat">
-            <field name="name">A4_NewQuotation</field>
-            <field name="default" eval="False"/>
-            <field name="format">A4</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">76</field>
-            <field name="margin_bottom">130</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">72</field>
-            <field name="dpi">90</field>
-        </record>
+    <!-- paperformat Quotation -->
+    <record id="paperformat_A4_NewQuotation" model="report.paperformat">
+      <field name="name">A4_NewQuotation</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">76</field>
+      <field name="margin_bottom">130</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">72</field>
+      <field name="dpi">90</field>
+    </record>
 
-            <!-- paperformat InvoiceGroup -->
-        <record id="paperformat_A4_NewInvoiceGroup" model="report.paperformat">
-           <field name="name">A4_NewInvoiceGroup</field>
-           <field name="default" eval="False"/>
-           <field name="format">A4</field>
-           <field name="orientation">Portrait</field>
-           <field name="margin_top">76</field>
-           <field name="margin_bottom">130</field>
-           <field name="margin_left">5</field>
-           <field name="margin_right">5</field>
-           <field name="header_line" eval="False"/>
-           <field name="header_spacing">72</field>
-           <field name="dpi">90</field>
-       </record>
+    <!-- paperformat InvoiceGroup -->
+    <record id="paperformat_A4_NewInvoiceGroup" model="report.paperformat">
+      <field name="name">A4_NewInvoiceGroup</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">76</field>
+      <field name="margin_bottom">130</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">72</field>
+      <field name="dpi">90</field>
+    </record>
 
-            <!-- paperformat wht53_report -->
-       <record id="paperformat_A4_wht53_report" model="report.paperformat">
-           <field name="name">A4_wht53_report</field>
-           <field name="default" eval="False"/>
-           <field name="format">A4</field>
-           <field name="orientation">Portrait</field>
-           <field name="margin_top">5</field>
-           <field name="margin_bottom">0</field>
-           <field name="margin_left">5</field>
-           <field name="margin_right">5</field>
-           <field name="header_line" eval="False"/>
-           <field name="header_spacing">20</field>
-           <field name="dpi">90</field>
-       </record>
+    <!-- paperformat wht53_report -->
+    <record id="paperformat_A4_wht53_report" model="report.paperformat">
+      <field name="name">A4_wht53_report</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">5</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
 
-          <!-- paperformat wht3_report -->
-       <record id="paperformat_A4_wht3_report" model="report.paperformat">
-           <field name="name">A4_wht3_report</field>
-           <field name="default" eval="False"/>
-           <field name="format">A4</field>
-           <field name="orientation">Portrait</field>
-           <field name="margin_top">5</field>
-           <field name="margin_bottom">0</field>
-           <field name="margin_left">5</field>
-           <field name="margin_right">5</field>
-           <field name="header_line" eval="False"/>
-           <field name="header_spacing">20</field>
-           <field name="dpi">90</field>
-       </record>
+    <!-- paperformat wht3_report -->
+    <record id="paperformat_A4_wht3_report" model="report.paperformat">
+      <field name="name">A4_wht3_report</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">5</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
 
+    <!-- paperformat equipment_report -->
+    <record id="paperformat_A4_equipment_report" model="report.paperformat">
+      <field name="name">A4_equipment_report</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">5</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat equipment_report -->
-       <record id="paperformat_A4_equipment_report" model="report.paperformat">
-           <field name="name">A4_equipment_report</field>
-           <field name="default" eval="False"/>
-           <field name="format">A4</field>
-           <field name="orientation">Portrait</field>
-           <field name="margin_top">5</field>
-           <field name="margin_bottom">0</field>
-           <field name="margin_left">5</field>
-           <field name="margin_right">5</field>
-           <field name="header_line" eval="False"/>
-           <field name="header_spacing">20</field>
-           <field name="dpi">90</field>
-       </record>
+    <!-- paperformat wht3_report -->
+    <record id="paperformat_A4_documentation_report" model="report.paperformat">
+      <field name="name">A4_documentation_report</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">76</field>
+      <field name="margin_bottom">130</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">72</field>
+      <field name="dpi">90</field>
+    </record>
 
+    <!-- paperformat purchase_report -->
+    <record id="paperformat_A4_purchase_report" model="report.paperformat">
+      <field name="name">A4_purchase_report</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">75</field>
+      <field name="margin_bottom">100</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">70</field>
+      <field name="dpi">90</field>
+    </record>
+    <!-- paperformat invoice_trf_report -->
+    <record id="paperformat_A4_invoice_trf_New_111" model="report.paperformat">
+      <field name="name">A4_invoice_trf_New_111</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">0</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">0</field>
+      <field name="margin_right">0</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
 
-        <!-- paperformat wht3_report -->
-       <record id="paperformat_A4_documentation_report" model="report.paperformat">
-           <field name="name">A4_documentation_report</field>
-           <field name="default" eval="False"/>
-           <field name="format">A4</field>
-           <field name="orientation">Portrait</field>
-           <field name="margin_top">76</field>
-           <field name="margin_bottom">130</field>
-           <field name="margin_left">5</field>
-           <field name="margin_right">5</field>
-           <field name="header_line" eval="False"/>
-           <field name="header_spacing">72</field>
-           <field name="dpi">90</field>
-       </record>
+    <!-- paperformat_A4_bill -->
+    <record id="paperformat_A4_bill" model="report.paperformat">
+      <field name="name">A4_bill</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">3</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">9</field>
+      <field name="margin_right">9</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat purchase_report -->
-      <record id="paperformat_A4_purchase_report" model="report.paperformat">
-          <field name="name">A4_purchase_report</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">75</field>
-          <field name="margin_bottom">100</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">70</field>
-          <field name="dpi">90</field>
-      </record>
-       <!-- paperformat invoice_trf_report -->
-      <record id="paperformat_A4_invoice_trf_New_111" model="report.paperformat">
-          <field name="name">A4_invoice_trf_New_111</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">0</field>
-          <field name="margin_bottom">0</field>
-          <field name="margin_left">0</field>
-          <field name="margin_right">0</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">20</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat_A4_Voucher -->
+    <record id="paperformat_A4_Voucher" model="report.paperformat">
+      <field name="name">A4_Voucher</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">90</field>
+      <field name="margin_bottom">60</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">85</field>
+      <field name="dpi">90</field>
+    </record>
 
+    <!-- paperformat_A4_receipt_customer_new -->
+    <record id="paperformat_A4_receipt_customer_new" model="report.paperformat">
+      <field name="name">A4_receipt_customer_new</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">67</field>
+      <field name="margin_bottom">120</field>
+      <field name="margin_left">8</field>
+      <field name="margin_right">8</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">66</field>
+      <field name="dpi">90</field>
+    </record>
 
-      <!-- paperformat_A4_bill -->
-      <record id="paperformat_A4_bill" model="report.paperformat">
-          <field name="name">A4_bill</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">3</field>
-          <field name="margin_bottom">0</field>
-          <field name="margin_left">9</field>
-          <field name="margin_right">9</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">20</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat_A4_receipt_customer_new -->
+    <record id="paperformat_A4_receipt_customer_newV2" model="report.paperformat">
+      <field name="name">A4_receipt_customer_newV2</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">67.00</field>
+      <field name="margin_bottom">120</field>
+      <field name="margin_left">8</field>
+      <field name="margin_right">8</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">66</field>
+      <field name="dpi">90</field>
+    </record>
 
+    <!-- paperformat purchase_report_trf -->
+    <record id="paperformat_A4_purchase_report_trf" model="report.paperformat">
+      <field name="name">A4_purchase_report_trf</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">75</field>
+      <field name="margin_bottom">100</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">70</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat_A4_Voucher -->
-      <record id="paperformat_A4_Voucher" model="report.paperformat">
-          <field name="name">A4_Voucher</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">90</field>
-          <field name="margin_bottom">60</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">85</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat_A4_Invoice_for_manachai -->
+    <record id="paperformat_A4_Invoice_for_mahachai" model="report.paperformat">
+      <field name="name">A4_Invoice_for_mahachai</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">76</field>
+      <field name="margin_bottom">105</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">72</field>
+      <field name="dpi">90</field>
+    </record>
 
+    <!-- paperformat_A4_Voucher -->
+    <record id="paperformat_A4_creditnoteVoucher" model="report.paperformat">
+      <field name="name">A4_creditnoteVoucher</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">90</field>
+      <field name="margin_bottom">60</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">73</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat_A4_receipt_customer_new -->
-      <record id="paperformat_A4_receipt_customer_new" model="report.paperformat">
-          <field name="name">A4_receipt_customer_new</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">67</field>
-          <field name="margin_bottom">120</field>
-          <field name="margin_left">8</field>
-          <field name="margin_right">8</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">66</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat_A4_Voucher -->
+    <record id="paperformat_A4_paymentVoucher" model="report.paperformat">
+      <field name="name">A4_paymentVoucher</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">90</field>
+      <field name="margin_bottom">60</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">85</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat_A4_receipt_customer_new -->
-      <record id="paperformat_A4_receipt_customer_newV2" model="report.paperformat">
-          <field name="name">A4_receipt_customer_newV2</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">67.00</field>
-          <field name="margin_bottom">120</field>
-          <field name="margin_left">8</field>
-          <field name="margin_right">8</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">66</field>
-          <field name="dpi">90</field>
-      </record>
+    <record id="paperformat_A4_vendorVoucher" model="report.paperformat">
+      <field name="name">A4_paymentVoucher</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">90</field>
+      <field name="margin_bottom">60</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">85</field>
+      <field name="dpi">90</field>
+    </record>
 
-      <!-- paperformat purchase_report_trf -->
-     <record id="paperformat_A4_purchase_report_trf" model="report.paperformat">
-         <field name="name">A4_purchase_report_trf</field>
-         <field name="default" eval="False"/>
-         <field name="format">A4</field>
-         <field name="orientation">Portrait</field>
-         <field name="margin_top">75</field>
-         <field name="margin_bottom">100</field>
-         <field name="margin_left">5</field>
-         <field name="margin_right">5</field>
-         <field name="header_line" eval="False"/>
-         <field name="header_spacing">70</field>
-         <field name="dpi">90</field>
-     </record>
+    <record id="paperformat_A4_generalVoucher" model="report.paperformat">
+      <field name="name">A4_generalVoucher</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">90</field>
+      <field name="margin_bottom">60</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">85</field>
+      <field name="dpi">90</field>
+    </record>
 
-         <!-- paperformat_A4_Invoice_for_manachai -->
-     <record id="paperformat_A4_Invoice_for_mahachai" model="report.paperformat">
-        <field name="name">A4_Invoice_for_mahachai</field>
-        <field name="default" eval="False"/>
-        <field name="format">A4</field>
-        <field name="orientation">Portrait</field>
-        <field name="margin_top">76</field>
-        <field name="margin_bottom">105</field>
-        <field name="margin_left">5</field>
-        <field name="margin_right">5</field>
-        <field name="header_line" eval="False"/>
-        <field name="header_spacing">72</field>
-        <field name="dpi">90</field>
-      </record>
+    <!-- paperformat Quotation STD -->
+    <record id="paperformat_A4_STDQuotation" model="report.paperformat">
+      <field name="name">A4_STDQuotation</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">76</field>
+      <field name="margin_bottom">130</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">72</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat_A4_Voucher -->
-      <record id="paperformat_A4_creditnoteVoucher" model="report.paperformat">
-          <field name="name">A4_creditnoteVoucher</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">90</field>
-          <field name="margin_bottom">60</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">73</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat_A4_Invoice_for_manachai -->
+    <record id="paperformat_A4_Agentone" model="report.paperformat">
+      <field name="name">A4_Agentone</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">120</field>
+      <field name="margin_bottom">70</field>
+      <field name="margin_left">0</field>
+      <field name="margin_right">0</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">117</field>
+      <field name="dpi">90</field>
+    </record>
 
-      <!-- paperformat_A4_Voucher -->
-      <record id="paperformat_A4_paymentVoucher" model="report.paperformat">
-          <field name="name">A4_paymentVoucher</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">90</field>
-          <field name="margin_bottom">60</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">85</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat TaxInvoiceGroup -->
+    <record id="paperformat_A4_NewTaxInvoiceGroup" model="report.paperformat">
+      <field name="name">A4_NewTaxInvoiceGroup</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">75</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">71</field>
+      <field name="dpi">90</field>
+    </record>
+    <!-- paperformat_A4_Invoice_STD -->
+    <record id="paperformat_A4_Invoice_STD" model="report.paperformat">
+      <field name="name">A4_Invoice_STD</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">80</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">76</field>
+      <field name="dpi">90</field>
+    </record>
 
-      <record id="paperformat_A4_vendorVoucher" model="report.paperformat">
-          <field name="name">A4_paymentVoucher</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">90</field>
-          <field name="margin_bottom">60</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">85</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat Quotation For Leam -->
+    <record id="paperformat_A4_LeamQuotation" model="report.paperformat">
+      <field name="name">A4_LeamQuotation</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">76</field>
+      <field name="margin_bottom">130</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">72</field>
+      <field name="dpi">90</field>
+    </record>
 
-      <record id="paperformat_A4_generalVoucher" model="report.paperformat">
-          <field name="name">A4_generalVoucher</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">90</field>
-          <field name="margin_bottom">60</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">85</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat_A4_Invoice_leam -->
+    <record id="paperformat_A4_Invoice_leam" model="report.paperformat">
+      <field name="name">A4_Invoice_leam</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">80</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">76</field>
+      <field name="dpi">90</field>
+    </record>
 
-       <!-- paperformat Quotation STD -->
-         <record id="paperformat_A4_STDQuotation" model="report.paperformat">
-            <field name="name">A4_STDQuotation</field>
-            <field name="default" eval="False"/>
-            <field name="format">A4</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">76</field>
-            <field name="margin_bottom">130</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">72</field>
-            <field name="dpi">90</field>
-        </record>
+    <!-- paperformat tax_invoice_USD_report_129_id -->
+    <record id="paperformat_A4_TaxInvoice_USD" model="report.paperformat">
+      <field name="name">A4_TaxInvoice_USD</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">75</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">71</field>
+      <field name="dpi">90</field>
+    </record>
 
-          <!-- paperformat_A4_Invoice_for_manachai -->
-     <record id="paperformat_A4_Agentone" model="report.paperformat">
-        <field name="name">A4_Agentone</field>
-        <field name="default" eval="False"/>
-        <field name="format">A4</field>
-        <field name="orientation">Portrait</field>
-        <field name="margin_top">120</field>
-        <field name="margin_bottom">70</field>
-        <field name="margin_left">0</field>
-        <field name="margin_right">0</field>
-        <field name="header_line" eval="False"/>
-        <field name="header_spacing">117</field>
-        <field name="dpi">90</field>
-      </record>
+    <!-- billing_STD_report_130_id -->
+    <record id="paperformat_A4_billing_report_std" model="report.paperformat">
+      <field name="name">A4_billing_report_std</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">3</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">9</field>
+      <field name="margin_right">9</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
 
-          <!-- paperformat TaxInvoiceGroup -->
-      <record id="paperformat_A4_NewTaxInvoiceGroup" model="report.paperformat">
-          <field name="name">A4_NewTaxInvoiceGroup</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">75</field>
-          <field name="margin_bottom">115</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">71</field>
-          <field name="dpi">90</field>
-      </record>
-          <!-- paperformat_A4_Invoice_STD -->
-      <record id="paperformat_A4_Invoice_STD" model="report.paperformat">
-          <field name="name">A4_Invoice_STD</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">80</field>
-          <field name="margin_bottom">115</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">76</field>
-          <field name="dpi">90</field>
-      </record>
+    <!-- paperformat billing_STD_report_130_id -->
+    <report
+      id="odoo_report.billing_STD_report_130_id"
+      model="customer.billing"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Bill STD"
+      paperformat="paperformat_A4_billing_report_std"
+      name="odoo_report.billing_STD_report_130_id"
+      file="odoo_report.billing_STD_report_130_id"/>
+    <!-- paperformat tax_invoice_USD_report_129_id -->
+    <report
+      id="odoo_report.tax_invoice_USD_report_129_id"
+      model="account.tax.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบกำกับภาษี(USD)"
+      paperformat="paperformat_A4_TaxInvoice_USD"
+      name="odoo_report.tax_invoice_USD_report_129_id"
+      file="odoo_report.tax_invoice_USD_report_129_id"/>
+    <!-- paperformat invoice_leam_repoet_128_id -->
+    <report
+      id="odoo_report.invoice_leam_repoet_128_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For Leam"
+      paperformat="paperformat_A4_Invoice_leam"
+      name="odoo_report.invoice_leam_repoet_128_id"
+      file="odoo_report.invoice_leam_repoet_128_id"/>
+    <!-- paperformat invoice_STD_report126_id -->
+    <report
+      id="odoo_report.invoice_STD_report126_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice_STD"
+      paperformat="paperformat_A4_Invoice_STD"
+      name="odoo_report.invoice_STD_report126_id"
+      file="odoo_report.invoice_STD_report126_id"/>
+    <!-- paperformat invoice_mahachai_report_121_id -->
+    <report
+      id="odoo_report.invoice_mahachai_report_121_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For Mahachai"
+      paperformat="paperformat_A4_Invoice_for_mahachai"
+      name="odoo_report.invoice_mahachai_report_121_id"
+      file="odoo_report.invoice_mahachai_report_121_id"/>
+    <!-- paperformat purchase_report_trf_116_id -->
+    <report
+      id="odoo_report.purchase_report_trf_116_id"
+      model="purchase.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Purchase Order(TRF)"
+      paperformat="paperformat_A4_purchase_report_trf"
+      name="odoo_report.purchase_report_trf_116_id"
+      file="odoo_report.purchase_report_trf_116_id"/>
+    <!-- paperformat receipt_customer_new_type_115_id -->
+    <report
+      id="odoo_report.receipt_customer_new_type_115_id"
+      model="customer.receipt"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบเสร็จรับเงิน (แบบรับชำระ) "
+      paperformat="paperformat_A4_receipt_customer_newV2"
+      name="odoo_report.receipt_customer_new_type_115_id"
+      file="odoo_report.receipt_customer_new_type_115_id"/>
+    <!-- paperformat receipt_customer_new_114_id -->
+    <report
+      id="odoo_report.receipt_customer_new_114_id"
+      model="customer.receipt"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบเสร็จรับเงิน (แบบเปล่า) "
+      paperformat="paperformat_A4_receipt_customer_new"
+      name="odoo_report.receipt_customer_new_114_id"
+      file="odoo_report.receipt_customer_new_114_id"/>
 
-      <!-- paperformat Quotation For Leam -->
-         <record id="paperformat_A4_LeamQuotation" model="report.paperformat">
-            <field name="name">A4_LeamQuotation</field>
-            <field name="default" eval="False"/>
-            <field name="format">A4</field>
-            <field name="orientation">Portrait</field>
-            <field name="margin_top">76</field>
-            <field name="margin_bottom">130</field>
-            <field name="margin_left">5</field>
-            <field name="margin_right">5</field>
-            <field name="header_line" eval="False"/>
-            <field name="header_spacing">72</field>
-            <field name="dpi">90</field>
-        </record>
+    <!-- paperformat bill_report_113_id -->
+    <report
+      id="odoo_report.bill_report_113_id"
+      model="customer.billing"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Bill For Silom"
+      paperformat="paperformat_A4_bill"
+      name="odoo_report.bill_report_113_id"
+      file="odoo_report.bill_report_113_id"/>
 
-          <!-- paperformat_A4_Invoice_leam -->
-        <record id="paperformat_A4_Invoice_leam" model="report.paperformat">
-          <field name="name">A4_Invoice_leam</field>
-          <field name="default" eval="False"/>
-          <field name="format">A4</field>
-          <field name="orientation">Portrait</field>
-          <field name="margin_top">80</field>
-          <field name="margin_bottom">115</field>
-          <field name="margin_left">5</field>
-          <field name="margin_right">5</field>
-          <field name="header_line" eval="False"/>
-          <field name="header_spacing">76</field>
-          <field name="dpi">90</field>
-        </record>
+    <!-- paperformat invoice_trf_report120_id -->
+    <report
+      id="odoo_report.invoice_trf_report120_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For Silom"
+      paperformat="paperformat_A4_DayAndMonth"
+      name="odoo_report.invoice_trf_report120_id"
+      file="odoo_report.invoice_trf_report120_id"/>
 
-           <!-- paperformat invoice_leam_repoet_128_id -->
-          <report
-                 id="odoo_report.invoice_leam_repoet_128_id"
-                 model="account.invoice"
-                 menu="True"
-                 report_type="qweb-pdf"
-                 string="Invoice For Leam"
-                 paperformat="paperformat_A4_Invoice_leam"
-                 name="odoo_report.invoice_leam_repoet_128_id"
-                 file="odoo_report.invoice_leam_repoet_128_id"
-         />
-           <!-- paperformat invoice_STD_report126_id -->
-          <report
-                 id="odoo_report.invoice_STD_report126_id"
-                 model="account.invoice"
-                 menu="True"
-                 report_type="qweb-pdf"
-                 string="Invoice_STD"
-                 paperformat="paperformat_A4_Invoice_STD"
-                 name="odoo_report.invoice_STD_report126_id"
-                 file="odoo_report.invoice_STD_report126_id"
-         />
-           <!-- paperformat invoice_mahachai_report_121_id -->
-          <report
-                 id="odoo_report.invoice_mahachai_report_121_id"
-                 model="account.invoice"
-                 menu="True"
-                 report_type="qweb-pdf"
-                 string="Invoice For Mahachai"
-                 paperformat="paperformat_A4_Invoice_for_mahachai"
-                 name="odoo_report.invoice_mahachai_report_121_id"
-                 file="odoo_report.invoice_mahachai_report_121_id"
-         />
-           <!-- paperformat purchase_report_trf_116_id -->
-          <report
-                 id="odoo_report.purchase_report_trf_116_id"
-                 model="purchase.order"
-                 menu="True"
-                 report_type="qweb-pdf"
-                 string="Purchase Order(TRF)"
-                 paperformat="paperformat_A4_purchase_report_trf"
-                 name="odoo_report.purchase_report_trf_116_id"
-                 file="odoo_report.purchase_report_trf_116_id"
-         />
-         <!-- paperformat receipt_customer_new_type_115_id -->
-          <report
-                id="odoo_report.receipt_customer_new_type_115_id"
-                model="customer.receipt"
-                menu="True"
-                report_type="qweb-pdf"
-                string="ใบเสร็จรับเงิน (แบบรับชำระ) "
-                paperformat="paperformat_A4_receipt_customer_newV2"
-                name="odoo_report.receipt_customer_new_type_115_id"
-                file="odoo_report.receipt_customer_new_type_115_id"
-        />
-         <!-- paperformat receipt_customer_new_114_id -->
-          <report
-                id="odoo_report.receipt_customer_new_114_id"
-                model="customer.receipt"
-                menu="True"
-                report_type="qweb-pdf"
-                string="ใบเสร็จรับเงิน (แบบเปล่า) "
-                paperformat="paperformat_A4_receipt_customer_new"
-                name="odoo_report.receipt_customer_new_114_id"
-                file="odoo_report.receipt_customer_new_114_id"
-        />
+    <!-- paperformat quotation_trf_report101_id -->
+    <report
+      id="odoo_report.quotation_trf_report101_id"
+      model="sale.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Quotation_SILOM"
+      paperformat="paperformat_A4_NewQuotation"
+      name="odoo_report.quotation_trf_report101_id"
+      file="odoo_report.quotation_trf_report101_id"/>
 
-         <!-- paperformat bill_report_113_id -->
-          <report
-                id="odoo_report.bill_report_113_id"
-                model="customer.billing"
-                menu="True"
-                report_type="qweb-pdf"
-                string="Bill For Silom"
-                paperformat="paperformat_A4_bill"
-                name="odoo_report.bill_report_113_id"
-                file="odoo_report.bill_report_113_id"
-        />
+    <!-- paperformat taxinvoice_trf_report102_id -->
+    <report
+      id="odoo_report.taxinvoice_trf_report102_id"
+      model="account.tax.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบกำกับภาษี(THB)"
+      paperformat="paperformat_A4_NewTaxInvoice"
+      name="odoo_report.taxinvoice_trf_report102_id"
+      file="odoo_report.taxinvoice_trf_report102_id"/>
 
-            <!-- paperformat invoice_trf_report120_id -->
-          <report
-                id="odoo_report.invoice_trf_report120_id"
-                model="account.invoice"
-                menu="True"
-                report_type="qweb-pdf"
-                string="Invoice For Silom"
-                paperformat="paperformat_A4_DayAndMonth"
-                name="odoo_report.invoice_trf_report120_id"
-                file="odoo_report.invoice_trf_report120_id"
-        />
+    <!-- paperformat invoice_group_report_103_id -->
+    <report
+      id="odoo_report.invoice_group_report_103_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For Group"
+      paperformat="paperformat_A4_NewInvoiceGroup"
+      name="odoo_report.invoice_group_report_103_id"
+      file="odoo_report.invoice_group_report_103_id"/>
 
-          <!-- paperformat quotation_trf_report101_id -->
-         <report
-                id="odoo_report.quotation_trf_report101_id"
-                model="sale.order"
-                menu="True"
-                report_type="qweb-pdf"
-                string="Quotation_SILOM"
-                paperformat="paperformat_A4_NewQuotation"
-                name="odoo_report.quotation_trf_report101_id"
-                file="odoo_report.quotation_trf_report101_id"
-        />
+    <!-- paperformat wht53_report_104_id -->
+    <report
+      id="odoo_report.wht53_report_104_id"
+      model="account.move"
+      menu="True"
+      report_type="qweb-pdf"
+      string="หนังสือรับรองหัก ณ ที่จ่าย 53 (New)"
+      paperformat="paperformat_A4_wht53_report"
+      name="odoo_report.wht53_report_104_id"
+      file="odoo_report.wht53_report_104_id"/>
 
-          <!-- paperformat taxinvoice_trf_report102_id -->
-         <report
-                id="odoo_report.taxinvoice_trf_report102_id"
-                model="account.tax.invoice"
-                menu="True"
-                report_type="qweb-pdf"
-                string="ใบกำกับภาษี(THB)"
-                paperformat="paperformat_A4_NewTaxInvoice"
-                name="odoo_report.taxinvoice_trf_report102_id"
-                file="odoo_report.taxinvoice_trf_report102_id"
-        />
+    <!-- paperformat wht3_report_105_id -->
+    <report
+      id="odoo_report.wht3_report_105_id"
+      model="account.move"
+      menu="True"
+      report_type="qweb-pdf"
+      string="หนังสือรับรองหัก ณ ที่จ่าย 3 (New)"
+      paperformat="paperformat_A4_wht3_report"
+      name="odoo_report.wht3_report_105_id"
+      file="odoo_report.wht3_report_105_id"/>
 
-        <!-- paperformat invoice_group_report_103_id -->
-         <report
-                id="odoo_report.invoice_group_report_103_id"
-                model="account.invoice"
-                menu="True"
-                report_type="qweb-pdf"
-                string="Invoice For Group"
-                paperformat="paperformat_A4_NewInvoiceGroup"
-                name="odoo_report.invoice_group_report_103_id"
-                file="odoo_report.invoice_group_report_103_id"
-        />
+    <!-- equipment_report_106_id -->
+    <report
+      id="odoo_report.equipment_report_106_id"
+      model="sale.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบตรวจสภาพตู้สินค้า(New)"
+      paperformat="paperformat_A4_wht3_report"
+      name="odoo_report.equipment_report_106_id"
+      file="odoo_report.equipment_report_106_id"/>
 
-        <!-- paperformat wht53_report_104_id -->
-         <report
-                id="odoo_report.wht53_report_104_id"
-                model="account.move"
-                menu="True"
-                report_type="qweb-pdf"
-                string="หนังสือรับรองหัก ณ ที่จ่าย 53 (New)"
-                paperformat="paperformat_A4_wht53_report"
-                name="odoo_report.wht53_report_104_id"
-                file="odoo_report.wht53_report_104_id"
-        />
+    <!-- paperformat documentation_report_107_id -->
+    <report
+      id="odoo_report.documentation_report_107_id"
+      model="sale.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Documentation"
+      paperformat="paperformat_A4_documentation_report"
+      name="odoo_report.documentation_report_107_id"
+      file="odoo_report.documentation_report_107_id"/>
 
-        <!-- paperformat wht3_report_105_id -->
-         <report
-                id="odoo_report.wht3_report_105_id"
-                model="account.move"
-                menu="True"
-                report_type="qweb-pdf"
-                string="หนังสือรับรองหัก ณ ที่จ่าย 3 (New)"
-                paperformat="paperformat_A4_wht3_report"
-                name="odoo_report.wht3_report_105_id"
-                file="odoo_report.wht3_report_105_id"
-        />
+    <!-- paperformat purchase_report_108_id -->
+    <report
+      id="odoo_report.purchase_report_108_id"
+      model="purchase.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Purchase Order(New)"
+      paperformat="paperformat_A4_purchase_report"
+      name="odoo_report.purchase_report_108_id"
+      file="odoo_report.purchase_report_108_id"/>
+    <!-- paperformat invoice_trf_std_report_111_id -->
+    <report
+      id="odoo_report.invoice_trf_std_report_111_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice(TRF)(New)"
+      paperformat="paperformat_A4_invoice_trf_New_111"
+      name="odoo_report.invoice_trf_std_report_111_id"
+      file="odoo_report.invoice_trf_std_report_111_id"/>
+    <!-- paperformat receipt_voucher_112_id -->
+    <report id="odoo_report.receipt_voucher_112_id" model="account.move" menu="True" report_type="qweb-pdf" string="ใบสำคัญรับ" paperformat="paperformat_A4_Voucher" name="odoo_report.receipt_voucher_112_id" file="odoo_report.receipt_voucher_112_id"/>
 
-        <!-- equipment_report_106_id -->
-         <report
-                id="odoo_report.equipment_report_106_id"
-                model="sale.order"
-                menu="True"
-                report_type="qweb-pdf"
-                string="ใบตรวจสภาพตู้สินค้า(New)"
-                paperformat="paperformat_A4_wht3_report"
-                name="odoo_report.equipment_report_106_id"
-                file="odoo_report.equipment_report_106_id"
-        />
+    <!-- paperformat suppliercreditnote_report_117_id -->
+    <report
+      id="odoo_report.suppliercreditnote_report_117_id"
+      model="account.move"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบสำคัญลดหนี้เจ้าหนี้"
+      paperformat="paperformat_A4_creditnoteVoucher"
+      name="odoo_report.suppliercreditnote_report_117_id"
+      file="odoo_report.suppliercreditnote_report_117_id"/>
 
-          <!-- paperformat documentation_report_107_id -->
-         <report
-                id="odoo_report.documentation_report_107_id"
-                model="sale.order"
-                menu="True"
-                report_type="qweb-pdf"
-                string="Documentation"
-                paperformat="paperformat_A4_documentation_report"
-                name="odoo_report.documentation_report_107_id"
-                file="odoo_report.documentation_report_107_id"
-        />
+    <!-- paperformat paymentvoucher_report_118_id -->
+    <report
+      id="odoo_report.paymentvoucher_report_118_id"
+      model="account.move"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบสำคัญจ่าย"
+      paperformat="paperformat_A4_paymentVoucher"
+      name="odoo_report.paymentvoucher_report_118_id"
+      file="odoo_report.paymentvoucher_report_118_id"/>
 
-        <!-- paperformat purchase_report_108_id -->
-       <report
-              id="odoo_report.purchase_report_108_id"
-              model="purchase.order"
-              menu="True"
-              report_type="qweb-pdf"
-              string="Purchase Order(New)"
-              paperformat="paperformat_A4_purchase_report"
-              name="odoo_report.purchase_report_108_id"
-              file="odoo_report.purchase_report_108_id"
-      />
-        <!-- paperformat invoice_trf_std_report_111_id -->
-       <report
-              id="odoo_report.invoice_trf_std_report_111_id"
-              model="account.invoice"
-              menu="True"
-              report_type="qweb-pdf"
-              string="Invoice(TRF)(New)"
-              paperformat="paperformat_A4_invoice_trf_New_111"
-              name="odoo_report.invoice_trf_std_report_111_id"
-              file="odoo_report.invoice_trf_std_report_111_id"
-      />
-        <!-- paperformat receipt_voucher_112_id -->
-      <report
-              id="odoo_report.receipt_voucher_112_id"
-              model="account.move"
-              menu="True"
-              report_type="qweb-pdf"
-              string="ใบสำคัญรับ"
-              paperformat="paperformat_A4_Voucher"
-              name="odoo_report.receipt_voucher_112_id"
-              file="odoo_report.receipt_voucher_112_id"
-      />
+    <!-- paperformat vendorvoucher_report_119_id -->
+    <report
+      id="odoo_report.vendorvoucher_report_119_id"
+      model="account.move"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบสำคัญตั้งเจ้าหนี้"
+      paperformat="paperformat_A4_vendorVoucher"
+      name="odoo_report.vendorvoucher_report_119_id"
+      file="odoo_report.vendorvoucher_report_119_id"/>
+    <!-- paperformat generalvoucher_report_122_id -->
+    <report
+      id="odoo_report.generalvoucher_report_122_id"
+      model="account.move"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบสำคัญทั่วไป"
+      paperformat="paperformat_A4_generalVoucher"
+      name="odoo_report.generalvoucher_report_122_id"
+      file="odoo_report.generalvoucher_report_122_id"/>
 
-       <!-- paperformat suppliercreditnote_report_117_id -->
-      <report
-              id="odoo_report.suppliercreditnote_report_117_id"
-              model="account.move"
-              menu="True"
-              report_type="qweb-pdf"
-              string="ใบสำคัญลดหนี้เจ้าหนี้"
-              paperformat="paperformat_A4_creditnoteVoucher"
-              name="odoo_report.suppliercreditnote_report_117_id"
-              file="odoo_report.suppliercreditnote_report_117_id"
-      />
+    <!-- paperformat quotation_std_report123_id -->
+    <report
+      id="odoo_report.quotation_std_report123_id"
+      model="sale.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Quotation_STD"
+      paperformat="paperformat_A4_STDQuotation"
+      name="odoo_report.quotation_std_report123_id"
+      file="odoo_report.quotation_std_report123_id"/>
 
-      <!-- paperformat paymentvoucher_report_118_id -->
-      <report
-              id="odoo_report.paymentvoucher_report_118_id"
-              model="account.move"
-              menu="True"
-              report_type="qweb-pdf"
-              string="ใบสำคัญจ่าย"
-              paperformat="paperformat_A4_paymentVoucher"
-              name="odoo_report.paymentvoucher_report_118_id"
-              file="odoo_report.paymentvoucher_report_118_id"
-      />
-
-      <!-- paperformat vendorvoucher_report_119_id -->
-      <report
-              id="odoo_report.vendorvoucher_report_119_id"
-              model="account.move"
-              menu="True"
-              report_type="qweb-pdf"
-              string="ใบสำคัญตั้งเจ้าหนี้"
-              paperformat="paperformat_A4_vendorVoucher"
-              name="odoo_report.vendorvoucher_report_119_id"
-              file="odoo_report.vendorvoucher_report_119_id"
-      />
-      <!-- paperformat generalvoucher_report_122_id -->
-      <report
-              id="odoo_report.generalvoucher_report_122_id"
-              model="account.move"
-              menu="True"
-              report_type="qweb-pdf"
-              string="ใบสำคัญทั่วไป"
-              paperformat="paperformat_A4_generalVoucher"
-              name="odoo_report.generalvoucher_report_122_id"
-              file="odoo_report.generalvoucher_report_122_id"
-      />
-
-       <!-- paperformat quotation_std_report123_id -->
-         <report
-                id="odoo_report.quotation_std_report123_id"
-                model="sale.order"
-                menu="True"
-                report_type="qweb-pdf"
-                string="Quotation_STD"
-                paperformat="paperformat_A4_STDQuotation"
-                name="odoo_report.quotation_std_report123_id"
-                file="odoo_report.quotation_std_report123_id"
-        />
-
-         <!-- paperformat invoice_one_report124_id -->
-       <report
-              id="odoo_report.invoice_one_report124_id"
-              model="account.invoice"
-              menu="True"
-              report_type="qweb-pdf"
-              string="Invoice Agent One"
-              paperformat="paperformat_A4_Agentone"
-              name="odoo_report.invoice_one_report124_id"
-              file="odoo_report.invoice_one_report124_id"
-      />
-      <!-- paperformat taxinvoice_group_report125_id -->
-     <report
-            id="odoo_report.taxinvoice_group_report125_id"
-            model="account.tax.invoice"
-            menu="True"
-            report_type="qweb-pdf"
-            string="ใบกำกับภาษี For Group"
-            paperformat="paperformat_A4_NewTaxInvoiceGroup"
-            name="odoo_report.taxinvoice_group_report125_id"
-            file="odoo_report.taxinvoice_group_report125_id"
-    />
+    <!-- paperformat invoice_one_report124_id -->
+    <report
+      id="odoo_report.invoice_one_report124_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice Agent One"
+      paperformat="paperformat_A4_Agentone"
+      name="odoo_report.invoice_one_report124_id"
+      file="odoo_report.invoice_one_report124_id"/>
+    <!-- paperformat taxinvoice_group_report125_id -->
+    <report
+      id="odoo_report.taxinvoice_group_report125_id"
+      model="account.tax.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="ใบกำกับภาษี For Group"
+      paperformat="paperformat_A4_NewTaxInvoiceGroup"
+      name="odoo_report.taxinvoice_group_report125_id"
+      file="odoo_report.taxinvoice_group_report125_id"/>
 
     <report
-            id="odoo_report.quotations127_report_id"
-            model="sale.order"
-            menu="True"
-            report_type="qweb-pdf"
-            string="Quotation_for_Leam"
-            paperformat="paperformat_A4_LeamQuotation"
-            name="odoo_report.quotations127_report_id"
-            file="odoo_report.quotations127_report_id"
-    />
+      id="odoo_report.quotations127_report_id"
+      model="sale.order"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Quotation_for_Leam"
+      paperformat="paperformat_A4_LeamQuotation"
+      name="odoo_report.quotations127_report_id"
+      file="odoo_report.quotations127_report_id"/>
 
-    </data>
+  </data>
 </openerp>

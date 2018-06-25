@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
   <data>
-    <template id="odoo_report.bill_report_113_id">
+    <template id="odoo_report.billing_STD_report_130_id">
       <t t-foreach="docs" t-as="doc">
         <!--<t t-set="total_untaxed" t-value="0"/>-->
         <!--<t t-set="amount_taxed" t-value="0"/>-->
@@ -477,7 +477,7 @@
                   <br/><br/>
                   <span>ชื่อผู้รับวางบิล ....................................... (ตัวบรรจง)</span><br/><br/>
                   <span>วันที่รับวางบิล ............./............/............</span><br/><br/>
-                  <span>วันที่นัดชำระเงิน ............/.........../...........</span><br/>
+                  <span>วันที่นัดชำระเงิน ............/.........../...........</span><br/><br/><br/>
                 </font>
               </div>
               <div class="col-xs-5" style="text-align: left;">
@@ -488,22 +488,14 @@
                   <span>วันที่
                   </span><span style="position: absolute; left: 28%;" t-field="doc.date_billing"/><br/><br/>
                   <span>ชื่อผู้ส่งเอกสาร ....................................</span><br/><br/>
-                  <span>วันที่ส่งเอกสาร ............/.........../...........</span><br/>
+                  <span>วันที่ส่งเอกสาร ............/.........../...........</span><br/><br/>
                 </font>
               </div><br/>
-              <div class="col-xs-12">
-                <font style="font-size: 14px;">
-                  <span> สอบถามเอกสารเพิ่มเติมต่างๆ: </span><br/>
-                  <span> ใบแจ้งหนี้ - ใบวางบิลค่าเช่า, ค่าบริการ และ ใบเสร็จรับเงิน - ใบกำกับภาษี : </span><br/>
-                  <span> ติดต่อ คุณอรพรรณ (ยุ้ย) และ คุณกมลพรรณ (ส้ม) TEL. (02)634-5335 หรือ (02)634-5337</span>
-                </font>
-              </div>
               <div class="col-xs-12">
                 <font style="font-size: 14px;">
                   <span t-field="doc.company_id.sale_condition"/>
                 </font>
               </div>
-
             </div>
 
           </div>

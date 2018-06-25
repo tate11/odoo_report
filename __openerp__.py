@@ -32,7 +32,9 @@
             'report/taxinvoice_group_report125_id.xml',
             'report/invoice_STD_report126_id.xml',
             'report/quotations127_report_id.xml',
-            'report/invoice_leam_repoet_128_id.xml'],
+            'report/invoice_leam_repoet_128_id.xml',
+            'report/tax_invoice_USD_report_129_id.xml',
+            'report/billing_STD_report_130_id.xml'],
     'auto_install':False,
     'application':True
 }
