@@ -88,8 +88,10 @@
                       <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
                     </td>
                     <td width="80%">
-                      <font style="font-size: 16px;">
+                      <font style="font-size: 23px;">
                         <strong t-field="doc.company_id.rml_header1"/><br/>
+                      </font>
+                      <font style="font-size: 20px;">
                         <strong t-field="doc.company_id.name"/><br/>
                       </font>
                       <font style="font-size: 12px;">

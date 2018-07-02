@@ -398,19 +398,20 @@
           </style>
           <table width="100%">
             <thead>
+              <table width="100%">
               <tr>
                 <td width="46%"/>
-                <td width="20%" style="text-align: left;border-top:1px solid black;">
+                <td width="40%" style="text-align: left;border-top:1px solid black;">
                   <p style="margin-top:10px;">
                     <font style="font-size: 14px;">
                       <span>Amount Total/ยอดเงินรวม</span>
                     </font>
                   </p>
                 </td>
-                <td width="18%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>
-                <td width="18%" style="text-align: right;border-top:1px solid black;">
+              <td width="1%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>
+                <td width="16%" style="border-top:1px solid black;">
                   <p style="margin-top:10px;">
-                    <font style="font-size: 14px;">
+                    <font style="font-size: 14px;text-align: left;">
                       <t t-if="doc.currency_id.name!='THB'">
                         <!-- <span t-esc="doc.get_thaibaht()"/> -->
                         <span t-esc="'{0:,.2f}'.format(float(sum_amount - amount_due))"/>
@@ -422,6 +423,8 @@
                   </p>
                 </td>
               </tr>
+            </table >
+            <table width="100%">
               <tr>
                 <td width="46%"/>
                 <td width="18%">
@@ -440,6 +443,7 @@
                 </td>
 
               </tr>
+              </table >
               <!--<table width="100%">-->
               <!--<tr>-->
               <!--<td style="text-align: right;">-->
