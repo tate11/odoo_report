@@ -234,12 +234,12 @@
                     <font style="font-size: 14px;">ยอดตาม INV</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดคงค้าง</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดชำระ</font>
                   </p>
@@ -260,7 +260,7 @@
                     </font>
                     <!--<t t-set="count" t-value="count + (len(l['name'])/60) + 1"/>-->
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: right;">
                     <font style="font-size: 14px;">
                       <t t-if="sum_amount != amount">
                         <span t-esc="'{0:,.2f}'.format(float(sum_amount))"/>
@@ -268,7 +268,7 @@
                     </font>
 
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: right;">
 
                     <font style="font-size: 14px;">
                       <t t-if="l['amount_due'] and l['amount_due'] &lt; float(sum_amount)">
@@ -367,47 +367,41 @@
           </style>
           <table width="100%">
             <thead>
-              <table width="100%">
-                <tr>
-                  <td width="46%"/>
-                  <td width="40%" style="text-align: left;border-top:1px solid black;">
-                    <p style="margin-top:10px;">
-                      <font style="font-size: 14px;">
-                        <span>Amount Total/ยอดเงินรวม</span>
-                      </font>
-                    </p>
-                  </td>
-                  <td width="2%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>
-                  <td width="16%" style="text-align: left;border-top:1px solid black;">
-                    <p style="margin-top:10px;">
-                      <font style="font-size: 14px;">
-                        <span t-esc="'{0:,.2f}'.format(float(sum_amount - amount_due))"/>
-                      </font>
-                    </p>
-                  </td>
-                </tr>
-              </table>
-              <table width="100%">
-                <tr>
-
-                  <td width="46%"/>
-                  <td width="18%">
-                    <p style="margin-top:10px;">
-                      <font style="font-size: 14px;">
-                        <span>THB (Baht Text)</span>
-                      </font>
-                    </p>
-                  </td>
-                  <td width="36%" style="text-align: left;">
-                    <p style="margin-top:10px;">
-                      <font style="font-size: 14px;">
-                        <span>(<span t-esc="doc.num2_words(sum_amount - amount_due)"/>)</span>
-                      </font>
-                    </p>
-                  </td>
-
-                </tr>
-              </table>
+              <tr>
+                <td width="46%"/>
+                <td width="20%" style="text-align: left;border-top:1px solid black;">
+                  <p style="margin-top:10px;">
+                    <font style="font-size: 14px;">
+                      <span>Amount Total/ยอดเงินรวม</span>
+                    </font>
+                  </p>
+                </td>
+                <td width="18%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>
+                <td width="18%" style="text-align: right;border-top:1px solid black;">
+                  <p style="margin-top:10px;">
+                    <font style="font-size: 14px;">
+                      <span t-esc="'{0:,.2f}'.format(float(sum_amount - amount_due))"/>
+                    </font>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td width="46%"/>
+                <td width="18%">
+                  <p style="margin-top:10px;">
+                    <font style="font-size: 14px;">
+                      <span>THB (Baht Text)</span>
+                    </font>
+                  </p>
+                </td>
+                <td width="36%" style="text-align: left;">
+                  <p style="margin-top:10px;">
+                    <font style="font-size: 14px;">
+                      <span>(<span t-esc="doc.num2_words(sum_amount - amount_due)"/>)</span>
+                    </font>
+                  </p>
+                </td>
+              </tr>
               <!--<table width="100%">-->
               <!--<tr>-->
               <!--<td style="text-align: right;">-->

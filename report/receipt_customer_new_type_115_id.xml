@@ -240,12 +240,12 @@
                     <font style="font-size: 14px;">ยอดตาม INV</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดคงค้าง</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดชำระ</font>
                   </p>
@@ -286,7 +286,7 @@
                     </font>
 
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: right;">
 
                     <font style="font-size: 14px;">
                       <!--<t t-if="l['amount_due'] and l['amount_due'] &lt; float(sum_amount)">-->
@@ -301,19 +301,19 @@
                       </t>
                     </font>
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: right;">
                     <font style="font-size: 14px;">
                       <t t-if="doc.currency_id.name!='THB'">
-                      <!-- <span t-esc="'{0:,.2f}'.format(doc.get_thaibaht())"/> -->
+                        <!-- <span t-esc="'{0:,.2f}'.format(doc.get_thaibaht())"/> -->
                         <!-- <span t-esc="doc.get_thaibaht()"/> -->
                         <span t-esc="'{0:,.2f}'.format(float((doc.get_thaibaht(r.sub_receipt_id))))"/>
                         <!--<span t-esc="doc.get_thaibaht()+r.discount"/>-->
                         <t t-set="sum_amount" t-value="sum_amount + doc.get_thaibaht(r.sub_receipt_id)"/>
                       </t>
                       <t t-if="doc.currency_id.name=='THB'">
-                      <span t-esc="'{0:,.2f}'.format(float(r.payment_amount+r.discount))"/>
-                      <t t-set="sum_amount" t-value="r.payment_amount"/>
-                    </t>
+                        <span t-esc="'{0:,.2f}'.format(float(r.payment_amount+r.discount))"/>
+                        <t t-set="sum_amount" t-value="r.payment_amount"/>
+                      </t>
                     </font>
                   </td>
                 </tr>
@@ -398,20 +398,19 @@
           </style>
           <table width="100%">
             <thead>
-              <table width="100%">
               <tr>
                 <td width="46%"/>
-                <td width="40%" style="text-align: left;border-top:1px solid black;">
+                <td width="20%" style="text-align: left;border-top:1px solid black;">
                   <p style="margin-top:10px;">
                     <font style="font-size: 14px;">
                       <span>Amount Total/ยอดเงินรวม</span>
                     </font>
                   </p>
                 </td>
-              <td width="1%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>
-                <td width="16%" style="border-top:1px solid black;">
+                <td width="18%" style="border-top:1px solid black;"><p style="margin-top:10px;"/></td>
+                <td width="18%" style="text-align: right;border-top:1px solid black;">
                   <p style="margin-top:10px;">
-                    <font style="font-size: 14px;text-align: left;">
+                    <font style="font-size: 14px;">
                       <t t-if="doc.currency_id.name!='THB'">
                         <!-- <span t-esc="doc.get_thaibaht()"/> -->
                         <span t-esc="'{0:,.2f}'.format(float(sum_amount - amount_due))"/>
@@ -423,8 +422,6 @@
                   </p>
                 </td>
               </tr>
-            </table >
-            <table width="100%">
               <tr>
                 <td width="46%"/>
                 <td width="18%">
@@ -443,7 +440,7 @@
                 </td>
 
               </tr>
-              </table >
+
               <!--<table width="100%">-->
               <!--<tr>-->
               <!--<td style="text-align: right;">-->
