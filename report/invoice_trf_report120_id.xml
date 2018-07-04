@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.invoice_trf_report120_id">
-      <t t-foreach="docs" t-as="doc">
+           <t t-foreach="docs" t-as="doc">
         <t t-set="j" t-value="0"/>
         <div class="header">
           <style>
@@ -414,8 +414,10 @@
                         <t t-if="doc.company_id.vat != '0105542020983'">
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
                         </t>
-                        <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/>                        </t>
-                        <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
+                        <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/>
+                        </t>
+                       <!-- <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/>
+                        </t>  -->
                         <t t-if="doc.WHT_Type">
                                          <t t-if="not doc.discounted_amount">
                                                     <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/>
@@ -433,7 +435,7 @@
                         </t>
                         <t t-if="doc.WHT_Type">
                                    <t t-if="not doc.discounted_amount">
-                                            <span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/>
+                                   <span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round(doc.amount_untaxed*int(doc.WHT_Type[0])/100,2)))"/>
                                    </t>
                           </t>
                         <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
@@ -453,7 +455,7 @@
                           <t t-if="doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)))"/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/></t>
+                          <t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round(doc.amount_untaxed*int(doc.WHT_Type[0])/100,2)))"/></t>
                         </t>
                         <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
                         <t t-if="not doc.WHT_Type"><span t-esc="doc.num2_words(float(doc.amount_total))"/></t>
