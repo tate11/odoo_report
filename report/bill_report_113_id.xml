@@ -383,11 +383,11 @@
                           <font style="font-size: 14px;">
                             <t t-if="l.type=='out_refund'">
                               <t t-set="amount_total" t-value="total_discount+amount_tax-amount_taxed5"/>
-                              <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                             <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
                             </t>
                             <t t-if="l.type!='out_refund'">
-                              <t t-set="amount_total" t-value="l.amount_total -  amount_taxed5"/>
-                              <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                              <t t-set="amount_total" t-value="l.amount_total -  round(amount_taxed5,2)"/>
+                             <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
                             </t>
                           </font>
                         </td>
@@ -438,7 +438,11 @@
                       <td class="text-right">
                         <font style="font-size: 14px;">
                           <t t-set="grand_total" t-value="0"/>
-                          <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>
+                        <!--  <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>   -->
+
+                        <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>
+
+
                         </font>
                       </td>
                     </tr>

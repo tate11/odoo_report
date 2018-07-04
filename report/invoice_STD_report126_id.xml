@@ -497,20 +497,20 @@
                       <font style="font-size: 14px;">
                         <!-- REL -->
                         <t t-if="doc.company_id.vat == '0105535088195'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/tridej.png'" style="max-height: 75px;"/><br/>
+                          <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
                         </t>
                         <!-- REI -->
                         <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/Reefer%20Inter.png'" style="max-height: 68px;"/>
-                          <img t-att-src="'http://www.bansuansoft.com/img/REI.png'" style="max-height: 90px;"/><br/>
+                          <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                          <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
                         </t>
                         <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/><br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/Reefer%20Inter.png'" style="max-height: 75px;"/>
-                          <img t-att-src="' http://www.bansuansoft.com/img/Thaireefer.png'" style="max-height: 40px;"/><br/>
+                          <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                          <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
                         </t>
                         <span>_________________________</span><br/>
                         <span>Authorised Signature</span><br/>
@@ -523,19 +523,19 @@
                       <font style="font-size: 14px;">
                         <!-- REI -->
                         <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' ">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/>
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/>
+                          <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/>
                         </t>
                         <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/>
                         </t>
                         <!-- REL -->
                         <t t-if="doc.company_id.vat == '0105535088195'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 84px;"/><br/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 84px;"/><br/><br/>
                         </t>
                         <br/>
                         <span>_________________________</span><br/>
@@ -549,19 +549,19 @@
                       <font style="font-size: 14px;">
                         <!-- REI -->
                         <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' ">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/>
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/>
+                          <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/>
                         </t>
                         <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 68px;"/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/>
                         </t>
                         <!-- REL -->
                         <t t-if="doc.company_id.vat == '0105535088195'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 75px;"/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
-                          <img t-att-src="'http://www.bansuansoft.com/img/paper.png'" style="max-height: 84px;"/><br/><br/>
+                          <img src="/signature/static/paper.png" style="max-height: 84px;"/><br/><br/>
                         </t>
                         <br/>
                         <span>_________________________</span><br/>
