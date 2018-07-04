@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.quotation_trf_report101_id">
-      <t t-foreach="docs" t-as="doc">
+           <t t-foreach="docs" t-as="doc">
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount" t-value="0"/>
         <t t-set="total_sum_amount" t-value="0"/>
@@ -306,7 +306,7 @@
                       </font>
                     </td>
                     <td style="text-align: right;">
-                      <font style="font-size: 14px;"></font>
+                      <font style="font-size: 14px;"/>
                     </td>
                     <td style="text-align: right;">
                       <t t-if="l.discount">
@@ -321,7 +321,7 @@
                       </t>
                     </td>
                     <td style="text-align: right;">
-                      <font style="font-size: 14px;"></font>
+                      <font style="font-size: 14px;"/>
                     </td>
                     <td style="text-align: right;">
                       <font style="font-size: 14px;">
@@ -602,13 +602,16 @@
                             <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="doc.discounted_amount">(<span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/>)<br/></t>
+                          <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t>
+                               <t t-if="doc.discounted_amount">
+  <t t-set="amount_round" t-value="doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)"/>
+   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>  
+                              </t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/></t>
+     <t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/></t>
                         </t>
                         <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
                         <t t-if="not doc.WHT_Type"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total))"/></t>
@@ -623,10 +626,10 @@
                     <font style="font-size: 14px;">
                       <div class="last-page">
                         <t t-if="doc.WHT_Type">
-                          <t t-if="doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t>
+                          <t t-if="doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)))"/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/></t>
+                          <t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/></t>
                         </t>
                         <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
                         <t t-if="not doc.WHT_Type"><span t-esc="doc.num2_words(float(doc.amount_total))"/></t>
@@ -689,25 +692,25 @@
                     <t t-if="doc.state != 'draft' ">
                       <p style="margin-top:10px;">
                         <font style="font-size: 14px;">
-                          <!-- REL -->
+                         <!-- REL -->
                           <t t-if="doc.company_id.vat == '0105535088195'">
                             <span t-field="doc.company_id.rml_header1"/>
                             <br/>
-                            <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
+                          <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
                           </t>
                           <!-- REI -->
                           <t t-if="doc.company_id.vat == '0105542069401'">
                             <span t-field="doc.company_id.rml_header1"/>
                             <br/>
-                            <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                            <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
+                             <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                         <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
                           </t>
                           <!-- TRF-->
                           <t t-if="doc.company_id.vat =='0105542020983'">
                             <span t-field="doc.company_id.rml_header1"/>
                             <br/>
-                            <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                            <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
+                           <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                         <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
                           </t>
                           <span>Sign:</span>
                           <br/>

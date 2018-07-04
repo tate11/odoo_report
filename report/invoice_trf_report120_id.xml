@@ -226,7 +226,7 @@
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">Qty / Unit<br/>(จำนวน / หน่วย)</font>
                   </p>
-                </th>
+                </th>                
                 <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
                     <font style="font-size: 14px;">Unit Price<br/>(ราคา)</font>
@@ -273,7 +273,7 @@
                       <span t-esc="l.uom_id.name"/>
                     </font>
                   </td>
-
+                  
                   <td style="text-align: right;">
                     <!-- <p style="margin-right:10px"> -->
                     <font style="font-size: 14px;margin-right:15px">
@@ -282,7 +282,7 @@
                     <!-- </p> -->
                   </td>
                   <!-- <td>
-
+                    
                   </td> -->
                   <td style="text-align: right;">
                     <font style="font-size: 14px;margin-right:15px">
@@ -404,7 +404,7 @@
                                 <t t-if="j==0"><span>0.00</span><br/></t>
                                 <t t-if="j==1"><span>0.00</span><br/></t>
                                 <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/><br/></t>
-
+                        
                         <t t-if="doc.discounted_amount">
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-doc.discounted_amount))"/><br/>
                         </t>
@@ -416,10 +416,26 @@
                         </t>
                         <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/>                        </t>
                         <t t-if="not doc.WHT_Type"><span>0.00</span><span t-esc="doc.WHT_Type"/><br/></t>
-                        <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/></t></t>
-                        <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/></t></t>
-                        <t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t></t>
-                        <t t-if="doc.WHT_Type"><t t-if="not doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/></t></t>
+                        <t t-if="doc.WHT_Type">
+                                         <t t-if="not doc.discounted_amount">
+                                                    <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed*int(doc.WHT_Type[0])/100))"/><br/>
+                                         </t>
+                         </t>
+
+                        <t t-if="doc.WHT_Type">
+                            <t t-if="doc.discounted_amount">
+                           <span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/><br/>                         </t>
+</t>
+                        <t t-if="doc.WHT_Type">
+                                 <t t-if="doc.discounted_amount">
+                              <span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)))"/>
+                          </t>
+                        </t>
+                        <t t-if="doc.WHT_Type">
+                                   <t t-if="not doc.discounted_amount">
+                                            <span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/>
+                                   </t>
+                          </t>
                         <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
                         <t t-if="not doc.WHT_Type"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total))"/></t>
 
@@ -434,10 +450,10 @@
                     <font style="font-size: 14px;">
                       <div class="last-page">
                         <t t-if="doc.WHT_Type">
-                          <t t-if="doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t>
+                          <t t-if="doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)))"/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
-                          <t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/></t>
+                          <t t-if="not doc.discounted_amount"><span t-esc="doc.num2_words(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/></t>
                         </t>
                         <!--<t t-if="doc.WHT_Type"><t t-if="doc.discounted_amount"><span t-esc="'{0:,.2f}'.format(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)-doc.discounted_amount))"/></t></t>-->
                         <t t-if="not doc.WHT_Type"><span t-esc="doc.num2_words(float(doc.amount_total))"/></t>
