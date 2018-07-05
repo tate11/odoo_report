@@ -34,7 +34,8 @@
             'report/quotations127_report_id.xml',
             'report/invoice_leam_repoet_128_id.xml',
             'report/tax_invoice_USD_report_129_id.xml',
-            'report/billing_STD_report_130_id.xml'],
+            'report/billing_STD_report_130_id.xml',
+            'report/invoice_trf_report131_id.xml'],
     'auto_install':False,
     'application':True
 }

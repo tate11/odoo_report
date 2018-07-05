@@ -417,6 +417,25 @@
       <field name="dpi">90</field>
     </record>
 
+
+    <!-- paperformat_A4_Invoice_silomstamp -->
+    <record id="paperformat_A4_Invoice_silomstamp" model="report.paperformat">
+      <field name="name">A4_Invoice_silomstamp</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">80</field>
+      <field name="margin_bottom">115</field>
+      <field name="margin_left">5</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">76</field>
+      <field name="dpi">90</field>
+    </record>
+
+
+
+
     <!-- paperformat billing_STD_report_130_id -->
     <report
       id="odoo_report.billing_STD_report_130_id"
@@ -704,6 +723,17 @@
       paperformat="paperformat_A4_LeamQuotation"
       name="odoo_report.quotations127_report_id"
       file="odoo_report.quotations127_report_id"/>
+
+
+      <report
+      id="odoo_report.invoice_trf_report131_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For Silom With Stamp"
+      paperformat="paperformat_A4_Invoice_silomstamp"
+      name="odoo_report.invoice_trf_report131_id"
+      file="odoo_report.invoice_trf_report131_id"/>
 
   </data>
 </openerp>

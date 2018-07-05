@@ -463,13 +463,13 @@
                       </t>
                     </font>
                     <font style="font-size: 14px;">
-                      <span>Transfer / เงินโอน</span>
+                      <span>Transfer / เงินโอน ____________________</span>
                       <!-- <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='bank'"> <t t-if="doc.invoice_ids[0].payment_id.journal_id.bank_cheque==True"> <t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/> </t> </t> -->
                       <!-- <br/> -->
                       <!-- <br/> -->
                       <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='bank'">
                         <t t-if="doc.invoice_ids[0].payment_id.journal_id.bank_cheque==False">
-                          &amp;nbsp;&amp;nbsp;<t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>
+                       <!--   &amp;nbsp;&amp;nbsp;<t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>  -->
                         </t>
                       </t>
                       <br/>
@@ -486,7 +486,7 @@
                       </t>
                     </font>
                     <font style="font-size: 14px;">
-                      <span>Cash / เงินสด</span>
+                      <span>Cash / เงินสด    _______________________</span>
                     </font>
                     <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='cash'">
                       &amp;nbsp;&amp;nbsp;<t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>
