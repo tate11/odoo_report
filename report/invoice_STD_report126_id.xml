@@ -537,7 +537,7 @@
                         <t t-if="doc.company_id.vat =='0105542020983'">
                           <img src="/signature/static/paper.png" style="max-height: 84px;"/><br/><br/>
                         </t>
-                        <br/>
+
                         <span>_________________________</span><br/>
                         <span>Delivered BY</span><br/>
                         <span>_______/_______/_______</span>
@@ -563,7 +563,7 @@
                         <t t-if="doc.company_id.vat =='0105542020983'">
                           <img src="/signature/static/paper.png" style="max-height: 84px;"/><br/><br/>
                         </t>
-                        <br/>
+
                         <span>_________________________</span><br/>
                         <span>Received BY</span><br/>
                         <span>_______/_______/_______</span>

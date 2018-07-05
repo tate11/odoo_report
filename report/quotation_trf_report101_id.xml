@@ -607,13 +607,13 @@
                         <t t-if="doc.WHT_Type">
                                <t t-if="doc.discounted_amount">
   <t t-set="amount_round" t-value="doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)"/>
-   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>  
+   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>
                               </t>
                         </t>
       <t t-if="doc.WHT_Type">
                   <t t-if="not doc.discounted_amount">
                        <t t-set="amount_round" t-value="doc.amount_total-round(doc.amount_untaxed*int(doc.WHT_Type[0])/100,2)"/>
-   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>  
+   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>
              <!--<span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/>  -->
                  </t>
        </t>
