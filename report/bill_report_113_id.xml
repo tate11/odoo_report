@@ -9,6 +9,8 @@
         <!--<t t-set="sum_total_untaxed" t-value="0"/>-->
         <t t-set="amount_untaxed" t-value="0"/>
         <t t-set="sum_tax" t-value="0"/>
+        <t t-set="count_rows" t-value="0"/>
+        <t t-set="set_rows" t-value="25"/>
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount_taxed" t-value="0"/>
         <t t-set="sum_amount_total" t-value="0"/>
@@ -241,6 +243,11 @@
                     <t t-set="max" t-value="10"/>
                     <t t-set="amount_tax" t-value="0"/>
                     <t t-foreach="doc.invoice_ids.sorted(key=lambda b: b.number)" t-as="l">
+                      <t t-set="count_rows" t-value="count_rows + 1"/>
+                      <t t-if="count_rows &gt; 8">
+                             <t t-set="set_rows" t-value="set_rows - 7"/>
+                        </t>
+
                       <t t-set="sum_total" t-value="sum_total + l.amount_total"/>
                       <t t-if="l.type=='out_refund'">
                         <t t-set="sum_tax" t-value="sum_tax + l.amount_tax * (-1)"/>
@@ -393,7 +400,7 @@
                         </td>
                       </tr>
                     </t>
-                    <t t-foreach="range(count, 25)" t-as="x">
+                    <t t-foreach="range(count, set_rows)" t-as="x">
                       <tr>
                         <td/>
                         <td/>
@@ -514,7 +521,6 @@
 
         </t>
       </t>
-
     </template>
   </data>
 </openerp>

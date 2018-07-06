@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.receipt_customer_new_114_id">
-      <t t-foreach="docs" t-as="doc">
+        <t t-foreach="docs" t-as="doc">
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount" t-value="0"/>
         <t t-set="total_sum_amount" t-value="0"/>
@@ -435,13 +435,13 @@
                     <font style="font-size: 14px;">
                       <span>Cheque No / เช็คเลขที่</span>
                       <t t-if="doc.invoice_ids[0].payment_id.cheque_number">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_number"/>&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_number">_____________</t>
-                      Bank<t t-if="doc.invoice_ids[0].payment_id.cheque_bank.name">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_bank.name"/>&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_bank.name">_________________</t>
-                      Branch<t t-if="doc.invoice_ids[0].payment_id.cheque_branch">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_branch"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_branch">_______________________</t>
-                      Date<t t-if="doc.invoice_ids[0].payment_id.cheque_date">&amp;nbsp;&amp;nbsp;<span t-esc="doc.format_cheque_date(doc.invoice_ids[0].payment_id.cheque_date)"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_date">____________</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_number">______________________Amount / จำนวนเงิน__________________</t>
+                      Bank / ธนาคาร<t t-if="doc.invoice_ids[0].payment_id.cheque_bank.name">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_bank.name"/>&amp;nbsp;&amp;nbsp;</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_bank.name">_________________<br/></t>
+                      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;         Branch / สาขา<t t-if="doc.invoice_ids[0].payment_id.cheque_branch">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_branch"/>&amp;nbsp;amp;nbsp;amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_branch">___________________________</t>
+                      Date / วันที่ <t t-if="doc.invoice_ids[0].payment_id.cheque_date">&amp;nbsp;&amp;nbsp;<span t-esc="doc.format_cheque_date(doc.invoice_ids[0].payment_id.cheque_date)"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_date">_________________________</t>
                       <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='bank'">
                         <t t-if="doc.invoice_ids[0].payment_id.journal_id.bank_cheque==True">
                           <t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>
@@ -546,7 +546,6 @@
           </table>
         </div>
       </t>
-
     </template>
   </data>
 </openerp>

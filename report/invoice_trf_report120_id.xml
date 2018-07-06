@@ -168,7 +168,7 @@
                         <span t-if="doc.partner_id.state_id.name">
                           <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
                         </span>
-                        <!-- <span t-if="doc.partner_id.zip"> -->
+                         <!-- <span t-if="doc.partner_id.zip"> -->
                           <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
                         <!-- </span> -->
                         <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
@@ -179,7 +179,7 @@
                           <strong>สาขาที่</strong>&amp;nbsp;<strong t-field="doc.partner_id.branch_no"/>
                         </t>
                         <br/>
-                        <br/>
+
                         <!--  <span t-field="doc.reference_inv"/>  -->
                                <span t-field="doc.origin"/>
                       </font>
@@ -227,7 +227,7 @@
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">Qty / Unit<br/>(จำนวน / หน่วย)</font>
                   </p>
-                </th>
+                </th>                
                 <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
                     <font style="font-size: 14px;">Unit Price<br/>(ราคา)</font>
@@ -274,7 +274,7 @@
                       <span t-esc="l.uom_id.name"/>
                     </font>
                   </td>
-
+                  
                   <td style="text-align: right;">
                     <!-- <p style="margin-right:10px"> -->
                     <font style="font-size: 14px;margin-right:15px">
@@ -283,7 +283,7 @@
                     <!-- </p> -->
                   </td>
                   <!-- <td>
-
+                    
                   </td> -->
                   <td style="text-align: right;">
                     <font style="font-size: 14px;margin-right:15px">
@@ -405,7 +405,7 @@
                                 <t t-if="j==0"><span>0.00</span><br/></t>
                                 <t t-if="j==1"><span>0.00</span><br/></t>
                                 <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/><br/></t>
-
+                        
                         <t t-if="doc.discounted_amount">
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-doc.discounted_amount))"/><br/>
                         </t>
@@ -499,17 +499,17 @@
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
                         <t t-if="doc.company_id.vat == '0105535088195'">
-                        <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
+                        <!--<img src="/signature/static/tridej.png" style="max-height: 75px;"/>   -->  <br/> 
                         </t>
                         <!-- REI -->
                         <t t-if="doc.company_id.vat == '0105542069401'">
-                          <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                         <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
+                         <!-- <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                         <img src="/signature/static/REI.png" style="max-height: 145px;"/> --><br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
-                          <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                         <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
+                        <!--  <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                         <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/>  --><br/>
                         </t>
                         <span>_________________________</span><br/>
                         <span>Authorised Signature</span><br/>
@@ -522,17 +522,17 @@
                       <font style="font-size: 14px;">
                         <!-- REI -->
                         <t t-if="doc.company_id.vat == '0105542069401'">
-                            <img src="/signature/static/paper.png" style="max-height: 75px;"/>
-                            <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/>
+                           <!-- <img src="/signature/static/paper.png" style="max-height: 75px;"/>
+                            <img src="/signature/static/paper.png" style="max-height: 68px;"/>  --><br/>
                         </t>
                         <t t-if="doc.company_id.vat == '0105535088195'">
-                            <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/>
+                            <!-- <img src="/signature/static/paper.png" style="max-height: 75px;"/> --><br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
-                          <  <img src="/signature/static/paper.png" style="max-height: 84px;"/><br/><br/>
+                          <!--  <img src="/signature/static/paper.png" style="max-height: 84px;"/> --><br/><br/>
                         </t>
-
+                        
                         <span>_________________________</span><br/>
                         <span>Delivered BY</span><br/>
                         <span>_______/_______/_______</span>
@@ -544,17 +544,17 @@
                       <font style="font-size: 14px;">
                         <!-- REI -->
                         <t t-if="doc.company_id.vat == '0105542069401'">
-                            <img src="/signature/static/paper.png" style="max-height: 75px;"/>
-                            <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/>
+                          <!--  <img src="/signature/static/paper.png" style="max-height: 75px;"/>
+                            <img src="/signature/static/paper.png" style="max-height: 68px;"/> --><br/>
                         </t>
                         <t t-if="doc.company_id.vat == '0105535088195'">
-                            <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/>
+                       <!--     <img src="/signature/static/paper.png" style="max-height: 75px;"/> --> <br/>
                         </t>
                         <!-- TRF-->
                         <t t-if="doc.company_id.vat =='0105542020983'">
-                            <img src="/signature/static/paper.png" style="max-height: 84px;"/><br/><br/>
+                         <!--   <img src="/signature/static/paper.png" style="max-height: 84px;"/>  --><br/><br/>
                         </t>
-                      
+                       
                         <span>_________________________</span><br/>
                         <span>Received BY</span><br/>
                         <span>_______/_______/_______</span>
