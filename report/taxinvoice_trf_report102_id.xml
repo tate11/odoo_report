@@ -493,7 +493,9 @@
                     <font style="font-size: 14px;">
                       <span>Remarks</span><br/>
                     </font>
-                    <br/><br/><br/><br/>
+                     <t t-if="doc.comment">
+                      <span t-field="doc.comment"/>
+                    </t><br/><br/>
                     <font style="font-size: 14px;">
                       <span>Terms and Conditions 1) Received as per above in good order and condition.</span>
                       <span>

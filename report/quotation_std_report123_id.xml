@@ -565,7 +565,13 @@
                         <span t-esc="doc.WHT_Type"/>
                       </span><br/>
                       <span>Grand Total
-                      </span>(THB)
+                      </span>
+                      <t t-if="doc.pricelist_id.name == 'Public Pricelist (USD)'">
+                        <span> (USD) </span>
+                        </t>
+                      <t t-if="doc.pricelist_id.name == 'Public Pricelist'">
+                        <span> (THB) </span>
+                      </t>
                     </font>
                   </p>
                 </td>
