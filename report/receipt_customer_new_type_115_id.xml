@@ -240,12 +240,12 @@
                     <font style="font-size: 14px;">ยอดตาม INV</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดคงค้าง</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดชำระ</font>
                   </p>
@@ -286,7 +286,7 @@
                     </font>
 
                   </td>
-                  <td style="text-align: right;">
+                  <td style="text-align: center;">
 
                     <font style="font-size: 14px;">
                       <!--<t t-if="l['amount_due'] and l['amount_due'] &lt; float(sum_amount)">-->
@@ -301,19 +301,19 @@
                       </t>
                     </font>
                   </td>
-                  <td style="text-align: right;">
+                  <td style="text-align: center;">
                     <font style="font-size: 14px;">
                       <t t-if="doc.currency_id.name!='THB'">
-                        <!-- <span t-esc="'{0:,.2f}'.format(doc.get_thaibaht())"/> -->
+                      <!-- <span t-esc="'{0:,.2f}'.format(doc.get_thaibaht())"/> -->
                         <!-- <span t-esc="doc.get_thaibaht()"/> -->
                         <span t-esc="'{0:,.2f}'.format(float((doc.get_thaibaht(r.sub_receipt_id))))"/>
                         <!--<span t-esc="doc.get_thaibaht()+r.discount"/>-->
                         <t t-set="sum_amount" t-value="sum_amount + doc.get_thaibaht(r.sub_receipt_id)"/>
                       </t>
                       <t t-if="doc.currency_id.name=='THB'">
-                        <span t-esc="'{0:,.2f}'.format(float(r.payment_amount+r.discount))"/>
-                        <t t-set="sum_amount" t-value="r.payment_amount"/>
-                      </t>
+                      <span t-esc="'{0:,.2f}'.format(float(r.payment_amount+r.discount))"/>
+                      <t t-set="sum_amount" t-value="r.payment_amount"/>
+                    </t>
                     </font>
                   </td>
                 </tr>
@@ -440,7 +440,6 @@
                 </td>
 
               </tr>
-
               <!--<table width="100%">-->
               <!--<tr>-->
               <!--<td style="text-align: right;">-->

@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.receipt_customer_new_114_id">
-        <t t-foreach="docs" t-as="doc">
+      <t t-foreach="docs" t-as="doc">
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount" t-value="0"/>
         <t t-set="total_sum_amount" t-value="0"/>
@@ -229,17 +229,17 @@
                     <font style="font-size: 14px;">INVOICE NO / ใบแจ้งหนี้เลขที่</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดตาม INV</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดคงค้าง</font>
                   </p>
                 </th>
-                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:right;">
+                <th width="18%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">ยอดชำระ</font>
                   </p>
@@ -260,7 +260,7 @@
                     </font>
                     <!--<t t-set="count" t-value="count + (len(l['name'])/60) + 1"/>-->
                   </td>
-                  <td style="text-align: right;">
+                  <td style="text-align: center;">
                     <font style="font-size: 14px;">
                       <t t-if="sum_amount != amount">
                         <span t-esc="'{0:,.2f}'.format(float(sum_amount))"/>
@@ -268,7 +268,7 @@
                     </font>
 
                   </td>
-                  <td style="text-align: right;">
+                  <td style="text-align: center;">
 
                     <font style="font-size: 14px;">
                       <t t-if="l['amount_due'] and l['amount_due'] &lt; float(sum_amount)">
@@ -280,7 +280,7 @@
                       </t>
                     </font>
                   </td>
-                  <td style="text-align: right;">
+                  <td style="text-align: center;">
                     <font style="font-size: 14px;">
                       <span t-esc="'{0:,.2f}'.format(float(sum_amount - amount_due))"/>
                     </font>
@@ -401,6 +401,7 @@
                     </font>
                   </p>
                 </td>
+
               </tr>
               <!--<table width="100%">-->
               <!--<tr>-->
@@ -435,13 +436,13 @@
                     <font style="font-size: 14px;">
                       <span>Cheque No / เช็คเลขที่</span>
                       <t t-if="doc.invoice_ids[0].payment_id.cheque_number">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_number"/>&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_number">______________________Amount / จำนวนเงิน__________________</t>
-                      Bank / ธนาคาร<t t-if="doc.invoice_ids[0].payment_id.cheque_bank.name">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_bank.name"/>&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_bank.name">_________________<br/></t>
-                      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;         Branch / สาขา<t t-if="doc.invoice_ids[0].payment_id.cheque_branch">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_branch"/>&amp;nbsp;amp;nbsp;amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_branch">___________________________</t>
-                      Date / วันที่ <t t-if="doc.invoice_ids[0].payment_id.cheque_date">&amp;nbsp;&amp;nbsp;<span t-esc="doc.format_cheque_date(doc.invoice_ids[0].payment_id.cheque_date)"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
-                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_date">_________________________</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_number">_____________</t>
+                      Bank<t t-if="doc.invoice_ids[0].payment_id.cheque_bank.name">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_bank.name"/>&amp;nbsp;&amp;nbsp;</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_bank.name">_________________</t>
+                      Branch<t t-if="doc.invoice_ids[0].payment_id.cheque_branch">&amp;nbsp;&amp;nbsp;<span t-esc="doc.invoice_ids[0].payment_id.cheque_branch"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_branch">_________________</t>
+                      Date<t t-if="doc.invoice_ids[0].payment_id.cheque_date">&amp;nbsp;&amp;nbsp;<span t-esc="doc.format_cheque_date(doc.invoice_ids[0].payment_id.cheque_date)"/>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</t>
+                      <t t-if="not doc.invoice_ids[0].payment_id.cheque_date">____________</t>
                       <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='bank'">
                         <t t-if="doc.invoice_ids[0].payment_id.journal_id.bank_cheque==True">
                           <t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>
@@ -463,13 +464,13 @@
                       </t>
                     </font>
                     <font style="font-size: 14px;">
-                      <span>Transfer / เงินโอน ____________________</span>
+                      <span>Transfer / เงินโอน</span>
                       <!-- <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='bank'"> <t t-if="doc.invoice_ids[0].payment_id.journal_id.bank_cheque==True"> <t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/> </t> </t> -->
                       <!-- <br/> -->
                       <!-- <br/> -->
                       <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='bank'">
                         <t t-if="doc.invoice_ids[0].payment_id.journal_id.bank_cheque==False">
-                       <!--   &amp;nbsp;&amp;nbsp;<t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>  -->
+                          &amp;nbsp;&amp;nbsp;<t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>
                         </t>
                       </t>
                       <br/>
@@ -486,7 +487,7 @@
                       </t>
                     </font>
                     <font style="font-size: 14px;">
-                      <span>Cash / เงินสด    _______________________</span>
+                      <span>Cash / เงินสด</span>
                     </font>
                     <t t-if="doc.invoice_ids[0].payment_id.journal_id.type=='cash'">
                       &amp;nbsp;&amp;nbsp;<t t-esc="'{0:,.2f}'.format(float(doc.invoice_ids[0].payment_id.amount))"/>
