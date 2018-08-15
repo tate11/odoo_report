@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <template id="odoo_report.receipt_customer_trfempty_134_id">
+      <t t-foreach="docs" t-as="doc">
+                <t t-set="sum_amount1" t-value="0"/>
+                <t t-set="sum_amount2" t-value="0"/>
+                <t t-set="sum_amount3" t-value="0"/>
+                <t t-set="space" t-value=" '         '.replace(' ',u'\xa0').encode('utf-8') "/>
+                <t t-if="doc.invoice_ids[0].payment_id.check_receipt">
+                    <t t-set="amount" t-value="doc.invoice_ids[0].payment_id.check_value"/>
+                </t>
+                <t t-if="not doc.invoice_ids[0].payment_id.check_receipt">
+                    <t t-set="amount" t-value="doc.invoice_ids[0].payment_id.amount"/>
+                </t>
+                <t t-call="report.internal_layout">
+                    <div class="page" t-attf-style="background-image:url('/print_thaireefer_report/static/description/receipt-thairee.png'); background-size:370mm 510mm; width:370mm; height:510mm;">
+                        <style>
+                            .header{width:100%; height:130px;}
+                            .content{width:100%; height:800px;}
+                            .footer{width:100%; height:200px;}
+                            .doubleUnderline{border-bottom: 3px double;}
+                        </style>
+                        <t t-if="doc.date_receipt">
+                            <t t-set="date" t-value="time.strptime(doc.date_receipt,'%Y-%m-%d')"/>
+                        </t>
+                        <div class="header">
+                            <div style="position: absolute; left: 60%;">
+                                <font style="font-size: 20px;">
+                                    <br style="line-height: 105px"/>
+                                    <strong><t t-esc="space"/>(สำนักงานใหญ่)</strong>
+                                </font>
+                            </div>
+                            <div style="position: absolute; left: 65%;">
+                                <font style="font-size: 20px;">
+                                    <br style="line-height: 150px"/>
+                                    <strong>(Head Office)</strong>
+                                </font>
+                            </div>
+                            <div style="position: absolute; left: 67%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 250px"/>
+                                    <strong t-if="doc.company_id.vat">TAX ID.&amp;nbsp;<strong t-esc="doc.company_id.vat"/></strong>
+                                </font>
+                            </div>
+                            <div style="position: absolute; left: 73%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 300px"/>
+                                    <strong t-field="doc.name"/>
+                                </font>
+                            </div>
+                            <div style="position: absolute; left: 73%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 360px"/>
+                                    <strong t-field="doc.date_receipt"/>
+                                </font>
+                            </div>
+                            <div style="position: absolute; left: 7%;" class="col-xs-11">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 435px"/>
+                                    <strong t-field="doc.partner_id.name"/>
+                                </font>
+                            </div>
+                            <div style="position: absolute; left: 7%;" class="col-xs-11">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 510px"/>
+                                    <strong t-field="doc.partner_id.street"/>
+                                    <strong t-if="doc.partner_id.street2">
+                                        <strong t-field="doc.partner_id.street2"/>
+                                    </strong>
+                                    <strong t-if="doc.partner_id.city">
+                                        <strong t-field="doc.partner_id.city"/>
+                                    </strong>
+                                    <strong t-if="doc.partner_id.state_id.name">
+                                        <strong t-field="doc.partner_id.state_id.name"/>
+                                    </strong>
+                                    <strong t-if="doc.partner_id.zip">
+                                        &amp;nbsp;<strong t-field="doc.partner_id.zip"/>
+                                    </strong><br/>
+                                    <strong t-if="doc.partner_id.vat"><br/>TAX ID.&amp;nbsp;<strong t-esc="doc.partner_id.vat"/>&amp;nbsp;&amp;nbsp;
+                                    </strong>
+                                    <t t-if="doc.partner_id.branch_no == '00000'">
+                                        <strong>(Head Office)</strong>
+                                    </t>
+                                    <t t-if="doc.partner_id.branch_no != '00000'">
+                                        <strong>สาขาที่</strong>&amp;nbsp;<strong t-field="doc.partner_id.branch_no"/>
+                                    </t>
+                                </font>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <t t-set="trans"/>
+                            <t t-set="gate_charge"/>
+                            <t t-set="return_charge"/>
+                            <t t-set="t" t-value="0"/>
+                            <t t-set="g" t-value="0"/>
+                            <t t-set="r" t-value="0"/>
+                            <t t-set="sum_t" t-value="0"/>
+                            <t t-set="sum_g" t-value="0"/>
+                            <t t-set="sum_r" t-value="0"/>
+                            <t t-foreach="doc.invoice_ids.sorted(key=lambda b: b.number)" t-as="l">
+                                <t t-if="l.sum_transport_charge &gt; 0.00">
+                                    <t t-if="l.charge_type.type == 'trans' and l.type != 'out_refund'">
+                                        <t t-if="t == 0">
+                                            <!--<t t-set="trans" t-value="doc.get_split_invoice_line(l['number'])"/>-->
+                                            <t t-set="trans" t-value="l.number"/>
+                                        </t>
+                                        <t t-if="t != 0">
+                                            <!--<t t-set="trans" t-value="trans + ',' + doc.get_split_invoice_line(l['number'])"/>-->
+                                            <t t-set="trans" t-value="trans + ',' + l.number"/>
+                                        </t>
+                                        <t t-set="t" t-value="t + 1"/>
+                                    </t>
+                                    <t t-if="l.type != 'out_refund'">
+                                        <t t-foreach="l.invoice_line_ids" t-as="x">
+                                            <t t-if="x.product_id.charge_type == 'tran_agent' or x.product_id.charge_type == 'tran_contract' or x.product_id.charge_type == 'tran_none_contract' or x.product_id.charge_type == 'transfer_other_charge'">
+                                                <t t-set="sum_amount1" t-value="sum_amount1 + x.price_subtotal"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <t t-if="l.type == 'out_refund'">
+                                        <t t-foreach="l.invoice_line_ids" t-as="x">
+                                            <t t-if="x.product_id.charge_type == 'tran_agent' or x.product_id.charge_type == 'tran_contract' or x.product_id.charge_type == 'tran_none_contract' or x.product_id.charge_type == 'transfer_other_charge'">
+                                                <t t-set="sum_amount1" t-value="sum_amount1 - x.price_subtotal"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <!--<t t-set="sum_t" t-value="sum_t + sum_amount1"/>-->
+                                </t>
+                                <t t-if="l.sum_gate_charge &gt; 0.00">
+                                    <t t-if="l.charge_type.type == 'gate_charge' and l.type != 'out_refund'">
+                                        <t t-if="g == 0">
+                                            <!--<t t-set="gate_charge" t-value="doc.get_split_invoice_line(l['number'])"/>-->
+                                            <t t-set="gate_charge" t-value="l.number"/>
+                                        </t>
+                                        <t t-if="g != 0">
+                                            <!--<t t-set="gate_charge" t-value="gate_charge + ',' + doc.get_split_invoice_line(l['number'])"/>-->
+                                            <t t-set="gate_charge" t-value="gate_charge + ',' + l.number"/>
+                                        </t>
+                                        <t t-set="g" t-value="g + 1"/>
+                                    </t>
+                                    <t t-if="l.type != 'out_refund'">
+                                        <t t-foreach="l.invoice_line_ids" t-as="x">
+                                            <t t-if="x.product_id.charge_type == 'gate_charge' or x.product_id.charge_type == 'depot_charge'">
+                                                <t t-set="sum_amount2" t-value="sum_amount2 + x.price_subtotal"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <t t-if="l.type == 'out_refund'">
+                                        <t t-foreach="l.invoice_line_ids" t-as="x">
+                                            <t t-if="x.product_id.charge_type == 'gate_charge' or x.product_id.charge_type == 'depot_charge'">
+                                                <t t-set="sum_amount2" t-value="sum_amount2 - x.price_subtotal"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-if="l.sum_return_charge &gt; 0.00">
+                                    <t t-if="l.charge_type.type == 'return' and l.type != 'out_refund'">
+                                        <t t-if="r == 0">
+                                            <!--<t t-set="return_charge" t-value="doc.get_split_invoice_line(l['number'])"/>-->
+                                            <t t-set="return_charge" t-value="l.number"/>
+                                        </t>
+                                        <t t-if="r != 0">
+                                            <!--<t t-set="return_charge" t-value="return_charge + ',' + doc.get_split_invoice_line(l['number'])"/>-->
+                                            <t t-set="return_charge" t-value="return_charge + ',' + l.number"/>
+                                        </t>
+                                        <t t-set="r" t-value="r + 1"/>
+                                    </t>
+                                    <t t-if="l.type != 'out_refund'">
+                                        <t t-foreach="l.invoice_line_ids" t-as="x">
+                                            <t t-if="x.product_id.charge_type == 'return_charge'">
+                                                <t t-set="sum_amount3" t-value="sum_amount3 + x.price_subtotal"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <t t-if="l.type == 'out_refund'">
+                                        <t t-foreach="l.invoice_line_ids" t-as="x">
+                                            <t t-if="x.product_id.charge_type == 'return_charge'">
+                                                <t t-set="sum_amount3" t-value="sum_amount3 - x.price_subtotal"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+                            </t>
+                            <div class="col-xs-6" style="position: absolute; left: 22%;">
+                                <br style="line-height: 590px"/>
+                                <font style="font-size: 22px;">
+                                    <t t-if="trans">
+                                        <span t-esc="doc.get_split_invoice_line(trans)"/>
+                                    </t>
+                                </font>
+                            </div>
+                            <div class="col-xs-6" style="text-align:right; position: absolute; right: 12%;">
+                                <br style="line-height: 590px"/>
+                                <font style="font-size: 22px;">
+                                    <t t-if="sum_amount1 &gt; 0.00">
+                                        <span t-esc="'{0:,.2f}'.format(sum_amount1)"/>
+                                    </t>
+                                </font>
+                            </div>
+                            <div class="col-xs-6" style="position: absolute; left: 22%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 750px"/>
+                                    <t t-if="gate_charge">
+                                        <span t-esc="doc.get_split_invoice_line(gate_charge)"/>
+                                    </t>
+                                </font>
+                            </div>
+                            <div class="col-xs-6" style="text-align:right; position: absolute; right: 12%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 750px"/>
+                                    <t t-if="sum_amount2 &gt; 0.00">
+                                        <span t-esc="'{0:,.2f}'.format(sum_amount2)"/>
+                                    </t>
+                                </font>
+                            </div>
+                            <div class="col-xs-6" style="position: absolute; left: 22%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 920px"/>
+                                    <t t-if="return_charge">
+                                        <span t-esc="doc.get_split_invoice_line(return_charge)"/>
+                                    </t>
+                                </font>
+                            </div>
+                            <div class="col-xs-6" style="text-align:right; position: absolute; right: 12%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 920px"/>
+                                    <t t-if="sum_amount3 &gt; 0.00">
+                                        <span t-esc="'{0:,.2f}'.format(sum_amount3)"/>
+                                    </t>
+                                </font>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="col-xs-8" style="position: absolute; left: 8%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 314px"/>
+                                    <!--<span t-esc="amount"/>-->
+                                    <span>(</span><span t-esc="doc.num2_words(sum_amount1 + sum_amount2 + sum_amount3)"/><span>)</span>
+                                </font>
+                            </div>
+                            <div class="col-xs-4" style="text-align:right; position: absolute; right: 12%;">
+                                <font style="font-size: 22px;">
+                                    <br style="line-height: 309px"/>
+                                    <span t-esc="'{0:,.2f}'.format(float(sum_amount1 + sum_amount2 + sum_amount3))"/>
+                                </font>
+                            </div>
+
+
+
+
+
+                            <!--<div style="position: absolute; left: 3%;">-->
+                            <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
+                            <!--<t t-if="doc.journal_id.name == 'Cheque'">-->
+                            <!--<font style="font-size: 30px;">-->
+                            <!--&#10003;-->
+                            <!--</font>-->
+                            <!--<font style="font-size: 22px;">-->
+                            <!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-->
+                            <!--<span t-esc="doc.cheque_bank"/>-->
+                            <!--</font>-->
+                            <!--</t>-->
+                            <!--</div>-->
+                        </div>
+
+                        <div style="position: absolute; left: 7px;">
+                            <br style="line-height: 300px"/>
+                            <t t-if="doc.invoice_ids[0].payment_id.journal_id.type == 'bank' and doc.invoice_ids[0].payment_id.journal_id.bank_cheque and doc.invoice_ids[0].payment_id.check_regis == False">
+                                <font style="font-size: 30px;">
+                                    ✓
+                                </font>
+                                <font style="font-size: 22px;">
+                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                    <span t-esc="doc.invoice_ids[0].payment_id.cheque_number"/>&amp;nbsp;<span>=</span>&amp;nbsp;
+                                    <span t-esc="'{0:,.2f}'.format(float(amount))"/>
+                                </font>
+                            </t>
+                            <t t-if="doc.invoice_ids[0].payment_id.check_regis == True">
+                                <span/>
+                            </t>
+                        </div>
+                        <!--<div style="position: absolute; left: 15%;">-->
+                        <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
+                        <!--<t t-if="doc.journal_id.name == 'Cheque'">-->
+                        <!--<font style="font-size: 22px;">-->
+                        <!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-->
+                        <!--&amp;nbsp;&amp;nbsp;&amp;nbsp;-->
+                        <!--<span t-esc="'{0:,.2f}'.format(float(doc.amount))"/>-->
+                        <!--</font>-->
+                        <!--</t>-->
+                        <!--</div>-->
+
+                        <div style="position: absolute; left: 7px;">
+                            <br style="line-height: 390px"/>
+                            <t t-if="doc.invoice_ids[0].payment_id.journal_id.type == 'cash' and doc.invoice_ids[0].payment_id.check_regis == False">
+                                <font style="font-size: 30px;">
+                                    ✓
+                                </font>
+                                <font style="font-size: 22px;">
+                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                    <span t-esc="'{0:,.2f}'.format(float(amount))"/>
+                                </font>
+                            </t>
+                            <t t-if="doc.invoice_ids[0].payment_id.check_regis == True">
+                                <span/>
+                            </t>
+                        </div>
+
+                        <div style="position: absolute; left: 18%;">
+                            <br style="line-height: 390px"/>
+                           
+                                <font style="font-size: 30px;">
+                                    ☐
+                                </font>
+                                <font style="font-size: 22px;">
+                                    <span>เงินโอน</span>
+                                    &amp;nbsp;
+                                     <!--   <span t-esc="'{0:,.2f}'.format(float(amount))"/>    -->
+                                </font>
+                           
+                            <t t-if="doc.invoice_ids[0].payment_id.check_regis == True">
+                                <span/>
+                            </t>
+                        </div>
+
+                        <div style="position: absolute; left: 60%;">
+                            <br style="line-height: 300px"/>
+                            <t t-if="doc.invoice_ids[0].payment_id.journal_id.type == 'bank' and doc.invoice_ids[0].payment_id.journal_id.bank_cheque == True and doc.invoice_ids[0].payment_id.check_regis == False">
+                                <font style="font-size: 22px;">
+                                    <span t-esc="doc.invoice_ids[0].payment_id.cheque_bank.name"/><br/>
+                                    <span t-esc="doc.invoice_ids[0].payment_id.cheque_branch"/><br/>
+                                    <t t-if="doc.invoice_ids[0].payment_id.cheque_date">
+                                        <br/>
+                                        <span t-field="doc.invoice_ids[0].payment_id.cheque_date"/>
+                                        <!--<span t-esc="date.tm_mday"/>/<span t-esc="date.tm_mon"/>/<span t-esc="date.tm_year + 543"/>-->
+                                    </t>
+                                    <t t-if="not doc.invoice_ids[0].payment_id.cheque_date">
+                                        <t t-if="doc.invoice_ids[0].payment_id.payment_date">
+                                            <br/>
+                                            <span t-field="doc.invoice_ids[0].payment_id.payment_date"/>
+                                            <!--<span t-esc="date.tm_mday"/>/<span t-esc="date.tm_mon"/>/<span t-esc="date.tm_year + 543"/>-->
+                                        </t>
+                                    </t>
+                                    <!--<span t-esc="doc.cheque_date"/>-->
+                                </font>
+                            </t>
+                            <t t-if="doc.invoice_ids[0].payment_id.check_regis == True">
+                                <span/>
+                            </t>
+                        </div>
+
+
+
+                    </div>
+
+                </t>
+            </t>
+    </template>
+  </data>
+</openerp>

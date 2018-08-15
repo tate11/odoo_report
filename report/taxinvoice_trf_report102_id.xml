@@ -170,7 +170,7 @@
                       <font style="font-size: 14px;">
                         <br/>
                         <br/><br/>
-                        <strong></strong>
+                        <strong/>
                       </font>
                     </td>
 
@@ -276,21 +276,21 @@
 
                     </td>
                     <!--<t t-set="i" t-value="i + 1"/>-->
-                    <td style="text-align: center;">
-                      <font style="font-size: 14px;">
+                    <td style="text-align: right;">
+                      <font style="font-size: 14px;margin-right:15px">
                         <span t-esc="'{0:,.2f}'.format(float(l.quantity))"/>
                         /
                         <span t-esc="l.uom_id.name"/>
                       </font>
                     </td>
-                    <td style="text-align: center;">
-                      <font style="font-size: 14px;">
+                    <td style="text-align: right;">
+                      <font style="font-size: 14px;margin-right:15px">
                         <span t-esc="'{0:,.2f}'.format(float(l.price_unit))"/>
                         <!-- <span t-esc="'{0:,.2f}'.format(float(l['price_unit']))"/> -->
                       </font>
                     </td>
                     <td style="text-align: right; vertical-align: top;">
-                      <font style="font-size: 14px;">
+                      <font style="font-size: 14px;margin-right:15px">
                         <t t-if="l.discount"><t t-set="j" t-value="1"/><span t-esc="l.discount"/>%</t>
                         <t t-if="l.discount_amount"><t t-set="j" t-value="1"/>
                           <span t-esc="'{0:,.2f}'.format(float(l.discount_amount))"/></t>
@@ -299,7 +299,7 @@
                       </font>
                     </td>
                     <td style="text-align: right; vertical-align: top;">
-                      <font style="font-size: 14px;">
+                      <font style="font-size: 14px;margin-right:15px">
                         <span t-esc="'{0:,.2f}'.format(float(l.price_subtotal))"/>
                         <!-- <span t-esc="'{0:,.2f}'.format(float(l['price_subtotal']))"/> -->
                       </font>
@@ -352,7 +352,7 @@
                     </font>
                   </td>
                   <td style="text-align: right;">
-                    <font style="font-size: 14px;">
+                    <font style="font-size: 14px;margin-right:15px">
                       <br/>
                       <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/>
                     </font>
@@ -491,9 +491,9 @@
                 <tr>
                   <td>
                     <font style="font-size: 14px;">
-                      <span>Remarks</span><br/>
+                      <span>Remarks </span><br/>
                     </font>
-                     <t t-if="doc.comment">
+                    <t t-if="doc.comment">
                       <span t-field="doc.comment"/>
                     </t><br/><br/>
                     <font style="font-size: 14px;">

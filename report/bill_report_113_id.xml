@@ -2,13 +2,15 @@
 <openerp>
   <data>
     <template id="odoo_report.bill_report_113_id">
-      <t t-foreach="docs" t-as="doc">
+          <t t-foreach="docs" t-as="doc">
         <!--<t t-set="total_untaxed" t-value="0"/>-->
         <!--<t t-set="amount_taxed" t-value="0"/>-->
         <t t-set="amount_total" t-value="0"/>
         <!--<t t-set="sum_total_untaxed" t-value="0"/>-->
         <t t-set="amount_untaxed" t-value="0"/>
         <t t-set="sum_tax" t-value="0"/>
+        <t t-set="count_rows" t-value="0"/>
+        <t t-set="set_rows" t-value="19"/>
         <t t-set="sum_total" t-value="0"/>
         <t t-set="sum_amount_taxed" t-value="0"/>
         <t t-set="sum_amount_total" t-value="0"/>
@@ -20,6 +22,13 @@
         <t t-set="i" t-value="1"/>
         <t t-set="baht_total" t-value="doc.amount_total"/>
         <t t-call="report.internal_layout">
+          <style type="text/css" media="print">
+                  div.page
+                       {
+                            page-break-after: always;
+                            page-break-inside: avoid;
+                       }
+          </style>
           <div class="page">
             <style>
               .header {
@@ -104,32 +113,42 @@
               }
             </style>
             <div class="header">
-              <div class="col-xs-3" style="text-align:left">
-                <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 100px;"/>
+
+              <div class="col-xs-4" style="text-align:left">
+                <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 125px;"/> 
                 <!--<img class="img-rounded pull-left" style="width: 20%;" src="/signature/static/logo-reefer.png"/>-->
               </div>
-              <div class="col-xs-6" style="text-align:center">
-                <font style="font-size: 24px;">
+              <div class="col-xs-5" style="text-align:center">
+                <font style="font-size: 30px;">
                   <br/>
-                  <span>ใบวางบิล</span>
+                  <strong><span>ใบวางบิล</span></strong>
                 </font>
               </div>
-              <div class="col-xs-3"><br/><br/><br/><br/><br/>
+              <div class="col-xs-3"><br/><br/><br/><br/><br/><br/><br/>
               </div>
               <br/>
 
+         <!--     <div class="col-xs-4" style="text-align:left">
+              </div>
+              <div class="col-xs-5" style="text-align:center">
+              </div>
+              <div class="col-xs-3">
+              </div>
+              <br/>   -->
+
               <div class="col-xs-7" style="text-align:left">
-                <font style="font-size: 16px;">
-                  <span t-field="doc.company_id.name"/>
+                <font style="font-size: 20px;">
+               <strong><span t-field="doc.company_id.name"/></strong>
                 </font>
               </div>
               <div class="col-xs-5">
-                <font style="font-size: 14px;">
+                <font style="font-size: 18px;">
                   <span t-if="doc.company_id.vat">เลขประจำตัวผู้เสียภาษี&amp;nbsp;&amp;nbsp;<span t-esc="doc.company_id.vat"/></span><br/>
                 </font>
               </div>
               <div class="col-xs-12">
-                <font style="font-size: 14px;">
+                <font style="font-size: 16px;">
+ 
                   <t t-if="not doc.company_branch">
                     <span t-field="doc.company_id.house_number"/>&amp;nbsp;<span t-if="doc.company_id.moo_number"><span t-esc="doc.company_id.moo_number"/></span>
                     <span t-field="doc.company_id.street"/>&amp;nbsp;
@@ -149,90 +168,95 @@
                     <span t-if="doc.company_branch.phone">โทร :&amp;nbsp;<span t-esc="doc.company_branch.phone"/></span>&amp;nbsp;
                     <span t-if="doc.company_branch.fax">Fax :&amp;nbsp;<span t-esc="doc.company_branch.fax"/></span>
                   </t>
+
                 </font>
               </div>
               <div class="col-xs-7">
                 <br/>
                 <font style="font-size: 16px">
-                  <span t-field="doc.partner_id.name"/><br/>
+                 <strong> <span t-field="doc.partner_id.name"/> </strong><br/> 
                 </font>
-                <font style="font-size: 14px">
-                  <span t-field="doc.partner_id.street"/><br/>
+                <font style="font-size: 16px">
+                 <span t-field="doc.partner_id.street"/> <br/>
                   <span t-if="doc.partner_id.street2">
-                    <span t-esc="doc.partner_id.street2"/><br/>
+                    <span t-esc="doc.partner_id.street2"/>  <br/>
                   </span>
-                  <span t-if="doc.partner_id.city">
-                    <span t-esc="doc.partner_id.city"/>&amp;nbsp;
+                 <span t-if="doc.partner_id.city"> 
+                   <span t-esc="doc.partner_id.city"/>  &amp;nbsp;
                   </span>
                   <span t-if="doc.partner_id.state_id.name">
-                    <span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;
+                    <span t-esc="doc.partner_id.state_id.name"/> &amp;nbsp;
                   </span>
                   <span t-if="doc.partner_id.zip">
-                    <span t-field="doc.partner_id.zip"/>&amp;nbsp;<br/>
+                   <span t-field="doc.partner_id.zip"/> &amp;nbsp;<br/>
                   </span>
-                  <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
+                   </font>
+                    <font style="font-size: 14px">
+                  <span t-if="doc.partner_id.vat"> TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
                   <t t-if="doc.partner_id.branch_no == '00000'">
-                    <span>(Head Office)</span><br/>
+                   <span>(Head Office)</span>
                   </t>
                   <t t-if="doc.partner_id.branch_no != '00000'">
                     <span>สาขาที่</span>&amp;nbsp;<span t-field="doc.partner_id.branch_no"/><br/>
                   </t>
-                  <span t-if="doc.partner_id.phone">TEL :&amp;nbsp;
-                    <span t-esc="doc.partner_id.phone"/>&amp;nbsp;</span>
+                  <br/><span t-if="doc.partner_id.phone">TEL :&amp;nbsp;
+                    <span t-esc="doc.partner_id.phone"/> &amp;nbsp;</span>
                   <span t-if="doc.partner_id.mobile">MOBILE :&amp;nbsp;
-                    <span t-esc="doc.partner_id.mobile"/>&amp;nbsp;</span>
+                     <span t-esc="doc.partner_id.mobile"/> &amp;nbsp;</span>
                   <span t-if="doc.partner_id.fax">FAX :&amp;nbsp;
-                    <span t-esc="doc.partner_id.fax"/></span><br/>
-                  <span t-if="doc.partner_id.email">EMAIL :&amp;nbsp;
-                    <span t-esc="doc.partner_id.email"/>&amp;nbsp;</span>
-                  <br/>
+                    <span t-esc="doc.partner_id.fax"/> </span> <br/>
+                  <span t-if="doc.partner_id.email"> EMAIL :&amp;nbsp;
+                  <span t-esc="doc.partner_id.email"/>  &amp;nbsp; </span>   
+                  
+
                 </font>
               </div>
               <div class="col-xs-2" style="text-align: left">
                 <br/>
-                <font style="font-size: 14px;">
+                <font style="font-size: 16px;">
                   <br/>
-                  <span>เลขที่ใบวางบิล</span><br/>
-                  <span>วันที่</span><br/>
+              <strong>   <span>เลขที่ใบวางบิล</span> </strong><br/>
+               <strong>   <span>วันที่</span> </strong>
                 </font>
               </div>
-              <div class="col-xs-3" style="text-align: left">
+             <div class="col-xs-3" style="text-align: left">
                 <br/>
-                <font style="font-size: 14px;">
+                <font style="font-size: 16px;">
                   <br/>
-                  <span t-field="doc.name"/><br/>
-                  <span t-field="doc.date_billing"/><br/>
+                 <strong> <span t-field="doc.name"/> </strong> <br/> 
+              <strong>    <span t-field="doc.date_billing"/> </strong>
                 </font>
-              </div>
+              </div> 
             </div>
+
             <div class="content">
               <div class="col-xs-12">
-                <table class="table table-bordered">
+                <table width="100%" class="table table-bordered">
                   <thead>
                     <tr>
-                      <th class="col-xs-1" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">ลำดับที่</font>
+                      <th width="4%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">ลำดับที่</font>
                       </th>
-                      <th class="col-xs-1" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">เลขที่<br/>ใบแจ้งหนี้</font>
+                      <th width="6%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">เลขที่<br/>ใบแจ้งหนี้</font>
                       </th>
-                      <th class="col-xs-1" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">ลงวันที่</font>
+                      <th width="6%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">ลงวันที่</font>
                       </th>
-                      <th class="col-xs-3" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">วันที่ครบกำหนด<br/>ชำระเงินตามใบแจ้งหนี้</font>
+                      <th width="6%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">วันที่ครบกำหนด<br/>ชำระเงินตามใบแจ้งหนี้</font>
                       </th>
-                      <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">จำนวนเงิน<br/>บาท</font>
+                      <th width="11%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">จำนวนเงิน<br/>บาท</font>
                       </th>
-                      <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">ภาษี<br/>มูลค่าเพิ่ม 7%</font>
+                      <th width="10%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">ภาษี<br/>มูลค่าเพิ่ม 7%</font>
                       </th>
-                      <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">ภาษี หัก<br/>ณ ที่จ่าย</font>
+                      <th width="9%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">ภาษี หัก<br/>ณ ที่จ่าย</font>
                       </th>
-                      <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
-                        <font style="font-size: 14px;">รวมเงิน<br/>บาท</font>
+                      <th width="11%" style="text-align:center; vertical-align: middle;">
+                        <font style="font-size: 16px;">รวมเงิน<br/>บาท</font>
                       </th>
                     </tr>
                   </thead>
@@ -241,6 +265,12 @@
                     <t t-set="max" t-value="10"/>
                     <t t-set="amount_tax" t-value="0"/>
                     <t t-foreach="doc.invoice_ids.sorted(key=lambda b: b.number)" t-as="l">
+                     <div style="page-break-after: always">
+                      <t t-set="count_rows" t-value="count_rows + 1"/>
+                      <t t-if="count_rows &gt; 8">
+                             <t t-set="set_rows" t-value="set_rows - 7"/>
+                        </t>
+
                       <t t-set="sum_total" t-value="sum_total + l.amount_total"/>
                       <t t-if="l.type=='out_refund'">
                         <t t-set="sum_tax" t-value="sum_tax + l.amount_tax * (-1)"/>
@@ -383,17 +413,18 @@
                           <font style="font-size: 14px;">
                             <t t-if="l.type=='out_refund'">
                               <t t-set="amount_total" t-value="total_discount+amount_tax-amount_taxed5"/>
-                              <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                             <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
                             </t>
                             <t t-if="l.type!='out_refund'">
-                              <t t-set="amount_total" t-value="l.amount_total -  amount_taxed5"/>
-                              <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                              <t t-set="amount_total" t-value="l.amount_total -  round(amount_taxed5,2)"/>
+                             <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
                             </t>
                           </font>
                         </td>
                       </tr>
+                           </div>
                     </t>
-                    <t t-foreach="range(count, 25)" t-as="x">
+                    <t t-foreach="range(count, set_rows)" t-as="x">
                       <tr>
                         <td/>
                         <td/>
@@ -405,17 +436,22 @@
                         <td/>
                       </tr>
                     </t>
+                   
                   </tbody>
                   <tfoot>
                     <tr>
                       <td colspan="4">
                         <t t-if="doc.currency_id.name == 'THB'">
-                          <span>บาท<br/>Baht</span>&amp;nbsp;&amp;nbsp;
-                          <span>(<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span>
+                           <font style="font-size: 15px;">
+                          <span>บาท / Baht</span>   
+                       <!--   <span><br/>(<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span>-->
+                           </font>
                         </t>
                         <t t-if="doc.currency_id.name != 'THB'">
-                          <span t-field="doc.currency_id.name"/>&amp;nbsp;&amp;nbsp;
-                          <span>(<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span>
+                           <font style="font-size: 18px;">
+                          <span t-field="doc.currency_id.name"/> 
+                         <!-- <span><br/>(<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span> -->
+                           </font>
                         </t>
                       </td>
                       <td class="text-right">
@@ -438,15 +474,33 @@
                       <td class="text-right">
                         <font style="font-size: 14px;">
                           <t t-set="grand_total" t-value="0"/>
-                          <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>
+                        <!--  <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>   -->
+
+                        <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>
+
+
                         </font>
                       </td>
                     </tr>
+                  <tr>
+                      <td colspan="8">
+                        <t t-if="doc.currency_id.name == 'THB'">
+                           <font style="font-size: 15px;">
+           <span>  ( <span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>  )</span>
+                           </font>
+                        </t>
+                        <t t-if="doc.currency_id.name != 'THB'">
+                           <font style="font-size: 15px;">
+               <span>  <span t-field="doc.currency_id.name"/>    (<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span>
+                           </font>
+                        </t>
+                      </td>
+                    </tr>
+ 
                   </tfoot>
                 </table>
               </div>
             </div>
-
             <!--<div class="row" name="total">-->
             <!--<div class="col-xs-6 pull-right">-->
             <!--<table class="table1">-->
@@ -472,35 +526,37 @@
             <!--</div>-->
 
             <div class="row" style="page-break-inside: avoid">
+
+           
               <div class="col-xs-7">
                 <font style="font-size: 14px;">
-                  <br/><br/>
-                  <span>ชื่อผู้รับวางบิล ....................................... (ตัวบรรจง)</span><br/><br/>
-                  <span>วันที่รับวางบิล ............./............/............</span><br/><br/>
-                  <span>วันที่นัดชำระเงิน ............/.........../...........</span><br/>
+                  <br/>
+                   <strong><span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ชื่อผู้รับวางบิล ....................................... (ตัวบรรจง) </span> </strong><br/><br/>
+                   <strong><span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;วันที่รับวางบิล ............./............/............</span> </strong> <br/><br/>
+                   <strong><span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;วันที่นัดชำระเงิน ............/.........../...........</span> </strong> <br/>
                 </font>
               </div>
               <div class="col-xs-5" style="text-align: left;">
                 <font style="font-size: 14px;">
-                  <br/><br/>
-                  <span>ชื่อผู้วางบิล
-                  </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span t-field="doc.user_id"/><br/><br/>
-                  <span>วันที่
-                  </span><span style="position: absolute; left: 28%;" t-field="doc.date_billing"/><br/><br/>
-                  <span>ชื่อผู้ส่งเอกสาร ....................................</span><br/><br/>
-                  <span>วันที่ส่งเอกสาร ............/.........../...........</span><br/>
+                  <br/>
+                 <strong><span>ชื่อผู้วางบิล 
+                  </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span t-field="doc.user_id"/> </strong> <br/><br/>
+               <strong><span>วันที่ 
+                  </span><span style="position: absolute; left: 28%;" t-field="doc.date_billing"/></strong><br/><br/>
+                 <strong><span>ชื่อผู้ส่งเอกสาร ....................................</span> </strong>   <br/><br/>
+                  <strong><span>วันที่ส่งเอกสาร ............/.........../...........</span> </strong>   <br/>
                 </font>
               </div><br/>
               <div class="col-xs-12">
-                <font style="font-size: 14px;">
-                  <span> สอบถามเอกสารเพิ่มเติมต่างๆ: </span><br/>
-                  <span> ใบแจ้งหนี้ - ใบวางบิลค่าเช่า, ค่าบริการ และ ใบเสร็จรับเงิน - ใบกำกับภาษี : </span><br/>
-                  <span> ติดต่อ คุณอรพรรณ (ยุ้ย) และ คุณกมลพรรณ (ส้ม) TEL. (02)634-5335 หรือ (02)634-5337</span>
+                <font style="font-size: 15px;">
+              <strong>    <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;สอบถามเอกสารเพิ่มเติมต่างๆ: </span>  <br/>
+                 <span> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ใบแจ้งหนี้ - ใบวางบิลค่าเช่า, ค่าบริการ และ ใบเสร็จรับเงิน - ใบกำกับภาษี : </span>   <br/>
+                 <span> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ติดต่อ คุณอรพรรณ (ยุ้ย) และ คุณกมลพรรณ (ส้ม) TEL. (02)634-5335 หรือ (02)634-5337</span>      </strong>
                 </font>
               </div>
               <div class="col-xs-12">
                 <font style="font-size: 14px;">
-                  <span t-field="doc.company_id.sale_condition"/>
+                  <span t-field="doc.company_id.sale_condition"/> 
                 </font>
               </div>
 

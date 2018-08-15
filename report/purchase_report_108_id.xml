@@ -636,7 +636,8 @@
                 <td width="27%" style="text-align: left;border-top:1px solid black;">
                   <p style="margin-top:5px;">
                     <font style="font-size: 14px;">
-                      <span>Discount</span><br/>
+                     <span>Untaxed Amount</span><br/>
+                     <span>Discount</span><br/>
                       <span>Sub Total
                       </span><br/>
                       <span>Vat 7%</span><br/>
@@ -651,12 +652,16 @@
                     <font style="font-size: 14px;">
                       <div class="last-page">
                         <t t-if="doc.discounted_amount &gt; 0.00">
+                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
                           <span t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/><br/>
+                          <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed - doc.discounted_amount))"/><br/>
                         </t>
                         <t t-if="doc.discounted_amount == 0.00">
+                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
                           <span>0.00</span><br/>
-                        </t>
-                        <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
+                          <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
+                        </t>   
+                       <!-- <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>  -->
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
                         <!-- <span>0.00</span><br/> -->
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_total))"/>
@@ -724,7 +729,7 @@
                     </p>
                   </td>
                   <td width="25%" style="text-align: left;">
-                    <t t-if="doc.x_signature == True"></t>
+                    <t t-if="doc.x_signature == True"/>
                     <t t-if="doc.x_signature == False">
                       <t t-if=" doc.state != 'purchase' ">
                         <p style="margin-top:10px;">
@@ -772,7 +777,8 @@
                           <font style="font-size: 14px;">
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
-                              <img t-att-src="'http://www.bansuansoft.com/img/wong.png'" style="width:150px;height:40px;"/>
+                              <!-- <img t-att-src="'http://www.bansuansoft.com/img/wong.png'" style="width:150px;height:40px;"/> -->
+                              <img src="/signature/static/wong.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -784,7 +790,8 @@
                           <font style="font-size: 14px;">
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
-                              <img t-att-src="'http://www.bansuansoft.com/img/aonusa.png'" style="width:150px;height:40px;"/>
+                              <!-- <img t-att-src="'http://www.bansuansoft.com/img/aonusa.png'" style="width:150px;height:40px;"/> -->
+                              <img src="/signature/static/aonusa.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -796,7 +803,8 @@
                           <font style="font-size: 14px;">
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
-                              <img t-att-src="'http://www.bansuansoft.com/img/chaiwat.png'" style="width:150px;height:40px;"/>
+                              <!-- <img t-att-src="'http://www.bansuansoft.com/img/chaiwat.png'" style="width:150px;height:40px;"/> -->
+                              <img src="/signature/static/chaiwat.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>

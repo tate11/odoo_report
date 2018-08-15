@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.billing_STD_report_130_id">
-      <t t-foreach="docs" t-as="doc">
+       <t t-foreach="docs" t-as="doc">
         <!--<t t-set="total_untaxed" t-value="0"/>-->
         <!--<t t-set="amount_taxed" t-value="0"/>-->
         <t t-set="amount_total" t-value="0"/>
@@ -497,7 +497,8 @@
                 </font>
               </div>
             </div>
-
+                            <span>เอกสารใบแจ้งหนี้ ติดต่อฝ่ายบัญชี คุณสุภาพร,คุณหทัยทิพย์ 034-466044,034-466469 ต่อ 103 หรือ 121 </span><br/>
+                            <span>เอกสารใบเสร็จ/ใบกำกับภาษี ติดต่อฝ่ายบัญชี คุณพรอุมา 034-466044,034-466469 ต่อ 105</span>
           </div>
 
         </t>

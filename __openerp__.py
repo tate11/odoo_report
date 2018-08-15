@@ -9,7 +9,7 @@
     'data':['report/report_reg.xml',
             'report/invoice_trf_report120_id.xml',
             'report/quotation_trf_report101_id.xml',
-            #'report/taxinvoice_trf_report102_id.xml',
+            'report/taxinvoice_trf_report102_id.xml',
             'report/invoice_group_report_103_id.xml',
             'report/wht53_report_104_id.xml',
             'report/wht3_report_105_id.xml',
@@ -34,7 +34,10 @@
             'report/quotations127_report_id.xml',
             'report/invoice_leam_repoet_128_id.xml',
             'report/tax_invoice_USD_report_129_id.xml',
-            'report/billing_STD_report_130_id.xml'],
+            'report/billing_STD_report_130_id.xml',
+            'report/invoice_trf_report133_id.xml',
+            'report/receipt_customer_trfempty_134_id.xml',
+            ],
     'auto_install':False,
     'application':True
 }
