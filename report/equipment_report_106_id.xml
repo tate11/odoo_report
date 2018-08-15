@@ -213,7 +213,7 @@
                                             <tr>
                                                 <td width="55%">
                                                     <font style="font-size: 16px;">
-                                                        <strong>DELIVERY DATE:</strong>&amp;nbsp;<span t-field="o.gate_out_date_time"/>
+                                                        <strong>DELIVERY DATE:</strong>&amp;nbsp;<span t-field="o.gate_out_date_time"/>&amp;nbsp;&amp;nbsp;<span t-field="o.delivery_time"/>
                                                     </font>
                                                 </td>
                                                 <td width="45%">
@@ -254,7 +254,7 @@
                                                 </td>
                                                 <td width="45%">
                                                     <font style="font-size: 16px;">
-                                                        <strong>DRIVE/พนักงานขับรถ:</strong>&amp;nbsp;<span t-field="o.driver_empty_id.name"/>
+                                                        <strong>DRIVE/พนักงานขับรถ:</strong>&amp;nbsp;<span t-field="o.remove_person_id.name"/>
                                                     </font>
                                                 </td>
                                             </tr>
