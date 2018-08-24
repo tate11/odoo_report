@@ -437,7 +437,7 @@
       <field name="dpi">90</field>
     </record>
 
-    <!-- paperformat TaxInvoice -->
+    <!-- paperformat invoice_trf_thaiunion135 -->
     <record id="paperformat_invoice_trf_thaiunion135" model="report.paperformat">
       <field name="name">invoice_trf_thaiunion135</field>
       <field name="default" eval="False"/>
@@ -451,6 +451,34 @@
       <field name="header_spacing">117</field>
       <field name="dpi">90</field>
     </record>
+
+    <!-- paperformat receipt_customer_new_136_id -->
+    <record id="paperformat_receipt_customer_new_136_id" model="report.paperformat">
+      <field name="name">receipt_customer_new_136_id</field>
+      <field name="default" eval="False"/>
+      <field name="format">custom</field>
+      <field name="hight">278</field>
+      <field name="width">202</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">0</field>
+      <field name="margin_bottom">0</field>
+      <field name="margin_left">0</field>
+      <field name="margin_right">0</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">180</field>
+      <field name="dpi">90</field>
+    </record>
+
+
+    <report
+      id="odoo_report.receipt_customer_new_136_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For TUF"
+      paperformat="paperformat_invoice_trf_thaiunion135"
+      name="odoo_report.receipt_customer_new_136_id"
+      file="odoo_report.receipt_customer_new_136_id"/>
 
     <report
       id="odoo_report.invoice_trf_thaiunion135"
