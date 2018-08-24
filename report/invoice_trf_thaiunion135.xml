@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<t t-name="odoo_report.invoice_trf_thaiunion135">
+  <t t-foreach="docs" t-as="doc">
+    <t t-set="max_body_height" t-value="200" />
+    <t t-set="new_line_height" t-value="1" />
+    <t t-set="row_line_height" t-value="1" />
+    <t t-set="max_line_lenght" t-value="20" />
+    <t t-set="end" t-value="0" />
+    <t t-set="amount_total" t-value="doc.amount_total" />
+    <t t-set="amount_untaxed" t-value="doc.amount_untaxed" />
+    <t t-set="amount_tax" t-value="doc.amount_tax" />
+
+    <div class="header">
+      <p/>
+      <div style="position: absolute; left: 60%;">
+        <font style="font-size: 14px;">
+          <br style="line-height: 60px;" />
+          <span>(สำนักงานใหญ่)</span>
+        </font>
+      </div>
+      <div style="position: absolute; left: 64%;" class="col-xs-4">
+        <font style="font-size: 14px;">
+          <br style="line-height: 80px;" />
+          <span>(Head Office)</span>
+        </font>
+      </div>
+      <div class="col-xs-12">
+        <div style="position: absolute; left: 74%;">
+          <font style="font-size: 14px;">
+            <br style="line-height: 200px;" />
+            <span t-field="doc.date_invoice" />
+          </font>
+        </div>
+        <div style="position: absolute; left: 14%;">
+          <font style="font-size: 14px;">
+            <br style="line-height: 200px;" />
+            <t t-if="not doc.reference_inv">
+              <span>-</span>
+            </t>
+            <t t-if="doc.reference_inv">
+              <span t-esc="doc.reference_inv" />
+            </t>
+          </font>
+        </div>
+        <div style="position: absolute; left: 30%;" class="col-xs-6">
+          <font style="font-size: 14px;">
+            <br style="line-height: 265px;" />
+            <span t-field="doc.charge_type" />
+          </font>
+        </div>
+        <div style="position: absolute; left: 17%;" class="col-xs-9">
+          <font style="font-size: 14px;">
+            <br style="line-height: 305px;" />
+            <span t-field="doc.partner_id.name" />
+          </font>
+        </div>
+        <div style="position: absolute; left: 17%;">
+          <br style="line-height: 325px;" />
+          <table width="70%">
+            <tr>
+              <td>
+                <font style="font-size: 14px;">
+                  <t t-if="doc.partner_id.street">
+                    <span t-esc="doc.partner_id.street" />
+                  </t>
+                  <t t-if="doc.partner_id.street2">
+                    <span t-esc="doc.partner_id.street2" />
+                  </t>
+                  <t t-if="doc.partner_id.city">
+                    <span t-esc="doc.partner_id.city" />&amp;nbsp;
+                  </t>
+                  <t t-if="doc.partner_id.state_id.name">
+                    <span t-esc="doc.partner_id.state_id.name" />&amp;nbsp;
+                  </t>
+                  <t t-if="doc.partner_id.zip">
+                    <span t-esc="doc.partner_id.zip" />
+                  </t>
+                  <br/>
+                  <t t-if="doc.partner_id.vat">
+                    <span>TAX ID:</span>
+                    <span t-esc="doc.partner_id.vat" /> &amp;nbsp;
+                  </t>
+                  <t t-if="doc.partner_id.branch_no == '00000'">
+                    <span>(Head Office)</span>
+                  </t>
+                  <t t-if="doc.partner_id.branch_no != '00000'">
+                    <span>สาขาที่</span>&amp;nbsp;
+                    <span t-field="doc.partner_id.branch_no" />
+                  </t>
+                </font>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style="position: absolute; left: 80%;">
+          <font style="font-size: 14px;">
+            <br style="line-height: 330px;" />
+            <!--t t-if="doc.state == 'draft'">
+                                    <span t-esc="doc.internal_invoice_number"/>
+                                </t-->
+            <t t-if="doc.state != 'draft'">
+              <span t-field="doc.number" />
+            </t>
+          </font>
+        </div>
+        <div style="position: absolute; left: 28%;" class="col-xs-6">
+          <font style="font-size: 14px;">
+            <br style="line-height: 400px;" />
+            <span t-field="doc.payment_term_id.name" />&amp;nbsp; &amp;nbsp;
+            <span t-if="doc.date_due">Due Date
+              <span t-field="doc.date_due" /></span>
+          </font>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <t t-set="break_line" t-value="doc.get_break_line(max_body_height,new_line_height,row_line_height,max_line_lenght)" />
+      <t t-set="start" t-value="0" />
+     <!-- <t t-foreach="range(0,len(break_line),1)" t-as="x">  -->
+        <!--<br style="line-height: 540px;"/>-->
+        <table width="100%">
+            <t t-set="i" t-value="1" />
+            <t t-foreach="doc.get_invoice_line()" t-as="l">
+
+              <tr>
+                <td width="3%">
+                  <div class="col-xs-12" />
+                </td>
+                <td width="4%" style="vertical-align: top;">
+                  <div class="col-xs-12">
+                    <font style="font-size: 14px;">
+                      <span t-esc="i" />
+                    </font>
+                    <p/>
+                  </div>
+                </td>
+                <t t-set="i" t-value="i+1" />
+                <td width="50%" style="vertical-align: top;">
+                  <div class="col-xs-12">
+                    <font style="font-size: 14px;">
+                      <t t-if="l['invoice_line_id'].product_id.charge_type == 'storage_charge' or l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract'">
+                        <span t-esc="l['name']" />&amp;nbsp;
+                        <span>For </span>
+                        <span t-esc="l['size']" />&amp;nbsp;
+                        <span t-esc="l['type']" />
+                        <br/>
+                        <t t-if="doc.get_require_c_no(l['product_id']) and l['quantity']">
+
+                        </t>
+                      </t>
+                      <t t-if="l['invoice_line_id'].product_id.charge_type != 'storage_charge' and l['invoice_line_id'].product_id.charge_type != 'tran_agent' and l['invoice_line_id'].product_id.charge_type != 'tran_contract' and l['invoice_line_id'].product_id.charge_type != 'tran_none_contract'">
+                        <span t-esc="l['name']" />
+                        <br/>
+                      </t>
+
+                      <t t-if="l['invoice_line_id'].product_id.charge_type == 'storage_charge'">
+                        <!--<t t-if="doc.get_require_c_no(l['product_id'])">-->
+                        <br/>
+                        <span>CONTAINER NO:</span>
+                        <span t-esc="l['container_no']" />&amp;nbsp;
+                        <span t-esc="l['from_date']" /> -
+                        <span t-esc="l['to_date']" />
+                        <br/>
+                        <!--</t>-->
+                      </t>
+
+                      <t t-if="doc.get_require_b_no(l['product_id']) and l['quantity']">
+
+                      </t>
+                      <t t-if="doc.get_require_from_to(l['product_id'])">
+                        <t t-if="l['from_shipping'] and doc.service_type == 'general'">
+                          <span>FROM </span>
+                          <span t-esc="l['from_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['from_shipping'] and doc.service_type == 'logistic'">
+                          <span>FROM </span>
+                          <span t-esc="l['from_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['from_shipping'] and doc.service_type == 'gate_in'">
+                          <span>FROM </span>
+                          <span t-esc="l['from_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['to_shipping'] and doc.service_type == 'gate_out'">
+                          <span>FROM </span>
+                          <span t-esc="l['to_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['shipping_ids'] and doc.service_type == 'gate_out'">
+                          <span> TO </span>
+                          <span t-esc="l['shipping_ids']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['to_shipping'] and doc.service_type == 'gate_in'">
+                          <span> TO </span>
+                          <span t-esc="l['to_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['return_shipping'] and doc.service_type == 'gate_out'">
+                          <span> TO </span>
+                          <span t-esc="l['return_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['return_shipping'] and doc.service_type == 'general'">
+                          <span> TO </span>
+                          <span t-esc="l['return_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="l['return_shipping'] and doc.service_type == 'logistic'">
+                          <span> TO </span>
+                          <span t-esc="l['return_shipping']" />&amp;nbsp;
+                        </t>
+                        <t t-if="doc.is_from_to == True">
+                          <t t-if="l['invoice_line_id'].sale_id.return_date">
+                            <t t-set="date" t-value="time.strptime(l['invoice_line_id'].sale_id.return_date,'%Y-%m-%d')" />
+                            <span>DATE</span>&amp;nbsp;
+                            <span t-esc="date.tm_mday" />/
+                            <span t-esc="date.tm_mon" />/
+                            <span t-esc="date.tm_year" />
+                          </t>
+                        </t>
+                        <t t-if="doc.is_from_to != True">
+                          <span/>
+                        </t>
+                        <p/>
+                      </t>
+
+                      <t t-if="doc.get_require_po(l['product_id'])">
+                        <!--<span>PO NO.</span><span t-esc="l['po']"/><br/>-->
+                        <t t-if="count_po == 0">
+                          <t t-set="po" t-value="l['po']" />
+                        </t>
+                        <t t-if="count_po != 0 and po != l['po']">
+                          <t t-set="po" t-value="po + ',' + l['po']" />
+                        </t>
+                        <t t-set="count_po" t-value="count_po + 1" />
+                      </t>
+
+                      <t t-if="doc.get_require_vessel(l['product_id'])">
+                        <t t-if="count_vessel == 0">
+                          <t t-set="vessel" t-value="l['vessel'] + ' ' + l['voy']" />
+                        </t>
+                        <t t-if="count_vessel != 0 and vessel != (l['vessel'] + ' ' + l['voy'])">
+                          <t t-set="vessel" t-value="vessel + ',' + l['vessel'] + ' ' + l['voy']" />
+                        </t>
+                        <t t-set="count_vessel" t-value="count_vessel + 1" />
+                        <!--<span>VESSEL:</span><span t-esc="l['vessel']"/>&amp;nbsp;<span t-esc="l['voy']"/>-->
+                      </t>
+                      <t t-if="doc.is_container and (doc.partner_id.customer_type == 'agent')">
+                        <!--<t t-if="l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract'">-->
+                        <span>CONTAINER NO. </span>
+                        <span t-esc="doc.get_split_container_line(l['container_no'])" />
+                        <!--</t>-->
+                        <!--<t t-if="not (l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract')">-->
+                        <!--<t t-set="not_tran" t-value="1"/>-->
+                        <!--</t>-->
+                      </t>
+                      <br/>
+                      <p/>
+                      <t t-if="doc.is_booking and (doc.partner_id.customer_type == 'agent')">
+                        <!--<t t-if="l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract'">-->
+                        <span t-esc="doc.ref_name" />
+                        <span t-esc="doc.get_split_booking_line(l['booking'])" />
+                        <br/>
+                        <p/>
+                        <!--</t>-->
+                        <!--<t t-if="not (l['invoice_line_id'].product_id.charge_type == 'tran_agent' or l['invoice_line_id'].product_id.charge_type == 'tran_contract' or l['invoice_line_id'].product_id.charge_type == 'tran_none_contract')">-->
+                        <!--<t t-set="not_tran" t-value="1"/>-->
+                        <!--</t>-->
+                      </t>
+
+                    </font>
+                    <p/>
+                  </div>
+                </td>
+                <td width="8%" style="position: absolute; left: 63%; vertical-align: top;">
+                  <div class="col-xs-12">
+                    <font style="font-size: 14px;">
+                      <span t-esc="'{0:,.0f}'.format(int(l['quantity']))" />
+                    </font>
+                    <p/>
+                  </div>
+                </td>
+                <td width="16%" style="text-align: right; position: absolute; right: 19%; vertical-align: top;">
+                  <div class="col-xs-12">
+                    <font style="font-size: 14px;">
+                      <span t-esc="'{0:,.2f}'.format(float(l['price_unit']))" />
+                    </font>
+                    <p/>
+                  </div>
+                </td>
+                <td width="16%" style="text-align: right; position: absolute; right: 5%; vertical-align: top;">
+                  <div class="col-xs-12">
+                    <font style="font-size: 14px;">
+                      <span t-esc="'{0:,.2f}'.format(float(l['price_subtotal']))" />
+                    </font>
+                    <p/>
+                  </div>
+                </td>
+                <td width="3%">
+                  <div class="col-xs-12" />
+                  <p/>
+                </td>
+              </tr>
+            </t>
+
+            <tr>
+              <td colspan="2" />
+              <td width="50%" style="position: absolute; left: 9%;">
+                <div>
+                   <p style="page-break-after:avoid;" />  
+                  <font style="font-size: 14px;">
+                    <t t-if="doc.is_container and (doc.partner_id.customer_type != 'agent')">
+                      <!--<t t-if="not_tran != 0">-->
+                      <span>CONTAINER NO. </span>
+                         <span t-esc="doc.get_container_line()" />   
+                      <!--</t>-->
+                    </t>
+                    <br/>
+                    <p/>
+                    <t t-if="doc.is_booking and (doc.partner_id.customer_type != 'agent')">
+                      <!--<t t-if="not_tran != 0">-->
+                           <span t-esc="doc.ref_name" />   
+                           <span t-esc="doc.get_booking_line()" />  
+                      <br/>
+                      <p/>
+                      <!--</t>-->
+                    </t>
+                    <t t-if="doc.is_vessel_voy">
+                      <span>VESSEL: </span>
+                      <span t-esc="vessel" />
+                      <br/>
+                      <p/>
+                    </t>
+                    <!--<span t-esc="from_date2"/> - -->
+                    <!--<span t-esc="to_date2"/><br/>-->
+                    <t t-if="doc.is_po">
+                      <t t-if="doc.ref_po">
+                        <span t-esc="doc.ref_po" />&amp;nbsp;
+                      </t>
+                      <t t-if="not doc.ref_po">
+                        <span>PO NO. </span>
+                      </t>
+                      <span t-esc="po" />
+                      <p/>
+                    </t>
+                    <t t-if="doc.comment">
+                      <!--<t t-set="comment" t-value="doc.carriage_return(doc.comment)"/>-->
+                      <t t-set="comment" t-value="doc.comment.split('\n')" />
+                      <t t-foreach="range(0, len(comment))" t-as="x">
+                        <span t-esc="comment[x].encode('utf8')" />
+                        <br/>
+                      </t>
+                    </t>
+                  </font>
+                </div>
+              </td>
+              <td colspan="4" />
+            </tr>
+
+          </table>
+
+        <!-- <t t-set="start" t-value="break_line[x]" />  -->
+       <p style="page-break-after:avoid;" />  
+     <!--  </t>   -->
+    </div>
+    <div class="footer">
+     <div class="last-page">  
+   <!--     <t t-if="end ==(break_line[len(break_line)-1])">  -->
+            <table width="100%">
+            <tr>
+              <td width="7%"> </td>
+              <td width="50%">
+                <font style="font-size: 14px;">
+                </font>
+              </td>
+              <td width="4%" />
+              <td width="20%" style="text-align:center;">
+                <font style="font-size: 14px;">
+                  <span>TOTAL</span>
+                </font>
+              </td>
+              <td width="16%" style="text-align:right;">
+                <font style="font-size: 14px;">
+                  <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))" />&amp;nbsp;&amp;nbsp;
+                </font>
+              </td>
+              <td width="3%"> </td>
+            </tr>
+            <tr>
+              <td width="7%"> </td>
+              <td width="50%"> </td>
+              <td width="4%" />
+              <td width="20%" style="text-align:center;">
+                <font style="font-size: 14px;">
+
+                  <t t-if="doc.WHT_Type == '1%'">
+                    <span>Withholding Tax 1%</span>
+                  </t>
+                  <t t-if="doc.WHT_Type == '2%'">
+                    <span>Withholding Tax 2%</span>
+                  </t>
+                  <t t-if="doc.WHT_Type == '3%'">
+                    <span>Withholding Tax 3%</span>
+                  </t>
+                  <t t-if="doc.WHT_Type == '5%'">
+                    <span>Withholding Tax 5%</span>
+                  </t>
+                  <t t-if="doc.WHT_Type == False">
+                    <span style="color:#FFFFFF;">0.00</span>
+                  </t>
+                </font>
+              </td>
+              <td width="16%" style="text-align:right;">
+                <font style="font-size: 14px;">
+                  <t t-if="doc.WHT_Type == '1%'">
+                    <t t-set="amount_wht" t-value="amount_untaxed * 0.01" />
+                    <t t-set="grand_total" t-value="amount_total - amount_wht" />
+                    <span t-esc="'{0:,.2f}'.format(float(amount_wht))" />&amp;nbsp;&amp;nbsp;
+                  </t>
+                  <t t-if="doc.WHT_Type == '2%'">
+                    <t t-set="amount_wht" t-value="amount_untaxed * 0.02" />
+                    <t t-set="grand_total" t-value="amount_total - amount_wht" />
+                    <span t-esc="'{0:,.2f}'.format(float(amount_wht))" />&amp;nbsp;&amp;nbsp;
+                  </t>
+                  <t t-if="doc.WHT_Type == '3%'">
+                    <t t-set="amount_wht" t-value="amount_untaxed * 0.03" />
+                    <t t-set="grand_total" t-value="amount_total - amount_wht" />
+                    <span t-esc="'{0:,.2f}'.format(float(amount_wht))" />&amp;nbsp;&amp;nbsp;
+                  </t>
+                  <t t-if="doc.WHT_Type == '5%'">
+                    <t t-set="amount_wht" t-value="amount_untaxed * 0.05" />
+                    <t t-set="grand_total" t-value="amount_total - amount_wht" />
+                    <span t-esc="'{0:,.2f}'.format(float(amount_wht))" />&amp;nbsp;&amp;nbsp;
+                  </t>
+                  <t t-if="doc.WHT_Type == False">
+                    <span style="color:#FFFFFF;">0.00</span>
+                  </t>
+                </font>
+              </td>
+              <td width="3%"> </td>
+            </tr>
+
+            <tr>
+              <td width="7%"> </td>
+              <td width="50%">
+                <font style="font-size: 14px;">
+                  <br/>
+                  <br/>
+                  <t t-if="doc.WHT_Type &gt; 0.00">
+                    <t t-if="doc.discounted_amount &gt; 0.00">
+                      <span>(</span>
+                      <span t-esc="doc.num2_words(grand_total - doc.discounted_amount)" />
+                      <span>)</span>
+                    </t>
+                    <t t-if="doc.discounted_amount == 0.00">
+                      <span>(</span>
+                      <span t-esc="doc.num2_words(grand_total)" />
+                      <span>)</span>
+                    </t>
+                  </t>
+                  <t t-if="doc.WHT_Type == 0.00">
+                    <t t-if="doc.discounted_amount &gt; 0.00">
+                      <span>(</span>
+                      <span t-esc="doc.num2_words(doc.amount_total - doc.discounted_amount)" />
+                      <span>)</span>
+                    </t>
+                    <t t-if="doc.discounted_amount == 0.00">
+                      <span>(</span>
+                      <span t-esc="doc.num2_words(doc.amount_total)" />
+                      <span>)</span>
+                    </t>
+                  </t>
+                </font>
+              </td>
+              <td colspan="2" width="24%"> </td>
+              <td width="16%" style="text-align:right;">
+                <br/>
+                <br/>
+                <font style="font-size: 14px;">
+                  <t t-if="doc.WHT_Type &gt; 0.00">
+                    <t t-if="doc.discounted_amount &gt; 0.00">
+                      <span t-esc="'{0:,.2f}'.format(float(grand_total - doc.discounted_amount))" />
+                    </t>
+                    <t t-if="doc.discounted_amount == 0.00">
+                      <span t-esc="'{0:,.2f}'.format(float(grand_total))" />&amp;nbsp;&amp;nbsp;
+                    </t>
+                  </t>
+                  <t t-if="doc.WHT_Type == 0.00">
+                    <t t-if="doc.discounted_amount &gt; 0.00">
+                      <span t-esc="'{0:,.2f}'.format(float(doc.amount_total - doc.discounted_amount))" />
+                    </t>
+                    <t t-if="doc.discounted_amount == 0.00">
+                      <span t-esc="'{0:,.2f}'.format(float(doc.amount_total))" />&amp;nbsp;&amp;nbsp;
+                    </t>
+                  </t>
+                </font>
+              </td>
+              <td width="3%"> </td>
+            </tr>
+          </table>
+   <!--     </t>    -->
+
+     </div>  
+    </div>
+
+  </t>
+</t>

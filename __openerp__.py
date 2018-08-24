@@ -37,6 +37,7 @@
             'report/billing_STD_report_130_id.xml',
             'report/invoice_trf_report133_id.xml',
             'report/receipt_customer_trfempty_134_id.xml',
+            'report/invoice_trf_thaiunion135.xml',
             ],
     'auto_install':False,
     'application':True

@@ -437,6 +437,32 @@
       <field name="dpi">90</field>
     </record>
 
+    <!-- paperformat TaxInvoice -->
+    <record id="paperformat_invoice_trf_thaiunion135" model="report.paperformat">
+      <field name="name">invoice_trf_thaiunion135</field>
+      <field name="default" eval="False"/>
+      <field name="format">custom</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">120</field>
+      <field name="margin_bottom">52</field>
+      <field name="margin_left">0</field>
+      <field name="margin_right">5</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">117</field>
+      <field name="dpi">90</field>
+    </record>
+
+    <report
+      id="odoo_report.invoice_trf_thaiunion135"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice For TUF"
+      paperformat="paperformat_invoice_trf_thaiunion135"
+      name="odoo_report.invoice_trf_thaiunion135"
+      file="odoo_report.invoice_trf_thaiunion135"/>
+
+
     <report
       id="odoo_report.invoice_trf_report133_id"
       model="account.invoice"
