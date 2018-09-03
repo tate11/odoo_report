@@ -39,6 +39,7 @@
             'report/receipt_customer_trfempty_134_id.xml',
             'report/invoice_trf_thaiunion135.xml',
             'report/receipt_customer_new_136_id.xml',
+            'report/deliveryorder_139_id.xml',
             ],
     'auto_install':False,
     'application':True

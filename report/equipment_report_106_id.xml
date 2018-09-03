@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <template id="odoo_report.equipment_report_106_id">
-            <t t-foreach="docs" t-as="o">
+                         <t t-foreach="docs" t-as="o">
 
                 <t t-if="o.type == 'gate_in' ">
                     <t t-if="o.gate_in_date_time">
@@ -261,7 +261,7 @@
                                             <tr>
                                                 <td width="55%">
                                                     <font style="font-size: 16px;">
-                                                        <strong>REGISTERED NO/ทะเบียนรถ:</strong>&amp;nbsp;<span t-field="o.driver_empty_truck_no"/>
+                                                        <strong>REGISTERED NO/ทะเบียนรถ:</strong>&amp;nbsp;<span t-field="o.remove_person_id.trucking_no"/>
                                                     </font>
                                                 </td>
                                                 <td width="45%">
@@ -322,11 +322,11 @@
                                             <tr>
                                                 <td width="100%">
                                                     <font style="font-size: 16px;">
-                                                        <strong>ที่อยู่:</strong>&amp;nbsp;<span t-field="o.customer_id.street"/>&amp;nbsp;
-                                                        <span t-field="o.customer_id.street2"/>&amp;nbsp;
-                                                        <span t-field="o.customer_id.city"/>&amp;nbsp;
-                                                        <span t-field="o.customer_id.state_id.name"/>&amp;nbsp;
-                                                        <span t-field="o.customer_id.zip"/>
+                                                        <strong>ที่อยู่:</strong>&amp;nbsp;<span t-field="o.port_charge_to.street"/>&amp;nbsp;
+                                                        <span t-field="o.port_charge_to.street2"/>&amp;nbsp;
+                                                        <span t-field="o.port_charge_to.city"/>&amp;nbsp;
+                                                        <span t-field="o.port_charge_to.state_id.name"/>&amp;nbsp;
+                                                        <span t-field="o.port_charge_to.zip"/>
                                                     </font>
                                                 </td>
                                             </tr>
@@ -628,12 +628,10 @@
                             </table>
                         </div>
                     </div>
-
-                    <!--<div class="row" name="total" style="text-align: center">-->
-                    <!--<img class="rounded mx-auto d-block" style="width:220mm; height:100mm;" src="/print_thaireefer_report/static/description/report.jpg"/>-->
-                    <!--</div>-->
                 </t>
             </t>
         </template>
     </data>
 </openerp>
+
+    

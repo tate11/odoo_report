@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-<t t-name="odoo_report.invoice_trf_thaiunion135">
-  <t t-foreach="docs" t-as="doc">
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <template id="odoo_report.invoice_trf_thaiunion135">
+       <t t-foreach="docs" t-as="doc">
     <t t-set="max_body_height" t-value="200" />
     <t t-set="new_line_height" t-value="1" />
     <t t-set="row_line_height" t-value="1" />
@@ -500,4 +502,6 @@
     </div>
 
   </t>
-</t>
+    </template>
+  </data>
+</openerp>
