@@ -209,6 +209,19 @@
                     </table>
                 </div>
             <div class="footer">
+              <div class="col-xs-12" style="text-align: left;">
+                <font style="font-size: 15px;">
+                  <t t-if="o.cheque_bank">
+                    <strong>Cheque =</strong>&amp;nbsp;
+                    <strong t-field="o.cheque_bank.name"/>&amp;nbsp;&amp;nbsp;
+                    <strong>สาขา</strong>&amp;nbsp;<strong t-field="o.cheque_branch"/>&amp;nbsp;&amp;nbsp;
+                    <strong>เลขที่เช็ค No.:</strong>&amp;nbsp;<strong t-field="o.cheque_number"/>&amp;nbsp;&amp;nbsp;
+                    <strong>วันที่เช็ค</strong>&amp;nbsp;<strong t-field="o.cheque_date"/>&amp;nbsp;&amp;nbsp;
+                                <!-- <strong>ยอดเงิน = </strong><strong t-esc="'{0:,.2f}'.format(o.amount)"/> -->
+                                <!-- <t t-set="totalcheque" t-value="o.amount - sumdebit "/> -->
+                    <strong>ยอดเงิน = </strong><strong t-esc="'{0:,.2f}'.format(o.x_amount)"/>
+                  </t>
+                </font>
                 <div class="row" style="page-break-inside: avoid">
                     <table class="table table-bordered">
                         <tr>
