@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template id="odoo_report.invoice_trf_report120_id">
-        <t t-foreach="docs" t-as="doc">
+             <t t-foreach="docs" t-as="doc">
         <t t-set="j" t-value="0" />
         <div class="header">
             <style>
@@ -343,13 +343,13 @@
                     <t t-foreach="doc.invoice_line_ids" t-as="l">
                         <tr>
                             <td style="text-align: center">
-                                <font style="font-size: 18px;">
+                                <font style="font-size: 16px;">
                                     <span t-esc="i" />
                                 </font>
                             </td>
                             <t t-set="i" t-value="i+1" />
                             <td style="text-align: left;">
-                                <font style="font-size: 18px;">
+                                <font style="font-size: 16px;">
                                     <span t-field="l.name" />
                                     <br/>
                                     <!-- <t t-if="l.sale_id.start_date"> <span>วันที่: </span> <span t-field="l.sale_id.start_date"/> <t t-if="l.sale_id.end_date"> <span>-</span> <span t-field="l.sale_id.end_date"/> </t> <br/> </t> <t t-if="l.sale_id.sale_note"> <span
@@ -358,7 +358,7 @@
 
                             </td>
                             <td style="text-align: center;">
-                                <font style="font-size: 18px;">
+                                <font style="font-size: 16px;">
                                     <span t-esc="'{0:,.2f}'.format(float(l.quantity))" /> /
                                     <span t-esc="l.uom_id.name" />
                                 </font>
@@ -366,7 +366,7 @@
 
                             <td style="text-align: right;">
                                 <!-- <p style="margin-right:10px"> -->
-                                <font style="font-size: 18px;margin-right:15px">
+                                <font style="font-size: 16px;margin-right:15px">
                                     <span t-esc="'{0:,.2f}'.format(float(l.price_unit))" />
                                 </font>
                                 <!-- </p> -->
