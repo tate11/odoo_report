@@ -234,14 +234,14 @@
                         <div class="footer">
                             <div class="col-xs-8" style="position: absolute; left: 8%;">
                                 <font style="font-size: 22px;">
-                                    <br style="line-height: 314px"/>
+                                    <br style="line-height: 320px"/>
                                     <!--<span t-esc="amount"/>-->
                                     <span>(</span><span t-esc="doc.num2_words(sum_amount1 + sum_amount2 + sum_amount3)"/><span>)</span>
                                 </font>
                             </div>
                             <div class="col-xs-4" style="text-align:right; position: absolute; right: 12%;">
                                 <font style="font-size: 22px;">
-                                    <br style="line-height: 309px"/>
+                                    <br style="line-height: 320px"/>
                                     <span t-esc="'{0:,.2f}'.format(float(sum_amount1 + sum_amount2 + sum_amount3))"/>
                                 </font>
                             </div>
@@ -310,8 +310,8 @@
                         </div>
 
                         <div style="position: absolute; left: 18%;">
-                            <br style="line-height: 390px"/>
-                           
+                            <br style="line-height: 400px"/>
+
                                 <font style="font-size: 30px;">
                                     ☐
                                 </font>
@@ -320,7 +320,7 @@
                                     &amp;nbsp;
                                      <!--   <span t-esc="'{0:,.2f}'.format(float(amount))"/>    -->
                                 </font>
-                           
+
                             <t t-if="doc.invoice_ids[0].payment_id.check_regis == True">
                                 <span/>
                             </t>
