@@ -660,7 +660,7 @@
                          <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
                           <span>0.00</span><br/>
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
-                        </t>   
+                        </t>
                        <!-- <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>  -->
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
                         <!-- <span>0.00</span><br/> -->
@@ -777,8 +777,7 @@
                           <font style="font-size: 14px;">
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
-                              <!-- <img t-att-src="'http://www.bansuansoft.com/img/wong.png'" style="width:150px;height:40px;"/> -->
-                              <img src="/signature/static/wong.png" style="width:150px;height:40px;"/>
+                              <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -826,7 +825,7 @@
                           </font>
                         </p>
                       </t>
-                   
+
 
                     </t>
                   </td>

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <template id="odoo_report.billing_wht_141_id">
+      <t t-foreach="docs" t-as="doc">
+              <!--<t t-set="total_untaxed" t-value="0"/>-->
+              <!--<t t-set="amount_taxed" t-value="0"/>-->
+              <t t-set="amount_total" t-value="0"/>
+              <!--<t t-set="sum_total_untaxed" t-value="0"/>-->
+              <t t-set="amount_untaxed" t-value="0"/>
+              <t t-set="sum_tax" t-value="0"/>
+              <t t-set="sum_total" t-value="0"/>
+              <t t-set="sum_amount_taxed" t-value="0"/>
+              <t t-set="sum_amount_total" t-value="0"/>
+              <t t-set="total_discount" t-value="0"/>
+              <t t-set="amount_taxed5" t-value="0"/>
+              <t t-set="amount_untaxed1" t-value="doc.amount_untaxed"/>
+              <!--<t t-set="amount_tax1" t-value="doc.amount_tax" />-->
+              <t t-set="amount_total1" t-value="doc.amount_total"/>
+              <t t-set="i" t-value="1"/>
+              <t t-set="baht_total" t-value="doc.amount_total"/>
+              <t t-call="report.internal_layout">
+                <div class="page">
+                  <style>
+                    .header {
+                      width: 100%;
+                      height: 30px;
+                    }
+                    .content {
+                      width: 100%;
+                      height: 700px;
+                    }
+                    .footer {
+                      width: 100%;
+                      height: 200px;
+                    }
+                    .doubleUnderline {
+                      border-bottom: 3px double;
+                    }
+                    table.table-bordered1 {
+                      border: 1px solid black;
+                      margin-top: 20px;
+                      border-collapse: collapse;
+                      width: 100%;
+                    }
+                    table.table-bordered1 &gt;
+                    thead &gt;
+                    tr &gt;
+                    th {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                    }
+                    table.table-bordered1 &gt;
+                    tbody &gt;
+                    tr &gt;
+                    td {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                    }
+                    table.table-bordered1 &gt;
+                    tfoot &gt;
+                    tr &gt;
+                    td {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                    }
+                    table.table-bordered {
+                      border: 1px solid black;
+                      margin-top: 20px;
+                      border-collapse: collapse;
+                      width: 100%;
+                    }
+                    table.table-bordered &gt;
+                    thead &gt;
+                    tr &gt;
+                    th {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                    }
+                    table.table-bordered &gt;
+                    tbody &gt;
+                    tr &gt;
+                    td {
+                      border: 0 solid white;
+                      border-collapse: collapse;
+                      border-left: 1px solid black;
+                    }
+                    table.table-bordered &gt;
+                    tfoot &gt;
+                    tr &gt;
+                    td {
+                      border: 1px solid black;
+                      border-collapse: collapse;
+                    }
+                    table.table-table1 {
+                      border: 1px solid black;
+                      margin-top: 20px;
+                      border-collapse: collapse;
+                      border-left: 1px solid;
+                      border-right: 1px solid;
+                      border-bottom: 1px solid;
+                      border-top: 1px solid;
+                      width: 100%;
+                    }
+                  </style>
+                  <div class="header">
+                    <div class="col-xs-3" style="text-align:left">
+                      <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 100px;"/>
+                      <!--<img class="img-rounded pull-left" style="width: 20%;" src="/signature/static/logo-reefer.png"/>-->
+                    </div>
+                    <div class="col-xs-6" style="text-align:center">
+                      <font style="font-size: 24px;">
+                        <br/>
+                        <span>ใบวางบิล</span>
+                      </font>
+                    </div>
+                    <div class="col-xs-3"><br/><br/><br/><br/><br/>
+                    </div>
+                    <br/>
+
+                    <div class="col-xs-7" style="text-align:left">
+                      <font style="font-size: 16px;">
+                        <span t-field="doc.company_id.name"/>
+                      </font>
+                    </div>
+                    <div class="col-xs-5">
+                      <font style="font-size: 14px;">
+                        <span t-if="doc.company_id.vat">เลขประจำตัวผู้เสียภาษี&amp;nbsp;&amp;nbsp;<span t-esc="doc.company_id.vat"/></span><br/>
+                      </font>
+                    </div>
+                    <div class="col-xs-12">
+                      <font style="font-size: 14px;">
+                        <t t-if="not doc.company_branch">
+                          <span t-field="doc.company_id.house_number"/>&amp;nbsp;<span t-if="doc.company_id.moo_number"><span t-esc="doc.company_id.moo_number"/></span>
+                          <span t-field="doc.company_id.street"/>&amp;nbsp;
+                          <span t-if="doc.company_id.city"><span t-field="doc.company_id.city"/></span>&amp;nbsp;<span t-if="doc.company_id.state_id.name">จ.<span t-field="doc.company_id.state_id.name"/>&amp;nbsp;</span>
+                          <span t-field="doc.company_id.zip"/>&amp;nbsp;
+                          <span>(สำนักงานใหญ่)</span><br/>
+                          <span t-if="doc.company_id.phone">โทร :&amp;nbsp;<span t-esc="doc.company_id.phone"/></span>&amp;nbsp;
+                          <span t-if="doc.company_id.fax">Fax :&amp;nbsp;<span t-esc="doc.company_id.fax"/></span>
+                        </t>
+                        <t t-if="doc.company_branch">
+                          <!--<span t-field="doc.company_branch.house_number"/>&amp;nbsp;<span t-if="doc.company_branch.moo_number"><span t-esc="doc.company_id.moo_number"/></span>-->
+                          <span t-field="doc.company_branch.street"/>&amp;nbsp;
+                          <span t-if="doc.company_branch.city"><span t-field="doc.company_branch.city"/></span>&amp;nbsp;<span t-if="doc.company_branch.state_id.name">จ.<span t-field="doc.company_branch.state_id.name"/>&amp;nbsp;</span>
+                          <span t-field="doc.company_branch.zip"/>&amp;nbsp;
+                          <span>(สาขาที่
+                            <span t-field="doc.company_branch.branch_no"/>)</span><br/>
+                          <span t-if="doc.company_branch.phone">โทร :&amp;nbsp;<span t-esc="doc.company_branch.phone"/></span>&amp;nbsp;
+                          <span t-if="doc.company_branch.fax">Fax :&amp;nbsp;<span t-esc="doc.company_branch.fax"/></span>
+                        </t>
+                      </font>
+                    </div>
+                    <div class="col-xs-7">
+                      <br/>
+                      <font style="font-size: 16px">
+                        <span t-field="doc.partner_id.name"/><br/>
+                      </font>
+                      <font style="font-size: 14px">
+                        <span t-field="doc.partner_id.street"/><br/>
+                        <span t-if="doc.partner_id.street2">
+                          <span t-esc="doc.partner_id.street2"/><br/>
+                        </span>
+                        <span t-if="doc.partner_id.city">
+                          <span t-esc="doc.partner_id.city"/>&amp;nbsp;
+                        </span>
+                        <span t-if="doc.partner_id.state_id.name">
+                          <span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;
+                        </span>
+                        <span t-if="doc.partner_id.zip">
+                          <span t-field="doc.partner_id.zip"/>&amp;nbsp;<br/>
+                        </span>
+                        <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;<span t-esc="doc.partner_id.vat"/>&amp;nbsp;</span>
+                        <t t-if="doc.partner_id.branch_no == '00000'">
+                          <span>(Head Office)</span><br/>
+                        </t>
+                        <t t-if="doc.partner_id.branch_no != '00000'">
+                          <span>สาขาที่</span>&amp;nbsp;<span t-field="doc.partner_id.branch_no"/><br/>
+                        </t>
+                        <span t-if="doc.partner_id.phone">TEL :&amp;nbsp;
+                          <span t-esc="doc.partner_id.phone"/>&amp;nbsp;</span>
+                        <span t-if="doc.partner_id.mobile">MOBILE :&amp;nbsp;
+                          <span t-esc="doc.partner_id.mobile"/>&amp;nbsp;</span>
+                        <span t-if="doc.partner_id.fax">FAX :&amp;nbsp;
+                          <span t-esc="doc.partner_id.fax"/></span><br/>
+                        <span t-if="doc.partner_id.email">EMAIL :&amp;nbsp;
+                          <span t-esc="doc.partner_id.email"/>&amp;nbsp;</span>
+                        <br/>
+                      </font>
+                    </div>
+                    <div class="col-xs-2" style="text-align: left">
+                      <br/>
+                      <font style="font-size: 14px;">
+                        <br/>
+                        <span>เลขที่ใบวางบิล</span><br/>
+                        <span>วันที่</span><br/>
+                      </font>
+                    </div>
+                    <div class="col-xs-3" style="text-align: left">
+                      <br/>
+                      <font style="font-size: 14px;">
+                        <br/>
+                        <span t-field="doc.name"/><br/>
+                        <span t-field="doc.date_billing"/><br/>
+                      </font>
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="col-xs-12">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th class="col-xs-1" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">ลำดับที่</font>
+                            </th>
+                            <th class="col-xs-1" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">เลขที่<br/>ใบแจ้งหนี้</font>
+                            </th>
+                            <th class="col-xs-1" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">ลงวันที่</font>
+                            </th>
+                            <th class="col-xs-3" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">วันที่ครบกำหนด<br/>ชำระเงินตามใบแจ้งหนี้</font>
+                            </th>
+                            <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">จำนวนเงิน<br/>บาท</font>
+                            </th>
+                            <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">ภาษี<br/>มูลค่าเพิ่ม 7%</font>
+                            </th>
+                            <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">ภาษี หัก<br/>ณ ที่จ่าย</font>
+                            </th>
+                            <th class="col-xs-2" style="text-align:center; vertical-align: middle;">
+                              <font style="font-size: 14px;">รวมเงิน<br/>บาท</font>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                          <t t-set="count" t-value="1"/>
+                          <t t-set="max" t-value="10"/>
+                          <t t-set="amount_tax" t-value="0"/>
+                          <t t-foreach="doc.invoice_ids.sorted(key=lambda b: b.number)" t-as="l">
+                            <t t-set="sum_total" t-value="sum_total + l.amount_total"/>
+                            <t t-if="l.type=='out_refund'">
+                              <t t-set="sum_tax" t-value="sum_tax + l.amount_tax * (-1)"/>
+                            </t>
+                            <t t-if="l.type!='out_refund'">
+                              <t t-set="sum_tax" t-value="sum_tax + l.amount_tax"/>
+                            </t>
+                            <t t-if="l.discounted_amount">
+                              <t t-set="total_discount" t-value="l.amount_untaxed - l.discounted_amount"/>
+                              <t t-if="l.type=='out_refund'">
+                                <t t-set="total_discount" t-value="total_discount*(-1)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '1%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.01)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '2%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.02)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '3%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.03)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '5%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.05)"/>
+                              </t>
+                              <t t-set="amount_untaxed" t-value="amount_untaxed + total_discount"/>
+                              <t t-set="sum_amount_total" t-value="(sum_amount_total + amount_untaxed + sum_tax)  - amount_taxed5"/>
+                            </t>
+                            <t t-if="not l.discounted_amount">
+                              <t t-set="total_discount" t-value="l.amount_untaxed"/>
+                              <t t-if="l.type=='out_refund'">
+                                <t t-set="total_discount" t-value="total_discount*(-1)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '1%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.01)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '2%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.02)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '3%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.03)"/>
+                              </t>
+                              <t t-if="l.WHT_Type == '5%'">
+                                <t t-set="amount_taxed5" t-value="amount_taxed5 + (total_discount *  0.05)"/>
+                              </t>
+                              <t t-set="amount_untaxed" t-value="amount_untaxed + total_discount"/>
+                              <t t-set="sum_amount_total" t-value="(sum_amount_total + amount_untaxed + sum_tax) - amount_taxed5 "/>
+                            </t>
+                            <tr>
+                              <td style="text-align:center">
+                                <font style="font-size: 14px;">
+                                  <span t-esc="i"/>
+                                </font>
+                              </td>
+                              <t t-set="i" t-value="i+1"/>
+                              <t t-set="count" t-value="count + (len(l.number)/60) + 1"/>
+                              <td style="text-align:center">
+                                <font style="font-size: 14px;">
+                                  <span t-field="l.number"/>
+                                </font>
+                              </td>
+                              <td style="text-align:center">
+                                <font style="font-size: 14px;">
+                                  <span t-field="l.date_invoice"/>
+                                </font>
+                              </td>
+                              <td style="text-align:center">
+                                <font style="font-size: 14px;">
+                                  <span t-field="l.date_due"/>
+                                </font>
+                              </td>
+                              <td style="text-align:right">
+                                <font style="font-size: 14px;">
+                                  <span t-esc="'{0:,.2f}'.format(float(total_discount))"/>
+                                </font>
+                              </td>
+                              <td style="text-align:right">
+                                <font style="font-size: 14px;">
+                                  <t t-if="l.type=='out_refund'">
+                                    <t t-if="l.amount_tax!=0">
+                                      <t t-set="amount_tax" t-value="l.amount_tax*(-1)"/>
+                                      <span t-esc="'{0:,.2f}'.format(float(amount_tax))"/>
+                                    </t>
+                                    <t t-if="l.amount_tax==0">
+                                      <t t-set="amount_tax" t-value="l.amount_tax"/>
+                                      <span t-esc="'{0:,.2f}'.format(float(amount_tax))"/>
+                                    </t>
+                                  </t>
+                                  <t t-if="l.type!='out_refund'">
+                                    <t t-set="amount_tax" t-value="l.amount_tax"/>
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_tax))"/>
+                                  </t>
+                                </font>
+                              </td>
+                              <t t-if="l.WHT_Type == '1%'" style="text-align:right">
+                                <t t-set="amount_taxed5" t-value="total_discount *  0.01"/>
+                                <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
+                                <td style="text-align:right">
+                                  <font style="font-size: 14px;">
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
+                                  </font>
+                                </td>
+                              </t>
+                              <t t-if="l.WHT_Type == '2%'" style="text-align:right">
+                                <t t-set="amount_taxed5" t-value="total_discount *  0.02"/>
+                                <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
+                                <td style="text-align:right">
+                                  <font style="font-size: 14px;">
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
+                                  </font>
+                                </td>
+                              </t>
+                              <t t-if="l.WHT_Type == '3%'" style="text-align:right">
+                                <t t-set="amount_taxed5" t-value="total_discount *  0.03"/>
+                                <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
+                                <td style="text-align:right">
+                                  <font style="font-size: 14px;">
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
+                                  </font>
+                                </td>
+                              </t>
+                              <t t-if="l.WHT_Type == '5%'" style="text-align:right">
+                                <t t-set="amount_taxed5" t-value="total_discount *  0.05"/>
+                                <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
+                                <td style="text-align:right">
+                                  <font style="font-size: 14px;">
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
+                                  </font>
+                                </td>
+                              </t>
+                              <t t-if="not l.WHT_Type" style="text-align:right">
+                                <t t-set="amount_taxed5" t-value="0"/>
+                                <t t-set="sum_amount_taxed" t-value="amount_taxed5"/>
+                                <td style="text-align:right">
+                                  <font style="font-size: 14px;">
+                                    <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>
+                                  </font>
+                                </td>
+                              </t>
+                              <td style="text-align:right">
+                                <font style="font-size: 14px;">
+                                  <t t-if="l.type=='out_refund'">
+                                    <t t-set="amount_total" t-value="total_discount+amount_tax-amount_taxed5"/>
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                                  </t>
+                                  <t t-if="l.type!='out_refund'">
+                                    <t t-set="amount_total" t-value="l.amount_total -  amount_taxed5"/>
+                                    <span t-esc="'{0:,.2f}'.format(float(amount_total))"/>
+                                  </t>
+                                </font>
+                              </td>
+                            </tr>
+                          </t>
+                          <t t-foreach="range(count, 25)" t-as="x">
+                            <tr>
+                              <td/>
+                              <td/>
+                              <td/>
+                              <td/>
+                              <td/>
+                              <td/>
+                              <td/>
+                              <td/>
+                            </tr>
+                          </t>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                            <td colspan="4">
+                              <t t-if="doc.currency_id.name == 'THB'">
+                                <span>บาท<br/>Baht</span>&amp;nbsp;&amp;nbsp;
+                                <span>(<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span>
+                              </t>
+                              <t t-if="doc.currency_id.name != 'THB'">
+                                <span t-field="doc.currency_id.name"/>&amp;nbsp;&amp;nbsp;
+                                <span>(<span t-esc="doc.num2_words(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>)</span>
+                              </t>
+                            </td>
+                            <td class="text-right">
+                              <font style="font-size: 14px;">
+                                <span t-esc="'{0:,.2f}'.format(float(amount_untaxed))"/>
+                              </font>
+                            </td>
+                            <td class="text-right">
+                              <font style="font-size: 14px;">
+                                <span t-esc="'{0:,.2f}'.format(float(sum_tax))"/>
+                              </font>
+                            </td>
+
+                            <td class="text-right">
+                              <font style="font-size: 14px;">
+                                <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>
+                              </font>
+                            </td>
+
+                            <td class="text-right">
+                              <font style="font-size: 14px;">
+                                <t t-set="grand_total" t-value="0"/>
+                                <span t-esc="'{0:,.2f}'.format(float((amount_untaxed)+(sum_tax)-(sum_amount_taxed)))"/>
+                              </font>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!--<div class="row" name="total">-->
+                  <!--<div class="col-xs-6 pull-right">-->
+                  <!--<table class="table1">-->
+                  <!--<tr class="border-black">-->
+                  <!--<td class="text-right">-->
+                  <!--<font style="font-size: 14px;">-->
+                  <!--<span t-esc="'{0:,.2f}'.format(float(amount_untaxed1))"/>-->
+                  <!--</font>-->
+                  <!--</td>-->
+                  <!--<td class="text-right">-->
+                  <!--<font style="font-size: 14px;">-->
+                  <!--<span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>-->
+                  <!--</font>-->
+                  <!--</td>-->
+                  <!--<td class="text-right">-->
+                  <!--<font style="font-size: 14px;">-->
+                  <!--<span t-esc="'{0:,.2f}'.format(float(amount_total1))"/>-->
+                  <!--</font>-->
+                  <!--</td>-->
+                  <!--</tr>-->
+                  <!--</table>-->
+                  <!--</div>-->
+                  <!--</div>-->
+
+                  <div class="row" style="page-break-inside: avoid">
+                    <div class="col-xs-7">
+                      <font style="font-size: 14px;">
+                        <br/><br/>
+                        <span>ชื่อผู้รับวางบิล ....................................... (ตัวบรรจง)</span><br/><br/>
+                        <span>วันที่รับวางบิล ............./............/............</span><br/><br/>
+                        <span>วันที่นัดชำระเงิน ............/.........../...........</span><br/><br/><br/>
+                      </font>
+                    </div>
+                    <div class="col-xs-5" style="text-align: left;">
+                      <font style="font-size: 14px;">
+                        <br/><br/>
+                        <span>ชื่อผู้วางบิล
+                        </span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span t-field="doc.user_id"/><br/><br/>
+                        <span>วันที่
+                        </span><span style="position: absolute; left: 28%;" t-field="doc.date_billing"/><br/><br/>
+                        <span>ชื่อผู้ส่งเอกสาร ....................................</span><br/><br/>
+                        <span>วันที่ส่งเอกสาร ............/.........../...........</span><br/><br/>
+                      </font>
+                    </div><br/>
+                    <div class="col-xs-12">
+                      <font style="font-size: 14px;">
+                        <span t-field="doc.company_id.sale_condition"/>
+                      </font>
+                    </div>
+                  </div>
+                                  <span>เอกสารใบแจ้งหนี้ ติดต่อฝ่ายบัญชี คุณสุภาพร,คุณหทัยทิพย์ 034-466044,034-466469 ต่อ 103 หรือ 121 </span><br/>
+                                  <span>เอกสารใบเสร็จ/ใบกำกับภาษี ติดต่อฝ่ายบัญชี คุณพรอุมา 034-466044,034-466469 ต่อ 105</span>
+                </div>
+
+              </t>
+            </t>
+    </template>
+  </data>
+</openerp>
