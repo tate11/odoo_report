@@ -383,7 +383,7 @@
                         <font style="font-size: 14px;">
                           <span>Discount (ส่วนลด)</span><br/>
                           <span>Sub Total (รวม)</span><br/>
-                         <span>Advance</span><br/>
+                         <!-- <span>Advance</span><br/> -->
                           <t t-if="doc.company_id.vat != '0105542020983'">
                             <span>Vat (ภาษีมูลค่าเพิ่ม) 7%</span><br/>
                           </t>
@@ -418,16 +418,16 @@
                               </t>
                               <t t-if="not doc.discounted_amount">
                                 <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
-                                 <t t-if="doc.x_invoiceadvance">
+                                 <!-- <t t-if="doc.x_invoiceadvance">
                                        <span t-esc="'{0:,.2f}'.format(float(doc.x_invoiceadvance))"/><br/>
                                   </t>
                                  <t t-if="not doc.x_invoiceadvance">
                                        <span>0.00</span><br/>
-                                  </t>
+                                  </t> -->
                               </t>
                               <t t-if="doc.company_id.vat != '0105542020983'">
                                  <t t-if="doc.x_invoiceadvance">
-                                       <span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed - doc.x_invoiceadvance) * 0.07))"/><br/>
+                                       <span t-esc="'{0:,.2f}'.format(float(doc.x_invoiceadvance * 0.07))"/><br/>
                                   </t>
                                   <t t-if="not doc.x_invoiceadvance">
                                        <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>

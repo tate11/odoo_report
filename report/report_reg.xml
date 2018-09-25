@@ -551,7 +551,7 @@
       menu="True"
       report_type="qweb-pdf"
       string="Receipt For Thaireefer"
-      paperformat="paperformat_invoice_trf_thaiunion135"
+      paperformat="paperformat_receipt_customer_new_136_id"
       name="odoo_report.receipt_customer_new_136_id"
       file="odoo_report.receipt_customer_new_136_id"/>
 
@@ -564,7 +564,6 @@
       paperformat="paperformat_invoice_trf_thaiunion135"
       name="odoo_report.invoice_trf_thaiunion135"
       file="odoo_report.invoice_trf_thaiunion135"/>
-
 
     <report
       id="odoo_report.invoice_trf_report133_id"
