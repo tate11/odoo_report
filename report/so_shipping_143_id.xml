@@ -203,7 +203,7 @@
 												<!--<strong>IMPORT ENTRY</strong><br/><strong>DELIVERED TO YOUR GODOWN ON</strong>-->
 											</font>
 										</td>
-										<td width="55%" style="text-align: left">
+										<td width="54%" style="text-align: left">
 											<span t-field="doc.partner_id.ref"/>
 											<br/>
 											<span t-field="doc.partner_contact_id"/>
