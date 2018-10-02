@@ -99,7 +99,7 @@
       <field name="default" eval="False"/>
       <field name="format">A4</field>
       <field name="orientation">Portrait</field>
-      <field name="margin_top">5</field>
+      <field name="margin_top">0</field>
       <field name="margin_bottom">0</field>
       <field name="margin_left">5</field>
       <field name="margin_right">5</field>
@@ -541,7 +541,7 @@
       <field name="margin_left">5</field>
       <field name="margin_right">5</field>
       <field name="header_line" eval="False"/>
-      <field name="header_spacing">72</field>
+      <field name="header_spacing">83</field>
       <field name="dpi">90</field>
     </record>
 
@@ -794,7 +794,7 @@
       menu="True"
       report_type="qweb-pdf"
       string="ใบตรวจสภาพตู้สินค้า(New)"
-      paperformat="paperformat_A4_wht3_report"
+      paperformat="paperformat_A4_equipment_report"
       name="odoo_report.equipment_report_106_id"
       file="odoo_report.equipment_report_106_id"/>
 
