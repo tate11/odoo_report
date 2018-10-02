@@ -42,6 +42,8 @@
             'report/deliveryorder_139_id.xml',
             'report/invoice_wht_140_id.xml',
             'report/billing_wht_141_id.xml',
+            'report/invoice_shipping_142_id.xml',
+            'report/so_shipping_143_id.xml',
             ],
     'auto_install':False,
     'application':True
