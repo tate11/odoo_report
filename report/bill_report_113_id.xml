@@ -405,7 +405,7 @@
                           <t t-set="sum_amount_taxed" t-value="round(amount_taxed5,2) + sum_amount_taxed"/>
                           <td style="text-align:right">
                             <font style="font-size: 14px;">
-                              <span t-esc="'{0:,.2f}'.format(float(amount_taxed5))"/>
+                              <span t-esc="'{0:,.2f}'.format(float(sum_amount_taxed))"/>
                             </font>
                           </td>
                         </t>
