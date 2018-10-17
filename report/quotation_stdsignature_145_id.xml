@@ -2,7 +2,7 @@
 <openerp>
 	<data>
 		<template id="odoo_report.quotation_stdsignature_145_id">
-			   <t t-foreach="docs" t-as="doc">
+			    <t t-foreach="docs" t-as="doc">
           <t t-set="sum_total" t-value="0"/>
           <t t-set="sum_amount" t-value="0"/>
           <t t-set="total_sum_amount" t-value="0"/>
@@ -532,15 +532,15 @@
                                               <t t-if="doc.company_id.vat == '0105535088195'">
                                                   <span t-field="doc.company_id.rml_header1"/>
                                                   <br/>
-                                                 <!--> <img t-att-src="'/signature/static/tridej.png'" style="max-height: 75px;" /><br />  -->
+                                                 <img t-att-src="'/signature/static/tridej.png'" style="max-height: 75px;" /><br />
                                               </t>
                                               <!-- REI -->
                                               <t t-if="doc.company_id.vat == '0105542069401'">
                                                   <span t-field="doc.company_id.rml_header1"/>
                                                   <br/>
-                                                 <!--> <img t-att-src="/signature/static/Reefer%20Inter.png'"
-                                                      style="max-height: 75px;" />
-                                                  <img t-att-src="/signature/static/REI.png'" style="max-height: 145px;" /> --> <br/>
+                                                 <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
+                                              <!--   <img t-att-src="/signature/static/REI.png" style="max-height: 145px;" /> <br/>  -->
+                                                   <img src="/signature/static/Reefer REI.png" style="max-height: 145px;"/>
                                               </t>
                                               <!-- TRF-->
                                               <t t-if="doc.company_id.vat =='0105542020983'">

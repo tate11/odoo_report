@@ -182,7 +182,7 @@
                                     </t>
                                 </t>
                             </t>
-                            <div class="col-xs-6" style="position: absolute; left: 22%;">
+                            <div class="col-xs-5" style="position: absolute; left: 22%;">
                                 <br style="line-height: 590px"/>
                                 <font style="font-size: 22px;">
                                     <t t-if="trans">
