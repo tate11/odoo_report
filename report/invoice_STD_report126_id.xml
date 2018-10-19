@@ -284,13 +284,13 @@
                     </font>
                   </td>
                 </tr>
+              </t>
+              <t t-if="doc.x_mail  == True">
                 <td colspan="3">
                   <td width="50%" style="position: absolute; left: 13%;">
-                    <t t-if="doc.x_mail  == True">
-                      <br/><br/>
-                      <!-- <span>Remark:</span> -->
-                      <span t-field="doc.comment"/>
-                    </t>
+                    <br/><br/>
+                    <!-- <span>Remark:</span> -->
+                    <span t-field="doc.comment"/>
                   </td>
                 </td>
               </t>
@@ -500,7 +500,6 @@
                       <t t-if="doc.comment">
                         <span t-field="doc.comment"/>
                       </t>
-                    </t>
                     <p style="margin-top:5px;">
                       <font style="font-size: 14px;">
                         <span>Terms and Conditions 1) Received as per above in good order and condition.</span>
@@ -512,6 +511,22 @@
                         <span>3) This invoice carries of 1.5% per month from due date.</span>
                       </font>
                     </p>
+                    </t>
+                    <t t-if="doc.x_mail  == True">
+                      <p style="margin-top:5px;">
+                        <font style="font-size: 14px;">
+                          <span>Terms and Conditions 1) Received as per above in good order and condition.</span><br/>
+                          &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                          &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                          <span>
+                            2) All cheque made payable to
+                            <span t-field="doc.company_id.rml_header1"/></span>.<br/>
+                          &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                          &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                          <span>3) This invoice carries of 1.5% per month from due date.</span>
+                        </font>
+                      </p>
+                    </t>
                   </td>
                 </tr>
               </table>
