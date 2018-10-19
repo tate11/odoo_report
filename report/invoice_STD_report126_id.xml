@@ -2,7 +2,7 @@
 <openerp>
   <data>
     <template t-name="odoo_report.invoice_STD_report126_id">
-       <t t-foreach="docs" t-as="doc">
+      <t t-foreach="docs" t-as="doc">
         <t t-set="j" t-value="0"/>
         <div class="header">
           <style>
@@ -83,7 +83,6 @@
               <th colspan="3">
                 <table width="100%">
                   <tr>
-
                     <td width="20%" rowspan="3">
                       <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
                     </td>
@@ -132,7 +131,6 @@
                         <strong>Customer Name</strong><br/>
                       </font>
                     </td>
-
                     <td width="60%" style="text-align: left">
                       <font style="font-size: 14px;">
                         <span t-field="doc.charge_type"/><br/>
@@ -140,7 +138,6 @@
                         <span t-field="doc.partner_id.name"/>
                       </font>
                     </td>
-
                     <td width="14%" style="text-align: left">
                       <font style="font-size: 14px;"><br/>
                         <strong>No.</strong>
@@ -185,7 +182,6 @@
                         <span t-field="doc.reference_inv"/>
                       </font>
                     </td>
-
                     <td width="14%" style="text-align: left">
                       <font style="font-size: 14px;">
                         <strong>Date</strong><br/>
@@ -262,7 +258,6 @@
                       <!-- <t t-if="l.sale_id.start_date"> <span>วันที่: </span> <span t-field="l.sale_id.start_date"/> <t t-if="l.sale_id.end_date"> <span>-</span> <span t-field="l.sale_id.end_date"/> </t> <br/> </t> <t t-if="l.sale_id.sale_note"> <span
                       t-esc="l.sale_id.sale_note"/><br/> </t> <t t-if="doc.get_split_container_line_three(l)"> <span>Container No. :</span><br/> <span t-esc="doc.get_split_container_line_three(l)"/> </t> -->
                     </font>
-
                   </td>
                   <td style="text-align: center;">
                     <font style="font-size: 14px;">
@@ -289,6 +284,15 @@
                     </font>
                   </td>
                 </tr>
+                <td colspan="3">
+                  <td width="50%" style="position: absolute; left: 13%;">
+                    <t t-if="doc.x_mail  == True">
+                      <br/><br/>
+                      <!-- <span>Remark:</span> -->
+                      <span t-field="doc.comment"/>
+                    </t>
+                  </td>
+                </td>
               </t>
             </tbody>
           </table>
@@ -377,7 +381,7 @@
                   <font style="font-size: 14px;">
                     <span>Discount (ส่วนลด)</span><br/>
                     <span>Sub Total (รวม)</span><br/>
-                   <span>Advance</span><br/>
+                    <span>Advance</span><br/>
                     <t t-if="doc.company_id.vat != '0105542020983'">
                       <span>Vat (ภาษีมูลค่าเพิ่ม) 7%</span><br/>
                     </t>
@@ -412,21 +416,21 @@
                         </t>
                         <t t-if="not doc.discounted_amount">
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed))"/><br/>
-                           <t t-if="doc.x_invoiceadvance">
-                                 <span t-esc="'{0:,.2f}'.format(float(doc.x_invoiceadvance))"/><br/>
-                            </t>
-                           <t t-if="not doc.x_invoiceadvance">
-                                 <span>0.00</span><br/>
-                            </t>
+                          <t t-if="doc.x_invoiceadvance">
+                            <span t-esc="'{0:,.2f}'.format(float(doc.x_invoiceadvance))"/><br/>
+                          </t>
+                          <t t-if="not doc.x_invoiceadvance">
+                            <span>0.00</span><br/>
+                          </t>
                         </t>
                         <t t-if="doc.company_id.vat != '0105542020983'">
-                           <t t-if="doc.x_invoiceadvance">
-                                 <span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed - doc.x_invoiceadvance) * 0.07))"/><br/>
-                            </t>
-                            <t t-if="not doc.x_invoiceadvance">
-                                 <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
-                            </t>
-                          
+                          <t t-if="doc.x_invoiceadvance">
+                            <span t-esc="'{0:,.2f}'.format(float((doc.amount_untaxed - doc.x_invoiceadvance) * 0.07))"/><br/>
+                          </t>
+                          <t t-if="not doc.x_invoiceadvance">
+                            <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
+                          </t>
+
                         </t>
                         <t t-if="not doc.WHT_Type">
                           <span>0.00</span><span t-esc="doc.WHT_Type"/><br/>
@@ -464,18 +468,18 @@
                       <div class="last-page">
                         <t t-if="doc.WHT_Type">
                           <t t-if="doc.discounted_amount">
-<span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t>
+                            <span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100))"/></t>
                         </t>
                         <t t-if="doc.WHT_Type">
                           <t t-if="not doc.discounted_amount">
-                                  <t t-if="doc.x_invoiceadvance">
-    <span t-esc="doc.num2_words(float(doc.amount_total-(doc.x_invoiceadvance - doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/>
-                                  </t>
-                          
-                                 <t t-if="not doc.x_invoiceadvance">
-                                         <span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/>
-                                  </t>
-                         </t>
+                            <t t-if="doc.x_invoiceadvance">
+                              <span t-esc="doc.num2_words(float(doc.amount_total-(doc.x_invoiceadvance - doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/>
+                            </t>
+
+                            <t t-if="not doc.x_invoiceadvance">
+                              <span t-esc="doc.num2_words(float(doc.amount_total-(doc.amount_untaxed*int(doc.WHT_Type[0])/100)))"/>
+                            </t>
+                          </t>
                         </t>
                         <t t-if="not doc.WHT_Type">
                           <span t-esc="doc.num2_words(float(doc.amount_total))"/></t>
@@ -489,11 +493,13 @@
               <table width="100%">
                 <tr>
                   <td>
-                    <font style="font-size: 14px;">
-                      <span>Remarks</span><br/>
-                    </font>
-                    <t t-if="doc.comment">
-                      <span t-field="doc.comment"/>
+                    <t t-if="doc.x_mail  == False">
+                      <font style="font-size: 14px;">
+                        <span>Remarks</span><br/>
+                      </font>
+                      <t t-if="doc.comment">
+                        <span t-field="doc.comment"/>
+                      </t>
                     </t>
                     <p style="margin-top:5px;">
                       <font style="font-size: 14px;">
@@ -517,21 +523,30 @@
                     <p style="margin-top:10px;">
                       <font style="font-size: 14px;">
                         <!-- REL -->
-                        <t t-if="doc.company_id.vat == '0105535088195'">
+                        <t t-if="doc.company_id.vat == '0105535088195'and doc.x_mail  == False">
                           <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
                         </t>
+                        <t t-if="doc.company_id.vat == '0105535088195' and doc.x_mail  == True">
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/><br/>
+                        </t>
                         <!-- REI -->
-                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice'">
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' and doc.x_mail  == False">
                           <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
                           <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
                         </t>
-                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice' and doc.x_mail  == False">
                           <img src="/signature/static/paper.png" style="max-height: 68px;"/><br/><br/>
                         </t>
+                        <t t-if="doc.company_id.vat == '0105542069401' and doc.x_mail  == True">
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/><br/>
+                        </t>
                         <!-- TRF-->
-                        <t t-if="doc.company_id.vat =='0105542020983'">
+                        <t t-if="doc.company_id.vat =='0105542020983' and doc.x_mail  == False">
                           <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
                           <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
+                        </t>
+                        <t t-if="doc.company_id.vat =='0105542020983' and doc.x_mail  == True">
+                          <img src="/signature/static/paper.png" style="max-height: 75px;"/><br/><br/>
                         </t>
                         <span>_________________________</span><br/>
                         <span>Authorised Signature</span><br/>
@@ -607,7 +622,6 @@
             </tfoot>
           </table>
         </div>
-
       </t>
     </template>
   </data>
