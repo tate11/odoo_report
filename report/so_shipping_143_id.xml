@@ -124,8 +124,7 @@
 												<strong t-field="doc.company_id.street2"/>&amp;nbsp;
 												<strong t-field="doc.company_id.zip"/>&amp;nbsp;
                                           &amp;nbsp;
-												<strong>(Head
-                                              Office)</strong>
+												<strong>(Head Office)</strong>
 												<br/>
 												<strong t-field="doc.company_id.house_number"/>&amp;nbsp;
 												<strong t-if="doc.company_id.moo_number">
@@ -216,18 +215,11 @@
 											<span t-esc="doc.partner_id.city"/>
 											<span t-esc="doc.partner_id.state_id.name"/>
 											<span t-esc="doc.partner_id.zip"/>
-											<br/>
-											<br/>
+
 											<t t-if="doc.partner_id.zip">
 												<br/>
 											</t>
 											<p style="margin-top:6px;margin-bottom:6px">
-												<span t-field="doc.x_refinvno"/>
-												<br/>
-												<span t-field="doc.x_good"/>
-												<br/>
-												<!-- <span> TEST IMPORT ENTRY</span><br/><span> TEST DELIVERED TO GODOWN ON</span>		-->
-											</p>
 											<t t-if="doc.customer_id.phone and not doc.partner_contact_id or not doc.partner_contact_id.phone">
 												<span t-field="doc.customer_id.phone"/>
 											</t>
@@ -253,6 +245,12 @@
 											<t t-if="doc.partner_contact_id.email">
 												<span t-field="doc.partner_contact_id.email"/>
 											</t>
+												<span t-field="doc.x_refinvno"/>
+												<br/>
+												<span t-field="doc.x_good"/>
+												<br/>
+												<!-- <span> TEST IMPORT ENTRY</span><br/><span> TEST DELIVERED TO GODOWN ON</span>		-->
+											</p>
 										</td>
 										<td width="11%" style="text-align: left">
 											<font style="font-size: 14px;">
