@@ -156,7 +156,10 @@
                       <span t-if="doc.partner_id.street2"><span t-esc="doc.partner_id.street2"/>&amp;nbsp;</span>
                       <span t-if="doc.partner_id.city"><span t-esc="doc.partner_id.city"/>&amp;nbsp;</span>
                       <span t-if="doc.partner_id.state_id.name"><span t-esc="doc.partner_id.state_id.name"/>&amp;nbsp;</span>
-                      <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span><br/>
+                      <span t-if="doc.partner_id.zip"><span t-esc="doc.partner_id.zip"/></span>
+                      <t t-if="doc.partner_id.zip">
+                        <br/>
+                      </t>
 
                       <t t-if="doc.customer_id.phone and not doc.partner_contact_id or not doc.partner_contact_id.phone">
                         <span t-field="doc.customer_id.phone"/>
@@ -235,7 +238,7 @@
                   <p style="margin-top:10px;margin-bottom:10px">
                     <font style="font-size: 14px;">Qty / Unit</font>
                   </p>
-                </th>                
+                </th>
                 <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
                   <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
                     <font style="font-size: 14px;">Unit Price</font>
@@ -260,37 +263,37 @@
                   <tr>
                 <th width="7%">
                       <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
-                   
+
                       </p>
                 </th>
                 <th width="47%">
                         <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
-                   
+
                       </p>
                 </th>
                 <th width="10%">
                         <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
-                   
+
                       </p>
-                </th>                
+                </th>
                 <th width="12%">
                        <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
-                   
+
                       </p>
                 </th>
                 <th width="12%">
                       <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
-                   
+
                       </p>
                 </th>
                 <th width="12%">
                          <p style="margin-top:10px;margin-bottom:10px;margin-left:18px">
-                   
+
                       </p>
                 </th>
               </tr>
-            </thead>          
-         
+            </thead>
+
             <tbody class="sale_tbody">
               <t t-set="i" t-value="1"/>
               <t t-foreach="doc.order_line" t-as="l">
@@ -303,7 +306,7 @@
                   <t t-set="i" t-value="i+1"/>
                   <td style="text-align: left;">
                     <font style="font-size: 14px;">
-                             <span t-field="l.name"/><br/> 
+                             <span t-field="l.name"/><br/>
                       <!-- <t t-if="l.sale_id.start_date"> <span>วันที่: </span> <span t-field="l.sale_id.start_date"/> <t t-if="l.sale_id.end_date"> <span>-</span> <span t-field="l.sale_id.end_date"/> </t> <br/> </t> <t t-if="l.sale_id.sale_note"> <span
                       t-esc="l.sale_id.sale_note"/><br/> </t> <t t-if="doc.get_split_container_line_three(l)"> <span>Container No. :</span><br/> <span t-esc="doc.get_split_container_line_three(l)"/> </t> -->
                     </font>
@@ -315,10 +318,10 @@
                     <!--  /   -->
                          <span t-esc="l.product_uom.name"/>
 
-           
+
                     </font>
                   </td>
-                  
+
                   <td style="text-align: right;">
                     <!-- <p style="margin-right:10px"> -->
                     <font style="font-size: 14px;margin-right:15px">
@@ -327,7 +330,7 @@
                     <!-- </p> -->
                   </td>
                   <!-- <td>
-                    
+
                   </td> -->
                   <td style="text-align: right;">
                     <font style="font-size: 14px;margin-right:15px">
@@ -605,7 +608,7 @@
                                 <t t-if="j==0"><span>0.00</span><br/></t>
                                 <t t-if="j==1"><span>0.00</span><br/></t>
                                 <t t-if="doc.discounted_amount"><t t-esc="'{0:,.2f}'.format(float(doc.discounted_amount))"/><br/></t>
-                        
+
                         <span t-esc="'{0:,.2f}'.format(float(doc.amount_untaxed-discounted_amount))"/><br/>
                         <t t-if="doc.company_id.vat != '0105542020983'">
                           <span t-esc="'{0:,.2f}'.format(float(doc.amount_tax))"/><br/>
@@ -622,13 +625,13 @@
                         <t t-if="doc.WHT_Type">
                                <t t-if="doc.discounted_amount">
   <t t-set="amount_round" t-value="doc.amount_total-round((doc.amount_untaxed-doc.discounted_amount)*int(doc.WHT_Type[0])/100,2)"/>
-   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>  
+   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>
                               </t>
                         </t>
       <t t-if="doc.WHT_Type">
                   <t t-if="not doc.discounted_amount">
                        <t t-set="amount_round" t-value="doc.amount_total-round(doc.amount_untaxed*int(doc.WHT_Type[0])/100,2)"/>
-   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>  
+   <span t-esc="'{0:,.2f}'.format(float(amount_round))"/>
              <!--<span t-esc="'{0:,.2f}'.format(float(doc.amount_total-round((doc.amount_untaxed*int(doc.WHT_Type[0])/100,2))))"/>  -->
                  </t>
        </t>
