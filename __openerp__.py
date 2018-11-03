@@ -45,7 +45,8 @@
             'report/invoice_shipping_142_id.xml',
             'report/so_shipping_143_id.xml',
             'report/invoice_volvo_144_id.xml',
-            'report/quotation_stdsignature_145_id.xml'
+            'report/quotation_stdsignature_145_id.xml',
+            'report/pettycash_report_146_id.xml'
             ],
     'auto_install':False,
     'application':True

@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <template id="odoo_report.pettycash_report_146_id">
+      <t t-foreach="docs" t-as="doc">
+        <t t-set="j" t-value="0"/>
+        <div class="header">
+          <style>
+            .header {
+              width: 100%;
+              height: 10px;
+            }
+            .content {
+              width: 100%;
+              height: 800px;
+            }
+            .footer {
+              width: 100%;
+              height: 10px;
+            }
+            table.table-bordered1 {
+              border: 1px solid black;
+              margin-top: 20px;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            table.table-bordered1 &gt;
+            thead &gt;
+            tr &gt;
+            th {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered1 &gt;
+            thead &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-left: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered1 &gt;
+            tbody &gt;
+            tr &gt;
+            td {
+              border: 0 solid white;
+              border-left: 1px solid black;
+              border-collapse: collapse;
+              height: 40px;
+            }
+            table.table-bordered1 &gt;
+            tfoot &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            thead &gt;
+            tr &gt;
+            th {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            tbody &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            tfoot &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+          </style>
+          <table width="100%">
+            <tr>
+              <th colspan="3">
+                <table width="100%">
+                  <tr>
+                    <td width="20%" rowspan="3">
+                      <img t-att-src="'data:image/png;base64,%s' % doc.company_id.logo" style="max-height: 150px;margin-top:-20px;"/>
+                    </td>
+                    <td width="60%">
+                      <font style="font-size: 23px;">
+                        <strong t-field="doc.company_id.rml_header1"/>
+                        <br/>
+                      </font>
+                      <font style="font-size: 20px;">
+                        <strong t-field="doc.company_id.name"/>
+                        <br/>
+                      </font>
+                      <font style="font-size: 14px;">
+                        <strong t-field="doc.company_id.street2"/>&amp;nbsp;
+                        <strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                        <!--<strong t-field="doc.company_id.country_id.name"/>-->&amp;nbsp;
+                        <strong>(Head Office)</strong>
+                        <br/>
+                        <strong t-field="doc.company_id.house_number"/>&amp;nbsp;
+                        <strong t-if="doc.company_id.moo_number">
+                          <strong t-field="doc.company_id.moo_number"/></strong>&amp;nbsp;
+                        <strong t-field="doc.company_id.street"/>&amp;nbsp;
+                        <strong t-if="doc.company_id.city">
+                          <strong t-field="doc.company_id.city"/></strong>
+                        <strong t-if="doc.company_id.state_id.name">จ.
+                          <strong t-field="doc.company_id.state_id.name"/></strong>&amp;nbsp;
+                        <strong t-field="doc.company_id.zip"/>&amp;nbsp;
+                        <strong>(สำนักงานใหญ่)</strong>
+                        <br/>
+                        <strong t-if="doc.company_id.phone">Tel :&amp;nbsp;
+                          <strong t-field="doc.company_id.phone"/></strong>
+                        <strong t-if="doc.company_id.fax">&amp;nbsp;Fax :&amp;nbsp;
+                          <strong t-field="doc.company_id.fax"/></strong>
+                        <br/>
+                        <strong t-if="doc.company_id.email">E-mail :&amp;nbsp;
+                          <strong t-field="doc.company_id.email"/></strong>&amp;nbsp;&amp;nbsp;
+                        <strong>Web:&amp;nbsp;
+                          <st>www.ThaiReefer.co.th</st>
+                        </strong>
+                        <br/>
+                        <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;
+                          <strong t-field="doc.company_id.vat"/></strong>
+                        <br/>
+                        <!--<strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;<strong t-field="doc.company_id.vat"/></strong>-->
+                      </font>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%">
+                  <tr>
+                    <td style="text-align:center;">
+                      <p style="margin-top:15px;margin-bottom:10px">
+                        <font style="font-size: 22px;">
+                          <strong>PettyCash</strong>
+                          <br/>
+                        </font>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%">
+                  <tr>
+                    <td width="5%" style="text-align: left">
+                      <font style="font-size: 18px;">
+                        <strong>No.</strong>
+                        <br/>
+                        <strong>Date</strong>
+                      </font>
+                    </td>
+                    <td width="25%" style="text-align: left">
+                      <font style="font-size: 18px;">
+                        <span t-field="doc.name"/>
+                        <br/>
+                        <span t-field="doc.date"/>
+                      </font>
+                    </td>
+                    <td width="14%" style="text-align: left">
+                      <font style="font-size: 18px;">
+                        <strong>Starting Balance</strong><br/>
+                        <strong>Ending Balance</strong>
+                      </font>
+                    </td>
+                    <td width="10%" style="text-align: right">
+                      <font style="font-size: 18px;">
+                        <span t-field="doc.balance_start"/><br/>
+                        <span t-field="doc.balance_end_real"/>
+                      </font>
+                    </td>
+                  </tr>
+                </table>
+              </th>
+            </tr>
+          </table>
+        </div>
+        <div class="page">
+          <table width="100%">
+            <thead>
+              <tr>
+                <th width="10%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Date</font>
+                  </p>
+                </th>
+                <th width="11%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Number</font>
+                  </p>
+                </th>
+                <th width="11%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Reference</font>
+                  </p>
+                </th>
+                <th width="16%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Partner</font>
+                  </p>
+                </th>
+                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:left;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Memo</font>
+                  </p>
+                </th>
+                <th width="5%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Type</font>
+                  </p>
+                </th>
+                <th width="5%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Qty</font>
+                  </p>
+                </th>
+                <th width="10%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Agent</font>
+                  </p>
+                </th>
+                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Sale Order</font>
+                  </p>
+                </th>
+                <th width="4%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">ID</font>
+                  </p>
+                </th>
+                <th width="12%" style="border-top:1px solid black;border-bottom:1px solid black;text-align:center;">
+                  <p style="margin-top:10px;margin-bottom:10px">
+                    <font style="font-size: 16px;">Amount</font>
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="sale_tbody">
+              <t t-set="i" t-value="1"/>
+              <t t-set="count" t-value="1"/>
+              <t t-set="max" t-value="10"/>
+              <t t-foreach="doc.line_ids" t-as="l">
+                <tr>
+                  <td style="text-align: left;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.date"/>
+                    </font>
+                  </td>
+                  <td style="text-align: left;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.number"/>
+                    </font>
+                  </td>
+                  <td style="text-align: left;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.ref"/>
+                    </font>
+                  </td>
+                  <td style="text-align: left;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.partner_id.name"/>
+                    </font>
+                  </td>
+                  <td style="text-align: left;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.name"/>
+                    </font>
+                  </td>
+                  <td style="text-align: center;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.type"/>
+                    </font>
+                  </td>
+                  <td style="text-align: center;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.number_c"/>
+                    </font>
+                  </td>
+                  <td style="text-align: left;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.agent_id.name"/>
+                    </font>
+                  </td>
+                  <td style="text-align: center;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.sale_id.name"/>
+                    </font>
+                  </td>
+                  <td style="text-align: center;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.id_order"/>
+                    </font>
+                  </td>
+                  <td style="text-align: right;">
+                    <font style="font-size: 14px;">
+                      <span t-field="l.amount"/>
+                    </font>
+                  </td>
+                </tr>
+              </t>
+            </tbody>
+          </table>
+        </div>
+        <div class="footer">
+          <style>
+            .header {
+              width: 100%;
+              height: 10px;
+            }
+            .content {
+              width: 100%;
+              height: 800px;
+            }
+            .footer {
+              width: 100%;
+              height: 10px;
+            }
+            table.table-bordered1 {
+              border: 1px solid black;
+              margin-top: 20px;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            table.table-bordered1 &gt;
+            thead &gt;
+            tr &gt;
+            th {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered1 &gt;
+            thead &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-left: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered1 &gt;
+            tbody &gt;
+            tr &gt;
+            td {
+              border: 0 solid white;
+              border-left: 1px solid black;
+              border-collapse: collapse;
+              height: 40px;
+            }
+            table.table-bordered1 &gt;
+            tfoot &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            thead &gt;
+            tr &gt;
+            th {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            tbody &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            table.table-bordered &gt;
+            tfoot &gt;
+            tr &gt;
+            td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+          </style>
+          <table width="100%">
+            <thead>
+              <tr>
+                <td>
+                  <p style="margin-bottom:10px;">
+                    <font style="font-size: 16px;">
+                      <span t-field="doc.memo"/>
+                    </font>
+                  </p>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <table width="100%">
+                <tr>
+                  <td width="46%"/>
+                  <td width="33%" style="text-align: left;border-top:1px solid black;">
+                    <!--<p style="margin-top:5px;">-->
+                    <font style="font-size: 18px;">
+                      <span>Computed Balance
+                      </span>
+                    </font>
+                    <!--</p>-->
+                  </td>
+                  <td width="25%" style="text-align: right;border-top:1px solid black;">
+                    <p style="margin-top:10px;">
+                      <font style="font-size: 18px;">
+                        <div class="last-page">
+                          <span t-field="doc.balance_end"/>
+                        </div>
+                      </font>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </tbody>
+            <tfoot>
+              <table width="100%">
+                <tr>
+                  <td width="33%" style="text-align: center;">
+                    <p style="margin-top:80px;">
+                      <font style="font-size: 18px;">
+                        <span>_________________________</span>
+                        <br/>
+                        <span>Authorised Signature</span>
+                        <br/>
+                        <span>_______/_______/_______</span>
+                      </font>
+                    </p>
+                  </td>
+                  <td width="34%" style="text-align: center;">
+                    <p style="margin-top:80px;">
+                      <font style="font-size: 18px;">
+                        <span>_________________________</span>
+                        <br/>
+                        <span>Delivered BY</span>
+                        <br/>
+                        <span>_______/_______/_______</span>
+                      </font>
+                    </p>
+                  </td>
+                  <td width="33%" style="text-align: center;">
+                    <p style="margin-top:80px;">
+                      <font style="font-size: 18px;">
+                        <span>_________________________</span>
+                        <br/>
+                        <span>Received BY</span>
+                        <br/>
+                        <span>_______/_______/_______</span>
+                      </font>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td/>
+                  <td style="text-align: center;">
+                    <ul class="list-inline">
+                      <li>Page</li>
+                      <li>
+                        <span class="page"/>
+                      </li>
+                      <li>of</li>
+                      <li>
+                        <span class="topage"/>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </tfoot>
+          </table>
+        </div>
+      </t>
+    </template>
+  </data>
+</openerp>

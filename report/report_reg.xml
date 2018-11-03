@@ -575,6 +575,32 @@
       <field name="dpi">90</field>
     </record>
 
+    <!-- paperformat Petty Cash -->
+    <record id="paperformat_A4_pettycash_report_146_id" model="report.paperformat">
+      <field name="name">A4_pettycash_report_146_id</field>
+      <field name="default" eval="False"/>
+      <field name="format">A4</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">65</field>
+      <field name="margin_bottom">100</field>
+      <field name="margin_left">6</field>
+      <field name="margin_right">3</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">60</field>
+      <field name="dpi">90</field>
+    </record>
+
+
+   <!-- paperformat_A4_pettycash_report_146_id -->
+    <report
+      id="odoo_report.pettycash_report_146_id"
+      model="account.bank.statement"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Petty Cash"
+      paperformat="paperformat_A4_pettycash_report_146_id"
+      name="odoo_report.pettycash_report_146_id"
+      file="odoo_report.pettycash_report_146_id"/>
 
    <!-- paperformat_A4_quotation_stdsignature_145_id -->
     <report
