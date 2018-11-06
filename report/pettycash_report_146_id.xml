@@ -420,29 +420,19 @@
                       <font style="font-size: 18px;">
                         <span>_________________________</span>
                         <br/>
-                        <span>Authorised Signature</span>
+                        <span>PREPARED BY</span>
                         <br/>
                         <span>_______/_______/_______</span>
                       </font>
                     </p>
                   </td>
-                  <td width="34%" style="text-align: center;">
-                    <p style="margin-top:80px;">
-                      <font style="font-size: 18px;">
-                        <span>_________________________</span>
-                        <br/>
-                        <span>Delivered BY</span>
-                        <br/>
-                        <span>_______/_______/_______</span>
-                      </font>
-                    </p>
-                  </td>
+                  <td width="34%" style="text-align: center;"></td>
                   <td width="33%" style="text-align: center;">
                     <p style="margin-top:80px;">
                       <font style="font-size: 18px;">
                         <span>_________________________</span>
                         <br/>
-                        <span>Received BY</span>
+                        <span>CHECKED BY</span>
                         <br/>
                         <span>_______/_______/_______</span>
                       </font>
@@ -452,16 +442,18 @@
                 <tr>
                   <td/>
                   <td style="text-align: center;">
-                    <ul class="list-inline">
-                      <li>Page</li>
-                      <li>
-                        <span class="page"/>
-                      </li>
-                      <li>of</li>
-                      <li>
-                        <span class="topage"/>
-                      </li>
-                    </ul>
+                    <p style="margin-top:20px;">
+                      <ul class="list-inline">
+                        <li>Page</li>
+                        <li>
+                          <span class="page"/>
+                        </li>
+                        <li>of</li>
+                        <li>
+                          <span class="topage"/>
+                        </li>
+                      </ul>
+                    </p>
                   </td>
                 </tr>
               </table>
