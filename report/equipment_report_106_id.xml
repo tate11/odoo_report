@@ -330,6 +330,14 @@
                                                     </font>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td width="100%">
+                                                  <font style="font-size: 16px;">
+                                                        <strong>เลขประจำตัวผู้เสียภาษี:</strong>&amp;nbsp;
+                                                        <span t-field="o.port_charge_to.vat"/>&amp;nbsp;
+                                                  </font>
+                                                </td>
+                                           </tr>
                                         </table>
                                     </td>
                                 </tr>
@@ -633,5 +641,3 @@
         </template>
     </data>
 </openerp>
-
-    
