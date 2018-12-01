@@ -15,7 +15,7 @@
         <t t-if="o.supplier_name_text">
           <t t-set="vat1_id" t-value="o.supplier_taxid_text"/>
         </t>
-        <div class="page" t-attf-style="background-image:url('/signature/static/whithoding.jpg'); background-size:360mm 520mm; width:360mm; height:520mm;">
+        <div class="page" t-attf-style="background-image:url('/odoo_report/static/whithoding.jpg'); background-size:360mm 520mm; width:360mm; height:520mm;">
           <div style="text-align:center; position: absolute;left: 1200px;top: 120px;">
             <font style="font-size: 20px;">
               <t t-set="a" t-value="0"/>
