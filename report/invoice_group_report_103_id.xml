@@ -767,7 +767,7 @@
 											<font style="font-size: 14px;">
 												<t t-if="doc.x_mail  == True">
 													<span>
-														<img src="/odoo_report/static/hataitip.png" style="max-height: 40px;"/>
+														<img src="/signature/static/hataitip.png" style="max-height: 40px;"/>
 													</span>
 													<br/>
 												</t>
@@ -785,7 +785,7 @@
 											<font style="font-size: 14px;">
 												<t t-if="doc.x_mail  == True">
 													<span>
-														<img src="/odoo_report/static/blank.png" style="max-height: 40px;"/>
+														<img src="/signature/static/blank.png" style="max-height: 40px;"/>
 													</span>
 													<br/>
 												</t>
@@ -803,7 +803,7 @@
 											<font style="font-size: 14px;">
 												<t t-if="doc.x_mail  == True">
 													<span>
-														<img src="/odoo_report/static/blank.png" style="max-height: 40px;"/>
+														<img src="/signature/static/blank.png" style="max-height: 40px;"/>
 													</span>
 													<br/>
 												</t>
