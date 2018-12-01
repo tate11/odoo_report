@@ -4,6 +4,8 @@
 		<template id="odoo_report.invoice_group_report_103_id">
 			<t t-foreach="docs" t-as="doc">
 				<t t-set="j" t-value="0"/>
+				<t t-set="vessel"/>
+				<t t-set="count_vessel" t-value="0"/>
 				<div class="header">
 					<style>
             .header {
@@ -67,9 +69,7 @@
             tr &gt;
             td {
               border: 1px solid black;
-
-						<!--border-left: 1px solid;
-              --> border-collapse: collapse;
+				border-collapse: collapse;
             }
             table.table-bordered &gt;
             tfoot &gt;

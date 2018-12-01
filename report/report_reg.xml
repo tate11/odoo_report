@@ -590,6 +590,16 @@
       <field name="dpi">90</field>
     </record>
 
+    <!-- paperformat inv_STD_mahachai_trf01_id -->
+    <report
+      id="odoo_report.inv_STD_mahachai_trf01_id"
+      model="account.invoice"
+      menu="True"
+      report_type="qweb-pdf"
+      string="Invoice_STD_Mahachai"
+      paperformat="paperformat_A4_Invoice_STD"
+      name="odoo_report.inv_STD_mahachai_trf01_id"
+      file="odoo_report.inv_STD_mahachai_trf01_id"/>
 
    <!-- paperformat_A4_pettycash_report_146_id -->
     <report
