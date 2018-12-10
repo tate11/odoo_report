@@ -718,21 +718,21 @@
                           <t t-if="doc.company_id.vat == '0105535088195'">
                             <span t-field="doc.company_id.rml_header1"/>
                             <br/>
-                          <img src="/signature/static/tridej.png" style="max-height: 75px;"/><br/>
+                          <img src="/odoo_report/static/tridej.png" style="max-height: 75px;"/><br/>
                           </t>
                           <!-- REI -->
                           <t t-if="doc.company_id.vat == '0105542069401'">
                             <span t-field="doc.company_id.rml_header1"/>
                             <br/>
                              <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                         <img src="/signature/static/REI.png" style="max-height: 145px;"/><br/>
+                         <img src="/odoo_report/static/REI.png" style="max-height: 145px;"/><br/>
                           </t>
                           <!-- TRF-->
                           <t t-if="doc.company_id.vat =='0105542020983'">
                             <span t-field="doc.company_id.rml_header1"/>
                             <br/>
-                           <img src="/signature/static/Reefer Inter.png" style="max-height: 75px;"/>
-                         <img src="/signature/static/Thaireefer.png" style="max-height: 40px;"/><br/>
+                           <img src="/odoo_report/static/Reefer Inter.png" style="max-height: 75px;"/>
+                         <img src="/odoo_report/static/Thaireefer.png" style="max-height: 40px;"/><br/>
                           </t>
                           <span>Sign:</span>
                           <br/>

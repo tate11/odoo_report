@@ -751,7 +751,8 @@
                           <strong>Approved</strong><br style="line-height: 10px;"/>
                           <strong>Sign:
                             <!-- <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/> -->
-                             <img src="/signature/static/khongporn.png" style="width:150px;height:40px;"/>
+                             <!-- <img src="/signature/static/khongporn.png" style="width:150px;height:40px;"/> -->
+                             <img src="/odoo_report/static/khongporn.png" style="width:150px;height:40px;"/>
                             <br style="line-height: 30px;"/></strong>
                           <strong>Name:</strong><br style="line-height: 10px;"/>
                           <strong>Date:</strong>
@@ -766,7 +767,8 @@
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
                               <!-- <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/> -->
-                               <img src="/signature/static/khongporn.png" style="width:150px;height:40px;"/>
+                               <!-- <img src="/signature/static/khongporn.png" style="width:150px;height:40px;"/> -->
+                               <img src="/odoo_report/static/khongporn.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -780,7 +782,8 @@
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
                               <!-- <img t-att-src="'http://thaireefer.co.th/wp-content/uploads/2015/11/khongporn.png'" style="width:150px;height:40px;"/> -->
-                               <img src="/signature/static/khongporn.png" style="width:150px;height:40px;"/>
+                               <!-- <img src="/signature/static/khongporn.png" style="width:150px;height:40px;"/> -->
+                               <img src="/odoo_report/static/neng.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -793,7 +796,8 @@
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
                               <!-- <img t-att-src="'http://www.bansuansoft.com/img/aonusa.png'" style="width:150px;height:40px;"/> -->
-                              <img src="/signature/static/aonusa.png" style="width:150px;height:40px;"/>
+                              <!-- <img src="/signature/static/aonusa.png" style="width:150px;height:40px;"/> -->
+                              <img src="/odoo_report/static/aonusa.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -806,7 +810,8 @@
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
                               <!-- <img t-att-src="'http://www.bansuansoft.com/img/chaiwat.png'" style="width:150px;height:40px;"/> -->
-                              <img src="/signature/static/chaiwat.png" style="width:150px;height:40px;"/>
+                              <!-- <img src="/signature/static/chaiwat.png" style="width:150px;height:40px;"/> -->
+                              <img src="/odoo_report/static/khongporn.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>
@@ -821,7 +826,8 @@
                             <strong>Approved</strong><br style="line-height: 10px;"/>
                             <strong>Sign:
                               <!-- <img t-att-src="'http://www.bansuansoft.com/img/silom.png'" style="width:150px;height:40px;"/> -->
-                              <img src="/signature/static/silom2.png" style="width:150px;height:40px;"/>
+                              <!-- <img src="/signature/static/silom2.png" style="width:150px;height:40px;"/> -->
+                              <img src="/odoo_report/static/silom2.png" style="width:150px;height:40px;"/>
                               <br style="line-height: 30px;"/></strong>
                             <strong>Name:</strong><br style="line-height: 10px;"/>
                             <strong>Date:</strong>

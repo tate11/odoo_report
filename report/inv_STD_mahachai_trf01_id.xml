@@ -81,7 +81,7 @@
                         tr &gt;
 
                         td {
-                            border: 1px solid black;                            
+                            border: 1px solid black;
                             border-collapse: collapse;
                         }
 
@@ -559,27 +559,27 @@
                                             <font style="font-size: 14px;">
                                                 <!-- REL -->
                                                 <t t-if="doc.company_id.vat == '0105535088195'and doc.x_mail  == False">
-                                                    <img src="/signature/static/paper.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <t t-if="doc.company_id.vat == '0105535088195' and doc.x_mail  == True">
-                                                    <img src="/signature/static/hataitip.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/hataitip.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <!-- REI -->
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' and doc.x_mail  == False">
-                                                    <img src="/signature/static/paper.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice' and doc.x_mail  == False">
-                                                    <img src="/signature/static/paper.png" style="max-height: 68px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 68px;" /><br />
                                                 </t>
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.x_mail  == True">
-                                                    <img src="/signature/static/hataitip.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/hataitip.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <!-- TRF-->
                                                 <t t-if="doc.company_id.vat =='0105542020983' and doc.x_mail  == False">
-                                                    <img src="/signature/static/paper.png" style="max-height: 40px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 40px;" /><br />
                                                 </t>
                                                 <t t-if="doc.company_id.vat =='0105542020983' and doc.x_mail  == True">
-                                                    <img src="/signature/static/hataitip.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/hataitip.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <span>_________________________</span><br />
                                                 <span>Authorised Signature</span><br />
@@ -592,18 +592,18 @@
                                             <font style="font-size: 14px;">
                                                 <!-- REI -->
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' ">
-                                                    <img src="/signature/static/paper.png" style="max-height: 68px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 68px;" /><br />
                                                 </t>
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
-                                                    <img src="/signature/static/paper.png" style="max-height: 68px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 68px;" /><br />
                                                 </t>
                                                 <!-- REL -->
                                                 <t t-if="doc.company_id.vat == '0105535088195'">
-                                                    <img src="/signature/static/paper.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <!-- TRF-->
                                                 <t t-if="doc.company_id.vat =='0105542020983'">
-                                                    <img src="/signature/static/paper.png" style="max-height: 84px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 84px;" /><br />
                                                 </t>
 
                                                 <span>_________________________</span><br />
@@ -617,18 +617,18 @@
                                             <font style="font-size: 14px;">
                                                 <!-- REI -->
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name != 'IL-Invoice' ">
-                                                    <img src="/signature/static/paper.png" style="max-height: 68px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 68px;" /><br />
                                                 </t>
                                                 <t t-if="doc.company_id.vat == '0105542069401' and doc.journal_id.name == 'IL-Invoice'">
-                                                    <img src="/signature/static/paper.png" style="max-height: 68px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 68px;" /><br />
                                                 </t>
                                                 <!-- REL -->
                                                 <t t-if="doc.company_id.vat == '0105535088195'">
-                                                    <img src="/signature/static/paper.png" style="max-height: 75px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 75px;" /><br />
                                                 </t>
                                                 <!-- TRF-->
                                                 <t t-if="doc.company_id.vat =='0105542020983'">
-                                                    <img src="/signature/static/paper.png" style="max-height: 84px;" /><br />
+                                                    <img src="/odoo_report/static/paper.png" style="max-height: 84px;" /><br />
                                                 </t>
 
                                                 <span>_________________________</span><br />

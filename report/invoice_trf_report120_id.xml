@@ -76,7 +76,7 @@
                 tr &gt;
                 td {
                     border: 1px solid black;
-                   
+
                     border-collapse: collapse;
                 }
 
@@ -133,7 +133,7 @@
                                         <strong>Web:&amp;nbsp;
                                             <st>www.ThaiReefer.co.th</st>
                                         </strong>
-                                        <br/>  
+                                        <br/>
                                         <strong t-if="doc.company_id.vat">Tax ID :&amp;nbsp;
                                             <strong t-field="doc.company_id.vat" /></strong>
                                         <br/>
@@ -214,7 +214,7 @@
                                                 <span t-esc="doc.partner_id.state_id.name" />&amp;nbsp;
                                             </span>
                                         </span>
-                                       
+
                                         <span t-if="doc.partner_id.zip">
                                             <span t-esc="doc.partner_id.zip" />
                                         </span>
@@ -222,7 +222,7 @@
                                        <span t-if="doc.partner_id.zip">
                                                 <br/>
                                        </span>
-                                       
+
                                         <span t-if="doc.partner_id.vat">TAX ID.&amp;nbsp;
                                             <span t-esc="doc.partner_id.vat" />&amp;nbsp;</span>
                                         <t t-if="doc.partner_id.branch_no == '00000'">
@@ -251,7 +251,7 @@
                                         <!--  <strong>Sale Order Ref</strong>  -->
                                     </font>
                                 </td>
-                                <td width="12%" style="text-align: right">
+                                <td width="15%" style="text-align: right">
                                     <font style="font-size: 18px;">
                                         <span t-field="doc.date_invoice" />
                                         <br/>
@@ -372,7 +372,7 @@
                                 <!-- </p> -->
                             </td>
                             <!-- <td>
-                    
+
                   </td> -->
                             <td style="text-align: right;">
                                 <font style="font-size: 18px;margin-right:15px">

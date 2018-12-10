@@ -529,7 +529,7 @@
 											</t>
 											<t t-if="doc.comment">
 												<!-- <span>Remark:</span> -->
-												<span t-esc="doc.comment"/>
+												<span t-field="doc.comment"/>
 											</t>
 										</font>
 									</div>
